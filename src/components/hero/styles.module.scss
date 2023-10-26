@@ -1,0 +1,56 @@
+.hero {
+  position: relative;
+  padding-block: 120px 115px;
+  padding-inline: 1rem;
+  min-height: 50vh;
+  text-align: center;
+
+  &__svg-img {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    z-index: 9;
+    right: 0;
+    left: 0px;
+    height: 100%;
+    min-width: 100%;
+    object-fit: cover;
+  }
+
+  &__wrapper {
+    position: relative;
+    z-index: 10;
+  }
+
+  h1,
+  p {
+    color: inherit;
+  }
+
+  h1 {
+    max-width: 620px;
+    margin-top: 60px;
+    margin-bottom: 64px;
+    margin-inline: auto;
+    font-size: 3rem;
+    font-weight: bold;
+
+    @media only screen and (min-width: 1020px) {
+      font-size: 4rem;
+    }
+  }
+
+  p {
+    overflow-wrap: break-word;
+    max-width: 840px;
+    margin-inline: auto;
+    margin-bottom: 64px;
+    line-height: 1.7rem;
+    letter-spacing: 1px;
+    font-weight: lighter;
+
+    @media screen and (min-width: 1020px) {
+      font-size: 1.25rem;
+    }
+  }
+}

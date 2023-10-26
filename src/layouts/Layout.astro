@@ -1,0 +1,78 @@
+---
+import '../styles/main.scss';
+import site from '../../data/site.json';
+import Header from '../components/header';
+import Footer from '../components/footer';
+import { SEO } from 'astro-seo';
+
+export interface SEOProps {
+  page_description: string | null;
+  featured_image: string | null;
+  featured_image_alt: string | null;
+  canonical_url: string | null;
+  no_index: boolean | null;
+  open_graph_type: string | null;
+  author_twitter_handle: string | null;
+}
+
+export interface Props {
+  title: string;
+  seo?: SEOProps;
+}
+
+const { seo } = Astro.props;
+const baseUrl = Astro.site;
+const title = Astro.props.title
+  ? `${Astro.props.title} | ${site.site_title}`
+  : site.site_title;
+const description = seo?.page_description || site.description;
+const image = seo?.featured_image || site.image;
+const image_alt = seo?.featured_image_alt || site.image_alt;
+const canonicalURL = new URL(seo?.canonical_url ?? Astro.url.pathname, baseUrl);
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content="Astro description" />
+    <meta name="viewport" content="width=device-width" />
+    <link href="/vendor/phosphor-icons/css/phosphor.css" rel="stylesheet" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+
+    <SEO
+      noindex={seo?.no_index || false}
+      title={title}
+      description={description}
+      canonical={canonicalURL.toString()}
+      openGraph={{
+        basic: {
+          title: Astro.props.title,
+          url: baseUrl?.toString(),
+          type: `${seo?.open_graph_type || 'website'}`,
+          image: image,
+        },
+        optional: {
+          description: description,
+        },
+        image: {
+          url: image,
+          alt: image_alt,
+        },
+      }}
+      twitter={{
+        creator: `${seo?.author_twitter_handle || site.twitter_site}`,
+        site: `${site.twitter_site}`,
+        card: 'summary_large_image',
+      }}
+    />
+  </head>
+  <body>
+    <Header />
+    <main>
+      <slot />
+    </main>
+    <Footer />
+  </body>
+</html>

@@ -1,0 +1,37 @@
+{
+  "logo": "/images/logos/logo-wordmark-blue.png",
+  "logo_url": "/",
+  "copyright": "MyCompany. All rights reserved.",
+  "links": [
+    {
+      "link": "/blog/",
+      "text": "Blog"
+    },
+    {
+      "link": "/feed.xml",
+      "text": "RSS Feed"
+    }
+  ],
+  "social": [
+    {
+      "link": "https://www.facebook.com/mycompany",
+      "social_icon": "ph-facebook-logo"
+    },
+    {
+      "link": "https://www.instagram.com/mycompany",
+      "social_icon": "ph-instagram-logo"
+    },
+    {
+      "link": "https://www.twitter.com/mycompany",
+      "social_icon": "ph-twitter-logo"
+    },
+    {
+      "link": "https://www.github.com/mycompany",
+      "social_icon": "ph-github-logo"
+    },
+    {
+      "link": "https://www.youtube.com/mycompany",
+      "social_icon": "ph-youtube-logo"
+    }
+  ]
+}

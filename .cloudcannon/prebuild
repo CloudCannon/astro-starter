@@ -1,0 +1,4 @@
+#!/bin/bash
+
+# Update color variables to match variables data file
+npm run prebuild:fetch-theme-color

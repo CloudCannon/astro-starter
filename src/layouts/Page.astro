@@ -1,0 +1,22 @@
+---
+import PageHelper from '../shared/astro/page.jsx';
+import Layout, { type SEOProps } from './Layout.astro';
+
+type Props = {
+  frontmatter: {
+    title: string;
+    content_blocks?: Array<Record<string, any>>;
+    page_size?: number;
+    seo?: SEOProps;
+  };
+};
+
+if (!Astro.props.frontmatter) {
+  throw new Error('Page frontmatter must be defined');
+}
+const props = Astro.props.frontmatter;
+---
+
+<Layout {...props}>
+  <PageHelper bookshop:live contentBlocks={props.content_blocks} />
+</Layout>

@@ -1,0 +1,139 @@
+---
+import Layout from './Layout.astro';
+import PostSummary from '../components/blog/summary';
+import { getCollection } from 'astro:content';
+import type { MarkdownLayoutProps } from 'astro';
+import '../styles/main.scss';
+
+type Props =
+  | {
+      title: string;
+      date: string;
+      image: string;
+      image_alt: string;
+      author: string;
+      body: string;
+    }
+  | MarkdownLayoutProps<{
+      title: string;
+      date: string;
+      image: string;
+      image_alt: string;
+      author: string;
+    }>;
+
+const props = Astro.props.frontmatter ?? Astro.props;
+const { title, date, image, image_alt, author } = props;
+const content = Astro.props.body ?? Astro.props.rawContent();
+const wordCount = content.split(' ').length;
+const readingTime = Math.floor(wordCount / 183);
+const dateObj = new Date(date);
+const authorDomain = 'https://simple-onion.cloudvent.net/profiles/';
+const authorSlug = author.toLowerCase().replace(/ /g, '-');
+const authorUrl = [authorDomain, authorSlug, '/'].join('');
+
+const posts = await getCollection('blog');
+---
+
+<Layout {...props}>
+  <main class="container mx-auto px-3">
+    <section>
+      <div>
+        <a
+          class="inline-flex items-center py-5 hover:text-[#034AD8]"
+          href="/blog/"
+        >
+          <i class="ph-arrow-left mr-2 text-xl"></i>
+          <span class="hover:underline hover:underline-offset-4">Back</span>
+        </a>
+        <article>
+          <div>
+            <h1
+              class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-semibold"
+            >
+              {title}
+            </h1>
+            <div>
+              <ul
+                class="flex flex-col justify-between sm:flex-row sm:justify-start sm:gap-5 py-5 font-light text-sm"
+              >
+                <!-- TODO: Get authors working like tags and slugify author  -->
+                <li
+                  class="post-data-list-item hover:text-[#034AD8] hover:underline hover:underline-offset-4"
+                >
+                  <a href={authorUrl}>{author}</a>
+                </li>
+                <li class="post-data-list-item">
+                  <p>
+                    {
+                      dateObj.toLocaleDateString(undefined, {
+                        year: 'numeric',
+                        month: 'long',
+                        day: 'numeric',
+                      })
+                    }
+                  </p>
+                </li>
+                <div class="flex gap-3">
+                  <li class="post-data-list-item post-size">
+                    <p>{wordCount}<span> words</span></p>
+                  </li>
+                  <li>
+                    <p>{readingTime}<span> minutes</span></p>
+                  </li>
+                </div>
+              </ul>
+            </div>
+          </div>
+          <div class="">
+            <img class="rounded-lg" src={image} alt={image_alt} />
+          </div>
+          <div class="mx-auto my-16 max-w-[900px] font-light leading-6">
+            <slot />
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section>
+      <h2 class="text-2xl">Recent Blog</h2>
+      <div class="grid md:grid-cols-2 xl:grid-cols-3 gap-5 mt-5">
+        {posts.slice(0, 3).map((post, i) => <PostSummary post={post} />)}
+      </div>
+    </section>
+  </main>
+</Layout>
+
+<style>
+  .post-size {
+    position: relative;
+  }
+
+  .post-size::after {
+    position: absolute;
+    content: '';
+    background: #4d4d4d;
+    width: 1px;
+    height: 15px;
+    top: 50%;
+    right: -10%;
+    transform: translate(-50%, -50%);
+  }
+
+  @media (min-width: 640px) {
+    .post-data-list-item {
+      position: relative;
+    }
+
+    .post-data-list-item::after {
+      position: absolute;
+      content: '';
+      background: #4d4d4d;
+      width: 1px;
+      height: 15px;
+      top: 50%;
+      right: -12%;
+      transform: translate(-50%, -50%);
+    }
+  }
+</style>
