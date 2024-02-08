@@ -5,6 +5,9 @@ import tailwind from '@astrojs/tailwind';
 
 // https://astro.build/config
 export default defineConfig({
+  experimental: {
+    assets: true,
+  },
   site: 'https://muggy-fish.cloudvent.net/',
   integrations: [react(), tailwind(), bookshop()],
 });
