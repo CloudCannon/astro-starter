@@ -1,12 +1,15 @@
 ---
 import Styles from './styles.module.scss';
 import Button from '../global/button/button.jsx';
+import { Image } from 'astro:assets';
+import myImage from '../../assets/blog-thumb-1.jpg'; // Image is 1600x900
 const block = Astro.props;
 ---
 
 <div class={Styles.hero}>
   <img class={Styles['hero__svg-img']} src={block.bg_image} alt="" />
   <div class={Styles['hero__wrapper']}>
+    <Image src={myImage} alt="A description of my image." />
     <h1>{block.heading}</h1>
     <p>{block.text}</p>
     <Button {...block.button} />
