@@ -2,6 +2,7 @@
 import PageLayout from "../layouts/Page.astro";
 import { getCollection, type CollectionEntry } from "astro:content";
 import MyCustomHeroWithImage from '../components/hero/hero.astro';
+import Hero from "../components/hero/hero.astro";
 
 export interface Props {
   page: CollectionEntry<"pages">;
@@ -27,7 +28,12 @@ if (!page.data) {
   );
 }
 ---
-
+<Hero
+    imagePath="/src/assets/blog-thumb-1.jpg"
+    altText="A headshot of Priya against a brick wall background."
+    name="Priya"
+    age={25}
+/>
 <PageLayout frontmatter={page.data}>
 
 

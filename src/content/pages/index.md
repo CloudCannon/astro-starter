@@ -17,9 +17,23 @@ seo:
   open_graph_type:
   no_index: false
 content_blocks:
-  - _bookshop_name: hero
-    imagePath: /images/blog/blog-thumb-1.jpg
-    altText: An image
-    name: A hero
-    age: '1'
+  - _bookshop_name: left-right
+    bg_image: /images/backgrounds/textures/home-waves.svg
+    heading: Keep what you need. Delete the rest.
+    text: >-
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+      tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+      veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+      commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
+      velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
+      cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id
+      est laborum.
+    image: /images/transparent-bg/undraw-hello.svg
+    image_alt:
+    button:
+      _bookshop_name: global/button
+      path: /
+      button_text: Read Analysis
+      button_text_color: '#fff'
+      button_color: '#c7588e'
 ---
