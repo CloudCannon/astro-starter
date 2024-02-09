@@ -14,9 +14,7 @@ const images = import.meta.glob<{ default: ImageMetadata }>(
   '/src/assets/*.{jpeg,jpg,png,gif}', { eager: true }
 );
 
-console.log({imagePath:block.imagePath, images:images, default: images[block.imagePath].default })
 let src
-
 if (typeof images[block.imagePath]?.default === 'string') {
   src = images[block.imagePath].default.replace(/^\./,'/_cloudcannon');
 } else {
