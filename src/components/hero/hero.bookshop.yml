@@ -9,10 +9,10 @@ spec:
 
 # Defines the structure of this component, as well as the default values
 blueprint:
-  bg_image:
-  heading:
-  text:
-  button: bookshop:global/button
+  imagePath:
+  altText:
+  name:
+  age:
 
 # Overrides any fields in the blueprint when viewing this component in the component browser
 preview:

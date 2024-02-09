@@ -1,16 +1,26 @@
 ---
-import Styles from './styles.module.scss';
-import Button from '../global/button/button.jsx';
+import type { ImageMetadata } from 'astro';
 import { Image } from 'astro:assets';
-import myImage from '../../assets/blog-thumb-1.jpg'; // Image is 1600x900
-const block = Astro.props;
+
+interface Props {
+  imagePath: string;
+  altText: string;
+  name: string;
+  age: number;
+}
+
+const { imagePath, altText, name, age } = Astro.props;
+const images = import.meta.glob<{ default: ImageMetadata }>(
+  '/src/assets/*.{jpeg,jpg,png,gif}'
+);
+if (!images[imagePath])
+  throw new Error(
+    `"${imagePath}" does not exist in glob: "src/assets/*.{jpeg,jpg,png,gif}"`
+  );
 ---
 
-<div class={Styles.hero}>
-  <div class={Styles['hero__wrapper']}>
-    <Image src={myImage} alt="A description of my image." />
-    <h1>{block.heading}</h1>
-    <p>{block.text}</p>
-    <Button {...block.button} />
-  </div>
+<div class="card">
+  <h2>{name}</h2>
+  <p>Age: {age}</p>
+  <Image src={images[imagePath]()} alt={altText} />
 </div>

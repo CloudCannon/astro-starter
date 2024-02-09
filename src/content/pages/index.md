@@ -17,21 +17,6 @@ seo:
   open_graph_type:
   no_index: false
 content_blocks:
-  - _bookshop_name: global/page-bg
-    background_image: /images/backgrounds/sunset.png
-  - _bookshop_name: hero
-    bg_image: /images/backgrounds/textures/home-web.svg
-    heading: Astro Starter Template
-    text: >-
-      A starter template for Astro, Tailwind and Bookshop. Comes with a
-      paginated blog with tags. This site uses a mix of .astro & .jsx
-      components.
-    button:
-      _bookshop_name: global/button
-      path: /
-      button_text: Discover Buttons
-      button_text_color: '#181512'
-      button_color: '#f8b148'
   - _bookshop_name: left-right
     bg_image: /images/backgrounds/textures/home-waves.svg
     heading: Keep what you need. Delete the rest.
