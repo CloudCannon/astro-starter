@@ -20,7 +20,9 @@ content_blocks:
   - _bookshop_name: hero
     imagePath: /src/assets/blog-thumb-1.jpg
     altText: An image
-    name: The hero with Astro Image 
+    name: The hero with Astro Image
+    width: 800
+    height: 800
   - _bookshop_name: left-right
     bg_image: /images/backgrounds/textures/home-waves.svg
     heading: Keep what you need. Delete the rest.

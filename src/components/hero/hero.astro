@@ -6,6 +6,8 @@ interface Props {
   imagePath: string;
   altText: string;
   name: string;
+  width: number;
+  height: number;
 }
 
 const block = Astro.props;
@@ -27,5 +29,5 @@ if(!src){
 
 <div class="card">
   <h2>{block.name}</h2>
-  <Image src={src} alt={block.altText} />
+  <Image src={src} alt={block.altText} width={block.width} height={block.height} />
 </div>
