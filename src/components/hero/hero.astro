@@ -6,7 +6,6 @@ interface Props {
   imagePath: string;
   altText: string;
   name: string;
-  age: number;
 }
 
 const block = Astro.props;
@@ -28,6 +27,5 @@ if(!src){
 
 <div class="card">
   <h2>{block.name}</h2>
-  <p>Age: {block.age}</p>
   <Image src={src} alt={block.altText} />
 </div>

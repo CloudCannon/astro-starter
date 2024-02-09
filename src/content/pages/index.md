@@ -20,8 +20,7 @@ content_blocks:
   - _bookshop_name: hero
     imagePath: /src/assets/blog-thumb-1.jpg
     altText: An image
-    name: The hero nobody asked for changed
-    age: '420'
+    name: The hero with Astro Image 
   - _bookshop_name: left-right
     bg_image: /images/backgrounds/textures/home-waves.svg
     heading: Keep what you need. Delete the rest.
