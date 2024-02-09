@@ -14,21 +14,15 @@ const images = import.meta.glob<{ default: ImageMetadata }>(
   '/src/assets/*.{jpeg,jpg,png,gif}', { eager: true }
 );
 
-let src
-if (typeof images[block.imagePath]?.default === 'string') {
-  src = images[block.imagePath].default.replace(/^\./,'/_cloudcannon');
-} else {
-  if(!ENV_BOOKSHOP_LIVE && !images[block.imagePath]){
-    throw new Error(
-      `"${block.imagePath}" does not exist in glob: "src/assets/*.{jpeg,jpg,png,gif}"`
-    );
-  } else if(!images[block.imagePath]){
-    console.log('no image found');
-    src = block.imagePath;
-  } else {
-    src = images[block.imagePath].default;
-  }
+const imageSrc = images[block.imagePath]?.default;
+const src = typeof imageSrc === 'string' 
+  ? imageSrc.replace(/^\./, '/_cloudcannon')
+  : imageSrc ?? block.imagePath;
 
+if(!src){
+  throw new Error(
+    `"${block.imagePath}" does not exist in glob: "src/assets/*.{jpeg,jpg,png,gif}"`
+  );
 }
 ---
 
