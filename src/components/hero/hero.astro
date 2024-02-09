@@ -9,18 +9,18 @@ interface Props {
   age: number;
 }
 
-const { imagePath, altText, name, age } = Astro.props;
+const block = Astro.props;
 const images = import.meta.glob<{ default: ImageMetadata }>(
   '/src/assets/*.{jpeg,jpg,png,gif}'
 );
-if (!images[imagePath])
+if (!images[block.imagePath])
   throw new Error(
-    `"${imagePath}" does not exist in glob: "src/assets/*.{jpeg,jpg,png,gif}"`
+    `"${block.imagePath}" does not exist in glob: "src/assets/*.{jpeg,jpg,png,gif}"`
   );
 ---
 
 <div class="card">
-  <h2>{name}</h2>
-  <p>Age: {age}</p>
-  <Image src={images[imagePath]()} alt={altText} />
+  <h2>{block.name}</h2>
+  <p>Age: {block.age}</p>
+  <Image src={images[block.imagePath]()} alt={block.altText} />
 </div>
