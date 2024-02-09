@@ -1,26 +1,19 @@
 ---
 import type { ImageMetadata } from 'astro';
 import { Image } from 'astro:assets';
+import imageSrc from '../../assets/blog-thumb-1.jpg'
 
-interface Props {
-  imagePath: string;
-  altText: string;
-  name: string;
-  age: number;
-}
 
 const block = Astro.props;
-const images = import.meta.glob<{ default: ImageMetadata }>(
-  '/src/assets/*.{jpeg,jpg,png,gif}'
-);
-if (!images[block.imagePath])
-  throw new Error(
-    `"${block.imagePath}" does not exist in glob: "src/assets/*.{jpeg,jpg,png,gif}"`
-  );
+// const images = import.meta.glob<{ default: ImageMetadata }>(
+//   '/src/assets/*.{jpeg,jpg,png,gif}'
+// );
+// if (!images[block.imagePath])
+//   throw new Error(
+//     `"${block.imagePath}" does not exist in glob: "src/assets/*.{jpeg,jpg,png,gif}"`
+//   );
 ---
 
 <div class="card">
-  <h2>{block.name}</h2>
-  <p>Age: {block.age}</p>
-  <Image src={images[block.imagePath]()} alt={block.altText} />
+  <Image src={imageSrc} alt='An alt for now' />
 </div>
