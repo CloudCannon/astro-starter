@@ -17,6 +17,11 @@ seo:
   open_graph_type:
   no_index: false
 content_blocks:
+  - _bookshop_name: hero
+    imagePath: "/src/assets/blog-thumb-1.jpg"
+    altText: "A headshot of Priya against a brick wall background."
+    name: "Hero"
+    age: 1
   - _bookshop_name: left-right
     bg_image: /images/backgrounds/textures/home-waves.svg
     heading: Keep what you need. Delete the rest.
