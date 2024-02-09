@@ -12,8 +12,12 @@ const block = Astro.props;
 //   throw new Error(
 //     `"${block.imagePath}" does not exist in glob: "src/assets/*.{jpeg,jpg,png,gif}"`
 //   );
+let src = imageSrc
+if(ENV_BOOKSHOP_LIVE){
+  src = src.replace(/^\./,'/_cloudcannon');
+}
 ---
 
 <div class="card">
-  <Image src={imageSrc} alt='An alt for now' />
+  <Image src={src} alt='An alt for now' />
 </div>
