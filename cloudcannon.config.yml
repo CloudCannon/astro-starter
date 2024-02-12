@@ -112,6 +112,11 @@ _inputs:
     comment:
       When selected this removes the page from your sitemap and adds the noindex
       robots meta tag
+
+data_config:
+  icons:
+    path: data/icons.yaml
+
 _structures:
   features:
     values:

@@ -28,8 +28,4 @@ _inputs:
   icon:
     type: select
     options:
-      values:
-        - user
-        - times
-        - house
-        - check
+      values: data.icons
