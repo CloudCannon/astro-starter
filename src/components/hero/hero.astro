@@ -8,19 +8,22 @@ interface Props {
   name: string;
   width: number;
   height: number;
+  icon: string;
 }
 
 const block = Astro.props;
 const images = import.meta.glob<{ default: ImageMetadata }>(
-  '/src/assets/*.{jpeg,jpg,png,gif}', { eager: true }
+  '/src/assets/*.{jpeg,jpg,png,gif}',
+  { eager: true }
 );
 
 const imageSrc = images[block.imagePath]?.default;
-const src = typeof imageSrc === 'string' 
-  ? imageSrc.replace(/^\./, '/_cloudcannon')
-  : imageSrc ?? block.imagePath;
+const src =
+  typeof imageSrc === 'string'
+    ? imageSrc.replace(/^\./, '/_cloudcannon')
+    : imageSrc ?? block.imagePath;
 
-if(!src){
+if (!src) {
   throw new Error(
     `"${block.imagePath}" does not exist in glob: "src/assets/*.{jpeg,jpg,png,gif}"`
   );
@@ -28,6 +31,11 @@ if(!src){
 ---
 
 <div class="card">
-  <h2>{block.name}</h2>
-  <Image src={src} alt={block.altText} width={block.width} height={block.height} />
+  <h2><i class=`fa-solid fa-${ block.icon }`></i>{block.name}</h2>
+  <Image
+    src={src}
+    alt={block.altText}
+    width={block.width}
+    height={block.height}
+  />
 </div>

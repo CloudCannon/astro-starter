@@ -23,6 +23,7 @@ content_blocks:
     name: The hero with Astro Image
     width: 800
     height: 800
+    icon: user
   - _bookshop_name: left-right
     bg_image: /images/backgrounds/textures/home-waves.svg
     heading: Keep what you need. Delete the rest.
@@ -46,5 +47,7 @@ content_blocks:
     imagePath: /src/assets/blog-thumb-1.jpg
     altText: An image
     name: The hero nobody asked for
-    age: '420'
+    width: 800
+    height: 800
+    icon: times
 ---

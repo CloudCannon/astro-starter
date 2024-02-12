@@ -39,6 +39,9 @@ const canonicalURL = new URL(seo?.canonical_url ?? Astro.url.pathname, baseUrl);
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
+    <script
+      src="https://kit.fontawesome.com/18459b0ca5.js"
+      crossorigin="anonymous"></script>
 
     <SEO
       noindex={seo?.no_index || false}
