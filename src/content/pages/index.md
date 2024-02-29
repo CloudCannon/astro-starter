@@ -47,9 +47,9 @@ content_blocks:
     number: 1
     slides:
       - text: Some text
-        image: https://placebear.com/300/200
+        image: /images/blog/featured-image-2.jpg
       - text: Diff text
-        image: https://placebear.com/300/200
+        image: /images/blog/blog-thumb-1.jpg
       - text: Different text
-        image: https://placebear.com/300/200
+        image: /images/blog/blog-thumb-2.jpg
 ---
