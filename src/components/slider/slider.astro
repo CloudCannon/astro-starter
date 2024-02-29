@@ -2,15 +2,24 @@
 const block = Astro.props;
 ---
 
-<swiper-container slides-per-view={block.number} loop="true">
-  {
-    block.slides.map((slide: any) => {
-      return (
-        <swiper-slide>
-          {slide.text}
-          <img src={slide.image} />
-        </swiper-slide>
-      );
-    })
-  }
-</swiper-container>
+{
+  const ENV_BOOKSHOP_LIVE = true;
+
+  ENV_BOOKSHOP_LIVE ? (
+    <>
+      <p>I am being edited live!</p>
+      <h1>Fallback Title</h1>
+    </>
+  ) : (
+    <swiper-container slides-per-view={block.number} loop="true">
+      {block.slides.map((slide: any) => {
+        return (
+          <swiper-slide>
+            {slide.text}
+            <img src={slide.image} />
+          </swiper-slide>
+        );
+      })}
+    </swiper-container>
+  )
+}
