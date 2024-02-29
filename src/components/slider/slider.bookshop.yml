@@ -2,16 +2,20 @@
 spec:
   structures:
     - content_blocks
-  label: Left Right
+  label: Slider
   description: Left Right block
   icon: 'chrome_reader_mode'
   tags: []
 
 # Defines the structure of this component, as well as the default values
 blueprint:
-  number: 2
+  number: 1
   slides:
     - text: Some text
+      image: https://placebear.com/300/200
+    - text: Diff text
+      image: https://placebear.com/300/200
+    - text: Different text
       image: https://placebear.com/300/200
 
 # Overrides any fields in the blueprint when viewing this component in the component browser
