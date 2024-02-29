@@ -4,10 +4,10 @@ const block = Astro.props;
 
 {
   ENV_BOOKSHOP_LIVE ? (
-    <>
-      <p>I am being edited live!</p>
-      <h1>Fallback Title</h1>
-    </>
+    <h1 style="text-align: center;">
+      This component breaks the visual previewer - this is a fallback message.
+      The component is still editable, and builds on the real site.
+    </h1>
   ) : (
     <swiper-container slides-per-view={block.number} loop="true">
       {block.slides.map((slide: any) => {
