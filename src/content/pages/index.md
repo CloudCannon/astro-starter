@@ -43,11 +43,13 @@ content_blocks:
       button_text: Read Analysis
       button_text_color: '#fff'
       button_color: '#c7588e'
-  - _bookshop_name: hero
-    imagePath: /src/assets/blog-thumb-1.jpg
-    altText: An image
-    name: The hero nobody asked for
-    width: 800
-    height: 800
-    icon: times
+  - _bookshop_name: slider
+    number: 1
+    slides:
+      - text: Some text
+        image: https://placebear.com/300/200
+      - text: Diff text
+        image: https://placebear.com/300/200
+      - text: Different text
+        image: https://placebear.com/300/200
 ---
