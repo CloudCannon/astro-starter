@@ -1,5 +1,5 @@
 import Styles from './styles.module.scss';
-import Button from '../global/button/button.jsx';
+import Button from '../button/button.jsx';
 
 export default function LeftRight(block) {
   return (

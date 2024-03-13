@@ -1,8 +1,8 @@
 ---
 import '../styles/main.scss';
 import site from '../../data/site.json';
-import Header from '../components/header';
-import Footer from '../components/footer';
+import Header from '../components/navigation/header';
+import Footer from '../components/navigation/footer';
 import { SEO } from 'astro-seo';
 
 export interface SEOProps {
@@ -82,3 +82,4 @@ const canonicalURL = new URL(seo?.canonical_url ?? Astro.url.pathname, baseUrl);
     <Footer />
   </body>
 </html>
+../components/navigation/header../components/navigation/footer

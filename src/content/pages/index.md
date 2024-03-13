@@ -38,7 +38,7 @@ content_blocks:
     image: /images/transparent-bg/undraw-hello.svg
     image_alt:
     button:
-      _bookshop_name: global/button
+      _bookshop_name: button
       path: /
       button_text: Read Analysis
       button_text_color: '#fff'

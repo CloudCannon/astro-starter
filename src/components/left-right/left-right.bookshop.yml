@@ -14,7 +14,7 @@ blueprint:
   text:
   image:
   image_alt:
-  button: bookshop:global/button
+  button: bookshop:button
 
 # Overrides any fields in the blueprint when viewing this component in the component browser
 preview:
