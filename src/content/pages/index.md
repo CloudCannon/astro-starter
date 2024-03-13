@@ -18,7 +18,7 @@ seo:
   no_index: false
 content_blocks:
   - _bookshop_name: hero
-    imagePath: /src/assets/blog-thumb-1.jpg
+    imagePath: /images/blog/featured-image-5.jpg
     altText: An image
     name: The hero with Astro Image
     width: 400
