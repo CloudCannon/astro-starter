@@ -34,17 +34,19 @@ let blobColor = block.blobColor;
 
 <section class="hero-container">
   <div class="content">
-    <h1>Art of Design</h1>
+    <h1 class="heading">Astro Bookshop Starter</h1>
     <p>
-      Powerful, extensible, and feature-packed frontend toolkit. Build and
-      customize with Sass, utilize prebuilt grid system and components, and
-      bring projects to life with powerful JavaScript plugins.
+      A starting point for those looking to build a website with Astro, using
+      Bookshop components in CloudCannon. Create your own copy, and start
+      creating your own components to use in the CloudCannon CMS.
     </p>
     <div class="buttons">
       <button class="btn">
-        <i class=`fa-solid fa-${ block.icon }`></i>Free Consultation
+        <i class=`fa-solid fa-${ block.icon }`></i>CloudCannon
       </button>
-      <button class="btn-outline">Buy Credits</button>
+      <button class="btn btn-outline"
+        ><i class=`fa-solid fa-${ block.icon }`></i>GitHub</button
+      >
     </div>
   </div>
 
@@ -61,25 +63,27 @@ let blobColor = block.blobColor;
 <style define:vars={{ blobColor }}>
   .hero-container {
     display: flex;
+    flex-direction: column;
     gap: 20px;
     justify-content: space-between;
     align-items: center;
-    padding-block: 96px;
-    padding-inline: 48px;
+    padding-block: 48px;
+    padding-inline: 24px;
     max-width: 1280px;
     margin-inline: auto;
-  }
-
-  .content {
-    width: 50%;
+    overflow: hidden;
   }
 
   .content h1 {
     font-size: 3.8em;
+    line-height: 1em;
+    font-weight: 700;
     /* background: -webkit-linear-gradient(to left, #eee 50%, #333); */
     background: linear-gradient(to left, #a0a2ff 50%, #000000);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+    position: relative;
+    z-index: 10;
   }
   .content p {
     margin: 20px 0;
@@ -90,6 +94,10 @@ let blobColor = block.blobColor;
 
   .buttons {
     display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    max-width: fit-content;
+    justify-content: center;
   }
   button {
     padding: 0.75rem 1.2rem;
@@ -98,6 +106,7 @@ let blobColor = block.blobColor;
     cursor: pointer;
     transition: all ease-in-out 0.15s;
     align-items: center;
+    justify-content: center;
   }
   .btn {
     background: #4384e6;
@@ -129,6 +138,30 @@ let blobColor = block.blobColor;
     margin: 20px;
     animation: animate 5s ease-in-out infinite;
     transition: all 1s ease-in-out;
+  }
+
+  @media only screen and (min-width: 400px) {
+    .buttons {
+      flex-direction: row;
+    }
+  }
+  @media only screen and (min-width: 800px) {
+    .hero-container {
+      flex-direction: row;
+      padding-block: 96px;
+      padding-inline: 48px;
+    }
+    .content {
+      width: 50%;
+    }
+    .buttons {
+      flex-direction: column;
+    }
+  }
+  @media only screen and (min-width: 1000px) {
+    .buttons {
+      flex-direction: row;
+    }
   }
 
   @keyframes animate {

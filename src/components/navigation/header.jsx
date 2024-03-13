@@ -1,6 +1,6 @@
 export default function Header() {
   return (
-    <header className="container mx-auto header">
+    <header className="max-w-[1280px] mx-auto header px-6 md:px-12">
       <a href="/" rel="home">
         <img
           className="logo header-logo"
