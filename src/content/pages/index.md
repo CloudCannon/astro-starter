@@ -21,9 +21,10 @@ content_blocks:
     imagePath: /src/assets/blog-thumb-1.jpg
     altText: An image
     name: The hero with Astro Image
-    width: 800
-    height: 800
+    width: 400
+    height: 400
     icon: user
+    blobColor: '#034ad8'
   - _bookshop_name: left-right
     bg_image: /images/backgrounds/textures/home-waves.svg
     heading: Keep what you need. Delete the rest.
@@ -43,13 +44,4 @@ content_blocks:
       button_text: Read Analysis
       button_text_color: '#fff'
       button_color: '#c7588e'
-  - _bookshop_name: slider
-    number: 1
-    slides:
-      - text: Some text
-        image: /images/blog/featured-image-2.jpg
-      - text: Diff text
-        image: /images/blog/blog-thumb-1.jpg
-      - text: Different text
-        image: /images/blog/blog-thumb-2.jpg
 ---
