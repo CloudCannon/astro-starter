@@ -1,25 +1,29 @@
 ---
-date: '2022-04-14'
+_schema: default
+date: 2022-04-14T00:00:00Z
 title: 7 things you didnt know about email
 tags:
   - marketing
   - blog
 author: Miyah Kelley
-thumb_image_path: '/images/blog/blog-thumb-5.jpg'
-thumb_image_alt: Group of people discussing something shwon on a laptop
-image: /images/blog/featured-image-3.jpg
-image_alt: Person drinking coffee
+thumb_image:
+  image: ''
+  image_alt: ''
+featured_image:
+  image: ''
+  image_alt: ''
 seo:
   page_description:
   canonical_url:
-  featured_image: '/images/blog/featured-image-3.jpg'
-  featured_image_alt: null
+  featured_image: /images/blog/featured-image-3.jpg
+  featured_image_alt:
   author_twitter_handle:
   open_graph_type: article
   no_index: false
 ---
-
 When you send an email campaign, you expect it to reach your readers, right? But what if the emails go straight to your subscribers' spam folders instead of their inboxes? To make sure your emails reach their recipients successfully, follow these email delivery tips.
+
+You can make changes
 
 ### Use an ESP
 
