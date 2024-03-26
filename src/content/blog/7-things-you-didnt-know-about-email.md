@@ -1,6 +1,6 @@
 ---
 _schema: default
-date: 2022-04-14T00:00:00Z
+date: '2022-04-14T00:00:00Z'
 title: 7 things you didnt know about email
 tags:
   - marketing
