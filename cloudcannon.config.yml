@@ -115,11 +115,4 @@ _inputs:
 
 data_config:
   icons:
-    path: data/icons.yaml
-
-_structures:
-  features:
-    values:
-      - value:
-          item:
-          isActive:
+    path: data/icons.json

@@ -1,6 +1,7 @@
 ---
 import type { ImageMetadata } from 'astro';
 import { Image } from 'astro:assets';
+import Icon from '../icon/icon.jsx';
 
 interface Props {
   imagePath: string;
@@ -42,11 +43,8 @@ let blobColor = block.blobColor;
     </p>
     <div class="buttons">
       <button class="btn">
-        <i class=`fa-solid fa-${ block.icon }`></i>CloudCannon
+        <Icon icon={block.icon} />CloudCannon
       </button>
-      <button class="btn btn-outline"
-        ><i class=`fa-solid fa-${ block.icon }`></i>GitHub</button
-      >
     </div>
   </div>
 
@@ -114,6 +112,10 @@ let blobColor = block.blobColor;
     border: none;
     display: flex;
     gap: 8px;
+    padding: 1rem;
+  }
+  .btn svg {
+    width: 1rem;
   }
 
   .btn:hover {
