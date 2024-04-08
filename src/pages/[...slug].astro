@@ -1,20 +1,15 @@
 ---
-import PageLayout from "../layouts/Page.astro";
-import { getCollection, type CollectionEntry } from "astro:content";
-import MyCustomHeroWithImage from '../components/hero/hero.astro';
-import Hero from "../components/hero/hero.astro";
+import PageLayout from '../layouts/Page.astro';
+import { getCollection, type CollectionEntry } from 'astro:content';
 
 export interface Props {
-  page: CollectionEntry<"pages">;
+  page: CollectionEntry<'pages'>;
 }
 
 export async function getStaticPaths() {
-  const pages = await getCollection(
-    "pages",
-    ({ data }) => !data.hidden
-  );
+  const pages = await getCollection('pages', ({ data }) => !data.hidden);
   return pages.map((page) => {
-    const slug = page.slug.replace(/index$/, "");
+    const slug = page.slug.replace(/index$/, '');
     if (slug.length === 0)
       return { params: { slug: undefined }, props: { page } };
     return { params: { slug }, props: { page } };
@@ -23,12 +18,8 @@ export async function getStaticPaths() {
 
 const page = Astro.props.page;
 if (!page.data) {
-  throw new Error(
-    `Could not find page data`
-  );
+  throw new Error(`Could not find page data`);
 }
 ---
-<PageLayout frontmatter={page.data}>
 
-
-</PageLayout>
+<PageLayout frontmatter={page.data} />
