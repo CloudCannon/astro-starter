@@ -1,29 +1,35 @@
 ---
-date: '2022-03-07T00:00:00Z'
+_schema: default
+date: 2022-03-07T00:00:00Z
 title: Five things to improve your email templates
 tags:
   - marketing
   - blog
 author: Aaron Britt
-thumb_image_path: /images/blog/blog-thumb-6.jpg
-thumb_image_alt: People working on laptops and looking at charts
-image: /images/blog/featured-image-2.jpg
-image_alt: Children looking at a laptop
+thumb_image:
+  image: ''
+  image_alt: ''
+featured_image:
+  image: ''
+  image_alt: ''
 seo:
   page_description:
   canonical_url:
   featured_image: /images/blog/featured-image-2.jpg
-  featured_image_alt: null
+  featured_image_alt:
   author_twitter_handle:
   open_graph_type: article
   no_index: false
 ---
-
 import Alert from '../../components/alert.astro';
+
 import Tint from '../../components/tint.astro';
 
-<Alert background_color="#FF0000" alert_message="This is an alert message" />
-<Tint tint_color="#ff0000">This text should be red</Tint>
+<Alert background_color="#FF0000" alert_message="This is an alert message" /> <Tint tint_color="#ff0000">This text should be red</Tint>
+
+<alert background_color="#e86464" alert_message="Does this work?"/>
+
+<tint tint_color="#005aee">This is some blue text</tint>
 
 When you send an email campaign, you expect it to reach your readers, right? But what if the emails go straight to your subscribers' spam folders instead of their inboxes? To make sure your emails reach their recipients successfully, follow these email delivery tips.
 
