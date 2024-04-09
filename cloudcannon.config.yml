@@ -125,7 +125,9 @@ _snippets:
     template: mdx_component
     inline: false
     preview:
-      text: Alert
+      text:
+        - key: alert_message
+        - 'Alert'
     definitions:
       component_name: Alert
       named_args:
@@ -157,6 +159,36 @@ _snippets:
         options:
           paths:
             uploads: public/videos
+  file:
+    template: mdx_component
+    inline: false
+    preview:
+      text: File
+    definitions:
+      component_name: File
+      named_args:
+        - editor_key: src
+          source_key: src
+          type: string
+        - editor_key: file_name
+          source_key: file_name
+          type: string
+        - editor_key: link_message
+          source_key: link_message
+          type: string
+    _inputs:
+      src:
+        type: file
+        label: File source
+        options:
+          paths:
+            uploads: public/documents
+      file_name:
+        type: string
+        comment: The name of the file, once downloaded.
+      link_message:
+        type: string
+        comment: The text for the download link
   mdx_tint:
     template: mdx_paired_component
     inline: true
