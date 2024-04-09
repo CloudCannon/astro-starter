@@ -19,26 +19,25 @@ seo:
   open_graph_type: article
   no_index: false
 ---
-
 import Alert from '../../components/Alert.astro';
+
 import Tint from '../../components/markdown/Tint.astro';
+
 import Video from '../../components/Video.astro';
+
 import File from '../../components/File.astro';
 
-<Alert background_color="#FF0000" alert_message="This is an alert message" />
+<Alert background_color="#FF0000" alert_message="This is an alert message"/>
 
 <Tint tint_color="#ff0000">This text should be red</Tint>
 
-<Video src="/videos/test.mp4" />
-<File
-  src="/documents/test.pdf"
-  file_name="an-example-file"
-  link_message="Download the pdf"
-/>
+<Video src="/videos/test.mp4"/>
 
-When you send an email campaign, you expect it to reach your readers, right? But what if the emails go straight to your subscribers' spam folders instead of their inboxes? To make sure your emails reach their recipients successfully, follow these email delivery tips.
+<File src="/documents/test.pdf" file_name="an-example-file" link_message="Download the pdf"/>
 
-<Alert background_color="#e66bd1" alert_message="Another alert" />
+<Tint tint_color="#d7ef4e">This is nested in a component folder</Tint>When you send an email campaign, you expect it to reach your readers, right? But what if the emails go straight to your subscribers' spam folders instead of their inboxes? To make sure your emails reach their recipients successfully, follow these email delivery tips.
+
+<Alert background_color="#e66bd1" alert_message="Another alert"/>
 
 ### Use an ESP
 
