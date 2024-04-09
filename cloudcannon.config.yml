@@ -148,7 +148,7 @@ _snippets:
     definitions:
       component_name: Video
       named_args:
-        - editor_key: Video Source
+        - editor_key: src
           source_key: src
           type: string
     _inputs:
