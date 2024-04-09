@@ -1,7 +1,7 @@
 paths:
   data: data
   static: public
-  uploads: public/uploads
+  uploads: public/images
 collections_config:
   data:
     path: data
@@ -140,6 +140,23 @@ _snippets:
         type: color
       alert_message:
         comment: This is the text for the alert
+  video:
+    template: mdx_component
+    inline: false
+    preview:
+      text: Video
+    definitions:
+      component_name: Video
+      named_args:
+        - editor_key: Video Source
+          source_key: src
+          type: string
+    _inputs:
+      src:
+        type: file
+        options:
+          paths:
+            uploads: public/videos
   mdx_tint:
     template: mdx_paired_component
     inline: true

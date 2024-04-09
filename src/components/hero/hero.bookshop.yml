@@ -30,3 +30,8 @@ _inputs:
     type: select
     options:
       values: data.icons
+  imagePath:
+    type: image
+    options:
+      paths:
+        uploads: src/assets
