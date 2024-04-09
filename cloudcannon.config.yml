@@ -122,19 +122,38 @@ _snippets_imports:
   mdx: true
 _snippets:
   alert:
-    template: mdx_paired_component
+    template: mdx_component
     inline: false
     preview:
       text: Alert
     definitions:
       component_name: alert
-      content_key: alert_message
       named_args:
         - editor_key: background_color
           source_key: background_color
+          type: string
+        - editor_key: alert_message
+          source_key: alert_message
           type: string
     _inputs:
       background_color:
         type: color
       alert_message:
         comment: This is the text for the alert
+  mdx_tint:
+    template: mdx_paired_component
+    inline: true
+    preview:
+      text: Tint
+    definitions:
+      component_name: tint
+      content_key: inner_text
+      named_args:
+        - editor_key: color
+          source_key: tint_color
+          type: string
+    _inputs:
+      tint_color:
+        type: color
+      inner_text:
+        comment: This text will be tinted
