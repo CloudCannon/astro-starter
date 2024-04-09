@@ -127,7 +127,7 @@ _snippets:
     preview:
       text: Alert
     definitions:
-      component_name: alert
+      component_name: Alert
       named_args:
         - editor_key: background_color
           source_key: background_color
@@ -146,7 +146,7 @@ _snippets:
     preview:
       text: Tint
     definitions:
-      component_name: tint
+      component_name: Tint
       content_key: inner_text
       named_args:
         - editor_key: color
