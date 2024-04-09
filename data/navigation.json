@@ -4,11 +4,11 @@
     "logo_url": "/",
     "links": [
       {
-        "link": "/",
+        "link": "/blog/",
         "text": "Blog"
       },
       {
-        "link": "/",
+        "link": "/feed.xml",
         "text": "RSS Feed"
       }
     ]
