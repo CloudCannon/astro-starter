@@ -21,15 +21,14 @@ seo:
   open_graph_type: article
   no_index: false
 ---
-import Alert from '../../components/alert.astro';
 
-import Tint from '../../components/tint.astro';
+import Alert from '../../components/Alert.astro';
 
-<Alert background_color="#FF0000" alert_message="This is an alert message" /> <Tint tint_color="#ff0000">This text should be red</Tint>
+import Tint from '../../components/Tint.astro';
 
-<alert background_color="#e86464" alert_message="Does this work?"/>
-
-<tint tint_color="#005aee">This is some blue text</tint>
+<Alert background_color="#FF0000" alert_message="This is an alert message" /> <Tint tint_color="#ff0000">
+  This text should be red
+</Tint>
 
 When you send an email campaign, you expect it to reach your readers, right? But what if the emails go straight to your subscribers' spam folders instead of their inboxes? To make sure your emails reach their recipients successfully, follow these email delivery tips.
 
