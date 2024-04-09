@@ -127,7 +127,7 @@ _snippets:
     preview:
       text: Alert
     definitions:
-      component_name: markdown/alert
+      component_name: alert
       content_key: alert_message
       named_args:
         - editor_key: background_color
