@@ -117,3 +117,24 @@ _inputs:
 data_config:
   icons:
     path: data/icons.json
+
+_snippets_imports:
+  mdx: true
+_snippets:
+  alert:
+    template: mdx_paired_component
+    inline: false
+    preview:
+      text: Alert
+    definitions:
+      component_name: markdown/alert
+      content_key: alert_message
+      named_args:
+        - editor_key: background_color
+          source_key: background_color
+          type: string
+    _inputs:
+      background_color:
+        type: color
+      alert_message:
+        comment: This is the text for the alert
