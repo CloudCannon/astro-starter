@@ -1,5 +1,5 @@
 {
-  "name": "great-lakes-blog",
+  "name": "astro-starter",
   "type": "module",
   "version": "0.0.1",
   "scripts": {
@@ -11,6 +11,7 @@
     "prebuild:fetch-theme-color": "node fetch-theme-color.cjs"
   },
   "dependencies": {
+    "@astrojs/mdx": "^2.2.4",
     "@astrojs/react": "^3.0.2",
     "@astrojs/tailwind": "^5.0.0",
     "@bookshop/astro-bookshop": "^3.9.0",
@@ -21,7 +22,7 @@
     "@fortawesome/react-fontawesome": "^0.2.0",
     "@types/react": "^18.2.21",
     "@types/react-dom": "^18.2.7",
-    "astro": "^3.0.10",
+    "astro": "4.0.0",
     "json-to-pretty-yaml": "^1.2.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",

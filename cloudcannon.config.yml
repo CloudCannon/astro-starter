@@ -9,6 +9,7 @@ collections_config:
     disable_add_folder: true
   posts:
     path: src/content/blog
+    parser: front-matter
     output: true
     url: '/blog/[slug]/'
     _enabled_editors:
@@ -21,7 +22,7 @@ collections_config:
     schemas:
       default:
         name: New Post
-        path: schemas/post.md
+        path: schemas/post.mdx
     _inputs:
       title:
         empty_type: string
