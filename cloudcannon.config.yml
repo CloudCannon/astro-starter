@@ -184,10 +184,9 @@ _snippets:
           paths:
             uploads: public/documents
       file_name:
-        type: string
         comment: The name of the file, once downloaded.
       link_message:
-        type: string
+        type: textarea
         comment: The text for the download link
   mdx_tint:
     template: mdx_paired_component
