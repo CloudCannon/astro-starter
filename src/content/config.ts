@@ -14,7 +14,7 @@ const seoSchema = z
 
 const blogCollection = defineCollection({
   schema: z.object({
-    date: z.string(),
+    date: z.string().or(z.date()),
     title: z.string(),
     tags: z.array(z.string()),
     author: z.string(),
