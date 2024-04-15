@@ -1,0 +1,26 @@
+---
+interface Props {
+  link: string;
+  text: string;
+  backgroundColor: string;
+  textColor: string;
+}
+
+const block = Astro.props;
+---
+
+<button
+  style={`background-color: ${block.backgroundColor}; color: ${block.textColor};`}
+  class="button">
+  <a href={block.link}>
+    {block.text}
+  </a>
+</button>
+
+<style>
+  .button {
+    padding: 0.75rem 1.5rem;
+    border-radius: 3px;
+    max-width: fit-content;
+  }
+</style>

@@ -1,0 +1,14 @@
+---
+import markdownit from 'markdown-it';
+const md = markdownit();
+const { content } = Astro.props;
+---
+
+<div class="markdown-text" set:html={md.render(content)} />
+
+<style is:global>
+  .markdown-text ul li {
+    list-style: disc;
+    padding-block: 0.125rem;
+  }
+</style>
