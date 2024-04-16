@@ -18,13 +18,34 @@ seo:
   no_index: false
 content_blocks:
   - _bookshop_name: hero
-    imagePath: /images/blog/featured-image-5.jpg
-    altText: An image
-    name: The hero with Astro Image
-    width: 400
-    height: 400
-    icon: user
-    blobColor: '#034ad8'
+    heading:
+      heading_text: Astro Bookshop Starter
+      color:
+    subheading:
+      text: >-
+        A starting point for those looking to build a website with Astro, using Bookshop components in CloudCannon. Create your own copy, and start creating your own components to use in the CloudCannon CMS.
+      color: '#393939'
+    image:
+      imagePath: /src/assets/images/featured-image-5.jpg
+      altText: An image
+      name: The hero with Astro Image
+      width: 600
+      height: 600
+    buttons:
+      - text: CloudCannon
+        icon: Envelope
+        link: 'https://www.cloudcannon.com'
+        borderOnly: false
+        backgroundColor: '#034ad8'
+        hoverBrightness: 0.85
+        textColor: '#ffffff'
+      - text: CloudCannon
+        icon: Envelope
+        link: 'https://www.cloudcannon.com'
+        borderOnly: true
+        backgroundColor: '#034ad8'
+        hoverBrightness: 0.95
+        textColor: '#034ad8'
   - _bookshop_name: left-right
     bg_image: /images/backgrounds/textures/home-waves.svg
     heading: Keep what you need. Delete the rest.

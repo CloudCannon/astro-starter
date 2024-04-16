@@ -56,6 +56,8 @@ collection_groups:
     collections:
       - data
 _inputs:
+  backgroundColor:
+    hidden: 'borderOnly'
   layout:
     hidden: true
   date:

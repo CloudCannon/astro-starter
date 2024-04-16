@@ -1,16 +1,36 @@
 ---
 import type { ImageMetadata } from 'astro';
 import { Image } from 'astro:assets';
-import Icon from '../utility/icon';
+import Markdown from '../utility/markdown.astro';
+import Button from '../utility/button.astro';
 
 interface Props {
-  imagePath: string;
-  altText: string;
-  name: string;
-  width: number;
-  height: number;
-  icon: string;
-  blobColor: string;
+  heading: {
+    heading_text: string;
+    color: string;
+  };
+  subheading: {
+    text: string;
+    color: string;
+  };
+  image: {
+    imagePath: string;
+    altText: string;
+    name: string;
+    width: number;
+    height: number;
+  };
+  buttons: [
+    {
+      text: string;
+      icon: string;
+      link: string;
+      borderOnly: boolean;
+      backgroundColor: string;
+      hoverBrightness: number;
+      textColor: string;
+    },
+  ];
 }
 
 const block = Astro.props;
@@ -19,46 +39,57 @@ const images = import.meta.glob<{ default: ImageMetadata }>(
   { eager: true }
 );
 
-const imageSrc = images[block.imagePath]?.default;
+const imageSrc = images[block.image.imagePath]?.default;
 const src =
   typeof imageSrc === 'string'
     ? imageSrc.replace(/^\./, '/_cloudcannon')
-    : imageSrc ?? block.imagePath;
+    : imageSrc ?? block.image.imagePath;
 
 if (!src) {
   throw new Error(
-    `"${block.imagePath}" does not exist in glob: "src/assets/*.{jpeg,jpg,png,gif}"`
+    `"${block.image.imagePath}" does not exist in glob: "src/assets/*.{jpeg,jpg,png,gif}"`
   );
 }
-let blobColor = block.blobColor;
 ---
 
 <section class="hero-container">
   <div class="content">
-    <h1 class="heading">Astro Bookshop Starter</h1>
-    <p>
-      A starting point for those looking to build a website with Astro, using
-      Bookshop components in CloudCannon. Create your own copy, and start
-      creating your own components to use in the CloudCannon CMS.
-    </p>
+    <h1 class="heading">{block.heading.heading_text}</h1>
+    <div class="subheading-text" style={`color: ${block.subheading.color};`}>
+      <Markdown content={block.subheading.text} />
+    </div>
     <div class="buttons">
-      <button class="btn">
-        <Icon icon={block.icon} />CloudCannon
-      </button>
+      {
+        block.buttons.map((button) => {
+          return (
+            <Button
+              text={button.text}
+              icon={button.icon}
+              link={button.link}
+              borderOnly={button.borderOnly}
+              backgroundColor={button.backgroundColor}
+              hoverBrightness={button.hoverBrightness}
+              textColor={button.textColor}
+            />
+          );
+        })
+      }
     </div>
   </div>
 
   <Image
     class="blob"
-    style=`width: ${block.width}px; height: ${block.height}px;`
-    alt={block.altText}
-    width={block.width}
-    height={block.height}
+    style={`@media only screen and (min-width: 1024px){ width: ${block.image.width}px; height: ${block.image.height}px;}`}
+    alt={block.image.altText}
+    width={block.image.width}
+    height={block.image.height}
+    widths={[320, 500, 960, 1280, 1920]}
+    sizes={`(max-width: 640px) 320px, (max-width: 960px) 640px, (max-width: 1280px) 960px, 1280px`}
     src={src}
   />
 </section>
 
-<style define:vars={{ blobColor }} is:global>
+<style>
   .hero-container {
     display: flex;
     flex-direction: column;
@@ -76,18 +107,21 @@ let blobColor = block.blobColor;
     font-size: 3.8em;
     line-height: 1em;
     font-weight: 700;
-    /* background: -webkit-linear-gradient(to left, #eee 50%, #333); */
+    background: -webkit-linear-gradient(to left, #eee 50%, #333);
     background: linear-gradient(to left, #a0a2ff 50%, #000000);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     position: relative;
     z-index: 10;
   }
-  .content p {
-    margin: 20px 0;
-    font-size: 1.5em;
-    color: rgb(59, 61, 62);
-    line-height: 2.18rem;
+
+  .content {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .subheading-text {
+    margin-top: 1rem;
   }
 
   .buttons {
@@ -96,6 +130,7 @@ let blobColor = block.blobColor;
     gap: 1rem;
     max-width: fit-content;
     justify-content: center;
+    margin-top: 2rem;
   }
   button {
     padding: 0.75rem 1.2rem;
@@ -133,12 +168,11 @@ let blobColor = block.blobColor;
     font-size: 0.78em;
   }
   .blob {
-    box-shadow: 0 5px 5px 5px #034ad8;
     background-size: cover;
     -webkit-background-position: center;
     background-position: center center;
     margin: 20px;
-    animation: animate 5s ease-in-out infinite;
+    animation: animate 10s ease-in-out infinite;
     transition: all 1s ease-in-out;
   }
 

@@ -1,29 +1,64 @@
 ---
+import type { number } from 'astro/zod';
 import Icon from '../utility/icon';
 interface Props {
-  link: string;
   text: string;
   icon: string;
+  link: string;
+  borderOnly: boolean;
   backgroundColor: string;
+  hoverBrightness: number;
   textColor: string;
 }
 
 const block = Astro.props;
+const hoverBrightness = block.hoverBrightness;
 ---
 
-<button
-  style={`background-color: ${block.backgroundColor}; color: ${block.textColor};`}
-  class="button">
-  <a href={block.link}>
-    <span class="button__icon"><Icon icon={block.icon} /></span>{block.text}
-  </a>
-</button>
+{
+  block.borderOnly === true ? (
+    <button
+      style={`background-color: transparent; border: 2px solid ${block.textColor};`}
+      class="button">
+      <a style={`color: ${block.textColor}`} href={block.link}>
+        <span class="button__icon">
+          <Icon icon={block.icon} />
+        </span>
+        {block.text}
+      </a>
+    </button>
+  ) : (
+    <button
+      style={`background-color: ${block.backgroundColor};`}
+      class="button">
+      <a style={`color: ${block.textColor}`} href={block.link}>
+        <span class="button__icon">
+          <Icon icon={block.icon} />
+        </span>
+        {block.text}
+      </a>
+    </button>
+  )
+}
 
-<style>
+<style define:vars={{ hoverBrightness }}>
   .button {
-    padding: 0.75rem 1.5rem;
-    border-radius: 3px;
-    max-width: fit-content;
+    cursor: pointer;
+    border: none;
+    border-radius: 8px;
+    padding: 0;
+  }
+  .button a {
+    background: transparent;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    border-radius: 8px;
+    padding: 0.5rem 1.5rem;
+    font-size: 1rem;
+  }
+  .button a:hover {
+    backdrop-filter: brightness(var(--hoverBrightness));
   }
 
   .button__icon {

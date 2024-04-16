@@ -14,3 +14,14 @@ All commands are run from the root of the project, from a terminal:
 ## Todo
 
 - Do we need to choose between mdx and tailwind with Astro to be able to run `npm i` without the flag `--legacy-peer-deps`?
+
+## What we show
+
+Image optimization
+Font Awesome icons
+MDX pages for snippets
+Bookshop
+Data files
+Schemas
+CloudCannon input config
+Tailwind (Astro3) vs mdx (Astro4)

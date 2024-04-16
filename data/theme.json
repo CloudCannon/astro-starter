@@ -1,6 +1,12 @@
 {
   "primary_color": "#034AD8",
   "secondary_color": "#fffbf3",
-  "anchor_color": "#ffba08",
-  "background_effects_color": "#faaa8f"
+  "tertiary_color": "#ffba08",
+  "primary_font_color": "#393939",
+  "secondary_font_color": "#fffbf3",
+  "tertiary_font_color": "#ffba08",
+  "primary_light_font_color": "#034AD8",
+  "secondary_light_font_color": "#fffbf3",
+  "tertiary_light_font_color": "#ffba08",
+  "background_color": "#faaa8f"
 }
