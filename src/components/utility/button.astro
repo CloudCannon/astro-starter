@@ -1,7 +1,9 @@
 ---
+import Icon from '../utility/icon';
 interface Props {
   link: string;
   text: string;
+  icon: string;
   backgroundColor: string;
   textColor: string;
 }
@@ -13,7 +15,7 @@ const block = Astro.props;
   style={`background-color: ${block.backgroundColor}; color: ${block.textColor};`}
   class="button">
   <a href={block.link}>
-    {block.text}
+    <span class="button__icon"><Icon icon={block.icon} /></span>{block.text}
   </a>
 </button>
 
@@ -22,5 +24,9 @@ const block = Astro.props;
     padding: 0.75rem 1.5rem;
     border-radius: 3px;
     max-width: fit-content;
+  }
+
+  .button__icon {
+    width: 1rem;
   }
 </style>
