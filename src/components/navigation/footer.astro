@@ -1,0 +1,67 @@
+---
+import { footer, logo, logo_url } from '../../../data/navigation.json';
+import Icon from '../utility/icon';
+---
+
+<footer class="bg-slate-700 text-white">
+  <div class="footer grid grid-cols-3 items-end px-8 py-[48px]">
+    <p>&#169; {new Date().getFullYear()} {footer.copyright}</p>
+    <div class="flex flex-col gap-8 items-center">
+      <a href={logo_url}>
+        <img
+          class="footer__logo-image"
+          src={logo}
+          alt="Body of the Year Logo"
+        />
+      </a>
+      <ul class="flex gap-4">
+        {
+          footer.social.map((link) => {
+            return (
+              <li class="w-[2rem]">
+                <a href={link.url}>
+                  <Icon icon={link.social_icon} />
+                </a>
+              </li>
+            );
+          })
+        }
+      </ul>
+    </div>
+    <ul class="flex flex-col items-end">
+      {
+        footer.links.map((link) => {
+          return (
+            <li>
+              <a href={link.url}>{link.text}</a>
+            </li>
+          );
+        })
+      }
+    </ul>
+  </div>
+</footer>
+
+<style>
+  .footer {
+    max-width: var(--largeContainer);
+    display: grid;
+    margin: 0 auto;
+  }
+  .footer__logo-image {
+    display: block;
+    width: 64px;
+    rotate: 0deg;
+  }
+  .footer__logo-image:hover {
+    rotate: -10deg;
+    transition: rotate 0.25s;
+  }
+  .footer__logo-image:not(:hover) {
+    transition: rotate 0.25s;
+  }
+  .footer__logo-image: {
+    rotate: -10deg;
+    transition: rotate 0.5s;
+  }
+</style>

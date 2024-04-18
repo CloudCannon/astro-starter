@@ -27,7 +27,10 @@
     "punycode": "^2.3.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "tailwindcss": "^3.3.3"
+    "tailwindcss": "^3.3.3",
+    "@astrojs/alpinejs": "^0.4.0",
+    "@types/alpinejs": "^3.13.10",
+    "alpinejs": "^3.13.8"
   },
   "devDependencies": {
     "@astrojs/rss": "^3.0.0",
