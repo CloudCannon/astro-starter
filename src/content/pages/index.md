@@ -20,7 +20,7 @@ content_blocks:
   - _bookshop_name: hero
     heading:
       heading_text: Astro Bookshop Starter
-      color:
+      heading_gradient_color: '#a0a2ff'
     subheading:
       text: >-
         A starting point for those looking to build a website with Astro, using Bookshop components in CloudCannon. Create your own copy, and start creating your own components to use in the CloudCannon CMS.

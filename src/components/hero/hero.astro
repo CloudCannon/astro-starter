@@ -7,7 +7,7 @@ import Button from '../utility/button.astro';
 interface Props {
   heading: {
     heading_text: string;
-    color: string;
+    heading_gradient_color: string;
   };
   subheading: {
     text: string;
@@ -50,6 +50,8 @@ if (!src) {
     `"${block.image.imagePath}" does not exist in glob: "src/assets/*.{jpeg,jpg,png,gif}"`
   );
 }
+
+const headingGradientColor = block.heading.heading_gradient_color;
 ---
 
 <section class="hero-container">
@@ -89,7 +91,7 @@ if (!src) {
   />
 </section>
 
-<style>
+<style define:vars={{ headingGradientColor }}>
   .hero-container {
     display: flex;
     flex-direction: column;
@@ -108,7 +110,11 @@ if (!src) {
     line-height: 1em;
     font-weight: 700;
     background: -webkit-linear-gradient(to left, #eee 50%, #333);
-    background: linear-gradient(to left, #a0a2ff 50%, #000000);
+    background: linear-gradient(
+      to left,
+      var(--headingGradientColor) 50%,
+      #000000
+    );
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     position: relative;

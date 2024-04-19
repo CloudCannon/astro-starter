@@ -58,6 +58,22 @@ collection_groups:
 _inputs:
   backgroundColor:
     hidden: 'borderOnly'
+    type: select
+    options:
+      values: data.colors
+      value_key: value
+      preview:
+        text:
+          - key: name
+  textColor:
+    type: select
+    options:
+      values: data.colors
+      value_key: value
+      preview:
+        text:
+          - key: name
+
   layout:
     hidden: true
   date:
@@ -119,6 +135,8 @@ _inputs:
 data_config:
   icons:
     path: data/icons.json
+  colors:
+    path: data/colors.json
 
 _snippets_imports:
   mdx: true

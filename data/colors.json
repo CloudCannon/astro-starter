@@ -1,0 +1,12 @@
+[
+  { "name": "primary_color", "value": "#034AD8" },
+  { "name": "secondary_color", "value": "#a0a2ff" },
+  { "name": "tertiary_color", "value": "#ffba08" },
+  { "name": "primary_font_color", "value": "#393939" },
+  { "name": "secondary_font_color", "value": "#fffbf3" },
+  { "name": "tertiary_font_color", "value": "#ffba08" },
+  { "name": "primary_light_font_color", "value": "#034AD8" },
+  { "name": "secondary_light_font_color", "value": "#fffbf3" },
+  { "name": "tertiary_light_font_color", "value": "#ffba08" },
+  { "name": "background_color", "value": "#faaa8f" }
+]

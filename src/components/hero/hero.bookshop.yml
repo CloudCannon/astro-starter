@@ -3,18 +3,37 @@ spec:
   structures:
     - content_blocks
   label: Hero
-  description: Hero section
+  description: Text & animated border image. Buttons with icons.
   icon: 'cottage'
-  tags: ['block', 'hero']
+  tags:
+    - Image
+    - Animation
+    - Text
+    - Buttons
 
 # Defines the structure of this component, as well as the default values
 blueprint:
-  imagePath:
-  altText:
-  name:
-  width:
-  height:
-  icon: user
+  heading:
+    heading_text: Astro Bookshop Starter
+    heading_gradient_color: '#a0a2ff'
+  subheading:
+    text: >-
+      A starting point for those looking to build a website with Astro, using Bookshop components in CloudCannon. Create your own copy, and start creating your own components to use in the CloudCannon CMS.
+    color: '#393939'
+  image:
+    imagePath: /src/assets/images/featured-image-5.jpg
+    altText: An image
+    name: The hero with Astro Image
+    width: 600
+    height: 600
+  buttons:
+    - text: CloudCannon
+      icon: Envelope
+      link: 'https://www.cloudcannon.com'
+      borderOnly: false
+      backgroundColor: '#034ad8'
+      hoverBrightness: 0.85
+      textColor: '#ffffff'
 
 # Overrides any fields in the blueprint when viewing this component in the component browser
 preview:

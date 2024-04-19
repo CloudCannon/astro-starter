@@ -1,5 +1,4 @@
 ---
-import Styles from './styles.module.scss';
 import Button from '../utility/button.astro';
 const block = Astro.props;
 ---
@@ -16,6 +15,8 @@ const block = Astro.props;
         icon={block.button.icon}
         backgroundColor={block.button.backgroundColor}
         textColor={block.button.textColor}
+        borderOnly={block.button.borderOnly}
+        hoverBrightness={block.button.hoverBrightness}
       />
     </div>
   </div>
