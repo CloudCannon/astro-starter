@@ -53,3 +53,11 @@ _inputs:
     options:
       paths:
         uploads: src/assets
+  heading_gradient_color:
+    type: select
+    options:
+      values: data.colors
+      value_key: value
+      preview:
+        text:
+          - key: name
