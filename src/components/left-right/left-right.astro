@@ -1,31 +1,63 @@
 ---
 import Button from '../utility/button.astro';
+import Markdown from '../utility/markdown.astro';
 const block = Astro.props;
 ---
 
-<div class="left-right">
-  <div class="left-right__wrapper">
-    <img class="left-right__img" src={block.image} alt={block.image_alt} />
-    <div class="left-right__text">
-      <h2>{block.heading}</h2>
-      <p>{block.text}</p>
-      <Button
-        link={block.button.link}
-        text={block.button.text}
-        icon={block.button.icon}
-        background_color={block.button.background_color}
-        text_color={block.button.text_color}
-        border_only={block.button.border_only}
-        hover_brightness={block.button.hover_brightness}
-      />
-    </div>
-  </div>
+<div
+  class="left-right"
+  style={`background-color: ${block.heading.background_color};`}>
+  {
+    block.flipped ? (
+      <div class="left-right__wrapper">
+        <img class="left-right__img" src={block.image} alt={block.image_alt} />
+        <div class="left-right__text">
+          <h2 class="text-4xl" style={`color: ${block.heading.color};`}>
+            {block.heading.heading_text}
+          </h2>
+          <div style={`color: ${block.text.color};`}>
+            <Markdown content={block.text.content} />
+          </div>
+          <Button
+            link={block.button.link}
+            text={block.button.text}
+            icon={block.button.icon}
+            background_color={block.button.background_color}
+            text_color={block.button.text_color}
+            border_only={block.button.border_only}
+            hover_brightness={block.button.hover_brightness}
+          />
+        </div>
+      </div>
+    ) : (
+      <div class="left-right__wrapper">
+        <div class="left-right__text">
+          <h2 class="text-4xl" style={`color: ${block.heading.color};`}>
+            {block.heading.heading_text}
+          </h2>
+          <div>
+            <Markdown content={block.text} />
+          </div>
+          <Button
+            link={block.button.link}
+            text={block.button.text}
+            icon={block.button.icon}
+            background_color={block.button.background_color}
+            text_color={block.button.text_color}
+            border_only={block.button.border_only}
+            hover_brightness={block.button.hover_brightness}
+          />
+        </div>
+        <img class="left-right__img" src={block.image} alt={block.image_alt} />
+      </div>
+    )
+  }
+  <!-- <img class="left-right__img" src={block.image} alt={block.image_alt} /> -->
 </div>
 
 <style>
   .left-right {
     display: flex;
-    padding-block: 48px;
     align-items: center;
     overflow: hidden;
   }
@@ -39,17 +71,13 @@ const block = Astro.props;
     align-items: center;
     justify-content: space-between;
     gap: 2rem;
-    padding-block: 96px;
-    padding-inline: 48px;
+    padding-block: 48px;
+    padding-inline: 32px;
   }
   @media only screen and (min-width: 960px) {
     .left-right__wrapper {
       flex-direction: row;
-      padding-inline: 48px;
       gap: 4rem;
-    }
-    p {
-      font-size: 1.25rem;
     }
   }
   @media only screen and (min-width: 1280px) {
@@ -60,38 +88,14 @@ const block = Astro.props;
     }
   }
 
-  .left-right__text {
-    max-width: 600px;
-    font-size: 1.25rem;
-    color: rgb(59, 61, 62);
-    line-height: 1.75rem;
-  }
-  .left-right__text p {
-    margin-bottom: 1.5rem;
-  }
-
   .left-right__img {
     margin-top: 32px;
     min-width: 50%;
-  }
-
-  h2,
-  p {
-    color: inherit;
   }
 
   h2 {
     max-width: 620px;
     margin-top: 60px;
     margin-bottom: 30px;
-  }
-
-  p {
-    font-weight: lighter;
-    overflow-wrap: break-word;
-    max-width: 840px;
-    margin-bottom: 60px;
-    line-height: 1.7rem;
-    letter-spacing: 1px;
   }
 </style>
