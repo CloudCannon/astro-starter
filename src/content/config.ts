@@ -27,20 +27,14 @@ const blogCollection = defineCollection({
 });
 
 const pageSchema = z.object({
-  _schema: z.string().optional(),
   title: z.string(),
   content_blocks: z.array(z.any()),
-  page_size: z.undefined(),
-  description: z.string().optional(),
   seo: seoSchema,
 });
 
 const paginatedCollectionSchema = z.object({
-  _schema: z.literal('paginated_collection'),
   title: z.string(),
-  description: z.string().optional(),
   page_size: z.number().positive(),
-  content_blocks: z.undefined(),
   seo: seoSchema,
 });
 

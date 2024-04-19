@@ -1,15 +1,9 @@
 ---
 _schema: page
 title: Home
-description: >-
-  We believe that a good email marketing strategy is the key to growth. So we’re
-  helping you grow your business with tools and resources that make email
-  marketing easy.
 seo:
   page_description: >-
-    We believe that a good email marketing strategy is the key to growth. So
-    we’re helping you grow your business with tools and resources that make
-    email marketing easy.
+    A starting point for those looking to build a website with Astro, using Bookshop components in CloudCannon. Create your own copy, and start creating your own components to use in the CloudCannon CMS.
   canonical_url:
   featured_image:
   featured_image_alt:
@@ -33,15 +27,15 @@ content_blocks:
       width: 600
       height: 600
     buttons:
-      - text: CloudCannon
-        icon: Envelope
+      - text: GitHub
+        icon: Github
         link: 'https://www.cloudcannon.com'
         border_only: false
         background_color: '#034ad8'
         hover_brightness: 0.85
         text_color: '#ffffff'
       - text: CloudCannon
-        icon: Envelope
+        icon: CloudCannon
         link: 'https://www.cloudcannon.com'
         border_only: true
         background_color: '#034ad8'

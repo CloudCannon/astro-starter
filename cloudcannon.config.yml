@@ -24,10 +24,24 @@ _editables:
     copyformatting: true
     snippet: true
 collections_config:
-  data:
-    path: data
-    disable_add: true
-    disable_add_folder: true
+  pages:
+    path: src/content/pages
+    url: '/[slug]/'
+    output: true
+    icon: laptop_mac
+    _enabled_editors:
+      - visual
+    filter:
+      base: strict
+    add_options:
+      - name: Add New Page
+        schema: default
+        icon: post_add
+    schemas:
+      default:
+        name: New Page
+        path: schemas/page.md
+        remove_extra_inputs: false
   posts:
     path: src/content/blog
     parser: front-matter
@@ -57,15 +71,11 @@ collections_config:
         type: multiselect
         allow_create: true
         empty_type: array
-  pages:
-    path: src/content/pages
-    url: '/[slug]/'
-    output: true
-    icon: wysiwyg
-    _enabled_editors:
-      - visual
-    filter:
-      base: strict
+  data:
+    path: data
+    disable_add: true
+    disable_add_folder: true
+
 collection_groups:
   - heading: Pages
     collections:

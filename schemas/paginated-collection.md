@@ -1,7 +1,5 @@
 ---
-_schema: paginated_collection
 title:
-description:
 page_size: 2
 seo:
   page_description:
