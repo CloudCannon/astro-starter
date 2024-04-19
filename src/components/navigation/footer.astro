@@ -1,5 +1,5 @@
 ---
-import { footer, logo, logo_url } from '../../../data/navigation.json';
+import { footer } from '../../../data/navigation.json';
 import Icon from '../utility/icon';
 ---
 
@@ -7,10 +7,10 @@ import Icon from '../utility/icon';
   <div class="footer grid grid-cols-3 items-end px-8 py-[48px]">
     <p>&#169; {new Date().getFullYear()} {footer.copyright}</p>
     <div class="flex flex-col gap-8 items-center">
-      <a href={logo_url}>
+      <a href={footer.logo_url}>
         <img
           class="footer__logo-image"
-          src={logo}
+          src={footer.logo}
           alt="Body of the Year Logo"
         />
       </a>
