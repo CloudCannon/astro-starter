@@ -1,3 +1,52 @@
+.blog-text h1,
+.blog-text h2,
+.blog-text h3,
+.blog-text h4 {
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+}
+
+.blog-text h1 {
+  font-size: 3rem;
+  line-height: 3rem;
+}
+.blog-text h2 {
+  font-size: 2.5rem;
+  line-height: 2.5rem;
+}
+.blog-text h3 {
+  font-size: 2rem;
+  line-height: 2rem;
+}
+.blog-text h4 {
+  font-size: 1.5rem;
+  line-height: 1.5rem;
+}
+.blog-text p {
+  font-weight: 300;
+  letter-spacing: 0.5px;
+  line-height: 1.75rem;
+  margin-bottom: 1.5rem;
+}
+@media screen and (max-width: 768px) {
+  .blog-text h1 {
+    font-size: 2rem;
+    line-height: 3rem;
+  }
+  .blog-text h2 {
+    font-size: 1.75rem;
+    line-height: 2.5rem;
+  }
+  .blog-text h3 {
+    font-size: 1.5rem;
+    line-height: 2rem;
+  }
+  .blog-text h4 {
+    font-size: 1.25rem;
+    line-height: 1.5rem;
+  }
+}
+
 .pagination {
   display: flex;
   align-items: center;

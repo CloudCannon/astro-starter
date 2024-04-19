@@ -28,7 +28,7 @@ content_blocks:
       color: '#393939'
     image:
       image_path: /src/assets/images/featured-image-5.jpg
-      altText: An image
+      alt_text: An image
       name: The hero with Astro Image
       width: 600
       height: 600

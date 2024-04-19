@@ -2,7 +2,10 @@
 import { header } from '../../../data/navigation.json';
 ---
 
-<header class="header" x-data="{ open: false }">
+<header
+  class="header"
+  x-data="{ open: false }"
+  style={`background-color: ${header.background_color}; color: ${header.color};`}>
   <div class="header__container">
     <nav class="header__nav">
       <a class="header__logo-link" href={header.logo_url}>

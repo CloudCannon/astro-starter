@@ -36,11 +36,11 @@ const posts = await getCollection('blog');
 ---
 
 <Layout {...props}>
-  <main class="py-[96px]">
+  <main class="py-[48px] md:py-[96px] px-8">
     <article class="max-w-screen-md mx-auto">
       <img class="rounded-lg mb-4" src={image} alt={image_alt} />
       <h1
-        class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-semibold text-center">
+        class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-semibold sm:text-center">
         {title}
       </h1>
       <ul
@@ -72,22 +72,23 @@ const posts = await getCollection('blog');
         <slot />
       </div>
     </article>
-    <section class="max-w-screen-lg mx-auto pt-[48px]">
+    <section
+      class="max-w-screen-md mx-auto pt-[48px] flex flex-col items-center">
       <h2 class="text-2xl">Recent Posts</h2>
-      <div class="grid md:grid-cols-2 xl:grid-cols-3 gap-5 mt-5">
-        {posts.slice(0, 3).map((post, i) => <PostSummary post={post} />)}
+      <div class="grid sm:grid-cols-2 gap-5 mt-5">
+        {
+          posts.slice(0, 2).map((post, i) => (
+            <div class="max-w-[420px]">
+              <PostSummary post={post} />
+            </div>
+          ))
+        }
       </div>
     </section>
   </main>
 </Layout>
 
 <style>
-  .blog-text > p {
-    font-weight: 300;
-    letter-spacing: 0.5px;
-    line-height: 1.75rem;
-  }
-
   .post-size {
     position: relative;
   }

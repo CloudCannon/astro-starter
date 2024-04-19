@@ -11,7 +11,7 @@ export default function PostSummary({ post }) {
         <article className="block">
           <a href={`/blog/${slug}`}>
             <img
-              className="rounded-lg"
+              className="rounded-lg aspect-video"
               src={thumb_image_path}
               alt={thumb_image_alt}
               loading="lazy"

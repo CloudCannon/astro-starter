@@ -5,6 +5,7 @@ import Markdown from '../utility/markdown.astro';
 import Button from '../utility/button.astro';
 
 interface Props {
+  background_color: string;
   heading: {
     heading_text: string;
     heading_gradient_color: string;
@@ -15,7 +16,7 @@ interface Props {
   };
   image: {
     image_path: string;
-    altText: string;
+    alt_text: string;
     name: string;
     width: number;
     height: number;
@@ -54,41 +55,43 @@ if (!src) {
 const headingGradientColor = block.heading.heading_gradient_color;
 ---
 
-<section class="hero-container">
-  <div class="content">
-    <h1 class="heading">{block.heading.heading_text}</h1>
-    <div class="subheading-text" style={`color: ${block.subheading.color};`}>
-      <Markdown content={block.subheading.text} />
+<section style={`background-color: ${block.background_color};`}>
+  <div class="hero-container">
+    <div class="content">
+      <h1 class="heading">{block.heading.heading_text}</h1>
+      <div class="subheading-text" style={`color: ${block.subheading.color};`}>
+        <Markdown content={block.subheading.text} />
+      </div>
+      <div class="buttons">
+        {
+          block.buttons.map((button) => {
+            return (
+              <Button
+                text={button.text}
+                icon={button.icon}
+                link={button.link}
+                border_only={button.border_only}
+                background_color={button.background_color}
+                hover_brightness={button.hover_brightness}
+                text_color={button.text_color}
+              />
+            );
+          })
+        }
+      </div>
     </div>
-    <div class="buttons">
-      {
-        block.buttons.map((button) => {
-          return (
-            <Button
-              text={button.text}
-              icon={button.icon}
-              link={button.link}
-              border_only={button.border_only}
-              background_color={button.background_color}
-              hover_brightness={button.hover_brightness}
-              text_color={button.text_color}
-            />
-          );
-        })
-      }
-    </div>
-  </div>
 
-  <Image
-    class="blob"
-    style={`@media only screen and (min-width: 1024px){ width: ${block.image.width}px; height: ${block.image.height}px;}`}
-    alt={block.image.altText}
-    width={block.image.width}
-    height={block.image.height}
-    widths={[320, 500, 960, 1280, 1920]}
-    sizes={`(max-width: 640px) 320px, (max-width: 960px) 640px, (max-width: 1280px) 960px, 1280px`}
-    src={src}
-  />
+    <Image
+      class="blob"
+      style={`@media only screen and (min-width: 1024px){ width: ${block.image.width}px; height: ${block.image.height}px;}`}
+      alt={block.image.alt_text}
+      width={block.image.width}
+      height={block.image.height}
+      widths={[320, 500, 960, 1280, 1920]}
+      sizes={`(max-width: 640px) 320px, (max-width: 960px) 640px, (max-width: 1280px) 960px, 1280px`}
+      src={src}
+    />
+  </div>
 </section>
 
 <style define:vars={{ headingGradientColor }}>
@@ -99,8 +102,8 @@ const headingGradientColor = block.heading.heading_gradient_color;
     justify-content: space-between;
     align-items: center;
     padding-block: 48px;
-    padding-inline: 2rem;
-    max-width: 1280px;
+    padding-inline: var(--pagePadding);
+    max-width: var(--largeContainer);
     margin-inline: auto;
     overflow: hidden;
   }

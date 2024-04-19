@@ -99,6 +99,14 @@ _inputs:
       preview:
         text:
           - key: name
+  color:
+    type: select
+    options:
+      values: data.colors
+      value_key: value
+      preview:
+        text:
+          - key: name
   layout:
     hidden: true
   date:
