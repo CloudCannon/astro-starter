@@ -24,27 +24,16 @@ const block = Astro.props;
 
 <style>
   .left-right {
-    position: relative;
-    z-index: 10;
     display: flex;
-    padding-inline: 1rem;
-    padding-block: 36px;
+    padding-block: 48px;
     align-items: center;
     overflow: hidden;
   }
-  @media only screen and (min-width: 620px) {
-    .left-right {
-      padding-inline: 24px;
-      padding-block: 64px;
-    }
-  }
 
   .left-right__wrapper {
-    position: relative;
-    z-index: 10;
     width: 100%;
     max-width: 1280px;
-    margin: 90px auto;
+    margin: 0 auto;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -84,7 +73,6 @@ const block = Astro.props;
   .left-right__img {
     margin-top: 32px;
     min-width: 50%;
-    max-width: 618px;
   }
 
   h2,
