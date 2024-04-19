@@ -65,6 +65,7 @@ import {
   faGoogle,
   faStripe,
   faShopify,
+  faGithub,
 } from '@fortawesome/free-brands-svg-icons';
 
 export default function Icon({ icon }) {
@@ -256,5 +257,8 @@ export default function Icon({ icon }) {
   }
   if (icon === 'Shopify') {
     return <FontAwesomeIcon icon={faShopify} />;
+  }
+  if (icon === 'Github') {
+    return <FontAwesomeIcon icon={faGithub} />;
   }
 }

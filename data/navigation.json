@@ -14,7 +14,7 @@
     ]
   },
   "footer": {
-    "logo": "/images/logos/logo-wordmark-blue.png",
+    "logo": "/images/logos/logo-white.png",
     "logo_url": "/",
     "copyright": "MyCompany. All rights reserved.",
     "links": [
@@ -30,23 +30,19 @@
     "social": [
       {
         "link": "https://www.facebook.com/mycompany",
-        "social_icon": "ph-facebook-logo"
+        "social_icon": "Facebook"
       },
       {
         "link": "https://www.instagram.com/mycompany",
-        "social_icon": "ph-instagram-logo"
-      },
-      {
-        "link": "https://www.twitter.com/mycompany",
-        "social_icon": "ph-twitter-logo"
+        "social_icon": "Instagram"
       },
       {
         "link": "https://www.github.com/mycompany",
-        "social_icon": "ph-github-logo"
+        "social_icon": "Github"
       },
       {
         "link": "https://www.youtube.com/mycompany",
-        "social_icon": "ph-youtube-logo"
+        "social_icon": "Youtube"
       }
     ]
   }

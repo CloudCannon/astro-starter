@@ -14,12 +14,12 @@ import Icon from '../utility/icon';
           alt="Body of the Year Logo"
         />
       </a>
-      <ul class="flex gap-4">
+      <ul class="flex gap-4 items-center">
         {
           footer.social.map((link) => {
             return (
               <li class="w-[2rem]">
-                <a href={link.url}>
+                <a href={link.link}>
                   <Icon icon={link.social_icon} />
                 </a>
               </li>
@@ -33,7 +33,7 @@ import Icon from '../utility/icon';
         footer.links.map((link) => {
           return (
             <li>
-              <a href={link.url}>{link.text}</a>
+              <a href={link.link}>{link.text}</a>
             </li>
           );
         })
