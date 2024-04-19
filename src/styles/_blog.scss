@@ -28,6 +28,22 @@
   line-height: 1.75rem;
   margin-bottom: 1.5rem;
 }
+.blog-text ul li {
+  list-style: disc;
+  padding-block: 0.125rem;
+}
+.blog-text a {
+  color: blue;
+  cursor: pointer;
+}
+.blog-text sup {
+  vertical-align: super;
+  font-size: smaller;
+}
+.blog-text sub {
+  vertical-align: sub;
+  font-size: smaller;
+}
 @media screen and (max-width: 768px) {
   .blog-text h1 {
     font-size: 2rem;

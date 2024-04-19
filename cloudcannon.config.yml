@@ -2,6 +2,27 @@ paths:
   data: data
   static: 'public'
   uploads: public/images
+_editables:
+  content:
+    blockquote: true
+    bold: true
+    format: p h1 h2 h3 h4
+    italic: true
+    strike: true
+    subscript: true
+    superscript: true
+    underline: true
+    link: true
+    bulletedlist: true
+    numberedlist: true
+    embed: true
+    horizontalrule: true
+    image: true
+    undo: true
+    redo: true
+    removeformat: true
+    copyformatting: true
+    snippet: true
 collections_config:
   data:
     path: data
@@ -190,11 +211,36 @@ _snippets:
         - editor_key: alert_message
           source_key: alert_message
           type: string
+        - editor_key: color
+          source_key: color
+          type: string
+        - editor_key: icon
+          source_key: icon
+          type: string
     _inputs:
       background_color:
-        type: color
+        type: select
+        options:
+          values: data.colors
+          value_key: value
+          preview:
+            text:
+              - key: name
+      icon:
+        type: select
+        options:
+          values: data.icons
+      color:
+        type: select
+        options:
+          values: data.colors
+          value_key: value
+          preview:
+            text:
+              - key: name
       alert_message:
-        comment: This is the text for the alert
+        comment: This is the text displayed in the alert
+        type: textarea
   video:
     template: mdx_component
     inline: false

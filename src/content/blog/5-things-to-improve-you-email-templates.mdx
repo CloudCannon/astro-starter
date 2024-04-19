@@ -19,15 +19,20 @@ seo:
   no_index: false
 ---
 
-import Alert from '../../components/utility/markdown/Alert.astro';
+import Alert from '../../components/snippets/Alert.astro';
 
-import Tint from '../../components/utility/markdown/Tint.astro';
+import Tint from '../../components/snippets/Tint.astro';
 
-import Video from '../../components/utility/markdown/Video.astro';
+import Video from '../../components/snippets/Video.astro';
 
-import File from '../../components/utility/markdown/File.astro';
+import File from '../../components/snippets/File.astro';
 
-<Alert background_color="#FF0000" alert_message="This is an alert message" />
+<Alert
+  background_color="#FF0000"
+  alert_message="This is an alert message"
+  color="#ffffff"
+  icon="Envelope"
+/>
 
 <Tint tint_color="#ff0000">This text should be red</Tint>
 
@@ -44,8 +49,6 @@ send an email campaign, you expect it to reach your readers, right? But what if
 the emails go straight to your subscribers' spam folders instead of their
 inboxes? To make sure your emails reach their recipients successfully, follow
 these email delivery tips.
-
-<Alert background_color="#e66bd1" alert_message="Another alert" />
 
 ### Use an ESP
 

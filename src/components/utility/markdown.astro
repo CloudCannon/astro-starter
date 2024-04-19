@@ -7,13 +7,50 @@ const { content } = Astro.props;
 <div class="markdown-text" set:html={md.render(content)} />
 
 <style is:global>
+  .markdown-text h1,
+  .markdown-text h2,
+  .markdown-text h3,
+  .markdown-text h4 {
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+  }
+
+  .markdown-text h1 {
+    font-size: 3rem;
+    line-height: 3rem;
+  }
+  .markdown-text h2 {
+    font-size: 2.5rem;
+    line-height: 2.5rem;
+  }
+  .markdown-text h3 {
+    font-size: 2rem;
+    line-height: 2rem;
+  }
+  .markdown-text h4 {
+    font-size: 1.5rem;
+    line-height: 1.5rem;
+  }
   .markdown-text p {
     font-weight: 300;
     letter-spacing: 0.5px;
     line-height: 1.75rem;
+    margin-bottom: 1.5rem;
   }
   .markdown-text ul li {
     list-style: disc;
     padding-block: 0.125rem;
+  }
+  .markdown-text a {
+    color: blue;
+    cursor: pointer;
+  }
+  .markdown-text sup {
+    vertical-align: super;
+    font-size: smaller;
+  }
+  .markdown-text sub {
+    vertical-align: sub;
+    font-size: smaller;
   }
 </style>
