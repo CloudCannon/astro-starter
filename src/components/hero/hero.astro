@@ -14,7 +14,7 @@ interface Props {
     color: string;
   };
   image: {
-    imagePath: string;
+    image_path: string;
     altText: string;
     name: string;
     width: number;
@@ -25,10 +25,10 @@ interface Props {
       text: string;
       icon: string;
       link: string;
-      borderOnly: boolean;
-      backgroundColor: string;
-      hoverBrightness: number;
-      textColor: string;
+      border_only: boolean;
+      background_color: string;
+      hover_brightness: number;
+      text_color: string;
     },
   ];
 }
@@ -39,15 +39,15 @@ const images = import.meta.glob<{ default: ImageMetadata }>(
   { eager: true }
 );
 
-const imageSrc = images[block.image.imagePath]?.default;
+const imageSrc = images[block.image.image_path]?.default;
 const src =
   typeof imageSrc === 'string'
     ? imageSrc.replace(/^\./, '/_cloudcannon')
-    : imageSrc ?? block.image.imagePath;
+    : imageSrc ?? block.image.image_path;
 
 if (!src) {
   throw new Error(
-    `"${block.image.imagePath}" does not exist in glob: "src/assets/*.{jpeg,jpg,png,gif}"`
+    `"${block.image.image_path}" does not exist in glob: "src/assets/*.{jpeg,jpg,png,gif}"`
   );
 }
 
@@ -68,10 +68,10 @@ const headingGradientColor = block.heading.heading_gradient_color;
               text={button.text}
               icon={button.icon}
               link={button.link}
-              borderOnly={button.borderOnly}
-              backgroundColor={button.backgroundColor}
-              hoverBrightness={button.hoverBrightness}
-              textColor={button.textColor}
+              border_only={button.border_only}
+              background_color={button.background_color}
+              hover_brightness={button.hover_brightness}
+              text_color={button.text_color}
             />
           );
         })

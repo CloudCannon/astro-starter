@@ -18,10 +18,10 @@ blueprint:
     link:
     text:
     icon:
-    backgroundColor:
-    textColor:
-    borderOnly: false
-    hoverBrightness: 95
+    background_color:
+    text_color:
+    border_only: false
+    hover_brightness: 95
 
 # Overrides any fields in the blueprint when viewing this component in the component browser
 preview:

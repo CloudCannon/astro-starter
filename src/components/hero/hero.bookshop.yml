@@ -21,7 +21,7 @@ blueprint:
       A starting point for those looking to build a website with Astro, using Bookshop components in CloudCannon. Create your own copy, and start creating your own components to use in the CloudCannon CMS.
     color: '#393939'
   image:
-    imagePath: /src/assets/images/featured-image-5.jpg
+    image_path: /src/assets/images/featured-image-5.jpg
     altText: An image
     name: The hero with Astro Image
     width: 600
@@ -30,10 +30,10 @@ blueprint:
     - text: CloudCannon
       icon: Envelope
       link: 'https://www.cloudcannon.com'
-      borderOnly: false
-      backgroundColor: '#034ad8'
-      hoverBrightness: 0.85
-      textColor: '#ffffff'
+      border_only: false
+      background_color: '#034ad8'
+      hover_brightness: 0.85
+      text_color: '#ffffff'
 
 # Overrides any fields in the blueprint when viewing this component in the component browser
 preview:
@@ -48,7 +48,7 @@ _inputs:
     type: select
     options:
       values: data.icons
-  imagePath:
+  image_path:
     type: image
     options:
       paths:

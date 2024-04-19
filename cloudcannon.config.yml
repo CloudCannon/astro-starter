@@ -56,8 +56,34 @@ collection_groups:
     collections:
       - data
 _inputs:
-  backgroundColor:
-    hidden: 'borderOnly'
+  src:
+    type: image
+    label: Image Source
+  alt:
+    label: Image Alt Text
+    type: textarea
+    hidden: '!src'
+  button:
+    options:
+      preview:
+        icon: smart_button
+        text:
+          - key: text
+          - 'Button'
+        subtext:
+          - key: url
+          - 'Update button content'
+  seo:
+    options:
+      preview:
+        icon: query_stats
+        text:
+          - 'Search engine optimization'
+        subtext:
+          - key: page_description
+          - 'Update SEO values for the page'
+  background_color:
+    hidden: 'border_only'
     type: select
     options:
       values: data.colors
@@ -65,7 +91,7 @@ _inputs:
       preview:
         text:
           - key: name
-  textColor:
+  text_color:
     type: select
     options:
       values: data.colors
@@ -73,7 +99,6 @@ _inputs:
       preview:
         text:
           - key: name
-
   layout:
     hidden: true
   date:

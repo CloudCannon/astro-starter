@@ -4,22 +4,22 @@ interface Props {
   text: string;
   icon: string;
   link: string;
-  borderOnly: boolean;
-  backgroundColor: string;
-  hoverBrightness: number;
-  textColor: string;
+  border_only: boolean;
+  background_color: string;
+  hover_brightness: number;
+  text_color: string;
 }
 
 const block = Astro.props;
-const hoverBrightness = block.hoverBrightness;
+const hover_brightness = block.hover_brightness;
 ---
 
 {
-  block.borderOnly === true ? (
+  block.border_only === true ? (
     <button
-      style={`background-color: transparent; border: 2px solid ${block.textColor};`}
+      style={`background-color: transparent; border: 2px solid ${block.text_color};`}
       class="button">
-      <a style={`color: ${block.textColor}`} href={block.link}>
+      <a style={`color: ${block.text_color}`} href={block.link}>
         <span class="button__icon">
           <Icon icon={block.icon} />
         </span>
@@ -28,9 +28,9 @@ const hoverBrightness = block.hoverBrightness;
     </button>
   ) : (
     <button
-      style={`background-color: ${block.backgroundColor};`}
+      style={`background-color: ${block.background_color};`}
       class="button">
-      <a style={`color: ${block.textColor}`} href={block.link}>
+      <a style={`color: ${block.text_color}`} href={block.link}>
         <span class="button__icon">
           <Icon icon={block.icon} />
         </span>
@@ -40,7 +40,7 @@ const hoverBrightness = block.hoverBrightness;
   )
 }
 
-<style define:vars={{ hoverBrightness }}>
+<style define:vars={{ hover_brightness }}>
   .button {
     cursor: pointer;
     border: none;
@@ -57,7 +57,7 @@ const hoverBrightness = block.hoverBrightness;
     font-size: 1rem;
   }
   .button a:hover {
-    backdrop-filter: brightness(var(--hoverBrightness));
+    backdrop-filter: brightness(var(--hover_brightness));
   }
 
   .button__icon {

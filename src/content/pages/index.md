@@ -26,7 +26,7 @@ content_blocks:
         A starting point for those looking to build a website with Astro, using Bookshop components in CloudCannon. Create your own copy, and start creating your own components to use in the CloudCannon CMS.
       color: '#393939'
     image:
-      imagePath: /src/assets/images/featured-image-5.jpg
+      image_path: /src/assets/images/featured-image-5.jpg
       altText: An image
       name: The hero with Astro Image
       width: 600
@@ -35,17 +35,17 @@ content_blocks:
       - text: CloudCannon
         icon: Envelope
         link: 'https://www.cloudcannon.com'
-        borderOnly: false
-        backgroundColor: '#034ad8'
-        hoverBrightness: 0.85
-        textColor: '#ffffff'
+        border_only: false
+        background_color: '#034ad8'
+        hover_brightness: 0.85
+        text_color: '#ffffff'
       - text: CloudCannon
         icon: Envelope
         link: 'https://www.cloudcannon.com'
-        borderOnly: true
-        backgroundColor: '#034ad8'
-        hoverBrightness: 0.95
-        textColor: '#034ad8'
+        border_only: true
+        background_color: '#034ad8'
+        hover_brightness: 0.95
+        text_color: '#034ad8'
   - _bookshop_name: left-right
     bg_image: /images/backgrounds/textures/home-waves.svg
     heading: Keep what you need. Delete the rest.
@@ -63,6 +63,6 @@ content_blocks:
       link:
       text:
       icon:
-      backgroundColor:
-      textColor:
+      background_color:
+      text_color:
 ---
