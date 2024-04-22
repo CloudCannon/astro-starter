@@ -143,10 +143,11 @@ if (!src) {
     padding-inline: 32px;
   }
   .left-right__wrapper img {
-    order: 2;
+    /* order: 2; TODO: Change this to a tailwind class so we can use flipped properly */
+    width: 100%;
   }
   .left-right__wrapper .left-right__text {
-    order: 1;
+    /* order: 1; */
   }
   @media only screen and (min-width: 960px) {
     .left-right__wrapper {
@@ -154,10 +155,11 @@ if (!src) {
       gap: 4rem;
     }
     .left-right__wrapper img {
-      order: 1;
+      /* order: 1; */
+      width: 50%;
     }
     .left-right__wrapper .left-right__text {
-      order: 1;
+      /* order: 2; */
     }
   }
   @media only screen and (min-width: 1280px) {
@@ -168,9 +170,8 @@ if (!src) {
     }
   }
 
-  .left-right__img {
+  .left-right__wrapper img {
     margin-top: 32px;
-    min-width: 50%;
   }
 
   h2 {
