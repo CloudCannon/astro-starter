@@ -36,19 +36,19 @@ interface Props {
 
 const block = Astro.props;
 const images = import.meta.glob<{ default: ImageMetadata }>(
-  '/src/assets/*.{jpeg,jpg,png,gif}',
+  '/src/assets/images/*.{jpeg,jpg,png,gif}',
   { eager: true }
 );
 
 const imageSrc = images[block.image.image_path]?.default;
 const src =
   typeof imageSrc === 'string'
-    ? imageSrc.replace(/^\./, '/_cloudcannon')
+    ? imageSrc.replace(/^\//, '/_cloudcannon/')
     : imageSrc ?? block.image.image_path;
 
 if (!src) {
   throw new Error(
-    `"${block.image.image_path}" does not exist in glob: "src/assets/*.{jpeg,jpg,png,gif}"`
+    `"${block.image.image_path}" does not exist in glob: "src/assets/images/*.{jpeg,jpg,png,gif}"`
   );
 }
 
@@ -80,17 +80,28 @@ const headingGradientColor = block.heading.heading_gradient_color;
         }
       </div>
     </div>
-
-    <Image
-      class="blob"
-      style={`@media only screen and (min-width: 1024px){ width: ${block.image.width}px; height: ${block.image.height}px;}`}
-      alt={block.image.alt_text}
-      width={block.image.width}
-      height={block.image.height}
-      widths={[320, 500, 960, 1280, 1920]}
-      sizes={`(max-width: 640px) 320px, (max-width: 960px) 640px, (max-width: 1280px) 960px, 1280px`}
-      src={src}
-    />
+    {
+      ENV_BOOKSHOP_LIVE ? (
+        <Image
+          class="blob"
+          alt={block.image.alt_text}
+          width={block.image.width}
+          height={block.image.height}
+          src={src}
+        />
+      ) : (
+        <Image
+          class="blob"
+          style={`@media only screen and (min-width: 1024px){ width: ${block.image.width}px; height: ${block.image.height}px;}`}
+          alt={block.image.alt_text}
+          width={block.image.width}
+          height={block.image.height}
+          widths={[320, 500, 960, 1280, 1920]}
+          sizes={`(max-width: 640px) 320px, (max-width: 960px) 640px, (max-width: 1280px) 960px, 1280px`}
+          src={src}
+        />
+      )
+    }
   </div>
 </section>
 
