@@ -208,7 +208,8 @@ generator:
     markdown: markdown-it
     markdown-it:
       html: true
-      linkify: true
+      linkify: false
+      breaks: true
 
 _snippets_imports:
   mdx: true
