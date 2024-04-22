@@ -54,8 +54,6 @@ if (!src) {
     block.flipped ? (
       <div class="left-right__wrapper">
         <Image
-          width={1000}
-          height={1000}
           alt={block.image.alt_text}
           widths={[320, 500, 960, 1280, 1920]}
           sizes={`(max-width: 640px) 320px, (max-width: 960px) 640px, (max-width: 1280px) 960px, 1280px`}
@@ -129,10 +127,22 @@ if (!src) {
     padding-block: 48px;
     padding-inline: 32px;
   }
+  .left-right__wrapper > img {
+    order: 2;
+  }
+  .left-right__wrapper .left-right__text {
+    order: 1;
+  }
   @media only screen and (min-width: 960px) {
     .left-right__wrapper {
       flex-direction: row;
       gap: 4rem;
+    }
+    .left-right__wrapper > img {
+      order: 1;
+    }
+    .left-right__wrapper .left-right__text {
+      order: 1;
     }
   }
   @media only screen and (min-width: 1280px) {
