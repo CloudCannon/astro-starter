@@ -12,7 +12,7 @@ interface Props {
     color: string;
   };
   text: {
-    content: string;
+    markdown_content: string;
     color: string;
   };
   image: {
@@ -84,7 +84,7 @@ if (!src) {
             {block.heading.heading_text}
           </h2>
           <div style={`color: ${block.text.color};`}>
-            <Markdown content={block.text.content} />
+            <Markdown content={block.text.markdown_content} />
           </div>
           <Button
             link={block.button.link}

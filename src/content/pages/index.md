@@ -44,22 +44,24 @@ content_blocks:
         text_color: '#034ad8'
   - _bookshop_name: left-right
     background_color: '#ffffff'
-    flipped: true
     heading:
       heading_text: Keep what you need. Delete the rest.
       color: '#393939'
     text:
-      content: >-
+      markdown_content: >-
         **Bold**<br>*Italic*<br><u>Underlined</u><br><s>Strike</s><br><sub>Sub</sub><br><sup>Super</sup>
       color: '#393939'
     image:
       image_path: /src/assets/images/undraw-hello.svg
       alt: An image
       alt_text: An image
+    flipped: true
     button:
-      link:
       text:
       icon:
+      link:
+      border_only:
       background_color:
+      hover_brightness:
       text_color:
 ---

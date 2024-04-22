@@ -11,7 +11,7 @@ interface Props {
     heading_gradient_color: string;
   };
   subheading: {
-    text: string;
+    markdown_content: string;
     color: string;
   };
   image: {
@@ -57,7 +57,7 @@ const headingGradientColor = block.heading.heading_gradient_color;
     <div class="content">
       <h1 class="heading">{block.heading.heading_text}</h1>
       <div class="subheading-text" style={`color: ${block.subheading.color};`}>
-        <Markdown content={block.subheading.text} />
+        <Markdown content={block.subheading.markdown_content} />
       </div>
       <div class="buttons">
         {

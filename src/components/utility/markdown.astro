@@ -1,6 +1,6 @@
 ---
 import markdownit from 'markdown-it';
-const md = markdownit();
+const md = markdownit({ html: true });
 const { content } = Astro.props;
 ---
 

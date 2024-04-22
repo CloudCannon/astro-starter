@@ -75,6 +75,15 @@ collections_config:
     path: data
     disable_add: true
     disable_add_folder: true
+    _inputs:
+      colors[*]:
+        options:
+          preview:
+            icon: palette
+      value:
+        type: color
+      icons:
+        comment: Add an icon from the list of [Font Awesome icons](https://fontawesome.com/search?o=r&m=free). Then add it to the ```src/components/utility/icon.jsx``` file, following the existing pattern.
 
 collection_groups:
   - heading: Pages
@@ -88,32 +97,37 @@ collection_groups:
       - data
 
 _inputs:
-  src:
+  markdown_content:
+    type: markdown
+    options:
+      blockquote: true
+      bold: true
+      format: p h1 h2 h3 h4
+      italic: true
+      strike: true
+      subscript: true
+      superscript: true
+      underline: true
+      link: true
+      bulletedlist: true
+      numberedlist: true
+      embed: true
+      horizontalrule: true
+      image: true
+      undo: true
+      redo: true
+      removeformat: true
+      copyformatting: true
+  image_path:
     type: image
-    label: Image Source
-  alt:
+  alt_text:
     label: Image Alt Text
     type: textarea
     hidden: '!src'
-  button:
-    options:
-      preview:
-        icon: smart_button
-        text:
-          - key: text
-          - 'Button'
-        subtext:
-          - key: url
-          - 'Update button content'
-  seo:
-    options:
-      preview:
-        icon: query_stats
-        text:
-          - 'Search engine optimization'
-        subtext:
-          - key: page_description
-          - 'Update SEO values for the page'
+  width:
+    type: number
+  height:
+    type: number
   background_color:
     hidden: 'border_only'
     type: select
@@ -139,12 +153,57 @@ _inputs:
       preview:
         text:
           - key: name
+  icon:
+    type: select
+    options:
+      values: data.icons
+  button:
+    options:
+      preview:
+        icon: smart_button
+        text:
+          - key: text
+          - 'Button'
+        subtext:
+          - key: link
+          - 'Update button content'
+  buttons[*]:
+    options:
+      preview:
+        icon: smart_button
+        text:
+          - key: text
+          - 'Button'
+        subtext:
+          - key: link
+          - 'Update button content'
+  button_icon:
+    type: select
+    options:
+      values: data.icons
+  button_link:
+    type: url
+  border_only:
+    type: switch
+  hover_brightness:
+    type: range
+    options:
+      min: 0
+      max: 1.5
+      step: 0.05
+  seo:
+    options:
+      preview:
+        icon: query_stats
+        text:
+          - 'Search engine optimization'
+        subtext:
+          - key: page_description
+          - 'Update SEO values for the page'
   layout:
     hidden: true
   date:
     instance_value: now
-  title_suffix:
-    comment: Added at the end of the title and highlighted in a different color
   page_size:
     type: number
     comment: The number of collection items to list per page
@@ -152,29 +211,33 @@ _inputs:
     options:
       preview:
         icon: link
-  links:
+  links[*]:
     options:
       preview:
         icon: link
-  items:
-    options:
-      preview:
-        icon: link
-  social[*].icon:
+        text:
+          - key: text
+          - 'Link'
+        subtext:
+          - key: link
+          - 'Add a social link'
+  social_icon:
     type: select
     options:
-      values:
-        - ph-facebook-logo
-        - ph-instagram-logo
-        - ph-twitter-logo
-        - ph-github-logo
-        - ph-youtube-logo
+      values: data.icons
+  social[*]:
+    options:
+      preview:
+        icon: query_stats
+  logo:
+    type: image
+    options:
+      static: public
+      uploads: public/images
   logo_url:
     comment: Link for the logo in the top left of the footer
   copyright:
     comment: Automatically prefixed with the current year
-  isActive:
-    type: switch
   page_description:
     comment: Defaults to the description set in the Site SEO data file
   favicon_icon:
@@ -188,9 +251,16 @@ _inputs:
   featured_image:
     comment: Defaults to the image set in the Site SEO data file
   open_graph_type:
+    type: select
+    options:
+      values:
+        - website
+        - article
     comment: Defaults to the type 'website'
   author_twitter_handle:
     comment: Defaults to the twitter site value set in the Site SEO data file
+  twitter_site:
+    type: url
   no_index:
     type: checkbox
     comment:

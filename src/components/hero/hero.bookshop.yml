@@ -18,39 +18,44 @@ blueprint:
     heading_text: Astro Bookshop Starter
     heading_gradient_color: '#a0a2ff'
   subheading:
-    text: >-
+    markdown_content: >-
       A starting point for those looking to build a website with Astro, using Bookshop components in CloudCannon. Create your own copy, and start creating your own components to use in the CloudCannon CMS.
     color: '#393939'
   image:
     image_path: /src/assets/images/featured-image-5.jpg
     alt_text: An image
   buttons:
-    - text: CloudCannon
-      icon: Envelope
-      link: 'https://www.cloudcannon.com'
+    - button_text:
+      button_icon:
+      button_link:
       border_only: false
-      background_color: '#034ad8'
+      background_color:
       hover_brightness: 0.85
-      text_color: '#ffffff'
+      text_color:
 
 # Overrides any fields in the blueprint when viewing this component in the component browser
 preview:
 
 # Any extra CloudCannon inputs configuration to apply to the blueprint
 _inputs:
-  width:
-    type: number
-  height:
-    type: number
-  icon:
-    type: select
+  heading:
     options:
-      values: data.icons
-  image_path:
-    type: image
+      preview:
+        icon: 'short_text'
+        text:
+          - key: heading_text
+          - Heading
+        subtext:
+          - key: heading_gradient_color
+          - 'Update heading gradient color and text content.'
+  subheading:
     options:
-      paths:
-        uploads: src/assets
+      preview:
+        icon: 'short_text'
+        text:
+          - Subheading
+        subtext:
+          - 'Update subheading content and color.'
   heading_gradient_color:
     type: select
     options:
@@ -59,24 +64,22 @@ _inputs:
       preview:
         text:
           - key: name
-  text:
-    type: markdown
+  image:
     options:
-      blockquote: true
-      bold: true
-      format: p h1 h2 h3 h4
-      italic: true
-      strike: true
-      subscript: true
-      superscript: true
-      underline: true
-      link: true
-      bulletedlist: true
-      numberedlist: true
-      embed: true
-      horizontalrule: true
-      image: true
-      undo: true
-      redo: true
-      removeformat: true
-      copyformatting: true
+      preview:
+        icon: 'image'
+        text:
+          - key: alt_text
+          - 'Image'
+        subtext:
+          - key: image_path
+          - 'Update image'
+        image:
+          - key: image_path
+        gallery:
+          text:
+            - key: alt_text
+            - 'Image'
+          image:
+            - key: image_path
+          icon: 'image'
