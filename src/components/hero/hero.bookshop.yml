@@ -24,9 +24,6 @@ blueprint:
   image:
     image_path: /src/assets/images/featured-image-5.jpg
     alt_text: An image
-    name: The hero with Astro Image
-    width: 600
-    height: 600
   buttons:
     - text: CloudCannon
       icon: Envelope
