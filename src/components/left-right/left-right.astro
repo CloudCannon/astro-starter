@@ -55,19 +55,21 @@ if (!src) {
       <div class="left-right__wrapper">
         {ENV_BOOKSHOP_LIVE ? (
           <img
+            class="order-2 lg:order-1"
             style="@media screen and (max-width: 640px){max-width: 320px }; @media screen and (max-width: 960px){max-width: 500px }; @media screen and (min-width: 960px){max-width: 640px }"
             src={src}
             alt={block.image.alt_text}
           />
         ) : (
           <Image
+            class="order-2 lg:order-1"
             alt={block.image.alt_text}
             widths={[320, 500, 640]}
             sizes={`(max-width: 640px) 320px, (max-width: 960px) 500px, (max-width: 1280px) 640px`}
             src={src}
           />
         )}
-        <div class="left-right__text">
+        <div class="left-right__text order-1 lg:order-2">
           <h2 class="text-4xl" style={`color: ${block.heading.color};`}>
             {block.heading.heading_text}
           </h2>
@@ -145,11 +147,12 @@ if (!src) {
   .left-right__wrapper img {
     /* order: 2; TODO: Change this to a tailwind class so we can use flipped properly */
     width: 100%;
+    max-width: 500px;
   }
   .left-right__wrapper .left-right__text {
     /* order: 1; */
   }
-  @media only screen and (min-width: 960px) {
+  @media only screen and (min-width: 768px) {
     .left-right__wrapper {
       flex-direction: row;
       gap: 4rem;
@@ -162,9 +165,8 @@ if (!src) {
       /* order: 2; */
     }
   }
-  @media only screen and (min-width: 1280px) {
+  @media only screen and (min-width: 1024px) {
     .left-right__wrapper {
-      flex-direction: row;
       padding-inline: 48px;
       gap: 10rem;
     }

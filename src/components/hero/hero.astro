@@ -177,7 +177,15 @@ const headingGradientColor = block.heading.heading_gradient_color;
     button i {
       font-size: 0.78em;
     }
+
+    .blob {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+    }
     .blob > img {
+      max-width: 600px;
+      width: 100%;
       background-size: cover;
       -webkit-background-position: center;
       background-position: center center;
@@ -191,18 +199,21 @@ const headingGradientColor = block.heading.heading_gradient_color;
         flex-direction: row;
       }
     }
-    @media only screen and (min-width: 800px) {
+    @media only screen and (min-width: 960px) {
       .hero-container {
         flex-direction: row;
       }
       .content {
         width: 50%;
       }
+      .blob {
+        width: 50%;
+      }
       .buttons {
         flex-direction: column;
       }
     }
-    @media only screen and (min-width: 1000px) {
+    @media only screen and (min-width: 1280px) {
       .buttons {
         flex-direction: row;
       }
