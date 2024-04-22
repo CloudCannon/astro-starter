@@ -53,12 +53,20 @@ if (!src) {
   {
     block.flipped ? (
       <div class="left-right__wrapper">
-        <Image
-          alt={block.image.alt_text}
-          widths={[320, 500, 960, 1280, 1920]}
-          sizes={`(max-width: 640px) 320px, (max-width: 960px) 640px, (max-width: 1280px) 960px, 1280px`}
-          src={src}
-        />
+        {ENV_BOOKSHOP_LIVE ? (
+          <img
+            style="@media screen and (max-width: 640px){max-width: 320px }; @media screen and (max-width: 960px){max-width: 500px }; @media screen and (min-width: 960px){max-width: 640px }"
+            src={src}
+            alt={block.image.alt_text}
+          />
+        ) : (
+          <Image
+            alt={block.image.alt_text}
+            widths={[320, 500, 640]}
+            sizes={`(max-width: 640px) 320px, (max-width: 960px) 500px, (max-width: 1280px) 640px`}
+            src={src}
+          />
+        )}
         <div class="left-right__text">
           <h2 class="text-4xl" style={`color: ${block.heading.color};`}>
             {block.heading.heading_text}
@@ -96,12 +104,20 @@ if (!src) {
             hover_brightness={block.button.hover_brightness}
           />
         </div>
-        <Image
-          alt={block.image.alt_text}
-          widths={[320, 500, 960, 1280, 1920]}
-          sizes={`(max-width: 640px) 320px, (max-width: 960px) 640px, (max-width: 1280px) 960px, 1280px`}
-          src={src}
-        />
+        {ENV_BOOKSHOP_LIVE ? (
+          <img
+            style="@media screen and (max-width: 640px){max-width: 320px }; @media screen and (max-width: 960px){max-width: 500px }; @media screen and (min-width: 960px){max-width: 640px }"
+            src={src}
+            alt={block.image.alt_text}
+          />
+        ) : (
+          <Image
+            alt={block.image.alt_text}
+            widths={[320, 500, 640]}
+            sizes={`(max-width: 640px) 320px, (max-width: 960px) 500px, (max-width: 1280px) 640px`}
+            src={src}
+          />
+        )}
       </div>
     )
   }
