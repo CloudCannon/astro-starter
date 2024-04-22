@@ -80,30 +80,17 @@ const headingGradientColor = block.heading.heading_gradient_color;
         }
       </div>
     </div>
-    {
-      ENV_BOOKSHOP_LIVE ? (
-        <div class="blob">
-          <Image
-            alt={block.image.alt_text}
-            width={block.image.width}
-            height={block.image.height}
-            src={src}
-          />
-        </div>
-      ) : (
-        <div class="blob">
-          <Image
-            style={`@media only screen and (min-width: 1024px){ width: ${block.image.width}px; height: ${block.image.height}px;}`}
-            alt={block.image.alt_text}
-            width={block.image.width}
-            height={block.image.height}
-            widths={[320, 500, 960, 1280, 1920]}
-            sizes={`(max-width: 640px) 320px, (max-width: 960px) 640px, (max-width: 1280px) 960px, 1280px`}
-            src={src}
-          />
-        </div>
-      )
-    }
+    <div class="blob">
+      <Image
+        style={`@media only screen and (min-width: 1024px){ width: ${block.image.width}px; height: ${block.image.height}px;}`}
+        alt={block.image.alt_text}
+        width={block.image.width}
+        height={block.image.height}
+        widths={[320, 500, 960, 1280, 1920]}
+        sizes={`(max-width: 640px) 320px, (max-width: 960px) 640px, (max-width: 1280px) 960px, 1280px`}
+        src={src}
+      />
+    </div>
   </div>
 </section>
 
@@ -187,7 +174,7 @@ const headingGradientColor = block.heading.heading_gradient_color;
   button i {
     font-size: 0.78em;
   }
-  .blob img {
+  .blob > img {
     background-size: cover;
     -webkit-background-position: center;
     background-position: center center;
