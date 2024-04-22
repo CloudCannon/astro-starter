@@ -203,6 +203,13 @@ data_config:
   colors:
     path: data/colors.json
 
+generator:
+  metadata:
+    markdown: markdown-it
+    markdown-it:
+      html: true
+      linkify: true
+
 _snippets_imports:
   mdx: true
 _snippets:
