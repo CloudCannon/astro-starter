@@ -1,7 +1,7 @@
 paths:
   data: data
-  static: 'public'
-  uploads: public/images
+  static: ''
+  uploads: src/assets/images
 _editables:
   content:
     blockquote: true
