@@ -3,7 +3,9 @@ _schema: page
 title: Home
 seo:
   page_description: >-
-    A starting point for those looking to build a website with Astro, using Bookshop components in CloudCannon. Create your own copy, and start creating your own components to use in the CloudCannon CMS.
+    A starting point for those looking to build a website with Astro, using
+    Bookshop components in CloudCannon. Create your own copy, and start creating
+    your own components to use in the CloudCannon CMS.
   canonical_url:
   featured_image:
   featured_image_alt:
@@ -18,7 +20,9 @@ content_blocks:
       heading_gradient_color: '#a0a2ff'
     subheading:
       text: >-
-        A starting point for those looking to build a website with Astro, using Bookshop components in CloudCannon. Create your own copy, and start creating your own components to use in the CloudCannon CMS.
+        A starting point for those looking to build a website with Astro, using
+        Bookshop components in CloudCannon. Create your own copy, and start
+        creating your own components to use in the CloudCannon CMS.
       color: '#393939'
     image:
       image_path: /src/assets/images/featured-image-5.jpg
@@ -26,14 +30,14 @@ content_blocks:
     buttons:
       - text: GitHub
         icon: Github
-        link: 'https://www.cloudcannon.com'
+        link: https://www.cloudcannon.com
         border_only: false
         background_color: '#034ad8'
         hover_brightness: 0.85
         text_color: '#ffffff'
       - text: CloudCannon
         icon: CloudCannon
-        link: 'https://www.cloudcannon.com'
+        link: https://www.cloudcannon.com
         border_only: true
         background_color: '#034ad8'
         hover_brightness: 0.95
@@ -46,16 +50,11 @@ content_blocks:
       color: '#393939'
     text:
       content: >-
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-        veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-        commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-        velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-        cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id
-        est laborum.
+        **Bold**<br>*Italic*<br><u>Underlined</u><br><s>Strike</s><br><sub>Sub</sub><br><sup>Super</sup>
       color: '#393939'
     image:
       image_path: /src/assets/images/undraw-hello.svg
+      alt: An image
       alt_text: An image
     button:
       link:
