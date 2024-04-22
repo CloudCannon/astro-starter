@@ -78,134 +78,140 @@ const headingGradientColor = block.heading.heading_gradient_color;
       </div>
     </div>
     <div class="blob">
-      <Image
-        alt={block.image.alt_text}
-        widths={[320, 500, 960, 1280, 1920]}
-        sizes={`(max-width: 640px) 320px, (max-width: 960px) 640px, (max-width: 1280px) 960px, 1280px`}
-        src={src}
-      />
+      {
+        ENV_BOOKSHOP_LIVE ? (
+          <img src={src} alt={block.image.alt_text} />
+        ) : (
+          <Image
+            alt={block.image.alt_text}
+            widths={[320, 500, 960, 1280, 1920]}
+            sizes={`(max-width: 640px) 320px, (max-width: 960px) 640px, (max-width: 1280px) 960px, 1280px`}
+            src={src}
+          />
+        )
+      }
     </div>
   </div>
-</section>
 
-<style define:vars={{ headingGradientColor }}>
-  .hero-container {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    justify-content: space-between;
-    align-items: center;
-    padding-block: 48px;
-    padding-inline: var(--pagePadding);
-    max-width: var(--largeContainer);
-    margin-inline: auto;
-    overflow: hidden;
-  }
-
-  .content h1 {
-    font-size: 3.8em;
-    line-height: 1em;
-    font-weight: 700;
-    background: -webkit-linear-gradient(to left, #eee 50%, #333);
-    background: linear-gradient(
-      to left,
-      var(--headingGradientColor) 50%,
-      #000000
-    );
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-  }
-
-  .content {
-    display: flex;
-    flex-direction: column;
-  }
-
-  .subheading-text {
-    margin-top: 1rem;
-  }
-
-  .buttons {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    max-width: fit-content;
-    justify-content: center;
-    margin-top: 2rem;
-  }
-  button {
-    padding: 0.75rem 1.2rem;
-    border-radius: 20px;
-    font-size: 1.25em;
-    cursor: pointer;
-    transition: all ease-in-out 0.15s;
-    align-items: center;
-    justify-content: center;
-  }
-  .btn {
-    background: #4384e6;
-    color: #fff;
-    border: none;
-    display: flex;
-    gap: 8px;
-    padding: 1rem;
-  }
-  .btn svg {
-    width: 1rem;
-  }
-
-  .btn:hover {
-    background: #0066ff;
-  }
-
-  .btn-outline {
-    border: 1px solid #0d6efd;
-    background: transparent;
-    color: #0d6efd;
-    margin-left: 5px;
-  }
-
-  button i {
-    font-size: 0.78em;
-  }
-  .blob > img {
-    background-size: cover;
-    -webkit-background-position: center;
-    background-position: center center;
-    margin: 20px;
-    animation: animate 10s ease-in-out infinite;
-    transition: all 1s ease-in-out;
-  }
-
-  @media only screen and (min-width: 400px) {
-    .buttons {
-      flex-direction: row;
-    }
-  }
-  @media only screen and (min-width: 800px) {
+  <style define:vars={{ headingGradientColor }}>
     .hero-container {
-      flex-direction: row;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      justify-content: space-between;
+      align-items: center;
+      padding-block: 48px;
+      padding-inline: var(--pagePadding);
+      max-width: var(--largeContainer);
+      margin-inline: auto;
+      overflow: hidden;
     }
+
+    .content h1 {
+      font-size: 3.8em;
+      line-height: 1em;
+      font-weight: 700;
+      background: -webkit-linear-gradient(to left, #eee 50%, #333);
+      background: linear-gradient(
+        to left,
+        var(--headingGradientColor) 50%,
+        #000000
+      );
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
     .content {
-      width: 50%;
-    }
-    .buttons {
+      display: flex;
       flex-direction: column;
     }
-  }
-  @media only screen and (min-width: 1000px) {
-    .buttons {
-      flex-direction: row;
-    }
-  }
 
-  @keyframes animate {
-    0%,
-    100% {
-      border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+    .subheading-text {
+      margin-top: 1rem;
     }
-    50% {
-      border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%;
+
+    .buttons {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      max-width: fit-content;
+      justify-content: center;
+      margin-top: 2rem;
     }
-  }
-</style>
+    button {
+      padding: 0.75rem 1.2rem;
+      border-radius: 20px;
+      font-size: 1.25em;
+      cursor: pointer;
+      transition: all ease-in-out 0.15s;
+      align-items: center;
+      justify-content: center;
+    }
+    .btn {
+      background: #4384e6;
+      color: #fff;
+      border: none;
+      display: flex;
+      gap: 8px;
+      padding: 1rem;
+    }
+    .btn svg {
+      width: 1rem;
+    }
+
+    .btn:hover {
+      background: #0066ff;
+    }
+
+    .btn-outline {
+      border: 1px solid #0d6efd;
+      background: transparent;
+      color: #0d6efd;
+      margin-left: 5px;
+    }
+
+    button i {
+      font-size: 0.78em;
+    }
+    .blob > img {
+      background-size: cover;
+      -webkit-background-position: center;
+      background-position: center center;
+      margin: 20px;
+      animation: animate 10s ease-in-out infinite;
+      transition: all 1s ease-in-out;
+    }
+
+    @media only screen and (min-width: 400px) {
+      .buttons {
+        flex-direction: row;
+      }
+    }
+    @media only screen and (min-width: 800px) {
+      .hero-container {
+        flex-direction: row;
+      }
+      .content {
+        width: 50%;
+      }
+      .buttons {
+        flex-direction: column;
+      }
+    }
+    @media only screen and (min-width: 1000px) {
+      .buttons {
+        flex-direction: row;
+      }
+    }
+
+    @keyframes animate {
+      0%,
+      100% {
+        border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+      }
+      50% {
+        border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%;
+      }
+    }
+  </style>
+</section>
