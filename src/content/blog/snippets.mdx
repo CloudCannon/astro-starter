@@ -1,0 +1,42 @@
+---
+_schema: default
+date: 2022-03-07T00:00:00Z
+title: Examples of snippets in action
+tags:
+  - snippets
+author: Aaron Britt
+thumb_image_path: /images/blog/blog-thumb-6.jpg
+thumb_image_alt: People working on laptops and looking at charts
+image: /images/blog/featured-image-2.jpg
+image_alt: Children looking at a laptop
+seo:
+  page_description:
+  canonical_url:
+  featured_image: /images/blog/featured-image-2.jpg
+  featured_image_alt:
+  author_twitter_handle:
+  open_graph_type: article
+  no_index: false
+---
+
+import Alert from '../../components/snippets/Alert.astro';
+import Tint from '../../components/snippets/markdown/Tint.astro';
+import Video from '../../components/snippets/Video.astro';
+import File from '../../components/snippets/File.astro';
+
+<Alert
+  background_color="#FF0000"
+  alert_message="This is an alert message"
+  color="#ffffff"
+  icon="Envelope"
+/>
+
+A paragraph with some text.<Tint tint_color="#ff0000">This text should be red</Tint> The paragraph continues.
+
+<Video src="/videos/test.mp4" />
+
+<File
+  src="/documents/test.pdf"
+  file_name="an-example-file"
+  link_message="Download the pdf"
+/>

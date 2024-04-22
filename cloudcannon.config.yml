@@ -36,7 +36,7 @@ collections_config:
     add_options:
       - name: Add New Page
         schema: default
-        icon: post_add
+        icon: pages
     schemas:
       default:
         name: New Page
@@ -86,6 +86,7 @@ collection_groups:
   - heading: Data
     collections:
       - data
+
 _inputs:
   src:
     type: image
