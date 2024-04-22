@@ -23,9 +23,6 @@ content_blocks:
     image:
       image_path: /src/assets/images/featured-image-5.jpg
       alt_text: An image
-      name: The hero with Astro Image
-      width: 600
-      height: 600
     buttons:
       - text: GitHub
         icon: Github
@@ -57,8 +54,9 @@ content_blocks:
         cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id
         est laborum.
       color: '#393939'
-    image: /images/transparent-bg/undraw-hello.svg
-    image_alt:
+    image:
+      image_path: /src/assets/images/undraw-hello.svg
+      alt_text: An image
     button:
       link:
       text:

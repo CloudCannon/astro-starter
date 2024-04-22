@@ -17,9 +17,6 @@ interface Props {
   image: {
     image_path: string;
     alt_text: string;
-    name: string;
-    width: number;
-    height: number;
   };
   buttons: [
     {
@@ -82,10 +79,7 @@ const headingGradientColor = block.heading.heading_gradient_color;
     </div>
     <div class="blob">
       <Image
-        style={`@media only screen and (min-width: 1024px){ width: ${block.image.width}px; height: ${block.image.height}px;}`}
         alt={block.image.alt_text}
-        width={block.image.width}
-        height={block.image.height}
         widths={[320, 500, 960, 1280, 1920]}
         sizes={`(max-width: 640px) 320px, (max-width: 960px) 640px, (max-width: 1280px) 960px, 1280px`}
         src={src}

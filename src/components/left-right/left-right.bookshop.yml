@@ -28,8 +28,9 @@ blueprint:
       cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id
       est laborum.
     color: '#393939'
-  image: /images/transparent-bg/undraw-hello.svg
-  image_alt:
+  image:
+    image_path: /src/assets/images/undraw-hello.svg
+    alt: An image
   button:
     link:
     text:

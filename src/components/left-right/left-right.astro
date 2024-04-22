@@ -1,16 +1,66 @@
 ---
+import type { ImageMetadata } from 'astro';
+import { Image } from 'astro:assets';
 import Button from '../utility/button.astro';
 import Markdown from '../utility/markdown.astro';
+
+interface Props {
+  background_color: string;
+  flipped: boolean;
+  heading: {
+    heading_text: string;
+    color: string;
+  };
+  text: {
+    content: string;
+    color: string;
+  };
+  image: {
+    image_path: string;
+    alt_text: string;
+  };
+  button: {
+    text: string;
+    icon: string;
+    link: string;
+    border_only: boolean;
+    background_color: string;
+    hover_brightness: number;
+    text_color: string;
+  };
+}
+
 const block = Astro.props;
+const images = import.meta.glob<{ default: ImageMetadata }>(
+  '/src/assets/**/*.{jpeg,jpg,png,gif,svg}',
+  { eager: true }
+);
+
+const imageSrc = images[block.image.image_path]?.default;
+const src =
+  typeof imageSrc === 'string'
+    ? imageSrc.replace(/^\./, '/_cloudcannon')
+    : imageSrc ?? block.image.image_path;
+
+if (!src) {
+  throw new Error(
+    `"${block.image}" does not exist in glob: "src/assets/**/*.{jpeg,jpg,png,gif,svg}"`
+  );
+}
 ---
 
-<div
-  class="left-right"
-  style={`background-color: ${block.heading.background_color};`}>
+<div class="left-right" style={`background-color: ${block.background_color};`}>
   {
     block.flipped ? (
       <div class="left-right__wrapper">
-        <img class="left-right__img" src={block.image} alt={block.image_alt} />
+        <Image
+          width={1000}
+          height={1000}
+          alt={block.image.alt_text}
+          widths={[320, 500, 960, 1280, 1920]}
+          sizes={`(max-width: 640px) 320px, (max-width: 960px) 640px, (max-width: 1280px) 960px, 1280px`}
+          src={src}
+        />
         <div class="left-right__text">
           <h2 class="text-4xl" style={`color: ${block.heading.color};`}>
             {block.heading.heading_text}
@@ -48,7 +98,12 @@ const block = Astro.props;
             hover_brightness={block.button.hover_brightness}
           />
         </div>
-        <img class="left-right__img" src={block.image} alt={block.image_alt} />
+        <Image
+          alt={block.image.alt_text}
+          widths={[320, 500, 960, 1280, 1920]}
+          sizes={`(max-width: 640px) 320px, (max-width: 960px) 640px, (max-width: 1280px) 960px, 1280px`}
+          src={src}
+        />
       </div>
     )
   }
