@@ -36,19 +36,19 @@ interface Props {
 
 const block = Astro.props;
 const images = import.meta.glob<{ default: ImageMetadata }>(
-  '/src/assets/images/*.{jpeg,jpg,png,gif}',
+  '/src/assets/**/*.{jpeg,jpg,png,gif}',
   { eager: true }
 );
 
 const imageSrc = images[block.image.image_path]?.default;
 const src =
   typeof imageSrc === 'string'
-    ? imageSrc.replace(/\/src/, '/_cloudcannon/src')
+    ? imageSrc.replace(/^\./, '/_cloudcannon')
     : imageSrc ?? block.image.image_path;
 
 if (!src) {
   throw new Error(
-    `"${block.image.image_path}" does not exist in glob: "src/assets/images/*.{jpeg,jpg,png,gif}"`
+    `"${block.image.image_path}" does not exist in glob: "src/assets/**/*.{jpeg,jpg,png,gif}"`
   );
 }
 
