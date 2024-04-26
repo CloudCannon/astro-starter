@@ -141,33 +141,30 @@ if (!src) {
     align-items: center;
     justify-content: space-between;
     gap: 2rem;
-    padding-block: 48px;
+    padding-block: 24px;
     padding-inline: 32px;
   }
   .left-right__wrapper img {
-    /* order: 2; TODO: Change this to a tailwind class so we can use flipped properly */
     width: 100%;
     max-width: 500px;
   }
   .left-right__wrapper .left-right__text {
-    /* order: 1; */
   }
   @media only screen and (min-width: 768px) {
     .left-right__wrapper {
       flex-direction: row;
       gap: 4rem;
+      padding-block: 48px;
     }
     .left-right__wrapper img {
-      /* order: 1; */
       width: 50%;
     }
     .left-right__wrapper .left-right__text {
-      /* order: 2; */
     }
   }
   @media only screen and (min-width: 1024px) {
     .left-right__wrapper {
-      padding-inline: 48px;
+      padding-block: 48px;
       gap: 10rem;
     }
   }
@@ -178,7 +175,6 @@ if (!src) {
 
   h2 {
     max-width: 620px;
-    margin-top: 60px;
-    margin-bottom: 30px;
+    margin-block: 30px;
   }
 </style>

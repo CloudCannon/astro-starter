@@ -104,7 +104,7 @@ const headingGradientColor = block.heading.heading_gradient_color;
       gap: 20px;
       justify-content: space-between;
       align-items: center;
-      padding-block: 48px;
+      padding-block: 24px;
       padding-inline: var(--pagePadding);
       max-width: var(--pageContainer);
       margin-inline: auto;
@@ -112,7 +112,7 @@ const headingGradientColor = block.heading.heading_gradient_color;
     }
 
     .content h1 {
-      font-size: 3.8em;
+      font-size: 2.5rem;
       line-height: 1em;
       font-weight: 700;
       background: -webkit-linear-gradient(to left, #eee 50%, #333);
@@ -198,14 +198,19 @@ const headingGradientColor = block.heading.heading_gradient_color;
       .buttons {
         flex-direction: row;
       }
+      .content h1 {
+        font-size: 3.8rem;
+      }
     }
     @media only screen and (min-width: 960px) {
       .hero-container {
         flex-direction: row;
+        padding-block: 48px;
       }
       .content {
         width: 50%;
       }
+
       .blob {
         width: 50%;
       }
