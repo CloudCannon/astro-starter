@@ -257,6 +257,11 @@ A `cloudcannon.config.yml` file has been provided with some configuration that s
 
 The placeholder Bookshop components show how to configure your components to control inputs and previews in CloudCannon.
 
+### Markdown Styles
+
+Markdown toolbar has all the options supported in the rich text editor, along with stylings to make them work.
+See the CloudCannon [Docs](https://cloudcannon.com/documentation/articles/configure-your-rich-text-editors/) for more information.
+
 ### CSS Variables
 
 Shows how to set global CSS variables in Astro, to set commonly used values like `pagePadding`, and `pageContainer`.

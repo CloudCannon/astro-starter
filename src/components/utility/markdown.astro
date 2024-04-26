@@ -37,9 +37,22 @@ const { content } = Astro.props;
     line-height: 1.75rem;
     margin-bottom: 1.5rem;
   }
+  .markdown-text blockquote {
+    font-style: italic;
+    border-left: 5px solid #000000;
+    padding-inline: 1rem;
+    margin-inline: 0;
+    margin-block: 1rem;
+  }
   .markdown-text ul li {
-    list-style: disc;
+    padding-inline: 1rem;
     padding-block: 0.125rem;
+    list-style: disc;
+  }
+  .markdown-text ol li {
+    list-style-type: decimal;
+    padding-block: 0.125rem;
+    padding-inline: 1rem;
   }
   .markdown-text a {
     color: blue;
@@ -52,5 +65,32 @@ const { content } = Astro.props;
   .markdown-text sub {
     vertical-align: sub;
     font-size: smaller;
+  }
+  .markdown-text code {
+    background-color: #f4f4f4;
+    padding: 0.25rem;
+    border-radius: 0.25rem;
+  }
+  .markdown-text table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 1.5rem;
+  }
+  .markdown-text th,
+  .markdown-text td {
+    border: 1px solid #000000;
+    padding: 0.5rem;
+  }
+  .markdown-text th {
+    background-color: #f4f4f4;
+  }
+  .markdown-text img {
+    max-width: 100%;
+    height: auto;
+  }
+  .markdown-text hr {
+    border: 0;
+    border-top: 1px solid #000000;
+    margin: 1.5rem 0;
   }
 </style>
