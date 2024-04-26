@@ -1,7 +1,7 @@
 paths:
   data: data
-  static: ''
-  uploads: src/assets/images
+  static: 'public'
+  uploads: public/images
 _editables:
   content:
     blockquote: true
@@ -132,6 +132,9 @@ _inputs:
       copyformatting: true
   image_path:
     type: image
+    options:
+      static: '.'
+      uploads: src/assets/images
   alt_text:
     label: Image Alt Text
     type: textarea
@@ -243,9 +246,6 @@ _inputs:
         icon: query_stats
   logo:
     type: image
-    options:
-      static: public
-      uploads: public/images
   logo_url:
     comment: Link for the logo in the top left of the footer
   copyright:
