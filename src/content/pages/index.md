@@ -49,7 +49,30 @@ content_blocks:
       color: '#393939'
     text:
       markdown_content: >-
-        Some text
+        To help save you time, some features are set up in this template, like:
+
+        - Bookshop
+
+        - Blog with pagination, tags and snippets
+
+        - Image optimization
+
+        - SEO Controls
+
+        - Responsive header and footer
+
+        - Font Awesome Icons
+
+        - Schemas for adding new pages
+
+        - Editable color pallete
+
+        - Markdown styles
+
+        - CloudCannon configuration
+
+        - CSS variables
+
       color: '#393939'
     image:
       image_path: /src/assets/images/undraw-hello.svg

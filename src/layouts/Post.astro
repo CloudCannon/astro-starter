@@ -3,7 +3,6 @@ import Layout from './Layout.astro';
 import PostSummary from '../components/blog/summary';
 import { getCollection } from 'astro:content';
 import type { MarkdownLayoutProps } from 'astro';
-import '../styles/main.scss';
 
 type Props =
   | {
@@ -68,7 +67,7 @@ const posts = await getCollection('blog');
           </li>
         </div>
       </ul>
-      <div class="blog-text">
+      <div class="markdown-text">
         <slot />
       </div>
     </article>

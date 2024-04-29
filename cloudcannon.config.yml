@@ -36,7 +36,7 @@ _editables:
 collections_config:
   pages:
     path: src/content/pages
-    url: '/[slug]/'
+    url: '/[full_slug]/'
     output: true
     icon: laptop_mac
     _enabled_editors:
@@ -52,11 +52,13 @@ collections_config:
         name: New Page
         path: schemas/page.md
         remove_extra_inputs: false
+    create:
+      path: '[relative_base_path]/{title|slugify}.md'
   posts:
     path: src/content/blog
     parser: front-matter
     output: true
-    url: '/blog/[slug]/'
+    url: '/blog/[full_slug]/'
     _enabled_editors:
       - content
       - visual
@@ -68,6 +70,8 @@ collections_config:
       default:
         name: New Post
         path: schemas/post.mdx
+    create:
+      path: '[relative_base_path]/{title|slugify}.mdx'
     _inputs:
       title:
         empty_type: string
@@ -79,8 +83,9 @@ collections_config:
         empty_type: string
       tags:
         type: multiselect
-        allow_create: true
-        empty_type: array
+        options:
+          allow_create: true
+          empty_type: array
   data:
     path: data
     disable_add: true

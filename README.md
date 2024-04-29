@@ -33,11 +33,6 @@ All commands are run from the root of the project, from a terminal:
 
 ## Features
 
-To include:
-
-- Related files
-- How to remove
-
 ### Bookshop
 
 [Bookshop](https://cloudcannon.com/documentation/guides/bookshop-astro-guide/) is a component development workflow for static websites.

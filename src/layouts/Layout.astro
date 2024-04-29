@@ -48,6 +48,9 @@ const canonicalURL = new URL(seo?.canonical_url ?? Astro.url.pathname, baseUrl);
       rel="stylesheet"
     />
 
+    <!-- Add editor styles -->
+    <link rel="stylesheet" href="/css/editor.css" />
+
     <SEO
       noindex={seo?.no_index || false}
       title={title}
