@@ -86,7 +86,7 @@ collections_config:
         options:
           empty_type: string
       tags:
-        type: multiselect
+        type: array
         options:
           allow_create: true
           empty_type: array
