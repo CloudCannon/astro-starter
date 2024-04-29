@@ -1,0 +1,49 @@
+---
+import Icon from '../../icon';
+interface Props {
+  text: string;
+  icon: string;
+  link: string;
+  hover_brightness: number;
+  text_color: string;
+}
+
+const block = Astro.props;
+const hover_brightness = block.hover_brightness;
+---
+
+<button
+  style={`background-color: transparent; border: 2px solid ${block.text_color};`}
+  class="button">
+  <a style={`color: ${block.text_color}`} href={block.link}>
+    <span class="button__icon">
+      <Icon icon={block.icon} />
+    </span>
+    {block.text}
+  </a>
+</button>
+
+<style define:vars={{ hover_brightness }}>
+  .button {
+    cursor: pointer;
+    border: none;
+    border-radius: 8px;
+    padding: 0;
+  }
+  .button a {
+    background: transparent;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    border-radius: 8px;
+    padding: 0.5rem 1.5rem;
+    font-size: 1rem;
+  }
+  .button a:hover {
+    backdrop-filter: brightness(var(--hover_brightness));
+  }
+
+  .button__icon {
+    width: 1rem;
+  }
+</style>

@@ -28,18 +28,17 @@ content_blocks:
       image_path: /src/assets/images/featured-image-5.jpg
       alt_text: An image
     buttons:
-      - text: GitHub
+      - _bookshop_name: primary
+        text: GitHub
         icon: Github
         link: https://www.cloudcannon.com
-        border_only: false
         background_color: '#034ad8'
         hover_brightness: 0.85
         text_color: '#ffffff'
-      - text: CloudCannon
+      - _bookshop_name: secondary
+        text: CloudCannon
         icon: CloudCannon
         link: https://www.cloudcannon.com
-        border_only: true
-        background_color: '#034ad8'
         hover_brightness: 0.95
         text_color: '#034ad8'
   - _bookshop_name: left_right

@@ -185,34 +185,12 @@ _inputs:
     type: select
     options:
       values: data.icons
-  button:
-    options:
-      preview:
-        icon: smart_button
-        text:
-          - key: text
-          - 'Button'
-        subtext:
-          - key: link
-          - 'Update button content'
-  buttons[*]:
-    options:
-      preview:
-        icon: smart_button
-        text:
-          - key: text
-          - 'Button'
-        subtext:
-          - key: link
-          - 'Update button content'
   button_icon:
     type: select
     options:
       values: data.icons
   button_link:
     type: url
-  border_only:
-    type: switch
   hover_brightness:
     type: range
     options:
