@@ -86,6 +86,8 @@ collections_config:
         options:
           allow_create: true
           empty_type: array
+      tags[*]:
+        type: text
   data:
     path: data
     disable_add: true
