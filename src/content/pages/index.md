@@ -29,16 +29,16 @@ content_blocks:
       alt_text: An image
     buttons:
       - _bookshop_name: buttons/primary
-        text: GitHub
-        icon: Github
-        link: https://www.cloudcannon.com
+        button_text: GitHub
+        button_icon: Github
+        button_link: https://www.cloudcannon.com
         background_color: '#034ad8'
         hover_brightness: 0.85
         text_color: '#ffffff'
       - _bookshop_name: buttons/secondary
-        text: CloudCannon
-        icon: CloudCannon
-        link: https://www.cloudcannon.com
+        button_text: CloudCannon
+        button_icon: CloudCannon
+        button_link: https://www.cloudcannon.com
         hover_brightness: 0.95
         text_color: '#034ad8'
   - _bookshop_name: left_right

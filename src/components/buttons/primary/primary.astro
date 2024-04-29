@@ -1,9 +1,9 @@
 ---
 import Icon from '../../utility/icon';
 interface Props {
-  text: string;
-  icon: string;
-  link: string;
+  button_text: string;
+  button_icon: string;
+  button_link: string;
   background_color: string;
   hover_brightness: number;
   text_color: string;
@@ -14,11 +14,11 @@ const hover_brightness = block.hover_brightness;
 ---
 
 <button style={`background-color: ${block.background_color};`} class="button">
-  <a style={`color: ${block.text_color}`} href={block.link}>
+  <a style={`color: ${block.text_color}`} href={block.button_link}>
     <span class="button__icon">
-      <Icon icon={block.icon} />
+      <Icon icon={block.button_icon} />
     </span>
-    {block.text}
+    {block.button_text}
   </a>
 </button>
 
