@@ -42,7 +42,7 @@ content_blocks:
         background_color: '#034ad8'
         hover_brightness: 0.95
         text_color: '#034ad8'
-  - _bookshop_name: left-right
+  - _bookshop_name: left_right
     background_color: '#ffffff'
     heading:
       heading_text: Keep what you need. Delete the rest.
