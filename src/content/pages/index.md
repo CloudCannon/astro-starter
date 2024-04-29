@@ -28,14 +28,14 @@ content_blocks:
       image_path: /src/assets/images/featured-image-5.jpg
       alt_text: An image
     buttons:
-      - _bookshop_name: primary
+      - _bookshop_name: buttons/primary
         text: GitHub
         icon: Github
         link: https://www.cloudcannon.com
         background_color: '#034ad8'
         hover_brightness: 0.85
         text_color: '#ffffff'
-      - _bookshop_name: secondary
+      - _bookshop_name: buttons/secondary
         text: CloudCannon
         icon: CloudCannon
         link: https://www.cloudcannon.com

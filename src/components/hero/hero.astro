@@ -64,8 +64,9 @@ const headingGradientColor = block.heading.heading_gradient_color;
       <div class="buttons">
         {
           block.buttons.map((button) => {
-            const name = `/src/components/buttons/${button._bookshop_name}/${button._bookshop_name}.astro`;
-            const Component = buttons[name].default;
+            const name = button._bookshop_name.split('/').reverse()[0];
+            const filePath = `/src/components/buttons/${name}/${name}.astro`;
+            const Component = buttons[filePath].default;
             return <Component {...button} />;
           })
         }
