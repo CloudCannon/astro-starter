@@ -2,7 +2,7 @@
 import type { ImageMetadata } from 'astro';
 import { Image } from 'astro:assets';
 import Markdown from '../utility/markdown.astro';
-const buttons = import.meta.glob('/src/components/utility/buttons/**/*.astro', {
+const buttons = import.meta.glob('/src/components/buttons/**/*.astro', {
   eager: true,
 });
 
@@ -64,7 +64,7 @@ const headingGradientColor = block.heading.heading_gradient_color;
       <div class="buttons">
         {
           block.buttons.map((button) => {
-            const name = `/src/components/utility/buttons/${button._bookshop_name}/${button._bookshop_name}.astro`;
+            const name = `/src/components/buttons/${button._bookshop_name}/${button._bookshop_name}.astro`;
             const Component = buttons[name].default;
             return <Component {...button} />;
           })
