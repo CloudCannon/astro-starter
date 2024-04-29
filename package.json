@@ -35,7 +35,6 @@
   "devDependencies": {
     "@astrojs/rss": "^3.0.0",
     "@bookshop/astro-engine": "3.9.0",
-    "@bookshop/browser": "3.9.0",
     "@bookshop/generate": "3.9.0",
     "@types/markdown-it": "^14.0.1",
     "astro-seo": "^0.8.0",
