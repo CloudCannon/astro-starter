@@ -4,7 +4,7 @@ spec:
     - buttons
   label: Primary Button
   description: Button with background color
-  icon: 'chrome_reader_mode'
+  icon: 'smart_button'
   tags:
     - Button
     - Background color
