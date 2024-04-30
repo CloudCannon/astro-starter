@@ -75,7 +75,6 @@ content_blocks:
       color: '#393939'
     image:
       image_path: /src/assets/images/undraw-hello.svg
-      alt: An image
       alt_text: An image
     flipped: true
     button:
