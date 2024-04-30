@@ -146,8 +146,9 @@ _inputs:
   image_path:
     type: image
     options:
-      static: ''
-      uploads: src/assets/images
+      paths:
+        static: ''
+        uploads: src/assets/images
   alt_text:
     label: Image Alt Text
     type: textarea
