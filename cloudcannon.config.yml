@@ -1,6 +1,6 @@
 paths:
   data: data
-  static: ''
+  static: 'public'
   uploads: public/images
 _editables:
   content:
@@ -146,6 +146,7 @@ _inputs:
   image_path:
     type: image
     options:
+      static: ''
       uploads: src/assets/images
   alt_text:
     label: Image Alt Text
