@@ -91,7 +91,7 @@ if (!src) {
           <h2 class="text-4xl" style={`color: ${block.heading.color};`}>
             {block.heading.heading_text}
           </h2>
-          <div style={`color: ${block.text.color};`}>
+          <div class="mb-4" style={`color: ${block.text.color};`}>
             <Markdown content={block.text.markdown_content} />
           </div>
           {block.button && <Button {...block.button} />}
