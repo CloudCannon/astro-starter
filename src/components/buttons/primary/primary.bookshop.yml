@@ -3,7 +3,7 @@ spec:
   structures:
     - buttons
   label: Primary Button
-  description: Button with background color
+  description: Background color
   icon: 'smart_button'
   tags:
     - Button

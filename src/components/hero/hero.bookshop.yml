@@ -3,7 +3,7 @@ spec:
   structures:
     - content_blocks
   label: Hero
-  description: Text & animated border image. Buttons with icons.
+  description: Outline color
   icon: 'cottage'
   tags:
     - Image
