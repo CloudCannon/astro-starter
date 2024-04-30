@@ -146,12 +146,12 @@ _inputs:
   image_path:
     type: image
     options:
-      static: '/'
-      uploads: src/assets/images
+      static: 'src'
+      uploads: /assets/images
   alt_text:
     label: Image Alt Text
     type: textarea
-    hidden: '!src'
+    hidden: '!image_path'
   width:
     type: number
   height:
