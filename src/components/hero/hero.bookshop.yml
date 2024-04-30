@@ -79,5 +79,5 @@ _inputs:
   image_path:
     type: image
     options:
-      static: '.'
+      static: ''
       uploads: src/assets/images
