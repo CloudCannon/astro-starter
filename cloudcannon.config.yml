@@ -147,7 +147,7 @@ _inputs:
     type: image
     options:
       paths:
-        static: ''
+        static: '.'
         uploads: src/assets/images
   alt_text:
     label: Image Alt Text
