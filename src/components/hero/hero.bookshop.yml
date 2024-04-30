@@ -76,3 +76,8 @@ _inputs:
           image:
             - key: image_path
           icon: 'image'
+  image_path:
+    type: image
+    options:
+      static: '.'
+      uploads: src/assets/images
