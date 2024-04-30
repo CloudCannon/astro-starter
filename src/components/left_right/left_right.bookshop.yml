@@ -31,14 +31,7 @@ blueprint:
     image_path: /src/assets/images/undraw-hello.svg
     alt: An image
   flipped: true
-  button:
-    button_text:
-    button_icon:
-    button_link: ''
-    border_only: false
-    background_color: ''
-    hover_brightness: 0.85
-    text_color: ''
+  button: bookshop:structure:buttons
 
 # Overrides any fields in the blueprint when viewing this component in the component browser
 preview:

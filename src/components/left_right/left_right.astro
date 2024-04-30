@@ -1,7 +1,6 @@
 ---
 import type { ImageMetadata } from 'astro';
 import { Image } from 'astro:assets';
-import Button from '../utility/button.astro';
 import Markdown from '../utility/markdown.astro';
 
 interface Props {
@@ -20,17 +19,24 @@ interface Props {
     alt_text: string;
   };
   button: {
+    _bookshop_name: string;
     text: string;
     icon: string;
     link: string;
-    border_only: boolean;
-    background_color: string;
+    background_color?: string;
     hover_brightness: number;
     text_color: string;
   };
 }
 
 const block = Astro.props;
+const buttons = import.meta.glob('/src/components/buttons/**/*.astro', {
+  eager: true,
+});
+const buttonName = block.button?._bookshop_name.split('/').reverse()[0];
+const buttonFilePath = `/src/components/buttons/${buttonName}/${buttonName}.astro`;
+const Button = buttons[buttonFilePath]?.default;
+
 const images = import.meta.glob<{ default: ImageMetadata }>(
   '/src/assets/**/*.{jpeg,jpg,png,gif,svg}',
   { eager: true }
@@ -55,36 +61,28 @@ if (!src) {
       <div class="left-right__wrapper">
         {ENV_BOOKSHOP_LIVE ? (
           <img
-            class="order-2 lg:order-1"
+            class="order-2 md:order-1"
             style="@media screen and (max-width: 640px){max-width: 320px }; @media screen and (max-width: 960px){max-width: 500px }; @media screen and (min-width: 960px){max-width: 640px }"
             src={src}
             alt={block.image.alt_text}
           />
         ) : (
           <Image
-            class="order-2 lg:order-1"
+            class="order-2 md:order-1"
             alt={block.image.alt_text}
             widths={[320, 500, 640]}
             sizes={`(max-width: 640px) 320px, (max-width: 960px) 500px, (max-width: 1280px) 640px`}
             src={src}
           />
         )}
-        <div class="left-right__text order-1 lg:order-2">
+        <div class="left-right__text order-1 md:order-2">
           <h2 class="text-4xl" style={`color: ${block.heading.color};`}>
             {block.heading.heading_text}
           </h2>
-          <div style={`color: ${block.text.color};`}>
+          <div class="mb-4" style={`color: ${block.text.color};`}>
             <Markdown content={block.text.markdown_content} />
           </div>
-          <Button
-            link={block.button.link}
-            text={block.button.text}
-            icon={block.button.icon}
-            background_color={block.button.background_color}
-            text_color={block.button.text_color}
-            border_only={block.button.border_only}
-            hover_brightness={block.button.hover_brightness}
-          />
+          {block.button && <Button {...block.button} />}
         </div>
       </div>
     ) : (
@@ -96,15 +94,7 @@ if (!src) {
           <div style={`color: ${block.text.color};`}>
             <Markdown content={block.text.markdown_content} />
           </div>
-          <Button
-            link={block.button.link}
-            text={block.button.text}
-            icon={block.button.icon}
-            background_color={block.button.background_color}
-            text_color={block.button.text_color}
-            border_only={block.button.border_only}
-            hover_brightness={block.button.hover_brightness}
-          />
+          {block.button && <Button {...block.button} />}
         </div>
         {ENV_BOOKSHOP_LIVE ? (
           <img

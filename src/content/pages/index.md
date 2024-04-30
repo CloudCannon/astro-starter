@@ -79,11 +79,11 @@ content_blocks:
       alt_text: An image
     flipped: true
     button:
-      text:
-      icon:
-      link:
-      border_only:
-      background_color:
-      hover_brightness:
-      text_color:
+      _bookshop_name: buttons/primary
+      button_text: GitHub
+      button_icon: Github
+      button_link: https://www.cloudcannon.com
+      background_color: '#034ad8'
+      hover_brightness: 0.85
+      text_color: '#ffffff'
 ---
