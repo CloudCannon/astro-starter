@@ -1,6 +1,6 @@
 paths:
   data: data
-  static: 'public'
+  static: ''
   uploads: public/images
 _editables:
   content:
@@ -79,6 +79,7 @@ collections_config:
       image:
         options:
           empty_type: string
+          static: 'public'
       image_alt:
         options:
           empty_type: string
@@ -251,10 +252,16 @@ _inputs:
   faivcon_image:
     type: image
     comment: For the icon meta tag
+    options:
+      paths:
+        static: 'public'
   canonical_url:
     comment: Defaults to the pages url
   featured_image:
     comment: Defaults to the image set in the Site SEO data file
+    options:
+      paths:
+        static: 'public'
   open_graph_type:
     type: select
     options:
