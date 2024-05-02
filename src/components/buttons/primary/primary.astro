@@ -15,9 +15,13 @@ const hover_brightness = block.hover_brightness;
 
 <button style={`background-color: ${block.background_color};`} class="button">
   <a style={`color: ${block.text_color}`} href={block.button_link}>
+    {
+    block.button_icon ? (
     <span class="button__icon">
       <Icon icon={block.button_icon} />
     </span>
+    ) : null
+    }
     {block.button_text}
   </a>
 </button>
