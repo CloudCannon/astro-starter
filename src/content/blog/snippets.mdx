@@ -19,24 +19,10 @@ seo:
   no_index: false
 ---
 
-import Alert from '../../components/snippets/Alert.astro';
-import Tint from '../../components/snippets/Tint.astro';
-import Video from '../../components/snippets/Video.astro';
-import File from '../../components/snippets/File.astro';
-
-<Alert
+<SnippetsAlert
   background_color="#FF0000"
   alert_message="This is an alert message"
   color="#ffffff"
   icon="Envelope"
 />
 
-A paragraph with some text.<Tint tint_color="#ff0000">This text should be red</Tint> The paragraph continues.
-
-<Video src="/videos/test.mp4" />
-
-<File
-  src="/documents/test.pdf"
-  file_name="an-example-file"
-  link_message="Download the pdf"
-/>

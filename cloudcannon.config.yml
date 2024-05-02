@@ -297,7 +297,7 @@ _snippets:
         - key: alert_message
         - 'Alert'
     definitions:
-      component_name: Alert
+      component_name: SnippetsAlert
       named_args:
         - editor_key: background_color
           source_key: background_color
@@ -341,7 +341,7 @@ _snippets:
     preview:
       text: Video
     definitions:
-      component_name: Video
+      component_name: SnippetsVideo
       named_args:
         - editor_key: src
           source_key: src
@@ -358,7 +358,7 @@ _snippets:
     preview:
       text: File
     definitions:
-      component_name: File
+      component_name: SnippetsFile
       named_args:
         - editor_key: src
           source_key: src
@@ -387,7 +387,7 @@ _snippets:
     preview:
       text: Tint
     definitions:
-      component_name: Tint
+      component_name: SnippetsTint
       content_key: inner_text
       named_args:
         - editor_key: color
