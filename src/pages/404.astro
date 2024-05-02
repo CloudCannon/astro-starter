@@ -1,0 +1,60 @@
+---
+import type { Code } from 'astro:components';
+import Layout from '../layouts/Layout.astro';
+const props = {
+  title: '404 - Not Found',
+  openGraph: {
+    basic: {
+      title: '404 - Not Found',
+      type: 'website',
+      image: '/images/404.png'
+    }
+}
+}
+---
+
+<Layout {...props}>
+  <section class="error">
+    <div class="container">
+      <div class="error-content">
+        <img src="/images/404.png" class="" alt="Error illustration" />
+        <h1
+          class="my-5">
+          Page not found!
+        </h1>
+        <a href="/" class="btn btn-lg btn-primary">
+          &larr; Back home
+        </a>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .error {
+    max-width: var(--pageContainer);
+    margin: 0 auto;
+  }
+
+  .error-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 80vh;
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+
+  @media screen and (min-width: 960px) {
+    h1 {
+      font-size: 3rem;
+    }
+  }
+
+  a:hover {
+    color: blue;
+  }
+</style>

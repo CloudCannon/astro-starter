@@ -3,7 +3,7 @@ _schema: page
 title: Home
 seo:
   page_description: >-
-    A starting point for those looking to build a website with Astro, using
+    A starting point for developers looking to build a website with Astro, using
     Bookshop components in CloudCannon. Create your own copy, and start creating
     your own components to use in the CloudCannon CMS.
   canonical_url:
@@ -20,8 +20,8 @@ content_blocks:
       heading_gradient_color: '#a0a2ff'
     subheading:
       markdown_content: >-
-        A starting point for those looking to build a website with Astro, using
-        Bookshop components in CloudCannon. Create your own copy, and start
+        A starting point for **developers looking to build a website with Astro, using
+        Bookshop components in CloudCannon**. Create your own copy, and start
         creating your own components to use in the CloudCannon CMS.
       color: '#393939'
     image:
@@ -50,17 +50,17 @@ content_blocks:
       markdown_content: >-
         To help save you time, some features are set up in this template, like:
 
-        - Bookshop
+        - [Bookshop](https://cloudcannon.com/documentation/guides/bookshop-astro-guide/)
 
-        - Blog with pagination, tags and snippets
+        - Blog with pagination, tags and [snippets](https://docs.astro.build/en/guides/markdown-content/#using-components-in-mdx)
 
-        - Image optimization
+        - [Image optimization](https://docs.astro.build/en/guides/images/#image--astroassets)
 
         - SEO Controls
 
         - Responsive header and footer
 
-        - Font Awesome Icons
+        - [Font Awesome Icons](https://fontawesome.com/search?o=r&m=free)
 
         - Schemas for adding new pages
 

@@ -262,3 +262,9 @@ See the CloudCannon [Docs](https://cloudcannon.com/documentation/articles/config
 Shows how to set global CSS variables in Astro, to set commonly used values like `pagePadding`, and `pageContainer`.
 
 Extra work could be done to write a `node fs` script to write said values from a data file to the appropriate places in the code, which would then allow editors to control sitewide styles like page max-width and padding.
+
+### Coming Soon
+
+- Scheduling blog posts for a future date
+- Editor links to colors data file
+- Writing CSS vars (padding, page max-width, etc.) through an editable data file

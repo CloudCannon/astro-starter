@@ -1,0 +1,12 @@
+{
+  "ssg": "astro",
+  "build_configuration": {
+    "install_command": "npm install",
+    "build_command": "",
+    "output_path": "dist",
+    "preserved_paths": "",
+    "preserveOutput": false,
+    "includeGit": true,
+    "environment_variables": []
+  }
+}
