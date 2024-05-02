@@ -150,6 +150,7 @@ _inputs:
       paths:
         static: ''
         uploads: src/assets/images
+        uploads_use_relative_path: true
   alt_text:
     label: Image Alt Text
     type: textarea
