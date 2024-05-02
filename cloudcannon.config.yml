@@ -149,7 +149,7 @@ _inputs:
     comment: The path to the source file of the image to be optimized.
     options:
       paths:
-        static: 'RANDOM'
+        static: '.'
         uploads: src/assets/images
   alt_text:
     label: Image Alt Text
