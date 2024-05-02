@@ -68,12 +68,12 @@ _inputs:
           - 'Update image'
         image:
           - key: image_path
-        gallery:
-          text:
-            - key: alt_text
-            - 'Image'
-          image:
-            - key: image_path
-          icon: 'image'
+        # gallery:
+        #   text:
+        #     - key: alt_text
+        #     - 'Image'
+        #   image:
+        #     - key: image_path
+        #   icon: 'image'
   flipped:
     type: switch
