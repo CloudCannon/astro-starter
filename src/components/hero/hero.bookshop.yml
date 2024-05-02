@@ -70,9 +70,6 @@ _inputs:
         image:
           - key: image_path
         gallery:
-          text:
-            - key: alt_text
-            - 'Image'
           image:
-            - key: image_path
+            - template: '{image_path}'
           icon: 'image'
