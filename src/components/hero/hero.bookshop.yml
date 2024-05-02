@@ -69,7 +69,3 @@ _inputs:
           - 'Update image'
         image:
           - key: image_path
-        gallery:
-          image:
-            - template: '{image_path}'
-          icon: 'image'
