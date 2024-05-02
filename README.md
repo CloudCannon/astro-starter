@@ -1,10 +1,10 @@
 # Astro CloudCannon Starter
 
-A starting point for those looking to build a website with Astro, using Bookshop components in CloudCannon.
+A starting point for developers looking to build a website with Astro, using Bookshop components in CloudCannon.
 
 Create your own copy, and start creating your own components to use in the CloudCannon CMS. Build components with `.jsx` or `.astro`.
 
-To try to cut down on setup time this starter template includes are some commonly used [features](#features) in CloudCannon.
+To try to cut down on setup time this starter template includes some commonly used [features](#features) in CloudCannon.
 
 This template is aimed at helping developers build sites quickly, rather than providing editors with a fully built editable site.
 If you are an editor looking for an already built template, have a look at [CloudCannon's templates page](https://cloudcannon.com/templates/).
@@ -106,8 +106,7 @@ Blog section with tags and pagination included.
 
 Documentation, blog and other text heavy sections should replicate how the blog section is implemented in this template.
 
-WIP: ~~The blog pages in this template use MDX to allow for snippets.
-Snippets allow you to use HTML components throughout your markdown text.~~
+The blog pages in this template use MDX to allow for snippets. Snippets allow you to use HTML components throughout your markdown text.
 
 A common layout, with changing markdown content is favored for these kinds of text heavy pages, rather than using Bookshop components - which are defined and managed in your markdown pages frontmatter.
 
