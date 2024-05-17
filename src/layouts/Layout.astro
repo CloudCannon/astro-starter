@@ -61,13 +61,13 @@ const canonicalURL = new URL(seo?.canonical_url ?? Astro.url.pathname, baseUrl);
           title: Astro.props.title,
           url: baseUrl?.toString(),
           type: `${seo?.open_graph_type || 'website'}`,
-          image: image,
+          image: `${baseUrl}${image}`,
         },
         optional: {
           description: description,
         },
         image: {
-          url: image,
+          url: `${baseUrl}${image}`,
           alt: image_alt,
         },
       }}

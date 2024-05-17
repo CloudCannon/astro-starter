@@ -2,6 +2,6 @@
   "site_title": "Astro Starter",
   "description": "A starter template for Astro, built by Bookshop components - for CloudCannon CMS.",
   "twitter_site": "",
-  "image": "/images/astro-logo-light-gradient.jpg",
+  "image": "https://tiny-jackal.cloudvent.net/images/astro-logo-light-gradient.jpg",
   "image_alt": "Astro logo"
 }
