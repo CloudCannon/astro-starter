@@ -245,12 +245,6 @@ _inputs:
     comment: Automatically prefixed with the current year
   page_description:
     comment: Defaults to the description set in the Site SEO data file
-  favicon_icon:
-    type: image
-    comment: For the shortcut icon meta tag
-  faivcon_image:
-    type: image
-    comment: For the icon meta tag
   canonical_url:
     comment: Defaults to the pages url
   featured_image:
