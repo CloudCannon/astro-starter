@@ -9,6 +9,8 @@ To try to cut down on setup time this starter template includes some commonly us
 This template is aimed at helping developers build sites quickly, rather than providing editors with a fully built editable site.
 If you are an editor looking for an already built template, have a look at [CloudCannon's templates page](https://cloudcannon.com/templates/).
 
+[See a demo version of this site](https://tiny-jackal.cloudvent.net/).
+
 ## Getting Started
 
 To start using this template, go to the [GitHub repository](https://github.com/CloudCannon/astro-starter/), and click `Use this template` to make your own copy.
