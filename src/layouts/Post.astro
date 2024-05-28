@@ -1,13 +1,13 @@
 ---
-import Layout from './Layout.astro';
-import PostSummary from '../components/blog/summary';
-import { getCollection } from 'astro:content';
-import type { MarkdownLayoutProps } from 'astro';
+import Layout from "./Layout.astro";
+import PostSummary from "../components/blog/summary";
+import { getCollection } from "astro:content";
+import type { MarkdownLayoutProps } from "astro";
 
 type Props =
   | {
       title: string;
-      date: string;
+      date: string | Date;
       image: string;
       image_alt: string;
       author: string;
@@ -15,23 +15,23 @@ type Props =
     }
   | MarkdownLayoutProps<{
       title: string;
-      date: string;
+      date: string | Date;
       image: string;
       image_alt: string;
       author: string;
     }>;
 
-const props = Astro.props.frontmatter ?? Astro.props;
+const props =
+  "frontmatter" in Astro.props ? Astro.props.frontmatter : Astro.props;
+const content =
+  "body" in Astro.props ? Astro.props.body : Astro.props.rawContent();
+
 const { title, date, image, image_alt, author } = props;
-const content = Astro.props.body ?? Astro.props.rawContent();
-const wordCount = content.split(' ').length;
+const wordCount = content.split(" ").length;
 const readingTime = Math.floor(wordCount / 183);
 const dateObj = new Date(date);
-const authorDomain = 'https://simple-onion.cloudvent.net/profiles/';
-const authorSlug = author.toLowerCase().replace(/ /g, '-');
-const authorUrl = [authorDomain, authorSlug, '/'].join('');
 
-const posts = await getCollection('blog');
+const posts = await getCollection("blog");
 ---
 
 <Layout {...props}>
@@ -39,11 +39,13 @@ const posts = await getCollection('blog');
     <article class="max-w-screen-md mx-auto">
       <img class="rounded-lg mb-4" src={image} alt={image_alt} />
       <h1
-        class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-semibold sm:text-center">
+        class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-semibold sm:text-center"
+      >
         {title}
       </h1>
       <ul
-        class="flex flex-col justify-between sm:flex-row sm:justify-center sm:gap-5 py-5 font-light text-sm">
+        class="flex flex-col justify-between sm:flex-row sm:justify-center sm:gap-5 py-5 font-light text-sm"
+      >
         <li class="post-data-list-item">
           {author}
         </li>
@@ -51,9 +53,9 @@ const posts = await getCollection('blog');
           <p>
             {
               dateObj.toLocaleDateString(undefined, {
-                year: 'numeric',
-                month: 'long',
-                day: 'numeric',
+                year: "numeric",
+                month: "long",
+                day: "numeric",
               })
             }
           </p>
@@ -72,7 +74,8 @@ const posts = await getCollection('blog');
       </div>
     </article>
     <section
-      class="max-w-screen-md mx-auto pt-[48px] flex flex-col items-center">
+      class="max-w-screen-md mx-auto pt-[48px] flex flex-col items-center"
+    >
       <h2 class="text-2xl">Recent Posts</h2>
       <div class="grid sm:grid-cols-2 gap-5 mt-5">
         {
@@ -94,7 +97,7 @@ const posts = await getCollection('blog');
 
   .post-size::after {
     position: absolute;
-    content: '';
+    content: "";
     background: #4d4d4d;
     width: 1px;
     height: 15px;
@@ -110,7 +113,7 @@ const posts = await getCollection('blog');
 
     .post-data-list-item::after {
       position: absolute;
-      content: '';
+      content: "";
       background: #4d4d4d;
       width: 1px;
       height: 15px;

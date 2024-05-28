@@ -1,16 +1,15 @@
 ---
-import type { Code } from 'astro:components';
-import Layout from '../layouts/Layout.astro';
+import Layout from "../layouts/Layout.astro";
 const props = {
-  title: '404 - Not Found',
+  title: "404 - Not Found",
   openGraph: {
     basic: {
-      title: '404 - Not Found',
-      type: 'website',
-      image: '/images/404.png'
-    }
-}
-}
+      title: "404 - Not Found",
+      type: "website",
+      image: "/images/404.png",
+    },
+  },
+};
 ---
 
 <Layout {...props}>
@@ -18,13 +17,8 @@ const props = {
     <div class="container">
       <div class="error-content">
         <img src="/images/404.png" class="" alt="Error illustration" />
-        <h1
-          class="my-5">
-          Page not found!
-        </h1>
-        <a href="/" class="btn btn-lg btn-primary">
-          &larr; Back home
-        </a>
+        <h1 class="my-5">Page not found!</h1>
+        <a href="/" class="btn btn-lg btn-primary"> &larr; Back home </a>
       </div>
     </div>
   </section>

@@ -4,14 +4,9 @@ import bookshop from '@bookshop/astro-bookshop';
 import tailwind from '@astrojs/tailwind';
 import mdx from '@astrojs/mdx';
 import alpine from '@astrojs/alpinejs';
-import remarkAutoImport from '@cloudcannon/remark-auto-import';
 
 // https://astro.build/config
 export default defineConfig({
   site: 'https://tiny-jackal.cloudvent.net/',
   integrations: [react(), tailwind(), bookshop(), alpine(), mdx()],
-  markdown: {
-    remarkPlugins: [[remarkAutoImport, {}]],
-    extendDefaultPlugins: true,
-  },
 });
