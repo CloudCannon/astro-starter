@@ -39,7 +39,8 @@ const images = import.meta.glob<{ default: ImageMetadata }>(
   { eager: true }
 );
 
-const imageSrc = images[block.image.image_path]?.default;
+const imageSrc =
+  images[block.image.image_path]?.default ?? block.image.image_path;
 
 const headingGradientColor = block.heading.heading_gradient_color;
 ---

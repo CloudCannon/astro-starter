@@ -42,7 +42,8 @@ const images = import.meta.glob<{ default: ImageMetadata }>(
   { eager: true }
 );
 
-const imageSrc = images[block.image.image_path]?.default;
+const imageSrc =
+  images[block.image.image_path]?.default ?? block.image.image_path;
 ---
 
 <div class="left-right" style={`background-color: ${block.background_color};`}>
