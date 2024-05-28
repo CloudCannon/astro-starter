@@ -1,25 +1,22 @@
 ---
-import PageLayout from '../layouts/Page.astro';
-import { getCollection, type CollectionEntry } from 'astro:content';
+import PageLayout from "../layouts/Page.astro";
+import { getCollection, type CollectionEntry } from "astro:content";
 
 export interface Props {
-  page: CollectionEntry<'pages'>;
+  page: CollectionEntry<"pages">;
 }
 
 export async function getStaticPaths() {
-  const pages = await getCollection('pages', ({ data }) => !data.hidden);
+  const pages = await getCollection("pages");
   return pages.map((page) => {
-    const slug = page.slug.replace(/index$/, '');
+    const slug = page.slug.replace(/index$/, "");
     if (slug.length === 0)
       return { params: { slug: undefined }, props: { page } };
     return { params: { slug }, props: { page } };
   });
 }
 
-const page = Astro.props.page;
-if (!page.data) {
-  throw new Error(`Could not find page data`);
-}
+const { page } = Astro.props;
 ---
 
 <PageLayout frontmatter={page.data} />

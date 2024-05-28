@@ -1,7 +1,7 @@
 ---
-import type { ImageMetadata } from 'astro';
-import { Image } from 'astro:assets';
-import Markdown from '../utility/markdown.astro';
+import type { ImageMetadata } from "astro";
+import { Image } from "astro:assets";
+import Markdown from "../utility/markdown.astro";
 
 interface Props {
   background_color: string;
@@ -30,51 +30,32 @@ interface Props {
 }
 
 const block = Astro.props;
-const buttons = import.meta.glob('/src/components/buttons/**/*.astro', {
+const buttons = import.meta.glob("/src/components/buttons/**/*.astro", {
   eager: true,
 });
-const buttonName = block.button?._bookshop_name.split('/').reverse()[0];
+const buttonName = block.button?._bookshop_name.split("/").reverse()[0];
 const buttonFilePath = `/src/components/buttons/${buttonName}/${buttonName}.astro`;
-const Button = buttons[buttonFilePath]?.default;
+const Button = (buttons[buttonFilePath] as any)?.default;
 
 const images = import.meta.glob<{ default: ImageMetadata }>(
-  '/src/assets/**/*.{jpeg,jpg,png,gif,svg}',
+  "/src/assets/**/*.{jpeg,jpg,png,gif,svg}",
   { eager: true }
 );
 
 const imageSrc = images[block.image.image_path]?.default;
-const src =
-  typeof imageSrc === 'string'
-    ? imageSrc.replace(/^\./, '/_cloudcannon')
-    : imageSrc ?? block.image.image_path;
-
-if (!src) {
-  throw new Error(
-    `"${block.image}" does not exist in glob: "src/assets/**/*.{jpeg,jpg,png,gif,svg}"`
-  );
-}
 ---
 
 <div class="left-right" style={`background-color: ${block.background_color};`}>
   {
     block.flipped ? (
       <div class="left-right__wrapper">
-        {ENV_BOOKSHOP_LIVE ? (
-          <img
-            class="order-2 md:order-1"
-            style="@media screen and (max-width: 640px){max-width: 320px }; @media screen and (max-width: 960px){max-width: 500px }; @media screen and (min-width: 960px){max-width: 640px }"
-            src={src}
-            alt={block.image.alt_text}
-          />
-        ) : (
-          <Image
-            class="order-2 md:order-1"
-            alt={block.image.alt_text}
-            widths={[320, 500, 640]}
-            sizes={`(max-width: 640px) 320px, (max-width: 960px) 500px, (max-width: 1280px) 640px`}
-            src={src}
-          />
-        )}
+        <Image
+          class="order-2 md:order-1"
+          alt={block.image.alt_text}
+          widths={[320, 500, 640]}
+          sizes={`(max-width: 640px) 320px, (max-width: 960px) 500px, (max-width: 1280px) 640px`}
+          src={imageSrc}
+        />
         <div class="left-right__text order-1 md:order-2">
           <h2 class="text-4xl" style={`color: ${block.heading.color};`}>
             {block.heading.heading_text}
@@ -96,20 +77,12 @@ if (!src) {
           </div>
           {block.button && <Button {...block.button} />}
         </div>
-        {ENV_BOOKSHOP_LIVE ? (
-          <img
-            style="@media screen and (max-width: 640px){max-width: 320px }; @media screen and (max-width: 960px){max-width: 500px }; @media screen and (min-width: 960px){max-width: 640px }"
-            src={src}
-            alt={block.image.alt_text}
-          />
-        ) : (
-          <Image
-            alt={block.image.alt_text}
-            widths={[320, 500, 640]}
-            sizes={`(max-width: 640px) 320px, (max-width: 960px) 500px, (max-width: 1280px) 640px`}
-            src={src}
-          />
-        )}
+        <Image
+          alt={block.image.alt_text}
+          widths={[320, 500, 640]}
+          sizes={`(max-width: 640px) 320px, (max-width: 960px) 500px, (max-width: 1280px) 640px`}
+          src={imageSrc}
+        />
       </div>
     )
   }

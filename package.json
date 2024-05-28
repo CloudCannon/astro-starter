@@ -15,8 +15,7 @@
     "@astrojs/mdx": "^2.2.4",
     "@astrojs/react": "^3.0.2",
     "@astrojs/tailwind": "^5.0.0",
-    "@bookshop/astro-bookshop": "^3.9.0",
-    "@cloudcannon/remark-auto-import": "^1.0.1",
+    "@bookshop/astro-bookshop": "3.10.0",
     "@fortawesome/fontawesome-svg-core": "^6.5.2",
     "@fortawesome/free-brands-svg-icons": "^6.5.2",
     "@fortawesome/free-regular-svg-icons": "^6.5.2",
@@ -27,7 +26,6 @@
     "@types/react-dom": "^18.2.7",
     "alpinejs": "^3.13.8",
     "astro": "4.0.0",
-    "json-to-pretty-yaml": "^1.2.2",
     "punycode": "^2.3.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
@@ -35,11 +33,10 @@
   },
   "devDependencies": {
     "@astrojs/rss": "^3.0.0",
-    "@bookshop/astro-engine": "3.9.0",
-    "@bookshop/generate": "3.9.0",
+    "@bookshop/astro-engine": "3.10.0",
+    "@bookshop/generate": "3.10.0",
     "@types/markdown-it": "^14.0.1",
     "astro-seo": "^0.8.0",
-    "markdown-it": "^13.0.1",
-    "sass": "^1.66.1"
+    "markdown-it": "^13.0.1"
   }
 }

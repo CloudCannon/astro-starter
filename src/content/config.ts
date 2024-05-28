@@ -1,4 +1,4 @@
-import { defineCollection, z } from 'astro:content';
+import { defineCollection, z } from "astro:content";
 
 const seoSchema = z
   .object({
@@ -18,10 +18,10 @@ const blogCollection = defineCollection({
     title: z.string(),
     tags: z.array(z.string()),
     author: z.string(),
-    thumb_image_path: z.string().optional(),
-    thumb_image_alt: z.string().optional(),
-    image: z.string().optional(),
-    image_alt: z.string().optional(),
+    thumb_image_path: z.string(),
+    thumb_image_alt: z.string(),
+    image: z.string(),
+    image_alt: z.string(),
     seo: seoSchema,
   }),
 });
