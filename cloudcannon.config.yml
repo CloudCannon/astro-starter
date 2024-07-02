@@ -1,3 +1,4 @@
+timezone: Pacific/Auckland
 paths:
   data: data
   static: "public"
