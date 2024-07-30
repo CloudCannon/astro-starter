@@ -5,7 +5,7 @@ generator:
     markdown-it:
       html: true
       linkify: true
-      hardWraps: true
+      xhtmlOut: true
 paths:
   data: data
   static: 'public'
