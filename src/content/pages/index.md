@@ -41,7 +41,7 @@ content_blocks:
         button_link: https://www.cloudcannon.com
         text_color: "#034ad8"
         hover_brightness: 0.95
-  - _bookshop_name: left_right
+  - _bookshop_name: left-right
     background_color: "#ffffff"
     heading:
       heading_text: Keep what you need. Delete the rest.
