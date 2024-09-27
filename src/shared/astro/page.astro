@@ -19,11 +19,9 @@ Object.entries(componentImports).forEach(([path, obj]) => {
 const { contentBlocks } = Astro.props;
 ---
 
-<main>
-  {
-    contentBlocks.map((block, i) => {
-      const Component = components[block._bookshop_name];
-      return <Component {...block} key={i} />;
-    })
-  }
-</main>
+{
+  contentBlocks.map((block, i) => {
+    const Component = components[block._bookshop_name];
+    return <Component {...block} key={i} />;
+  })
+}
