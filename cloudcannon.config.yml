@@ -59,6 +59,10 @@ collections_config:
         name: New Page
         path: schemas/page.md
         remove_extra_inputs: false
+      paginated:
+        name: Paginated collection
+        path: schemas/paginated.md
+        remove_extra_inputs: false
     create:
       path: '[relative_base_path]/{title|slugify}.md'
   blog:
