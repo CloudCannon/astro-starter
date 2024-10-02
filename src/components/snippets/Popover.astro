@@ -1,7 +1,23 @@
 ---
+import slugify from "slugify";
 const block = Astro.props;
 ---
 
-<button popovertarget={block.id}>{block.button_text}</button>
+<button popovertarget={slugify(block.id)}>{block.button_text}</button>
 
-<div popover id={block.id}>{block.popover_text}</div>
+<div popover id={slugify(block.id)}>{block.popover_text}</div>
+
+<style>
+  button {
+    position: relative;
+  }
+
+  div {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: beige;
+    padding: 1rem;
+    border-radius: 4px;
+  }
+</style>

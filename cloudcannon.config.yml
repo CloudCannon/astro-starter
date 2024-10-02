@@ -326,9 +326,11 @@ _snippets:
     template: mdx_component
     inline: false
     preview:
-      text:
+      icon: announcement
+      text: Alert
+      subtext:
         - key: alert_message
-        - 'Alert'
+        - Update alert content and styles
     definitions:
       component_name: SnippetsAlert
       named_args:
@@ -373,6 +375,16 @@ _snippets:
     inline: false
     preview:
       icon: image
+      text: Astro Image
+      view: gallery
+      subtext:
+        - key: image_alt
+        - Update image path and alt text
+      image:
+        - key: image_path
+      gallery:
+        image:
+          - key: image_path
     definitions:
       component_name: SnippetsAstroImage
       named_args:
@@ -404,6 +416,12 @@ _snippets:
         - editor_key: text
           source_key: text
           type: string
+    preview:
+      icon: expand_more
+      text: Accordion
+      subtext:
+        - key: text
+        - Update accordion content.
     _inputs:
       heading:
         type: textarea
@@ -424,6 +442,12 @@ _snippets:
         - editor_key: id
           source_key: id
           type: string
+    preview:
+      icon: open_in_browser
+      text: Popover
+      subtext:
+        - key: button_text
+        - Update popover button text, and popover contents
     _inputs:
       button_text:
         type: textarea
@@ -435,14 +459,16 @@ _snippets:
   video:
     template: mdx_component
     inline: false
-    preview:
-      text: Video
     definitions:
       component_name: SnippetsVideo
       named_args:
         - editor_key: src
           source_key: src
           type: string
+    preview:
+      text: Video
+      subtext: A self hosted video from our static files
+      icon: duo
     _inputs:
       src:
         comment: Link to a video hosted in our own files.
@@ -453,8 +479,6 @@ _snippets:
   youtube:
     template: mdx_component
     inline: false
-    preview:
-      text: Video
     definitions:
       component_name: SnippetsYoutube
       named_args:
@@ -463,13 +487,21 @@ _snippets:
           type: string
         - editor_key: width
           source_key: width
-          type: string
+          type: number
         - editor_key: height
           source_key: height
-          type: string
+          type: number
         - editor_key: title
           source_key: title
           type: string
+    preview:
+      icon: duo
+      text:
+        - key: title
+        - Youtube Video
+      subtext:
+        - key: video_source
+        - Update Youtube video details 
     _inputs:
       video_source:
         type: url
@@ -482,7 +514,6 @@ _snippets:
         comment: The height of the video, measured in px.
       title:
         type: textarea
-
   file:
     template: mdx_component
     inline: false
@@ -507,6 +538,7 @@ _snippets:
         options:
           paths:
             uploads: public/documents
+            static: 'public'
       file_name:
         comment: The name of the file, once downloaded.
       link_message:
@@ -517,6 +549,7 @@ _snippets:
     inline: true
     preview:
       text: Tint
+      icon: pallet
     definitions:
       component_name: SnippetsTint
       content_key: inner_text
