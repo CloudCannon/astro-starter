@@ -1,0 +1,20 @@
+---
+import type { ImageMetadata } from "astro";
+import { Image } from "astro:assets";
+
+const block = Astro.props;
+
+const images = import.meta.glob<{ default: ImageMetadata }>(
+  "/src/assets/**/*.{jpeg,jpg,png,gif}",
+  { eager: true }
+);
+
+const imageSrc = images[block.image_path]?.default ?? block.image_path;
+---
+
+<Image
+  alt={block.image_alt}
+  widths={[320, 500, 640, 1280]}
+  sizes={`(max-width: 640px) 320px, (max-width: 960px) 500px, (max-width: 1280px) 640px, 1280px`}
+  src={imageSrc}
+/>

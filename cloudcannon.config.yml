@@ -368,6 +368,70 @@ _snippets:
       alert_message:
         comment: This is the text displayed in the alert
         type: textarea
+  astro_image:
+    template: mdx_component
+    inline: false
+    preview:
+      icon: image
+    definitions:
+      component_name: SnippetsAstroImage
+      named_args:
+        - editor_key: image_path
+          source_key: image_path
+          type: string
+        - editor_key: image_alt
+          source_key: image_alt
+          type: string
+    _inputs:
+      image_alt:
+        type: textarea
+      image_path:
+        type: image
+        options:
+          empty_type: string
+          paths:
+            static: '.'
+            uploads: src/assets/images
+  accordion:
+    template: mdx_component
+    inline: false
+    definitions:
+      component_name: SnippetsAccordion
+      named_args:
+        - editor_key: heading
+          source_key: heading
+          type: string
+        - editor_key: text
+          source_key: text
+          type: string
+    _inputs:
+      heading:
+        type: textarea
+      text:
+        type: textarea
+  popover:
+    template: mdx_component
+    inline: false
+    definitions:
+      component_name: SnippetsPopover
+      named_args:
+        - editor_key: button_text
+          source_key: button_text
+          type: string
+        - editor_key: popover_text
+          source_key: popover_text
+          type: string
+        - editor_key: id
+          source_key: id
+          type: string
+    _inputs:
+      button_text:
+        type: textarea
+      popover_text:
+        type: textarea
+      id:
+        type: text
+        comment: A unique id for the popover button to link to the correct popover target.
   video:
     template: mdx_component
     inline: false
@@ -381,10 +445,44 @@ _snippets:
           type: string
     _inputs:
       src:
+        comment: Link to a video hosted in our own files.
         type: file
         options:
           paths:
             uploads: public/videos
+  youtube:
+    template: mdx_component
+    inline: false
+    preview:
+      text: Video
+    definitions:
+      component_name: SnippetsYoutube
+      named_args:
+        - editor_key: video_source
+          source_key: video_source
+          type: string
+        - editor_key: width
+          source_key: width
+          type: string
+        - editor_key: height
+          source_key: height
+          type: string
+        - editor_key: title
+          source_key: title
+          type: string
+    _inputs:
+      video_source:
+        type: url
+        comment: Get an embed link from a Youtube video and paste it here.
+      width:
+        type: number
+        comment: The width of the video, measured in px.
+      height:
+        type: number
+        comment: The height of the video, measured in px.
+      title:
+        type: textarea
+
   file:
     template: mdx_component
     inline: false

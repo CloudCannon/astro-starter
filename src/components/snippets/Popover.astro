@@ -1,0 +1,7 @@
+---
+const block = Astro.props;
+---
+
+<button popovertarget={block.id}>{block.button_text}</button>
+
+<div popover id={block.id}>{block.popover_text}</div>
