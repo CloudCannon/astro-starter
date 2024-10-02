@@ -1,10 +1,5 @@
 timezone: Pacific/Auckland
-generator:
-  metadata:
-    markdown: markdown-it
-    markdown-it:
-      html: true
-      linkify: true
+
 paths:
   data: data
   static: 'public'
@@ -40,6 +35,7 @@ _editables:
     justify: align-justify
     image_size_attributes: true
     snippet: true
+
 collections_config:
   pages:
     path: src/content/pages
@@ -90,6 +86,23 @@ collections_config:
       image:
         options:
           empty_type: string
+          accepts_mime_types:
+            - image/png
+            - image/jpeg
+            - image/gif
+          paths:
+            static: '.'
+            uploads: src/assets/images
+      thumb_image_path:
+        options:
+          empty_type: string
+          accepts_mime_types:
+            - image/png
+            - image/jpeg
+            - image/gif
+          paths:
+            static: '.'
+            uploads: src/assets/images
       image_alt:
         options:
           empty_type: string
@@ -110,14 +123,38 @@ collections_config:
     disable_add: true
     disable_add_folder: true
     _inputs:
-      colors[*]:
-        options:
-          preview:
-            icon: palette
-      value:
-        type: color
       icons:
         comment: Add an icon from the list of [Font Awesome icons](https://fontawesome.com/search?o=r&m=free). Then add it to the ```src/components/utility/icon.jsx``` file, following the existing pattern.
+
+
+data_config:
+  icons:
+    path: data/icons.json
+  colors:
+    path: data/colors.json
+
+file_config:
+  - glob: data/colors.json
+    _structures:
+      color:
+        values:
+          - value:
+              name:
+              value:
+            preview:
+              icon: palette
+    _inputs:
+      $:
+        type: array
+        label: Colors
+        comment: Set the colors available in the color selectors throughout the site.
+        options:
+          structures: _structures.color
+      value:
+        type: color
+      name:
+        type: text
+        comment: What is seen in the color selector dropdown.
 
 collection_groups:
   - heading: Pages
@@ -281,14 +318,9 @@ _inputs:
       When selected this removes the page from your sitemap and adds the noindex
       robots meta tag
 
-data_config:
-  icons:
-    path: data/icons.json
-  colors:
-    path: data/colors.json
-
 _snippets_imports:
   mdx: true
+
 _snippets:
   alert:
     template: mdx_component
