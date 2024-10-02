@@ -91,7 +91,7 @@ collections_config:
             - image/jpeg
             - image/gif
           paths:
-            static: '.'
+            static: ''
             uploads: src/assets/images
       thumb_image_path:
         options:
@@ -101,7 +101,7 @@ collections_config:
             - image/jpeg
             - image/gif
           paths:
-            static: '.'
+            static: ''
             uploads: src/assets/images
       image_alt:
         options:
@@ -200,7 +200,7 @@ _inputs:
         - image/jpeg
         - image/gif
       paths:
-        static: '.'
+        static: ''
         uploads: src/assets/images
   alt_text:
     label: Image Alt Text
@@ -402,7 +402,7 @@ _snippets:
         options:
           empty_type: string
           paths:
-            static: '.'
+            static: ''
             uploads: src/assets/images
   accordion:
     template: mdx_component
