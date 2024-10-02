@@ -61,7 +61,7 @@ collections_config:
         remove_extra_inputs: false
     create:
       path: '[relative_base_path]/{title|slugify}.md'
-  posts:
+  blog:
     path: src/content/blog
     parser: front-matter
     output: true
@@ -121,7 +121,7 @@ collection_groups:
       - pages
   - heading: Blogging
     collections:
-      - posts
+      - blog
   - heading: Data
     collections:
       - data
