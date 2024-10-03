@@ -1,5 +1,8 @@
 ---
 title:
+featured_posts: 
+  main_feature: ''
+  feature_list: []
 seo:
   page_description:
   canonical_url:
