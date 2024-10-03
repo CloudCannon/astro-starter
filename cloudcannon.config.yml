@@ -1,7 +1,6 @@
 timezone: Pacific/Auckland
 
 paths:
-  data: data
   static: 'public'
   uploads: public/images
 
@@ -9,12 +8,9 @@ collections_config:
   pages:
     path: src/content/pages
     url: '/[full_slug]/'
-    output: true
     icon: laptop_mac
     _enabled_editors:
       - visual
-    filter:
-      base: strict
     add_options:
       - name: Add New Page
         schema: default
@@ -42,8 +38,7 @@ collections_config:
       path: '[relative_base_path]/{title|slugify}.md'
   blog:
     path: src/content/blog
-    parser: front-matter
-    output: true
+    # parser: front-matter
     url: '/blog/[full_slug]/'
     _enabled_editors:
       - content
