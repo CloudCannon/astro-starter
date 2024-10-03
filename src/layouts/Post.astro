@@ -54,34 +54,30 @@ const imageSrc = images[image]?.default ?? image;
         loading="lazy"
       />
       <h1
-        class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-semibold sm:text-center">
+        class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-semibold py-4">
         {title}
       </h1>
-      <ul
-        class="flex flex-col justify-between sm:flex-row sm:justify-center sm:gap-5 py-5 font-light text-sm">
-        <li class="post-data-list-item">
+      <div
+        class="flex flex-col justify-between sm:gap-5 py-5 font-light text-sm">
+        <p class="post-data-list-item">
           {author}
-        </li>
-        <li class="post-data-list-item">
-          <p>
-            {
-              dateObj.toLocaleDateString(undefined, {
-                year: "numeric",
-                month: "long",
-                day: "numeric",
-              })
-            }
-          </p>
-        </li>
+        </p>
+
+        <p class="post-data-list-item">
+          {
+            dateObj.toLocaleDateString(undefined, {
+              year: "numeric",
+              month: "long",
+              day: "numeric",
+            })
+          }
+        </p>
+
         <div class="flex gap-3">
-          <li class="post-data-list-item post-size">
-            <p>{wordCount}<span> words</span></p>
-          </li>
-          <li>
-            <p>{readingTime}<span> minutes</span></p>
-          </li>
+          <p>{wordCount}<span> words</span></p>
+          <p>{readingTime}<span> minutes</span></p>
         </div>
-      </ul>
+      </div>
       <div class="markdown-text">
         <slot />
       </div>
@@ -103,37 +99,3 @@ const imageSrc = images[image]?.default ?? image;
     </section>
   </main>
 </Layout>
-
-<style>
-  .post-size {
-    position: relative;
-  }
-
-  .post-size::after {
-    position: absolute;
-    content: "";
-    background: #4d4d4d;
-    width: 1px;
-    height: 15px;
-    top: 50%;
-    right: -10%;
-    transform: translate(-50%, -50%);
-  }
-
-  @media (min-width: 640px) {
-    .post-data-list-item {
-      position: relative;
-    }
-
-    .post-data-list-item::after {
-      position: absolute;
-      content: "";
-      background: #4d4d4d;
-      width: 1px;
-      height: 15px;
-      top: 50%;
-      right: -12%;
-      transform: translate(-50%, -50%);
-    }
-  }
-</style>

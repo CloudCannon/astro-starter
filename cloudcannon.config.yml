@@ -4,37 +4,6 @@ paths:
   data: data
   static: 'public'
   uploads: public/images
-_editables:
-  content:
-    blockquote: true
-    bold: true
-    format: p h2 h3 h4
-    italic: true
-    strike: true
-    subscript: true
-    superscript: true
-    underline: true
-    link: true
-    bulletedlist: true
-    indent: true
-    numberedlist: true
-    outdent: true
-    code: true
-    embed: true
-    horizontalrule: true
-    image: true
-    table: true
-    undo: true
-    redo: true
-    removeformat: true
-    copyformatting: true
-    styles: /css/editor.css
-    left: align-left
-    center: align-center
-    right: align-right
-    justify: align-justify
-    image_size_attributes: true
-    snippet: true
 
 collections_config:
   pages:
@@ -112,14 +81,11 @@ collections_config:
         options:
           empty_type: string
       tags:
-        type: array
+        type: multiselect
+        comment: To add a new tag, go to the [tags data file](cloudcannon:collections/data/tags.json)
         options:
-          allow_create: true
+          values: data.tags
           empty_type: array
-      tags[*]:
-        type: text
-        options:
-          empty_type: string
   data:
     path: data
     disable_add: true
@@ -128,12 +94,13 @@ collections_config:
       icons:
         comment: Add an icon from the list of [Font Awesome icons](https://fontawesome.com/search?o=r&m=free). Then add it to the ```src/components/utility/icon.jsx``` file, following the existing pattern.
 
-
 data_config:
   icons:
     path: data/icons.json
   colors:
     path: data/colors.json
+  tags:
+    path: data/tags.json
 
 file_config:
   - glob: data/colors.json
@@ -157,6 +124,16 @@ file_config:
       name:
         type: text
         comment: What is seen in the color selector dropdown.
+  - glob: data/tags.json
+    _inputs:
+      $:
+        type: array
+        label: Tags
+        comment: Set the tags available in posts.
+      $[*]:
+        options:
+          preview:
+            icon: tag
 
 collection_groups:
   - heading: Pages
@@ -168,6 +145,38 @@ collection_groups:
   - heading: Data
     collections:
       - data
+
+_editables:
+  content:
+    blockquote: true
+    bold: true
+    format: p h2 h3 h4
+    italic: true
+    strike: true
+    subscript: true
+    superscript: true
+    underline: true
+    link: true
+    bulletedlist: true
+    indent: true
+    numberedlist: true
+    outdent: true
+    code: true
+    embed: true
+    horizontalrule: true
+    image: true
+    table: true
+    undo: true
+    redo: true
+    removeformat: true
+    copyformatting: true
+    styles: /css/editor.css
+    left: align-left
+    center: align-center
+    right: align-right
+    justify: align-justify
+    image_size_attributes: true
+    snippet: true
 
 _inputs:
   markdown_content:
