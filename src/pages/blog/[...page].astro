@@ -2,7 +2,8 @@
 import type { Page } from "astro";
 import BlogList from "../../components/blog/list.astro";
 import BlogPagination from "../../components/blog/pagination";
-import Layout, { type Props as LayoutProps } from "../../layouts/Layout.astro";
+import { type Props as LayoutProps } from "../../layouts/Layout.astro";
+import Layout from "../../layouts/Paginated.astro";
 import {
   getCollection,
   getEntryBySlug,
@@ -16,7 +17,16 @@ type Props = {
 export async function getStaticPaths({ paginate }: { paginate: Function }) {
   const posts = await getCollection("blog");
   const page = await getEntryBySlug("pages", "blog");
-  return paginate(posts, {
+  // Filter out what is already displayed in featured stories
+  const filteredPosts = posts.filter(
+    (post) =>
+      `src/content/blog/${post.slug}.mdx` !==
+        page.data.featured_posts?.main_feature &&
+      !page.data.featured_posts?.feature_list.includes(
+        `src/content/blog/${post.slug}.mdx`
+      )
+  );
+  return paginate(filteredPosts, {
     pageSize: "page_size" in page.data ? page.data.page_size : 6,
   });
 }
@@ -27,22 +37,15 @@ const pagination = Astro.props.page;
 const { data: posts } = pagination;
 ---
 
-<Layout {...frontmatter}>
-  <div class="py-[48px] md:py-[96px]">
-    <h1
-      class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-semibold text-center xl:mb-12">
-      {page.data.title}
-    </h1>
-    <section class="blog-index mx-auto flex flex-col justify-center">
-      <BlogList posts={posts} />
-      <BlogPagination pagination={pagination} />
-    </section>
-  </div>
+<Layout frontmatter={frontmatter}>
+  <section class="blog-index mx-auto flex flex-col justify-center">
+    <BlogList posts={posts} />
+    <BlogPagination pagination={pagination} />
+  </section>
 </Layout>
 
 <style>
   .blog-index {
     max-width: var(--pageContainer);
-    padding-inline: var(--pagePadding);
   }
 </style>

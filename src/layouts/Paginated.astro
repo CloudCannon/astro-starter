@@ -1,0 +1,40 @@
+---
+import FeaturedPosts from "../components/featured-posts/featured-posts.astro";
+import Layout, { type SEOProps } from "./Layout.astro";
+
+type Props = {
+  frontmatter: {
+    title: string;
+    featured_posts: {
+      main_feature: string;
+      feature_list: Array<string>;
+    };
+    page_size?: number;
+    seo?: SEOProps;
+  };
+};
+
+if (!Astro.props.frontmatter) {
+  throw new Error("Page frontmatter must be defined");
+}
+const props = Astro.props.frontmatter;
+---
+
+<Layout {...props}>
+  <div class="py-[48px] blog-index">
+    <h1
+      class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-semibold mt-[48px]">
+      {props.title}
+    </h1>
+    <FeaturedPosts bookshop:live featured_posts={props.featured_posts} />
+    <slot />
+  </div>
+</Layout>
+
+<style>
+  .blog-index {
+    max-width: var(--pageContainer);
+    padding-inline: var(--pagePadding);
+    margin: 0 auto;
+  }
+</style>

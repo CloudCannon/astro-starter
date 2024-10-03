@@ -4,6 +4,6 @@ const { posts } = Astro.props;
 ---
 
 <div
-  class="grid md:grid-cols-2 lg:grid-cols-3 justify-between gap-5 mt-8 md:mt-16">
+  class="md:grid md:grid-cols-2 lg:grid-cols-3 justify-between gap-5 mt-8 md:mt-16">
   {posts.map((post, i) => <PostSummary {...post} key={i} />)}
 </div>

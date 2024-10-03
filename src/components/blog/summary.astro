@@ -5,8 +5,6 @@ import { Image } from "astro:assets";
 const { data, slug } = Astro.props;
 
 const { thumb_image_path, thumb_image_alt, title, date } = data;
-console.log("data: ", data);
-console.log("thumb_image_path: ", data.thumb_image_path);
 
 const dateObj = new Date(date);
 const images = import.meta.glob<{ default: ImageMetadata }>(
@@ -17,29 +15,27 @@ const images = import.meta.glob<{ default: ImageMetadata }>(
 const imageSrc = images[thumb_image_path]?.default ?? thumb_image_path;
 ---
 
-<div class="">
-  <article class="block">
-    <a href={`/blog/${slug}`}>
-      <Image
-        class="rounded-lg aspect-video"
-        src={imageSrc}
-        alt={thumb_image_alt}
-        loading="lazy"
-      />
-    </a>
-    <a
-      class="flex flex-col justify-start mt-2 max-w-[500px]"
-      href={`/blog/${slug}`}>
-      <p class="text-2xl font-semibold">{title}</p>
-      <p class="font-light">
-        {
-          dateObj.toLocaleDateString(undefined, {
-            year: "numeric",
-            month: "long",
-            day: "numeric",
-          })
-        }
-      </p>
-    </a>
-  </article>
+<div class="block">
+  <a href={`/blog/${slug}`}>
+    <Image
+      class="rounded-sm aspect-video w-full"
+      src={imageSrc}
+      alt={thumb_image_alt}
+      loading="lazy"
+    />
+  </a>
+  <a
+    class="flex flex-col justify-start mt-2 max-w-[500px]"
+    href={`/blog/${slug}`}>
+    <p class="text-2xl font-semibold">{title}</p>
+    <p class="font-light">
+      {
+        dateObj.toLocaleDateString(undefined, {
+          year: "numeric",
+          month: "long",
+          day: "numeric",
+        })
+      }
+    </p>
+  </a>
 </div>
