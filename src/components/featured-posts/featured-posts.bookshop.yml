@@ -17,14 +17,3 @@ preview:
 
 # Any extra CloudCannon inputs configuration to apply to the blueprint
 _inputs:
-  feature_list:
-    type: multiselect
-    options:
-      empty_type: array
-      values: collections.blog
-      value_key: title
-  main_feature:
-    type: select
-    options:
-      values: collections.blog
-      value_key: title
