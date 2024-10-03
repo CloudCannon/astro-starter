@@ -22,9 +22,9 @@ _inputs:
     options:
       empty_type: array
       values: collections.blog
-      value_key: path
+      value_key: title
   main_feature:
     type: select
     options:
       values: collections.blog
-      value_key: id
+      value_key: slug

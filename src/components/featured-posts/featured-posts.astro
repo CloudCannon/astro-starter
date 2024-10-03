@@ -24,13 +24,16 @@ const images = import.meta.glob<{ default: ImageMetadata }>(
       const featuredPostSlug = featured_posts.main_feature
         .split("src/content/blog/")[1]
         .split(".mdx")[0];
+
       const featuredPostURL = `/blog/${featuredPostSlug}/`;
+
       if (featuredPostSlug === post.slug) {
         const date = new Date(post.data.date);
         const dateTimeFormatter = new Intl.DateTimeFormat("en-US", {
           dateStyle: "long",
           timeZone: "America/Chicago",
         });
+
         const formattedDate = dateTimeFormatter.format(date);
 
         const imageSrc =
