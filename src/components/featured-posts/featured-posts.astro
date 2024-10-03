@@ -36,6 +36,8 @@ const images = import.meta.glob<{ default: ImageMetadata }>(
         const imageSrc =
           images[post.data.thumb_image_path]?.default ??
           post.data.thumb_image_path;
+
+        const tags = post.data.tags;
         return (
           <div class="lg:w-3/4">
             <a href={featuredPostURL}>
@@ -47,6 +49,21 @@ const images = import.meta.glob<{ default: ImageMetadata }>(
                 src={imageSrc}
               />
             </a>
+            {tags ? (
+              <div class="flex flex-col sm:flex-row gap-3 pt-3">
+                {tags.map((tag: string) => {
+                  return (
+                    <a href={`/tags/${tag}/`}>
+                      <span class="bg-slate-200 px-1 rounded-sm">
+                        {tag.charAt(0).toUpperCase() + tag.slice(1)}
+                      </span>
+                    </a>
+                  );
+                })}
+              </div>
+            ) : (
+              ""
+            )}
             <a href={featuredPostSlug}>
               <h3 class="py-2 font-semibold text-3xl">{post.data.title}</h3>
             </a>
@@ -75,6 +92,8 @@ const images = import.meta.glob<{ default: ImageMetadata }>(
             const imageSrc =
               images[post.data.thumb_image_path]?.default ??
               post.data.thumb_image_path;
+
+            const tags = post.data.tags;
             return (
               <div class="">
                 <a href={featuredPostURL}>
@@ -87,6 +106,21 @@ const images = import.meta.glob<{ default: ImageMetadata }>(
                   />
                 </a>
                 <div class="">
+                  {tags ? (
+                    <div class="flex flex-col sm:flex-row gap-3 pt-3">
+                      {tags.map((tag: string) => {
+                        return (
+                          <a href={`/tags/${tag}/`}>
+                            <span class="bg-slate-200 px-1 rounded-sm">
+                              {tag.charAt(0).toUpperCase() + tag.slice(1)}
+                            </span>
+                          </a>
+                        );
+                      })}
+                    </div>
+                  ) : (
+                    ""
+                  )}
                   <a href={featuredPostURL}>
                     <h3 class="py-1 font-semibold text-2xl">
                       {post.data.title}

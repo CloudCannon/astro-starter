@@ -4,7 +4,7 @@ import { Image } from "astro:assets";
 
 const { data, slug } = Astro.props;
 
-const { thumb_image_path, thumb_image_alt, title, date } = data;
+const { thumb_image_path, thumb_image_alt, title, date, tags } = data;
 
 const dateObj = new Date(date);
 const images = import.meta.glob<{ default: ImageMetadata }>(
@@ -24,10 +24,27 @@ const imageSrc = images[thumb_image_path]?.default ?? thumb_image_path;
       loading="lazy"
     />
   </a>
-  <a
-    class="flex flex-col justify-start mt-2 max-w-[500px]"
-    href={`/blog/${slug}`}>
-    <p class="text-2xl font-semibold">{title}</p>
+  <div class="flex flex-col justify-start mt-2 max-w-[500px]">
+    {
+      tags ? (
+        <div class="flex flex-col sm:flex-row gap-3">
+          {tags.map((tag: string) => {
+            return (
+              <a href={`/tags/${tag}/`}>
+                <span class="bg-slate-200 px-1 rounded-sm">
+                  {tag.charAt(0).toUpperCase() + tag.slice(1)}
+                </span>
+              </a>
+            );
+          })}
+        </div>
+      ) : (
+        ""
+      )
+    }
+    <a href={`/blog/${slug}/`}>
+      <p class="text-2xl font-semibold">{title}</p>
+    </a>
     <p class="font-light">
       {
         dateObj.toLocaleDateString(undefined, {
@@ -37,5 +54,5 @@ const imageSrc = images[thumb_image_path]?.default ?? thumb_image_path;
         })
       }
     </p>
-  </a>
+  </div>
 </div>
