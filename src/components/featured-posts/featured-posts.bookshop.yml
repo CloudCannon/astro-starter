@@ -27,4 +27,4 @@ _inputs:
     type: select
     options:
       values: collections.blog
-      value_key: slug
+      value_key: title

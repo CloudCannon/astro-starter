@@ -2,6 +2,7 @@
 import { getCollection } from "astro:content";
 import type { ImageMetadata } from "astro";
 import { Image } from "astro:assets";
+import slugify from "slugify";
 
 interface Props {
   featured_posts: {
@@ -21,26 +22,20 @@ const images = import.meta.glob<{ default: ImageMetadata }>(
 <section class="py-[48px] flex flex-col lg:flex-row gap-6">
   {
     allPosts.map((post) => {
-      const featuredPostSlug = featured_posts.main_feature
-        .split("src/content/blog/")[1]
-        .split(".mdx")[0];
+      const featuredPostURL = `/blog/${slugify(featured_posts.main_feature)}/`;
 
-      const featuredPostURL = `/blog/${featuredPostSlug}/`;
-
-      if (featuredPostSlug === post.slug) {
+      if (featured_posts.main_feature === post.data.title) {
         const date = new Date(post.data.date);
         const dateTimeFormatter = new Intl.DateTimeFormat("en-US", {
           dateStyle: "long",
           timeZone: "America/Chicago",
         });
-
         const formattedDate = dateTimeFormatter.format(date);
-
         const imageSrc =
           images[post.data.thumb_image_path]?.default ??
           post.data.thumb_image_path;
-
         const tags = post.data.tags;
+
         return (
           <div class="lg:w-3/4">
             <a href={featuredPostURL}>
@@ -67,7 +62,7 @@ const images = import.meta.glob<{ default: ImageMetadata }>(
             ) : (
               ""
             )}
-            <a href={featuredPostSlug}>
+            <a href={featuredPostURL}>
               <h3 class="py-2 font-semibold text-3xl">{post.data.title}</h3>
             </a>
             <p>{formattedDate}</p>
@@ -79,26 +74,23 @@ const images = import.meta.glob<{ default: ImageMetadata }>(
   <div class="flex flex-col gap-3 lg:w-1/4 md:flex-row lg:flex-col">
     {
       featured_posts.feature_list?.map((featuredPost) => {
-        const featuredPostSlug = featuredPost
-          .split("src/content/blog/")[1]
-          .split(".mdx")[0];
-        const featuredPostURL = `/blog/${featuredPostSlug}/`;
+        const featuredPostURL = `/blog/${slugify(featuredPost)}/`;
+
         return allPosts.map((post) => {
-          if (post.slug === featuredPostSlug) {
+          if (post.data.title === featuredPost) {
             const date = new Date(post.data.date);
             const dateTimeFormatter = new Intl.DateTimeFormat("en-US", {
               dateStyle: "long",
               timeZone: "America/Chicago",
             });
             const formattedDate = dateTimeFormatter.format(date);
-
             const imageSrc =
               images[post.data.thumb_image_path]?.default ??
               post.data.thumb_image_path;
-
             const tags = post.data.tags;
+
             return (
-              <div class="">
+              <div>
                 <a href={featuredPostURL}>
                   <Image
                     class="w-full aspect-video object-cover rounded-sm"
@@ -108,7 +100,7 @@ const images = import.meta.glob<{ default: ImageMetadata }>(
                     src={imageSrc}
                   />
                 </a>
-                <div class="">
+                <div>
                   {tags ? (
                     <div class="flex flex-col sm:flex-row gap-3 pt-3">
                       {tags.map((tag: string) => {
