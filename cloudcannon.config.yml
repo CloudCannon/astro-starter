@@ -24,18 +24,6 @@ collections_config:
         name: Paginated collection
         path: schemas/paginated.md
         remove_extra_inputs: false
-        # _inputs:
-        #   feature_list:
-        #     type: multiselect
-        #     options:
-        #       empty_type: array
-        #       values: collections.blog
-        #       value_key: title
-        #   main_feature:
-        #     type: select
-        #     options:
-        #       values: collections.blog
-        #       value_key: title
     create:
       path: '[relative_base_path]/{title|slugify}.md'
   blog:
@@ -175,6 +163,17 @@ _editables:
     snippet: true
 
 _inputs:
+  feature_list:
+    type: multiselect
+    options:
+      empty_type: array
+      values: collections.blog
+      value_key: title
+  main_feature:
+    type: select
+    options:
+      values: collections.blog
+      value_key: title
   markdown_content:
     type: markdown
     options:
