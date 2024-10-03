@@ -20,11 +20,8 @@ export async function getStaticPaths({ paginate }: { paginate: Function }) {
   // Filter out what is already displayed in featured stories
   const filteredPosts = posts.filter(
     (post) =>
-      `src/content/blog/${post.slug}.mdx` !==
-        page.data.featured_posts?.main_feature &&
-      !page.data.featured_posts?.feature_list.includes(
-        `src/content/blog/${post.slug}.mdx`
-      )
+      post.data.title !== page.data.featured_posts?.main_feature &&
+      !page.data.featured_posts?.feature_list.includes(post.data.title)
   );
   return paginate(filteredPosts, {
     pageSize: "page_size" in page.data ? page.data.page_size : 6,
