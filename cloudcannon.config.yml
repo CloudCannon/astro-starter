@@ -86,20 +86,12 @@ collections_config:
       image:
         options:
           empty_type: string
-          accepts_mime_types:
-            - image/png
-            - image/jpeg
-            - image/gif
           paths:
             static: ''
             uploads: src/assets/images
       thumb_image_path:
         options:
           empty_type: string
-          accepts_mime_types:
-            - image/png
-            - image/jpeg
-            - image/gif
           paths:
             static: ''
             uploads: src/assets/images
@@ -195,10 +187,6 @@ _inputs:
     type: image
     comment: The path to the source file of the image to be optimized.
     options:
-      accepts_mime_types:
-        - image/png
-        - image/jpeg
-        - image/gif
       paths:
         static: ''
         uploads: src/assets/images
