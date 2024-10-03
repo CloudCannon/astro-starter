@@ -2,10 +2,11 @@
 import type { ImageMetadata } from "astro";
 import { Image } from "astro:assets";
 
-const {
-  data: { thumb_image_path, thumb_image_alt, title, date },
-  slug,
-} = Astro.props;
+const { data, slug } = Astro.props;
+
+const { thumb_image_path, thumb_image_alt, title, date } = data;
+console.log("data: ", data);
+console.log("thumb_image_path: ", data.thumb_image_path);
 
 const dateObj = new Date(date);
 const images = import.meta.glob<{ default: ImageMetadata }>(

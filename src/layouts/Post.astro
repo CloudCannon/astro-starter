@@ -34,6 +34,7 @@ const readingTime = Math.floor(wordCount / 183);
 const dateObj = new Date(date);
 
 const posts = await getCollection("blog");
+const filteredPosts = posts.filter((post) => post.data.title !== title);
 
 const images = import.meta.glob<{ default: ImageMetadata }>(
   "/src/assets/**/*.{jpeg,jpg,png,gif}",
@@ -88,15 +89,17 @@ const imageSrc = images[image]?.default ?? image;
     <section
       class="max-w-screen-md mx-auto pt-[48px] flex flex-col items-center">
       <h2 class="text-2xl">Recent Posts</h2>
-      <!-- <div class="grid sm:grid-cols-2 gap-5 mt-5">
+      <div class="grid sm:grid-cols-2 gap-5 mt-5">
         {
-          posts.slice(0, 2).map((post, i) => (
-            <div class="max-w-[420px]">
-              <PostSummary post={post} />
-            </div>
-          ))
+          filteredPosts.slice(0, 2).map((post, i) => {
+            return (
+              <div class="max-w-[420px]">
+                <PostSummary {...post} />
+              </div>
+            );
+          })
         }
-      </div> -->
+      </div>
     </section>
   </main>
 </Layout>
