@@ -7,6 +7,8 @@ paths:
 collections_config:
   pages:
     path: src/content/pages
+    glob:
+      - '**/*.md'
     url: '/[full_slug]/'
     icon: laptop_mac
     _enabled_editors:
@@ -41,6 +43,7 @@ collections_config:
   blog:
     path: src/content/blog
     url: '/blog/[full_slug]/'
+    icon: newspaper
     _enabled_editors:
       - content
       - visual
