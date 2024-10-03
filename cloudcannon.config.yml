@@ -30,10 +30,12 @@ collections_config:
             options:
               empty_type: array
               values: collections.blog
+              value_key: title
           main_feature:
             type: select
             options:
               values: collections.blog
+              value_key: title
     create:
       path: '[relative_base_path]/{title|slugify}.md'
   blog:
@@ -133,8 +135,6 @@ collection_groups:
   - heading: Pages
     collections:
       - pages
-  - heading: Blogging
-    collections:
       - blog
   - heading: Data
     collections:
@@ -173,17 +173,6 @@ _editables:
     snippet: true
 
 _inputs:
-  feature_list:
-    type: multiselect
-    options:
-      empty_type: array
-      values: collections.blog
-      value_key: title
-  main_feature:
-    type: select
-    options:
-      values: collections.blog
-      value_key: title
   markdown_content:
     type: markdown
     options:
