@@ -415,35 +415,6 @@ _snippets:
         type: textarea
       text:
         type: textarea
-  popover:
-    template: mdx_component
-    inline: false
-    definitions:
-      component_name: SnippetsPopover
-      named_args:
-        - editor_key: button_text
-          source_key: button_text
-          type: string
-        - editor_key: popover_text
-          source_key: popover_text
-          type: string
-        - editor_key: id
-          source_key: id
-          type: string
-    preview:
-      icon: open_in_browser
-      text: Popover
-      subtext:
-        - key: button_text
-        - Update popover button text, and popover contents
-    _inputs:
-      button_text:
-        type: textarea
-      popover_text:
-        type: textarea
-      id:
-        type: text
-        comment: A unique id for the popover button to link to the correct popover target.
   video:
     template: mdx_component
     inline: false
