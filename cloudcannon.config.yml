@@ -274,6 +274,11 @@ _inputs:
   page_size:
     type: number
     comment: The number of collection items to list per page
+  featured_posts:
+    options:
+      preview:
+        icon: newspaper
+        text: Featured Posts
   social:
     options:
       preview:
