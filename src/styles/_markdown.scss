@@ -69,13 +69,7 @@
   vertical-align: sub;
   font-size: smaller;
 }
-.markdown-text code {
-  background-color: #f4f4f4;
-  padding: 0.25rem;
-  border-radius: 0.25rem;
-  color: black;
-  margin-block: 1.5rem;
-}
+
 .markdown-text table {
   width: 100%;
   border-collapse: collapse;
@@ -109,8 +103,6 @@
 }
 
 .markdown-text pre {
-  background-color: #f2f2f2 !important;
-  color: black;
   margin-block: 1.5rem;
   padding: 1rem;
 }
