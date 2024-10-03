@@ -38,7 +38,6 @@ collections_config:
       path: '[relative_base_path]/{title|slugify}.md'
   blog:
     path: src/content/blog
-    # parser: front-matter
     url: '/blog/[full_slug]/'
     _enabled_editors:
       - content
