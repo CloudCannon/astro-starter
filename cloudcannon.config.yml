@@ -178,6 +178,17 @@ _editables:
     snippet: true
 
 _inputs:
+  feature_list:
+    type: multiselect
+    options:
+      empty_type: array
+      values: collections.blog
+      value_key: title
+  main_feature:
+    type: select
+    options:
+      values: collections.blog
+      value_key: title
   markdown_content:
     type: markdown
     options:
