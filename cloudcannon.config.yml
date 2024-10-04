@@ -42,6 +42,8 @@ collections_config:
       path: '[relative_base_path]/{title|slugify}.md'
   blog:
     path: src/content/blog
+    glob:
+      - '**/*.mdx'
     url: '/blog/[full_slug]/'
     icon: newspaper
     _enabled_editors:
