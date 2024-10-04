@@ -2,7 +2,7 @@
 
 A starting point for developers looking to build a website with Astro, using Bookshop components in CloudCannon.
 
-Create your own copy, and start creating your own components to use in the CloudCannon CMS. Build components with `.jsx` or `.astro`.
+Create your own copy, and start creating your own components to use in the CloudCannon CMS. Build components using .jsx or .astro files.
 
 To try to cut down on setup time this starter template includes some commonly used [features](#features) in CloudCannon.
 
