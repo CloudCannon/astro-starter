@@ -5,14 +5,12 @@ import { Image } from "astro:assets";
 import slugify from "slugify";
 
 interface Props {
-  featured_posts: {
-    main_feature: string;
-    feature_list: Array<string>;
-  };
+  main_feature: string;
+  feature_list: Array<string>;
 }
 
 const allPosts = await getCollection("blog");
-const { featured_posts } = Astro.props;
+const block = Astro.props;
 const images = import.meta.glob<{ default: ImageMetadata }>(
   "/src/assets/**/*.{jpeg,jpg,png,gif}",
   { eager: true }
@@ -22,9 +20,9 @@ const images = import.meta.glob<{ default: ImageMetadata }>(
 <section class="py-[48px] flex flex-col lg:flex-row gap-6">
   {
     allPosts.map((post) => {
-      const featuredPostURL = `/blog/${slugify(featured_posts.main_feature)}/`;
+      const featuredPostURL = `/blog/${slugify(block.main_feature)}/`;
 
-      if (featured_posts.main_feature === post.data.title) {
+      if (block.main_feature === post.data.title) {
         const date = new Date(post.data.date);
         const dateTimeFormatter = new Intl.DateTimeFormat("en-US", {
           dateStyle: "long",
@@ -73,7 +71,7 @@ const images = import.meta.glob<{ default: ImageMetadata }>(
   }
   <div class="flex flex-col gap-3 lg:w-1/4 md:flex-row lg:flex-col">
     {
-      featured_posts.feature_list?.map((featuredPost) => {
+      block.feature_list?.map((featuredPost) => {
         const featuredPostURL = `/blog/${slugify(featuredPost)}/`;
 
         return allPosts.map((post) => {

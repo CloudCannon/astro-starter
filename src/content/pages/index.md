@@ -87,4 +87,9 @@ content_blocks:
       background_color: "#034ad8"
       hover_brightness: 0.85
       text_color: "#ffffff"
+  - _bookshop_name: featured-posts
+    main_feature: All the bells and whistles
+    feature_list:
+      - Best email sending services changed
+      - Email delivery tips 
 ---

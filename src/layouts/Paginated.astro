@@ -26,7 +26,7 @@ const props = Astro.props.frontmatter;
       class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-semibold mt-[48px]">
       {props.title}
     </h1>
-    <FeaturedPosts bookshop:live featured_posts={props.featured_posts} />
+    <FeaturedPosts bookshop:live {...props.featured_posts} />
     <slot />
   </div>
 </Layout>
