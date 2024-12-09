@@ -69,7 +69,8 @@ const images = import.meta.glob<{ default: ImageMetadata }>(
       }
     })
   }
-  <div class="flex flex-col gap-3 lg:w-1/4 md:flex-row lg:flex-col">
+  <div
+    class="non-featured-posts flex flex-col gap-3 lg:w-1/4 md:flex-row lg:flex-col">
     {
       block.feature_list?.map((featuredPost) => {
         const featuredPostURL = `/blog/${slugify(featuredPost)}/`;
@@ -129,3 +130,17 @@ const images = import.meta.glob<{ default: ImageMetadata }>(
     }
   </div>
 </section>
+
+<style>
+  section {
+    max-width: var(--pageContainer);
+    margin-inline: auto;
+    padding-inline: var(--pagePadding);
+    padding-block: 24px;
+  }
+
+  .non-featured-posts {
+    padding-inline: var(--pagePadding);
+    margin-inline: auto;
+  }
+</style>
