@@ -4,8 +4,10 @@ spec:
     - content_blocks
   label: Featured Posts
   description: Featured stories grid
-  icon: "chrome_reader_mode"
-  tags: []
+  icon: "newspaper"
+  tags:
+    - Grid
+    - Posts
 
 # Defines the structure of this component, as well as the default values
 blueprint:
