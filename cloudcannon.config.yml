@@ -46,18 +46,20 @@ collections_config:
         name: New Post
         path: schemas/post.mdx
     create:
-      path: '[relative_base_path]/{title|slugify}.mdx'
+      path: '[relative_base_path]/{filename|slugify|lowercase}.mdx'
     _inputs:
       title:
         options:
           empty_type: string
       image:
+        type: image
         options:
           empty_type: string
           paths:
             static: ''
             uploads: src/assets/images
       thumb_image_path:
+        type: image
         options:
           empty_type: string
           paths:
@@ -120,9 +122,7 @@ file_config:
         label: Tags
         comment: Set the tags available in posts.
       $[*]:
-        options:
-          preview:
-            icon: tag
+        type: text
 
 collection_groups:
   - heading: Pages
@@ -257,6 +257,7 @@ _inputs:
       max: 1.5
       step: 0.05
   seo:
+    type: object
     options:
       preview:
         icon: query_stats
@@ -268,20 +269,23 @@ _inputs:
   layout:
     hidden: true
   date:
-    instance_value: now
+    instance_value: NOW
   page_size:
     type: number
     comment: The number of collection items to list per page
   featured_posts:
+    type: object
     options:
       preview:
         icon: newspaper
         text: Featured Posts
   social:
+    type: object
     options:
       preview:
         icon: link
   links[*]:
+    type: object
     options:
       preview:
         icon: link
@@ -296,6 +300,7 @@ _inputs:
     options:
       values: data.icons
   social[*]:
+    type: object
     options:
       preview:
         icon: query_stats
