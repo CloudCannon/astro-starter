@@ -388,10 +388,10 @@ _snippets:
   astro_image:
     template: mdx_component
     inline: false
+    view: gallery
     preview:
       icon: image
       text: Astro Image
-      view: gallery
       subtext:
         - key: image_alt
         - Update image path and alt text
