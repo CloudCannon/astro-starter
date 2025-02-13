@@ -29,7 +29,7 @@ const content =
   "body" in Astro.props ? Astro.props.body : Astro.props.rawContent();
 
 const { title, date, image, image_alt, author } = props;
-const wordCount = content.split(" ").length;
+const wordCount = content?.split(" ")?.length ?? 0;
 const readingTime = Math.floor(wordCount / 183);
 const dateObj = new Date(date);
 
