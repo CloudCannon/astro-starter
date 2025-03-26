@@ -35,10 +35,6 @@ const pageSchema = z.object({
 const paginatedCollectionSchema = z.object({
   title: z.string(),
   page_size: z.number().positive(),
-  featured_posts: z.object({
-    main_feature: z.string(),
-    feature_list: z.array(z.string()),
-  }),
   seo: seoSchema,
 });
 

@@ -1,6 +1,6 @@
 ---
 _schema: page
-title: Home
+title: CloudCannon Astro Starter
 seo:
   page_description: >-
     A starting point for developers looking to build a website with Astro, using
@@ -16,7 +16,7 @@ content_blocks:
   - _bookshop_name: hero
     background_color: "#ffffff"
     heading:
-      heading_text: Astro Bookshop Starter
+      heading_text: CloudCannon Astro Starter
       heading_gradient_color: "#a0a2ff"
     subheading:
       markdown_content: >-
@@ -87,9 +87,4 @@ content_blocks:
       background_color: "#034ad8"
       hover_brightness: 0.85
       text_color: "#ffffff"
-  - _bookshop_name: featured-posts
-    main_feature: All the bells and whistles
-    feature_list:
-      - Best email sending services changed
-      - Email delivery tips 
 ---

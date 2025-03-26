@@ -1,11 +1,6 @@
 ---
 _schema: paginated
 title: Blog
-featured_posts:
-  main_feature: All the bells and whistles
-  feature_list:
-    - Best email sending services changed
-    - Email delivery tips
 seo:
   page_description: A blog template with tags.
   canonical_url:
