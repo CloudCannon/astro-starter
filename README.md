@@ -2,12 +2,11 @@
 
 A starting point for developers looking to build a website with Astro, using Bookshop components in CloudCannon.
 
-Create your own copy, and start creating your own components to use in the CloudCannon CMS. Build components using .jsx or .astro files.
+Create your own copy, and start creating your own components to use in the CloudCannon CMS. Build components using `.jsx` or `.astro` files.
 
 To try to cut down on setup time this starter template includes some commonly used [features](#features) in CloudCannon.
 
-This template is aimed at helping developers build sites quickly, rather than providing editors with a fully built editable site.
-If you are an editor looking for an already built template, have a look at [CloudCannon's templates page](https://cloudcannon.com/templates/).
+This template is aimed at helping developers build sites quickly, rather than providing editors with a fully built editable site. If you are an editor looking for an already built template, have a look at [CloudCannon's templates page](https://cloudcannon.com/templates/).
 
 [See a demo version of this site](https://tiny-jackal.cloudvent.net/).
 
@@ -49,7 +48,7 @@ To add a new component:
 2. Create two files in this folder
    `src/components/example-component/example-component.astro`
 
-```Astro
+```jsx
 ---
 interface Props {
   background_color: string;
@@ -115,8 +114,8 @@ These text heavy pages will be edited in CloudCannon's content editor, rather th
 
 ### Image Optimization
 
-[Astro `<Image />`](https://docs.astro.build/en/guides/images/#image--astroassets) is used in the two placeholder components in this template.
-An Astro `<Image />` will process an image in your src/assets/images folder, and output an optimized image, like below:
+An [Astro Image](https://docs.astro.build/en/guides/images/#image--astroassets) is used in the two placeholder components in this template.
+An Astro Image will process an image in your src/assets/images folder, and output an optimized image, like below:
 
 ```html
 <img
@@ -140,11 +139,11 @@ An Astro `<Image />` will process an image in your src/assets/images folder, and
   decoding="async" />
 ```
 
-This template also demonstrates how to set [`uploads` paths](https://cloudcannon.com/documentation/articles/adjusting-the-uploads-path/) on an input level, to allow for both processed and unprocessed images on one site.
+This template also demonstrates [how to set](https://cloudcannon.com/documentation/articles/adjusting-the-uploads-path/) `uploads` paths on a per-input level, to allow for both processed and unprocessed images on one site.
 
 On this template, by default, image inputs are opened at `public/images`, meaning they are unprocessed images.
 
-Components that use the Astro ```<Image />``` component are configured so the image source input opens at src/assets/images, which are images to be processed and optimized on build.
+Components that use the Astro Image component are configured so the image source input opens at `src/assets/images`, which are images to be processed and optimized on build.
 
 ### SEO Controls
 
@@ -182,7 +181,7 @@ export default defineConfig({
 
 ### Font Awesome Icons
 
-A Font Awesome Icon free icon pack is included, without having to set up your own kit in Font Awesome.
+A Font Awesome Icon free icon pack is included, removing the need to set up your own kit in Font Awesome.
 
 To add more icons:
 
@@ -190,8 +189,8 @@ To add more icons:
 2. Pick a free icon
 3. Go to `src/components/utility/icon.jsx`
 4. Import the component from `'@fortawesome/free-solid-svg-icons'`, `'@fortawesome/free-regular-svg-icons'`, or `'@fortawesome/free-brands-svg-icons'`, depending on which kind of icon it is. Tip: After entering 'fa' into one of the destructured objects, you should see an autocomplete dropdown list to help you with the correct syntax.
-5. Add another if statement following the format the other icons use.
-6. Add the name you just used in the conditional of the if statement to `data/icons.json`, which populates the icon dropdown list used for icons in the placeholder components.
+5. Add another case to the switch statement following the format the other icons use.
+6. Add the name you just used in the conditional of the switch statement to `data/icons.json`, which populates the icon dropdown list used for icons in the placeholder components.
 
 To remove Font Awesome Icons:
 
@@ -238,13 +237,11 @@ Demonstrates using data files to:
 
 - Populate select inputs in CloudCannon. This is powerful for allowing editors to make styling changes to the page, within a set design system populated by an editable data file.
 - Set sitewide values such as the overall site SEO settings.
-- Control header and footer data to allow editors control over navigation.
+- Control header and footer data to allow editors to control navigation.
 
 ### Schemas
 
-Shows how to set up schemas in CloudCannon to allow for non-technical editors to create new pages, with preset frontmatter and content.
-Schemas can be define on a collection level, allowing your new blog pages to be different to your new landing pages.
-This allows for your text heavy blog/docs pages to be built and edited in the content editor, while your other pages can be built with Bookshop in the visual editor.
+Shows how to set up schemas in CloudCannon to allow for non-technical editors to create new pages, with preset frontmatter and content. Schemas can be defined on a collection level, allowing your new blog pages to be different to your new landing pages. This allows for your text heavy blog/docs pages to be built and edited in the content editor, while your other pages can be built with Bookshop in the visual editor.
 
 ### CloudCannon Config
 
@@ -254,7 +251,7 @@ The placeholder Bookshop components show how to configure your components to con
 
 ### Markdown Styles
 
-Markdown toolbar has all the options supported in the rich text editor, along with stylings to make them work.
+The markdown toolbar has most of the options supported in the rich text editor, along with the necessary styling.
 See the CloudCannon [Docs](https://cloudcannon.com/documentation/articles/configure-your-rich-text-editors/) for more information.
 
 ### CSS Variables
