@@ -31,9 +31,12 @@
   line-height: 1.75rem;
 }
 
-.markdown-text p {
+.markdown-text p,
+.markdown-text ol,
+.markdown-text ul {
   margin-bottom: 1.5rem;
 }
+
 .markdown-text li p {
   margin-bottom: 0.125rem;
 }

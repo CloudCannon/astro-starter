@@ -22,8 +22,11 @@ export interface Props {
 
 const { seo } = Astro.props;
 const baseUrl = Astro.site;
+
 const title = Astro.props.title
-  ? `${Astro.props.title} | ${site.site_title}`
+  ? Astro.url.pathname === "/"
+    ? `${Astro.props.title}`
+    : `${Astro.props.title} | ${site.site_title}`
   : site.site_title;
 const description = seo?.page_description ?? site.description;
 const image = seo?.featured_image ?? site.image;
@@ -37,7 +40,24 @@ const canonicalURL = new URL(seo?.canonical_url ?? Astro.url.pathname, baseUrl);
     <meta charset="UTF-8" />
     <meta name="description" content="Astro description" />
     <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <!-- Favicon -->
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="/meta/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="/meta/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="/meta/favicon-16x16.png"
+    />
     <meta name="generator" content={Astro.generator} />
 
     <!-- Add fonts -->
