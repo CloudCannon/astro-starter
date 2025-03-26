@@ -27,7 +27,7 @@ collections_config:
         path: schemas/paginated.md
         remove_extra_inputs: false
     create:
-      path: '[relative_base_path]/{title|slugify}.md'
+      path: '[relative_base_path]/{filename|slugify|lowercase}.md'
   blog:
     path: src/content/blog
     glob:
@@ -85,6 +85,15 @@ collections_config:
       icons:
         comment: Add an icon from the list of [Font Awesome icons](https://fontawesome.com/search?o=r&m=free). Then add it to the ```src/components/utility/icon.jsx``` file, following the existing pattern.
 
+collection_groups:
+  - heading: Pages
+    collections:
+      - pages
+      - blog
+  - heading: Data
+    collections:
+      - data
+
 data_config:
   icons:
     path: data/icons.json
@@ -123,15 +132,6 @@ file_config:
         comment: Set the tags available in posts.
       $[*]:
         type: text
-
-collection_groups:
-  - heading: Pages
-    collections:
-      - pages
-      - blog
-  - heading: Data
-    collections:
-      - data
 
 _editables:
   content:
@@ -182,7 +182,7 @@ _inputs:
     options:
       blockquote: true
       bold: true
-      format: p h1 h2 h3 h4
+      format: p
       italic: true
       strike: true
       subscript: true
@@ -190,12 +190,9 @@ _inputs:
       underline: true
       link: true
       bulletedlist: true
+      indent: true
       numberedlist: true
-      table: true
-      code: true
-      embed: true
-      horizontalrule: true
-      image: true
+      outdent: true
       undo: true
       redo: true
       removeformat: true
@@ -216,7 +213,6 @@ _inputs:
   height:
     type: number
   background_color:
-    hidden: 'border_only'
     type: select
     options:
       values: data.colors
@@ -273,12 +269,6 @@ _inputs:
   page_size:
     type: number
     comment: The number of collection items to list per page
-  featured_posts:
-    type: object
-    options:
-      preview:
-        icon: newspaper
-        text: Featured Posts
   social:
     type: object
     options:
