@@ -10,8 +10,12 @@
         "text": "Blog"
       },
       {
-        "link": "/feed.xml",
-        "text": "RSS Feed"
+        "link": "https://github.com/CloudCannon/astro-starter/",
+        "text": "GitHub"
+      },
+      {
+        "link": "https://cloudcannon.com/",
+        "text": "CloudCannon"
       }
     ]
   },
