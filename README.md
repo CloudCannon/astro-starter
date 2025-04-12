@@ -42,63 +42,7 @@ Build custom components that non-technical editors can use in a page building ex
 
 Bookshop is already set up on this project, so that you can start building components straight away.
 
-To add a new component:
-
-1. Create a new folder in `src/components` using the component name as the folder name.
-2. Create two files in this folder
-   `src/components/example-component/example-component.astro`
-
-```jsx
----
-interface Props {
-  background_color: string;
-  text_color: string;
-}
-
-const block = Astro.props;
----
-
-<section style={`background-color: ${block.background_color}; color: ${block.text_color};`}>
-  <div class="container">
-    Replace me
-  </div>
-</section>
-
-<style>
-  .container {
-    max-width: var(--pageContainer);
-    margin: 0 auto;
-    padding-inline: var(--pagePadding);
-  }
-</style>
-```
-
----
-
-`src/components/example-component/example-component.bookshop.yml`
-
-```yaml
-# Metadata about this component, to be used in the CMS
-spec:
-  structures:
-    - content_blocks
-  label: Example Component
-  description: A short description.
-  icon: 'cottage'
-  tags:
-    - Example
-
-# Defines the structure of this component, as well as the default values
-blueprint:
-  background_color: '#ffffff'
-  text_color: '#000000'
-
-# Overrides any fields in the blueprint when viewing this component in the component browser
-preview:
-
-# Any extra CloudCannon inputs configuration to apply to the blueprint
-_inputs:
-```
+To add a new component run `npm run your-new-component` in the root of your repository.
 
 ### Blog & Documentation Pages
 
