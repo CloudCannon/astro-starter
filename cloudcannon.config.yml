@@ -28,6 +28,7 @@ collections_config:
         remove_extra_inputs: false
     create:
       path: '[relative_base_path]/{filename|slugify|lowercase}.md'
+    new_preview_url: /
   blog:
     path: src/content/blog
     glob:
