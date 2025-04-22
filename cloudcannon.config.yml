@@ -132,6 +132,37 @@ file_config:
         comment: Set the tags available in posts.
       $[*]:
         type: text
+  - glob: data/navigation.json
+    _inputs:
+      header:
+        type: object
+        options:
+          preview:
+            icon: menu
+            text: Header details
+            subtext: Update logo, colors, and links.
+      footer:
+        type: object
+        options:
+          preview:
+            icon: menu
+            text: Footer details
+            subtext: Update logo, colors, socials, copyright, and links.
+      social:
+        type: array
+        options:
+          structures: _structures.social_links
+    _structures:
+      social_links:
+        values:
+          - value:
+              icon:
+              link:
+              name:
+            _inputs:
+              name:
+                type: text
+                comment: Adds an aria-label for assistive technologies
 
 _editables:
   content:
@@ -285,7 +316,7 @@ _inputs:
         subtext:
           - key: link
           - 'Add a social link'
-  social_icon:
+  icon:
     type: select
     options:
       values: data.icons

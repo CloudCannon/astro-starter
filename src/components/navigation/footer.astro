@@ -18,8 +18,8 @@ import Icon from "../utility/icon";
           footer.social.map((link) => {
             return (
               <li class="w-[2rem]">
-                <a href={link.link}>
-                  <Icon icon={link.social_icon} />
+                <a href={link.link} aria-label={link.name}>
+                  <Icon icon={link.icon} />
                 </a>
               </li>
             );

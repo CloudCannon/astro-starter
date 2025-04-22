@@ -38,19 +38,23 @@
     "social": [
       {
         "link": "https://www.facebook.com/mycompany",
-        "social_icon": "Facebook"
+        "icon": "Facebook",
+        "name": "Facebook"
       },
       {
         "link": "https://www.instagram.com/mycompany",
-        "social_icon": "Instagram"
+        "icon": "Instagram",
+        "name": "Instagram"
       },
       {
         "link": "https://www.github.com/mycompany",
-        "social_icon": "Github"
+        "icon": "Github",
+        "name": "Github"
       },
       {
         "link": "https://www.youtube.com/mycompany",
-        "social_icon": "Youtube"
+        "icon": "Youtube",
+        "name": "Youtube"
       }
     ]
   }
