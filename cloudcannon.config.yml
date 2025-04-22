@@ -163,6 +163,8 @@ file_config:
               name:
                 type: text
                 comment: Adds an aria-label for assistive technologies
+            preview:
+              icon: group
 
 _editables:
   content:
