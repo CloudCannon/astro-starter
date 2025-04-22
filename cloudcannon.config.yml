@@ -253,6 +253,9 @@ _inputs:
       preview:
         text:
           - key: name
+        icon: palette
+        icon_color: 
+          - key: value
   text_color:
     type: select
     options:
@@ -261,6 +264,9 @@ _inputs:
       preview:
         text:
           - key: name
+        icon: palette
+        icon_color: 
+          - key: value
   color:
     type: select
     options:
@@ -269,6 +275,9 @@ _inputs:
       preview:
         text:
           - key: name
+        icon: palette
+        icon_color: 
+          - key: value
   icon:
     type: select
     options:
@@ -318,10 +327,6 @@ _inputs:
         subtext:
           - key: link
           - 'Add a social link'
-  icon:
-    type: select
-    options:
-      values: data.icons
   social[*]:
     type: object
     options:
@@ -393,6 +398,9 @@ _snippets:
           preview:
             text:
               - key: name
+            icon: palette
+            icon_color: 
+              - key: value
       icon:
         type: select
         options:
@@ -405,6 +413,9 @@ _snippets:
           preview:
             text:
               - key: name
+            icon: palette
+            icon_color: 
+              - key: value
       alert_message:
         comment: This is the text displayed in the alert
         type: textarea

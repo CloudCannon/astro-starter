@@ -57,6 +57,9 @@ _inputs:
       preview:
         text:
           - key: name
+        icon: palette
+        icon_color: 
+          - key: value
   image:
     options:
       preview:
