@@ -19,7 +19,7 @@ Object.entries(componentImports).forEach(([path, obj]) => {
   components[bookshopName] = (obj as any).default;
 });
 
-const HeroComponent = components[heroBlock._bookshop_name];
+const HeroComponent = components[heroBlock?._bookshop_name];
 ---
 
-{heroBlock && <HeroComponent {...heroBlock} />}
+{HeroComponent && <HeroComponent {...heroBlock} />}

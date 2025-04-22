@@ -17,6 +17,6 @@ const props = Astro.props.frontmatter;
 ---
 
 <Layout {...props}>
-  <HeroBlock bookshop:live heroBlock={props.hero_block} />
+  <HeroBlock bookshop:live heroBlock={props.hero_block ?? {}} />
   <PageHelper bookshop:live contentBlocks={props.content_blocks ?? []} />
 </Layout>
