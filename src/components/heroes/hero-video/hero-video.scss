@@ -1,0 +1,95 @@
+.hero-video {
+  width: 100vw;
+  max-height: 100vh;
+  min-height: fit-content;
+  position: relative;
+  z-index: 1;
+  // Set this to the top of the page under the transparent header
+  top: calc((var(--headerHeight) + (var(--headerPadding) * 2)) * -1);
+  margin-bottom: calc((var(--headerHeight) + (var(--headerPadding) * 2)) * -1);
+  left: 0;
+}
+.hero-video-container {
+  width: 100%;
+  max-height: 100%;
+  min-height: fit-content;
+  max-width: var(--pageContainer);
+  padding-inline: var(--pagePadding);
+  padding-block: calc(var(--sectionPaddingMobile) + var(--headerHeight));
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.hero-video video,
+.hero-video-filter {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.hero-video video {
+  object-fit: cover;
+  z-index: 0;
+}
+.hero-video-filter {
+  z-index: 1;
+}
+.hero-video-content {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  padding-block: 32px;
+  width: 100%;
+}
+.hero-video-content h1 {
+  font-size: 3rem;
+  font-weight: 600;
+  text-align: center;
+  text-wrap: balance;
+}
+
+.hero-video-subheading-text {
+  text-align: center;
+  font-size: 1.125rem;
+  line-height: 1.75rem !important;
+  max-width: 72ch;
+  text-wrap: pretty;
+}
+.hero-video-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  max-width: fit-content;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1rem;
+}
+#hero-video-pause-button {
+  position: relative;
+  z-index: 99;
+  top: 0;
+  right: 0;
+  display: flex;
+  gap: 0.25rem;
+  align-items: center;
+  align-self: flex-end;
+}
+@media only screen and (min-width: 768px) {
+  .hero-video-buttons {
+    flex-direction: row;
+    margin-top: 2rem;
+  }
+  .hero-video-container {
+    padding-block: calc(var(--sectionPadding) + var(--headerHeight));
+  }
+  #pause-video-button {
+    top: calc(var(--sectionPadding) * -1);
+  }
+}

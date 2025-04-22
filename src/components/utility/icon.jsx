@@ -55,6 +55,8 @@ import {
   faCircleInfo,
   faFire,
   faHand,
+  faPause,
+  faPlay
 } from '@fortawesome/free-solid-svg-icons';
 
 import { faLemon, faBookmark } from '@fortawesome/free-regular-svg-icons';
@@ -70,6 +72,10 @@ import {
 
 export default function Icon({ icon }) {
   switch (icon) {
+    case 'Pause':
+      return <FontAwesomeIcon icon={faPause} />;
+    case 'Play':
+      return <FontAwesomeIcon icon={faPlay} />;
     case 'Envelope':
       return <FontAwesomeIcon icon={faEnvelope} />;
     case 'User':

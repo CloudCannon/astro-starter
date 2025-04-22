@@ -11,36 +11,27 @@ seo:
   open_graph_type:
   no_index: false
 hero_block:
-  _bookshop_name: heroes/hero
-  background_color: '#ffffff'
+  _bookshop_name: heroes/hero-video
   heading:
-    heading_text: CloudCannon Astro Starter
-    text_color: '#333232'
-    heading_gradient_color: '#A0A2FF'
+    heading_text: A heading
+    text_color: '#ffffff'
   subheading:
-    text_content: >-
-      A starting point for developers looking to build a website with Astro, using Bookshop components in CloudCannon. Create your own copy, and start creating your own components to use in CloudCannon’s CMS.
-    text_color: '#333232'
-  image:
-      image_path: /src/assets/images/undraw-online-test.svg
-      alt_text: An image
-  buttons:
-    - _bookshop_name: buttons/primary
-      button_text: GitHub
-      button_icon: GitHub
-      button_link: https://github.com/CloudCannon/Astro-starter/
-      button_aria_label:
-      background_color: '#034AD8'
-      hover_brightness: 0.85
-      text_color: '#ffffff'
-    - _bookshop_name: buttons/secondary
-      button_text: CloudCannon
-      button_icon: CloudCannon
-      button_link: https://www.cloudcannon.com
-      button_aria_label:
-      background_color: '#034ad8'
-      hover_brightness: 0.85
-      text_color: '#034AD8'
+    text_content: Some text
+    text_color: '#ffffff'
+  video:
+    video_path: /videos/nz-coast.mp4
+    poster_image: /images/nz-coast-poster.png
+  header_style_overrides:
+    background_color: transparent
+    text_color: '#ffffff'
+    hover_text_color: '#F1F1F1'
+    alternate_logo: 
+      image_path: 
+      logo_alt_text: 
+  background_filters:
+    brightness: 0.5
+    blur: 1
+  buttons: []
 content_blocks:
   - _bookshop_name: left-right
     background_color: '#ffffff'

@@ -38,7 +38,7 @@ const buttonFilePath = `/src/components/buttons/${buttonName}/${buttonName}.astr
 const Button = (buttons[buttonFilePath] as any)?.default;
 
 const images = import.meta.glob<{ default: ImageMetadata }>(
-  "/src/assets/**/*.{jpeg,jpg,png,gif,svg,webp}",
+  "/src/assets/**/*.{jpeg,jpg,png,gif,svg,webp,avif}",
   { eager: true }
 );
 
