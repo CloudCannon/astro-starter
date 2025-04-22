@@ -12,10 +12,11 @@ const block = Astro.props;
 const hover_brightness = block.hover_brightness;
 ---
 
-<button
-  style={`background-color: transparent; border: 2px solid ${block.text_color};`}
-  class="button">
-  <a style={`color: ${block.text_color}`} href={block.button_link}>
+<a
+  class="button"
+  style={`color: ${block.text_color}; background-color: transparent; border: 2px solid ${block.text_color};`}
+  href={block.button_link}>
+  <p>
     {
       block.button_icon ? (
         <span class="button__icon">
@@ -24,8 +25,8 @@ const hover_brightness = block.hover_brightness;
       ) : null
     }
     {block.button_text}
-  </a>
-</button>
+  </p>
+</a>
 
 <style define:vars={{ hover_brightness }}>
   .button {
@@ -34,7 +35,7 @@ const hover_brightness = block.hover_brightness;
     border-radius: 8px;
     padding: 0;
   }
-  .button a {
+  .button p {
     background: transparent;
     display: flex;
     align-items: center;
@@ -44,7 +45,7 @@ const hover_brightness = block.hover_brightness;
     padding: 0.5rem 1.5rem;
     font-size: 1rem;
   }
-  .button a:hover {
+  .button p:hover {
     backdrop-filter: brightness(var(--hover_brightness));
   }
 
