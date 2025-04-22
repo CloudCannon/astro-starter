@@ -35,7 +35,7 @@ const buttons = import.meta.glob("/src/components/buttons/**/*.astro", {
   eager: true,
 });
 const images = import.meta.glob<{ default: ImageMetadata }>(
-  "/src/assets/**/*.{jpeg,jpg,png,gif}",
+  "/src/assets/**/*.{jpeg,jpg,png,gif,svg,webp}",
   { eager: true }
 );
 
@@ -63,14 +63,14 @@ const headingGradientColor = block.heading.heading_gradient_color;
         }
       </div>
     </div>
-    <div class="blob">
-      <Image
-        alt={block.image.alt_text}
-        widths={[320, 500, 640]}
-        sizes={`(max-width: 640px) 320px, (max-width: 960px) 500px, (max-width: 1280px) 640px`}
-        src={imageSrc}
-      />
-    </div>
+    <Image
+      alt={block.image.alt_text}
+      class={"hero-image"}
+      loading={"eager"}
+      widths={[320, 500, 640]}
+      sizes={`(max-width: 640px) 320px, (max-width: 960px) 500px, (max-width: 1280px) 640px`}
+      src={imageSrc}
+    />
   </div>
 </section>
 <style define:vars={{ headingGradientColor }}>
@@ -80,17 +80,18 @@ const headingGradientColor = block.heading.heading_gradient_color;
     gap: 20px;
     justify-content: space-between;
     align-items: center;
-    padding-block: 24px;
+    padding-top: calc(var(--sectionPaddingMobile) + var(--headerHeight));
+    padding-bottom: var(--sectionPaddingMobile);
     padding-inline: var(--pagePadding);
     max-width: var(--pageContainer);
     margin-inline: auto;
     overflow: hidden;
   }
-
   .content h1 {
-    font-size: 2.5rem;
-    line-height: 1em;
+    font-size: 2rem;
+    line-height: 100%;
     font-weight: 700;
+    text-wrap: balance;
     background: -webkit-linear-gradient(to left, #eee 50%, #333);
     background: linear-gradient(
       to left,
@@ -100,79 +101,71 @@ const headingGradientColor = block.heading.heading_gradient_color;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
   }
-
   .content {
     display: flex;
     flex-direction: column;
   }
-
-  .subheading-text {
-    margin-top: 1rem;
+  .content .subheading-text {
+    margin-block: 1rem;
   }
-
   .buttons {
     display: flex;
     flex-direction: column;
-    gap: 1.5rem;
-    max-width: fit-content;
-    justify-content: center;
+    gap: 1rem;
     margin-top: 1rem;
   }
-
-  .blob {
+  .hero-image {
     width: 100%;
+    max-width: 600px;
+    margin-top: 32px;
     display: flex;
     justify-content: center;
   }
-  .blob > img {
-    max-width: 600px;
-    width: 100%;
-    background-size: cover;
-    -webkit-background-position: center;
-    background-position: center center;
-    margin: 20px;
-    animation: animate 10s ease-in-out infinite;
-    transition: all 1s ease-in-out;
+  @media only screen and (min-width: 320px) {
+    .content h1 {
+      font-size: 2.5rem;
+    }
   }
-
   @media only screen and (min-width: 400px) {
+    .content h1 {
+      font-size: 3rem;
+    }
     .buttons {
       flex-direction: row;
       margin-top: 2rem;
     }
-    .content h1 {
-      font-size: 3.8rem;
+  }
+  @media only screen and (min-width: 660px) {
+    .content h1,
+    .content .subheading-text {
+      text-align: center;
+    }
+    .buttons {
+      justify-content: center;
+    }
+  }
+  @media only screen and (min-width: 768px) {
+    .hero-container {
+      padding-top: calc(var(--sectionPadding) + var(--headerHeight));
+      padding-bottom: var(--sectionPadding);
     }
   }
   @media only screen and (min-width: 960px) {
     .hero-container {
       flex-direction: row;
-      padding-block: 48px;
     }
-    .content {
-      width: 50%;
+    .hero-image {
+      width: 45%;
     }
-
-    .blob {
-      width: 50%;
+    .content h1,
+    .content .subheading-text {
+      text-align: start;
+    }
+    .content h1 {
+      font-size: 4rem;
     }
     .buttons {
-      flex-direction: column;
-    }
-  }
-  @media only screen and (min-width: 1280px) {
-    .buttons {
-      flex-direction: row;
-    }
-  }
-
-  @keyframes animate {
-    0%,
-    100% {
-      border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
-    }
-    50% {
-      border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%;
+      justify-content: start;
     }
   }
 </style>

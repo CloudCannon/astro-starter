@@ -25,7 +25,7 @@ content_blocks:
         start creating your own components to use in the CloudCannon CMS.
       color: "#393939"
     image:
-      image_path: /src/assets/images/featured-image-5.jpg
+      image_path: /src/assets/images/undraw-online-test.svg
       alt_text: An image
     buttons:
       - _bookshop_name: buttons/primary

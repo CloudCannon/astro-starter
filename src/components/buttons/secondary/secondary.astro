@@ -1,5 +1,5 @@
 ---
-import Icon from '../../utility/icon';
+import Icon from "../../utility/icon";
 interface Props {
   button_text: string;
   button_icon: string;
@@ -18,11 +18,11 @@ const hover_brightness = block.hover_brightness;
   <a style={`color: ${block.text_color}`} href={block.button_link}>
     {
       block.button_icon ? (
-      <span class="button__icon">
-        <Icon icon={block.button_icon} />
-      </span>
+        <span class="button__icon">
+          <Icon icon={block.button_icon} />
+        </span>
       ) : null
-      }
+    }
     {block.button_text}
   </a>
 </button>
@@ -38,6 +38,7 @@ const hover_brightness = block.hover_brightness;
     background: transparent;
     display: flex;
     align-items: center;
+    justify-content: center;
     gap: 0.5rem;
     border-radius: 8px;
     padding: 0.5rem 1.5rem;

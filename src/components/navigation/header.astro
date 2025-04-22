@@ -1,5 +1,5 @@
 ---
-import { header } from '../../../data/navigation.json';
+import { header } from "../../../data/navigation.json";
 ---
 
 <header
@@ -12,7 +12,10 @@ import { header } from '../../../data/navigation.json';
       <a class="header__logo-link" href={header.logo_url}>
         <img class="header__logo-image" src={header.logo} alt="Logo" />
       </a>
-      <button class="hamburger" @click="open = ! open">
+      <button
+        class="hamburger"
+        @click="open = ! open"
+        aria-label="Open and close the mobile navigation menu">
         <svg height="16" width="24" xmlns="http://www.w3.org/2000/svg">
           <defs>
             <path
@@ -33,6 +36,7 @@ import { header } from '../../../data/navigation.json';
       </button>
       <ul
         class="header__nav-links"
+        aria-label="Header navigation links"
         x-show="open"
         x-transition
         @click.outside="open = false">

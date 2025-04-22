@@ -106,8 +106,19 @@ const canonicalURL = new URL(seo?.canonical_url ?? Astro.url.pathname, baseUrl);
     <Footer />
     <style is:global>
       :root {
+        /* Max width and inline padding of the page */
         --pageContainer: 1280px;
-        --pagePadding: 2rem;
+        --pagePadding: 32px;
+        /* The padding used between page sections (components) */
+        --sectionPadding: 6rem;
+        --sectionPaddingMobile: 3rem;
+        /* Set here rather than hardcoded to work out the styles for hero components overlapping header */
+        /* When increasing header padding, make sure to increase headerHeight to make room */
+        /* Logo size is calculated by subtracting headerPadding * 2 from the headerHeight */
+        --headerHeight: 4rem;
+        --headerPadding: 1rem;
+
+        box-sizing: border-box;
       }
     </style>
   </body>
