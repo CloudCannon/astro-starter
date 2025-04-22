@@ -15,8 +15,8 @@ const hover_brightness = block.hover_brightness;
 
 <a
   class="button"
-  style={`color: ${block.text_color}; background-color: ${block.background_color}; border: 2px solid ${block.background_color};`}
-  href={block.button_link}>
+  href={block.button_link}
+  style={`color: ${block.text_color}; background-color: ${block.background_color}; border: 2px solid ${block.background_color};`}>
   <p>
     {
       block.button_icon ? (
@@ -34,6 +34,8 @@ const hover_brightness = block.hover_brightness;
     cursor: pointer;
     border: none;
     border-radius: 8px;
+    display: block;
+    width: max-content;
     padding: 0;
   }
   .button p {
