@@ -62,6 +62,8 @@
 }
 .markdown-text a {
   color: blue;
+  text-decoration: underline;
+  text-underline-offset: 0.1rem;
   cursor: pointer;
 }
 .markdown-text sup {
