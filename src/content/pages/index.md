@@ -1,110 +1,112 @@
 ---
-_schema: page
+_schema: default
 title: CloudCannon Astro Starter
 seo:
   page_description: >-
-    A starting point for developers looking to build a website with Astro, using
-    Bookshop components in CloudCannon. Create your own copy, and start creating
-    your own components to use in the CloudCannon CMS.
+    A starting point for developers looking to build a website with Astro, using Bookshop components in CloudCannon.
   canonical_url:
   featured_image:
   featured_image_alt:
   author_twitter_handle:
   open_graph_type:
   no_index: false
+hero_block:
+  _bookshop_name: heroes/hero
+  background_color: '#ffffff'
+  heading:
+    heading_text: CloudCannon Astro Starter
+    text_color: '#333232'
+    heading_gradient_color: '#A0A2FF'
+  subheading:
+    text_content: >-
+      A starting point for developers looking to build a website with Astro, using Bookshop components in CloudCannon. Create your own copy, and start creating your own components to use in CloudCannon’s CMS.
+    text_color: '#333232'
+  image:
+      image_path: /src/assets/images/undraw-online-test.svg
+      alt_text: An image
+  buttons:
+    - _bookshop_name: buttons/primary
+      button_text: GitHub
+      button_icon: GitHub
+      button_link: https://github.com/CloudCannon/Astro-starter/
+      button_aria_label:
+      background_color: '#034AD8'
+      hover_brightness: 0.85
+      text_color: '#ffffff'
+    - _bookshop_name: buttons/secondary
+      button_text: CloudCannon
+      button_icon: CloudCannon
+      button_link: https://www.cloudcannon.com
+      button_aria_label:
+      background_color: '#034ad8'
+      hover_brightness: 0.85
+      text_color: '#034AD8'
 content_blocks:
   - _bookshop_name: left-right
     background_color: '#ffffff'
+    flipped: true
     heading:
       heading_text: Keep what you need. Delete the rest.
-      color: '#393939'
+      text_color: '#333232'
     text:
-      markdown_content: >-
-        To help save you time, some features are set up in this template, like:
+      text_content: >-
+        The Astro CloudCannon Starter's aim is to get developers building their own site quickly in CloudCannon. This template is trying to strike a balance between minimal, and easy-to-delete boiler plate, while providing some commonly used features out of the box:
+        
+        - Page building with Bookshop components
 
-        -
-        [Bookshop](https://cloudcannon.com/documentation/guides/bookshop-astro-guide/)
+        - Markdown options & styles
 
-        - Blog with pagination, tags and
-        [snippets](https://docs.astro.build/en/guides/markdown-content/#using-components-in-mdx)
+        - Blog with pagination & tags
 
-        - [Image
-        optimization](https://docs.astro.build/en/guides/images/#image--astroassets)
+        - Built-in search with Pagefind
 
-        - SEO Controls
+        - Pre-configured shortcodes
 
-        - Responsive header and footer
+        - Header and Footer controls
 
-        - [Font Awesome Icons](https://fontawesome.com/search?o=r&m=free)
+        - Tailwind
 
-        - Schemas for adding new pages
+        - Font Awesome icons
 
-        - Editable color pallete
+        - Create and delete pages
 
-        - Markdown styles
+        - Accessibility controls
 
-        - CloudCannon configuration
+        - SEO controls
 
-        - CSS variables
-      color: '#393939'
+        - Color palette controls
+
+      text_color: '#333232'
     image:
       image_path: /src/assets/images/undraw-hello.svg
       alt_text: An image
-    flipped: true
+    button:
+  - _bookshop_name: left-right
+    background_color: '#ffffff'
+    flipped: false
+    heading:
+      heading_text: You choose your editing experience.
+      text_color: '#333232'
+    text:
+      text_content: >-
+        A flexible git-backed CMS that specialises in editing markdown and data files. 
+        
+
+        Visual editing allows you to preview your changes live before you save them. 
+        
+
+        Git-backed means you can keep all your familiar git workflows, while providing an easy-to-understand interface for non-technical editors to collaborate via git. 
+      text_color: '#333232'
+    image:
+      image_path: /src/assets/images/undraw-startup.svg
+      alt_text: An image
     button:
       _bookshop_name: buttons/primary
       button_text: GitHub
-      button_icon: Github
-      button_link: https://github.com/CloudCannon/astro-starter
-      background_color: '#034ad8'
+      button_icon: GitHub
+      button_link: https://github.com/CloudCannon/Astro-starter/
+      button_aria_label:
+      background_color: '#034AD8'
       hover_brightness: 0.85
       text_color: '#ffffff'
-  - _bookshop_name: hero
-    background_color: '#ffffff'
-    heading:
-      heading_text: CloudCannon Astro Starter live
-      heading_gradient_color: '#9ABCA7'
-    subheading:
-      markdown_content: >-
-        A starting point for **developers looking to build a website with Astro,
-        using Bookshop components in CloudCannon**. Create your own copy, and
-        start creating your own components to use in the CloudCannon CMS.
-      color: '#393939'
-    image:
-      image_path: /src/assets/images/undraw-online-test.svg
-      alt_text: An image
-    buttons:
-      - _bookshop_name: buttons/primary
-        button_text: GitHub
-        button_icon: Github
-        button_link: https://github.com/CloudCannon/astro-starter
-        background_color: '#034ad8'
-        hover_brightness: 0.85
-        text_color: '#ffffff'
-      - _bookshop_name: buttons/secondary
-        button_text: CloudCannon
-        button_icon: CloudCannon
-        button_link: https://www.cloudcannon.com
-        text_color: '#034ad8'
-        hover_brightness: 0.95
-  - _bookshop_name: left-right
-    background_color: '#ffffff'
-    heading:
-      heading_text: Keep what you need. Delete the rest.
-      color: '#393939'
-    text:
-      markdown_content: >-
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-        veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-        commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-        velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
-        occaecat cupidatat non proident, sunt in culpa qui officia deserunt
-        mollit anim id est laborum.
-      color: '#393939'
-    image:
-      image_path: /src/assets/images/undraw-hello.svg
-      alt_text: An image
-    flipped: false
-    button:
 ---

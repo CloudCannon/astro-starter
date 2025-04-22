@@ -1,7 +1,7 @@
 ---
 import type { ImageMetadata } from "astro";
 import { Image } from "astro:assets";
-import Markdown from "../utility/markdown.astro";
+import Markdown from "../../utility/markdown.astro";
 
 interface Props {
   background_color: string;
@@ -10,7 +10,7 @@ interface Props {
     heading_gradient_color: string;
   };
   subheading: {
-    markdown_content: string;
+    text_content: string;
     color: string;
   };
   image: {
@@ -50,7 +50,7 @@ const headingGradientColor = block.heading.heading_gradient_color;
     <div class="content">
       <h1 class="heading">{block.heading.heading_text}</h1>
       <div class="subheading-text" style={`color: ${block.subheading.color};`}>
-        <Markdown content={block.subheading.markdown_content} />
+        <Markdown content={block.subheading.text_content} />
       </div>
       <div class="buttons">
         {

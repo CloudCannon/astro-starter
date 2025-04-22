@@ -196,7 +196,7 @@ export default function Icon({ icon }) {
       return <FontAwesomeIcon icon={faStripe} />;
     case 'Shopify':
       return <FontAwesomeIcon icon={faShopify} />;
-    case 'Github':
+    case 'GitHub':
       return <FontAwesomeIcon icon={faGithub} />;
     case 'CloudCannon':
       return (

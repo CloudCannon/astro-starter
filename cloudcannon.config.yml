@@ -200,6 +200,15 @@ _editables:
     snippet: true
 
 _inputs:
+  content_blocks:
+    type: array
+    options:
+      structures: _structures.content_blocks
+      empty_type: array
+  hero_block:
+    type: object
+    options:
+      structures: _structures.hero_blocks
   feature_list:
     type: multiselect
     options:
@@ -211,7 +220,7 @@ _inputs:
     options:
       values: collections.blog
       value_key: title
-  markdown_content:
+  text_content:
     type: markdown
     options:
       blockquote: true

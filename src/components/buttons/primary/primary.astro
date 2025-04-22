@@ -17,7 +17,7 @@ const hover_brightness = block.hover_brightness;
   class="button"
   href={block.button_link}
   style={`color: ${block.text_color}; background-color: ${block.background_color}; border: 2px solid ${block.background_color};`}>
-  <p>
+  <div>
     {
       block.button_icon ? (
         <span class="button__icon">
@@ -26,7 +26,7 @@ const hover_brightness = block.hover_brightness;
       ) : null
     }
     {block.button_text}
-  </p>
+  </div>
 </a>
 
 <style define:vars={{ hover_brightness }}>
@@ -38,7 +38,7 @@ const hover_brightness = block.hover_brightness;
     max-width: max-content;
     padding: 0;
   }
-  .button p {
+  .button div {
     background: transparent;
     display: flex;
     align-items: center;
@@ -48,7 +48,7 @@ const hover_brightness = block.hover_brightness;
     padding: 0.5rem 1.5rem;
     font-size: 1rem;
   }
-  .button p:hover {
+  .button div:hover {
     backdrop-filter: brightness(var(--hover_brightness));
   }
 

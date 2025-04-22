@@ -11,7 +11,7 @@ interface Props {
     color: string;
   };
   text: {
-    markdown_content: string;
+    text_content: string;
     color: string;
   };
   image: {
@@ -62,7 +62,7 @@ const imageSrc =
             {block.heading.heading_text}
           </h2>
           <div class="mb-4" style={`color: ${block.text.color};`}>
-            <Markdown content={block.text.markdown_content} />
+            <Markdown content={block.text.text_content} />
           </div>
           {block.button && <Button {...block.button} />}
         </div>
@@ -74,7 +74,7 @@ const imageSrc =
             {block.heading.heading_text}
           </h2>
           <div class="mb-4" style={`color: ${block.text.color};`}>
-            <Markdown content={block.text.markdown_content} />
+            <Markdown content={block.text.text_content} />
           </div>
           {block.button && <Button {...block.button} />}
         </div>
