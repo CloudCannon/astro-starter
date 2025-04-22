@@ -20,11 +20,11 @@ collections_config:
     schemas:
       default:
         name: New Page
-        path: schemas/page.md
+        path: '.cloudcannon/schemas/page.md'
         remove_extra_inputs: false
       paginated:
         name: Paginated collection
-        path: schemas/paginated.md
+        path: '.cloudcannon/schemas/paginated.md'
         remove_extra_inputs: false
     create:
       path: '[relative_base_path]/{filename|slugify|lowercase}.md'
@@ -45,7 +45,7 @@ collections_config:
     schemas:
       default:
         name: New Post
-        path: schemas/post.mdx
+        path: '.cloudcannon/schemas/post.mdx'
     create:
       path: '[relative_base_path]/{filename|slugify|lowercase}.mdx'
     _inputs:
