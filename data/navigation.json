@@ -5,7 +5,7 @@
     "logo_url": "/",
     "background_color": "#ffffff",
     "text_color": "#393939",
-    "hover_text_color": "#ff0000",
+    "hover_text_color": "#808080",
     "links": [
       {
         "link": "/blog/",
@@ -28,7 +28,7 @@
     "copyright": "MyCompany. All rights reserved.",
     "background_color": "#333232",
     "text_color": "#ffffff",
-    "hover_text_color": "#034AD8",
+    "hover_text_color": "#F2F2F2",
     "links": [
       {
         "link": "/blog/",

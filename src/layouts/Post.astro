@@ -25,32 +25,34 @@ const filteredPosts = posts.filter((post) => post.data.title !== title);
 ---
 
 <Layout {...props}>
-  <article>
-    <PostHero
-      bookshop:live
-      image={image}
-      image_alt={image_alt}
-      date={date}
-      bodyContent={bodyContent}
-      title={props.title}
-      author={author}
-    />
-    <div class="markdown-text" data-cms-edit="content" data-pagefind-body>
-      <slot />
-    </div>
-  </article>
-  <section>
-    <h2>Recent Posts</h2>
-    <div>
-      {
-        filteredPosts.slice(0, 2).map((post, i) => {
-          return (
-            <div>
-              <PostSummary {...post} />
-            </div>
-          );
-        })
-      }
-    </div>
-  </section>
+  <div class="post-container">
+    <article>
+      <PostHero
+        bookshop:live
+        image={image}
+        image_alt={image_alt}
+        date={date}
+        bodyContent={bodyContent}
+        title={props.title}
+        author={author}
+      />
+      <div class="markdown-text" data-cms-edit="content" data-pagefind-body>
+        <slot />
+      </div>
+    </article>
+    <section>
+      <h2>Recent Posts</h2>
+      <div>
+        {
+          filteredPosts.slice(0, 2).map((post, i) => {
+            return (
+              <div>
+                <PostSummary {...post} />
+              </div>
+            );
+          })
+        }
+      </div>
+    </section>
+  </div>
 </Layout>

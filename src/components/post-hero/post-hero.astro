@@ -26,20 +26,15 @@ const images = import.meta.glob<{ default: ImageMetadata }>(
 const imageSrc = images[image]?.default ?? image;
 ---
 
-<Image
-  class="rounded-lg aspect-video"
-  src={imageSrc}
-  alt={image_alt}
-  loading="lazy"
-/>
-<h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-semibold py-4">
+<Image class="blog-hero-image" src={imageSrc} alt={image_alt} loading="lazy" />
+<h1 class="blog-hero-title">
   {title}
 </h1>
-<div class="flex flex-col justify-between sm:gap-5 py-5 font-light text-sm">
-  <p class="post-data-list-item">
+<div class="post-data">
+  <p>
     {authorWithFallback}
   </p>
-  <p class="post-data-list-item">
+  <p>
     {
       dateObj.toLocaleDateString(undefined, {
         year: "numeric",
@@ -48,7 +43,7 @@ const imageSrc = images[image]?.default ?? image;
       })
     }
   </p>
-  <div class="flex gap-3">
+  <div class="post-data-time">
     <p>{wordCount}<span> words</span></p>
     <p>{readingTime}<span> minutes</span></p>
   </div>

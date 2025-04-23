@@ -98,10 +98,18 @@
 }
 
 // Individual post styles
+.post-container {
+  max-width: min(72ch, var(--pageContainer));
+  padding-inline: var(--pagePadding);
+  padding-block: var(--sectionPaddingMobile);
+  margin: 0 auto;
+}
 .blog-hero-title {
-  font-size: 3rem;
+  font-size: 2rem;
+  line-height: 100%;
   font-weight: 600;
-  text-align: center;
+  text-wrap: balance;
+  margin-block: 1rem;
 }
 .blog-post-tags {
   margin-top: 1rem;
@@ -115,4 +123,33 @@
   color: #034ad8;
   font-weight: 500;
   margin-right: 1rem;
+}
+
+.post-data {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding-block: 2rem;
+}
+.post-data-time {
+  display: flex;
+  gap: 2rem;
+}
+
+@media screen and (min-width: 512px) {
+  .post-container {
+    padding-block: var(--sectionPadding);
+  }
+  .blog-hero-title {
+    font-size: 2.5rem;
+    text-align: start;
+  }
+}
+@media screen and (min-width: 768px) {
+  .post-container {
+    padding-block: var(--sectionPadding);
+  }
+  .blog-hero-title {
+    font-size: 3rem;
+  }
 }
