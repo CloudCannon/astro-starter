@@ -40,19 +40,20 @@ const filteredPosts = posts.filter((post) => post.data.title !== title);
         <slot />
       </div>
     </article>
-    <section class="blog-recent-posts">
-      <h2 class="blog-recent-posts-heading">Recent Posts</h2>
-      <ul class="blog-recent-posts-list">
-        {
-          filteredPosts.slice(0, 3).map((post, i) => {
-            return (
-              <li>
-                <PostSummary {...post} />
-              </li>
-            );
-          })
-        }
-      </ul>
-    </section>
   </div>
+
+  <section class="blog-recent-posts">
+    <h2 class="blog-recent-posts-heading">Recent Posts</h2>
+    <ul class="blog-recent-posts-list">
+      {
+        filteredPosts.slice(0, 3).map((post, i) => {
+          return (
+            <li>
+              <PostSummary {...post} />
+            </li>
+          );
+        })
+      }
+    </ul>
+  </section>
 </Layout>

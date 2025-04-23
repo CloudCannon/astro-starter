@@ -139,16 +139,21 @@
   gap: 2rem;
 }
 .blog-recent-posts {
-  margin-top: 96px;
+  max-width: var(--pageContainer);
+  padding-bottom: 96px;
+  padding-inline: var(--pagePadding);
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 .blog-recent-posts-heading {
   font-size: 2rem;
 }
 .blog-recent-posts-list {
   display: grid;
-  width: 100%;
   grid-template-columns: 1fr;
-  gap: 1.5rem;
+  gap: 2rem;
   justify-content: space-between;
 }
 @media screen and (min-width: 512px) {
