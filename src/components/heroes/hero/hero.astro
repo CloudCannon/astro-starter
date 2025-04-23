@@ -72,6 +72,11 @@ const headingGradientColor = heading.heading_gradient_color;
     />
   </div>
 </section>
+<style is:global>
+  .subheading-text .markdown-text p {
+    margin-bottom: 0;
+  }
+</style>
 <style define:vars={{ headingGradientColor }}>
   .hero-container {
     display: flex;
@@ -79,8 +84,7 @@ const headingGradientColor = heading.heading_gradient_color;
     gap: 20px;
     justify-content: space-between;
     align-items: center;
-    padding-top: calc(var(--sectionPaddingMobile) + var(--headerHeight));
-    padding-bottom: var(--sectionPaddingMobile);
+    padding-block: var(--sectionPaddingMobile);
     padding-inline: var(--pagePadding);
     max-width: var(--pageContainer);
     margin-inline: auto;
@@ -105,13 +109,14 @@ const headingGradientColor = heading.heading_gradient_color;
     flex-direction: column;
   }
   .content .subheading-text {
-    margin-block: 1rem;
+    margin-top: 1rem;
   }
   .buttons {
     display: flex;
     flex-direction: column;
     gap: 1.75rem;
-    margin-top: 1rem;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
   }
   .hero-image {
     width: 100%;
@@ -131,7 +136,6 @@ const headingGradientColor = heading.heading_gradient_color;
     }
     .buttons {
       flex-direction: row;
-      margin-top: 2rem;
     }
   }
   @media only screen and (min-width: 660px) {
@@ -145,8 +149,7 @@ const headingGradientColor = heading.heading_gradient_color;
   }
   @media only screen and (min-width: 768px) {
     .hero-container {
-      padding-top: calc(var(--sectionPadding) + var(--headerHeight));
-      padding-bottom: var(--sectionPadding);
+      padding-block: var(--sectionPadding);
     }
   }
   @media only screen and (min-width: 960px) {
