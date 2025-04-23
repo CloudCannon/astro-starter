@@ -1,10 +1,35 @@
 ---
 interface Props {
   title: string;
+  bodyContent: string;
+  date: string | Date;
+  author: string;
 }
-const { title } = Astro.props;
+const { title, bodyContent, date, author } = Astro.props;
+
+const wordCount = bodyContent?.split(" ")?.length ?? 0;
+const readingTime = Math.floor(wordCount / 183);
+const dateObj = new Date(date);
 ---
 
 <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-semibold py-4">
   {title}
 </h1>
+<div class="flex flex-col justify-between sm:gap-5 py-5 font-light text-sm">
+  <p class="post-data-list-item">
+    {author}
+  </p>
+  <p class="post-data-list-item">
+    {
+      dateObj.toLocaleDateString(undefined, {
+        year: "numeric",
+        month: "long",
+        day: "numeric",
+      })
+    }
+  </p>
+  <div class="flex gap-3">
+    <p>{wordCount}<span> words</span></p>
+    <p>{readingTime}<span> minutes</span></p>
+  </div>
+</div>
