@@ -1,9 +1,11 @@
 {
   "header": {
     "logo": "/images/logos/logo-wordmark-blue.png",
+    "logo_alt_text": "CloudCannon logo",
     "logo_url": "/",
     "background_color": "#ffffff",
-    "color": "#393939",
+    "text_color": "#393939",
+    "hover_text_color": "#ff0000",
     "links": [
       {
         "link": "/blog/",
@@ -21,10 +23,12 @@
   },
   "footer": {
     "logo": "/images/logos/logo-wordmark-white.png",
+    "logo_alt_text": "CloudCannon logo",
     "logo_url": "/",
     "copyright": "MyCompany. All rights reserved.",
     "background_color": "#333232",
-    "color": "#ffffff",
+    "text_color": "#ffffff",
+    "hover_text_color": "#034AD8",
     "links": [
       {
         "link": "/blog/",

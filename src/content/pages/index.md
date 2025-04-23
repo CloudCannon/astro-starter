@@ -24,10 +24,10 @@ hero_block:
   header_style_overrides:
     background_color: transparent
     text_color: '#ffffff'
-    hover_text_color: '#F1F1F1'
+    hover_text_color: '#F2F2F2'
     alternate_logo: 
-      image_path: 
-      logo_alt_text: 
+      image_path: /images/logos/logo-wordmark-white.png
+      logo_alt_text: CloudCannon logo
   background_filters:
     brightness: 0.5
     blur: 1

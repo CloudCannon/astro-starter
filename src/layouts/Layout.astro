@@ -17,10 +17,11 @@ export interface SEOProps {
 
 export interface Props {
   title: string;
+  hero_block: any;
   seo?: SEOProps;
 }
 
-const { seo } = Astro.props;
+const { seo, hero_block } = Astro.props;
 const baseUrl = Astro.site;
 
 const title = Astro.props.title
@@ -32,6 +33,7 @@ const description = seo?.page_description ?? site.description;
 const image = seo?.featured_image ?? site.image;
 const image_alt = seo?.featured_image_alt ?? site.image_alt;
 const canonicalURL = new URL(seo?.canonical_url ?? Astro.url.pathname, baseUrl);
+const headerStyleOverrides = hero_block?.header_style_overrides;
 ---
 
 <!doctype html>
@@ -99,7 +101,7 @@ const canonicalURL = new URL(seo?.canonical_url ?? Astro.url.pathname, baseUrl);
     />
   </head>
   <body>
-    <Header />
+    <Header headerStyleOverrides={headerStyleOverrides} />
     <main>
       <slot />
     </main>
