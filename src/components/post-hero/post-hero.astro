@@ -11,7 +11,7 @@ const { title, bodyContent, date, author } = Astro.props;
 const wordCount = bodyContent?.split(" ")?.length ?? 0;
 const readingTime = Math.floor(wordCount / 183);
 const dateObj = new Date(date);
-const authorWithFallback = author ?? site.default_author;
+const authorWithFallback = author || site.default_author;
 ---
 
 <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-semibold py-4">
