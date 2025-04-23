@@ -5,40 +5,33 @@
   font-weight: 500;
   margin-bottom: 0.5rem;
   text-wrap: balance;
+  line-height: 100%;
 }
-
 .markdown-text h1 {
   font-size: 3rem;
-  line-height: 3rem;
 }
 .markdown-text h2 {
   font-size: 2.5rem;
-  line-height: 2.5rem;
 }
 .markdown-text h3 {
   font-size: 2rem;
-  line-height: 2rem;
 }
 .markdown-text h4 {
   font-size: 1.5rem;
-  line-height: 1.5rem;
 }
 .markdown-text p,
 .markdown-text a,
 .markdown-text ol li,
 .markdown-text ul li {
-  font-weight: 300;
-  letter-spacing: 0.5px;
-  line-height: 1.75rem;
+  line-height: 175%;
+  max-width: 72ch;
   text-wrap: pretty;
 }
-
 .markdown-text p,
 .markdown-text ol,
 .markdown-text ul {
   margin-bottom: 1.5rem;
 }
-
 .markdown-text li p {
   margin-bottom: 0.125rem;
 }
@@ -76,13 +69,11 @@
   vertical-align: sub;
   font-size: smaller;
 }
-
 .markdown-text table {
   width: 100%;
   border-collapse: collapse;
   margin-bottom: 1.5rem;
 }
-
 .markdown-text table p {
   margin-bottom: 0;
   padding-block: 0.5rem;
@@ -108,8 +99,16 @@
   border-top: 1px solid #928f8f;
   margin: 1.5rem 0;
 }
-
 .markdown-text pre {
   margin-block: 1.5rem;
   padding: 1rem;
+}
+.markdown-text details summary {
+  padding-bottom: 1rem;
+}
+.markdown-text details {
+  padding-block: 1.5rem;
+}
+figure figcaption {
+  text-align: center;
 }

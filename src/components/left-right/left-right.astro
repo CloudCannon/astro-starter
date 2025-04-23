@@ -137,14 +137,17 @@ const extraPaddingBottomMultiplier = lastInContentBlocks ? "2" : "1";
   @media only screen and (min-width: 768px) {
     .left-right__wrapper {
       flex-direction: row;
-      gap: 4rem;
+      gap: 64px;
       padding-top: var(--sectionPadding);
       padding-bottom: calc(
         var(--sectionPadding) * var(--extraPaddingBottomMultiplier)
       );
     }
     .left-right__wrapper img {
-      width: 50%;
+      width: 45%;
+    }
+    .left-right__text {
+      width: 45%;
     }
   }
 </style>
