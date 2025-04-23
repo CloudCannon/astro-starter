@@ -5,6 +5,7 @@ import { getCollection } from "astro:content";
 import type { MarkdownLayoutProps } from "astro";
 import type { ImageMetadata } from "astro";
 import { Image } from "astro:assets";
+import PostHero from "../components/post-hero/post-hero.astro";
 
 type Props =
   | {
@@ -53,6 +54,7 @@ const imageSrc = images[image]?.default ?? image;
         alt={image_alt}
         loading="lazy"
       />
+      <PostHero bookshop:live title={title} />
       <h1
         class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-semibold py-4">
         {title}
