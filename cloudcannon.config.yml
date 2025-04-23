@@ -36,8 +36,8 @@ collections_config:
     url: '/blog/[full_slug]/'
     icon: newspaper
     _enabled_editors:
-      - content
       - visual
+      - content
     add_options:
       - name: Add New Post
         schema: default
