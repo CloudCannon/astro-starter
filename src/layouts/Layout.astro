@@ -80,7 +80,7 @@ const headerStyleOverrides = hero_block?.header_style_overrides ?? {};
       canonical={canonicalURL.toString()}
       openGraph={{
         basic: {
-          title: Astro.props.title,
+          title: title,
           url: baseUrl?.toString(),
           type: `${seo?.open_graph_type || "website"}`,
           image: `${baseUrl}${image}`,
