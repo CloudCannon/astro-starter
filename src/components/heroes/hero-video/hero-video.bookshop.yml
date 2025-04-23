@@ -107,8 +107,8 @@ _inputs:
     type: file
     options:
       paths:
-        static: static
-        uploads: 'static/videos'
+        static: public
+        uploads: 'public/videos'
   poster_image:
     type: image
     comment: Specifies an image to be shown while the video is downloading.
