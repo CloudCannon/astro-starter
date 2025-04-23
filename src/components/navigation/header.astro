@@ -15,12 +15,12 @@ interface Props {
 
 // Sort out whether values are overridden by the hero at the top of the page, 
 // Or use the values set in the site-wide data/navigation.json data file
-const { background_color, text_color, hover_text_color, alternate_logo } = Astro.props.headerStyleOverrides;
-const backgroundColor = background_color ?? header.background_color;
-const linkTextColor = text_color ?? header.text_color;
-const linkHoverColor = hover_text_color ?? header.hover_text_color;
-const logoImagePath = alternate_logo.image_path ?? header.logo;
-const logoAltText = alternate_logo.logo_alt_text ?? header.logo_alt_text;
+const { headerStyleOverrides } = Astro.props.headerStyleOverrides;
+const backgroundColor = headerStyleOverrides?.background_color ?? header.background_color;
+const linkTextColor = headerStyleOverrides?.text_color ?? header.text_color;
+const linkHoverColor = headerStyleOverrides?.hover_text_color ?? header.hover_text_color;
+const logoImagePath = headerStyleOverrides?.alternate_logo.image_path ?? header.logo;
+const logoAltText = headerStyleOverrides?.alternate_logo.logo_alt_text ?? header.logo_alt_text;
 ---
 
 <header
