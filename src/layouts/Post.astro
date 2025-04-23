@@ -3,8 +3,6 @@ import Layout from "./Layout.astro";
 import PostSummary from "../components/blog/summary.astro";
 import PostHero from "../components/post-hero/post-hero.astro";
 import { getCollection } from "astro:content";
-import type { ImageMetadata } from "astro";
-import { Image } from "astro:assets";
 
 type Props = {
   frontmatter: {
@@ -24,26 +22,15 @@ const { title, date, image, image_alt, author } = props;
 
 const posts = await getCollection("blog");
 const filteredPosts = posts.filter((post) => post.data.title !== title);
-
-const images = import.meta.glob<{ default: ImageMetadata }>(
-  "/src/assets/**/*.{jpeg,jpg,png,gif}",
-  { eager: true }
-);
-
-const imageSrc = images[image]?.default ?? image;
 ---
 
 <Layout {...props}>
   <main class="py-[48px] md:py-[96px] px-8">
     <article class="max-w-screen-md mx-auto">
-      <Image
-        class="rounded-lg aspect-video"
-        src={imageSrc}
-        alt={image_alt}
-        loading="lazy"
-      />
       <PostHero
         bookshop:live
+        image={image}
+        image_alt={image_alt}
         date={date}
         bodyContent={bodyContent}
         title={props.title}
