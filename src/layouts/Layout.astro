@@ -33,7 +33,7 @@ const description = seo?.page_description ?? site.description;
 const image = seo?.featured_image ?? site.image;
 const image_alt = seo?.featured_image_alt ?? site.image_alt;
 const canonicalURL = new URL(seo?.canonical_url ?? Astro.url.pathname, baseUrl);
-const headerStyleOverrides = hero_block?.header_style_overrides;
+const headerStyleOverrides = hero_block?.header_style_overrides ?? {};
 ---
 
 <!doctype html>
