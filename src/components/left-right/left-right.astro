@@ -4,6 +4,8 @@ import { Image } from "astro:assets";
 import Markdown from "../utility/markdown.astro";
 
 interface Props {
+  key: number;
+  content_blocks_length: number;
   background_color: string;
   flipped: boolean;
   heading: {
@@ -29,57 +31,68 @@ interface Props {
   };
 }
 
-const block = Astro.props;
+const {
+  key,
+  content_blocks_length,
+  background_color,
+  flipped,
+  heading,
+  text,
+  image,
+  button,
+} = Astro.props;
+
 const buttons = import.meta.glob("/src/components/buttons/**/*.astro", {
   eager: true,
 });
-const buttonName = block.button?._bookshop_name.split("/").reverse()[0];
+const buttonName = button?._bookshop_name.split("/").reverse()[0];
 const buttonFilePath = `/src/components/buttons/${buttonName}/${buttonName}.astro`;
-const Button = (buttons[buttonFilePath] as any)?.default;
+const ButtonComponent = (buttons[buttonFilePath] as any)?.default;
 
 const images = import.meta.glob<{ default: ImageMetadata }>(
   "/src/assets/**/*.{jpeg,jpg,png,gif,svg,webp,avif}",
   { eager: true }
 );
+const imageSrc = images[image.image_path]?.default ?? image.image_path;
 
-const imageSrc =
-  images[block.image.image_path]?.default ?? block.image.image_path;
+const lastInContentBlocks = key + 1 === content_blocks_length;
+const extraPaddingBottomMultiplier = lastInContentBlocks ? "2" : "1";
 ---
 
-<div class="left-right" style={`background-color: ${block.background_color};`}>
+<div class="left-right" style={`background-color: ${background_color};`}>
   {
-    block.flipped ? (
+    flipped ? (
       <div class="left-right__wrapper">
         <Image
           class="order-2 md:order-1"
-          alt={block.image.alt_text}
+          alt={image.alt_text}
           widths={[320, 500, 640]}
           sizes={`(max-width: 640px) 320px, (max-width: 960px) 500px, (max-width: 1280px) 640px`}
           src={imageSrc}
         />
         <div class="left-right__text order-1 md:order-2">
-          <h2 class="text-4xl" style={`color: ${block.heading.color};`}>
-            {block.heading.heading_text}
+          <h2 class="text-4xl" style={`color: ${heading.color};`}>
+            {heading.heading_text}
           </h2>
-          <div class="mb-4" style={`color: ${block.text.color};`}>
-            <Markdown content={block.text.text_content} />
+          <div class="mb-4" style={`color: ${text.color};`}>
+            <Markdown content={text.text_content} />
           </div>
-          {block.button && <Button {...block.button} />}
+          {button && <ButtonComponent {...button} />}
         </div>
       </div>
     ) : (
       <div class="left-right__wrapper">
         <div class="left-right__text">
-          <h2 class="text-4xl" style={`color: ${block.heading.color};`}>
-            {block.heading.heading_text}
+          <h2 class="text-4xl" style={`color: ${heading.color};`}>
+            {heading.heading_text}
           </h2>
-          <div class="mb-4" style={`color: ${block.text.color};`}>
-            <Markdown content={block.text.text_content} />
+          <div class="mb-4" style={`color: ${text.color};`}>
+            <Markdown content={text.text_content} />
           </div>
-          {block.button && <Button {...block.button} />}
+          {button && <ButtonComponent {...button} />}
         </div>
         <Image
-          alt={block.image.alt_text}
+          alt={image.alt_text}
           widths={[320, 500, 640]}
           sizes={`(max-width: 640px) 320px, (max-width: 960px) 500px, (max-width: 1280px) 640px`}
           src={imageSrc}
@@ -89,7 +102,7 @@ const imageSrc =
   }
 </div>
 
-<style>
+<style define:vars={{ extraPaddingBottomMultiplier }}>
   .left-right {
     display: flex;
     align-items: center;
@@ -98,47 +111,40 @@ const imageSrc =
 
   .left-right__wrapper {
     width: 100%;
-    max-width: 1280px;
+    max-width: var(--pageContainer);
     margin: 0 auto;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
     gap: 2rem;
-    padding-block: 24px;
-    padding-inline: 32px;
+    padding-top: var(--sectionPaddingMobile);
+    padding-bottom: calc(
+      var(--sectionPaddingMobile) * var(--extraPaddingBottomMultiplier)
+    );
+    padding-inline: var(--pagePadding);
   }
   .left-right__wrapper img {
     width: 100%;
     max-width: 500px;
+    margin-top: 32px;
   }
-  .left-right__wrapper .left-right__text {
+  .left-right__text h2 {
+    max-width: 620px;
+    margin-block: 30px;
+    text-wrap: balance;
   }
   @media only screen and (min-width: 768px) {
     .left-right__wrapper {
       flex-direction: row;
       gap: 4rem;
-      padding-block: 48px;
+      padding-top: var(--sectionPadding);
+      padding-bottom: calc(
+        var(--sectionPadding) * var(--extraPaddingBottomMultiplier)
+      );
     }
     .left-right__wrapper img {
       width: 50%;
     }
-    .left-right__wrapper .left-right__text {
-    }
-  }
-  @media only screen and (min-width: 1024px) {
-    .left-right__wrapper {
-      padding-block: 48px;
-      gap: 10rem;
-    }
-  }
-
-  .left-right__wrapper img {
-    margin-top: 32px;
-  }
-
-  h2 {
-    max-width: 620px;
-    margin-block: 30px;
   }
 </style>
