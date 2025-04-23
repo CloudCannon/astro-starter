@@ -3,7 +3,6 @@ import PostSummary from "./summary.astro";
 const { posts } = Astro.props;
 ---
 
-<div
-  class="md:grid md:grid-cols-2 lg:grid-cols-3 justify-between gap-5 mt-8 md:mt-16">
+<div class="blog-article-grid">
   {posts.map((post, i) => <PostSummary {...post} key={i} />)}
 </div>

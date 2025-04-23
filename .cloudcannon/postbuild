@@ -1,3 +1,7 @@
 #!/usr/bin/env bash
 
+# Generates the info Bookshop needs to run in CC
 npx @bookshop/generate
+
+# Run pagefind search stuff
+npx -y pagefind --site dist

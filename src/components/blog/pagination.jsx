@@ -14,7 +14,7 @@ export default function BlogPagination({ pagination }) {
     pageLinks.push(
       <li className="page-item" key={i}>
         <a
-          className={`page-link btn btn-secondary ${
+          className={`page-link ${
             i === currentPage ? "active" : ""
           }`}
           href={i === 1 ? "/blog" : `/blog/${i}`}
@@ -27,11 +27,11 @@ export default function BlogPagination({ pagination }) {
 
   return (
     <>
-      <nav className="blog-pagination">
+      <nav>
         <ul className="pagination">
           {prev && (
             <li className="page-item">
-              <a className="page-link btn btn-secondary" href={prev}>
+              <a className="page-link" href={prev}>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="20.657"
@@ -57,7 +57,7 @@ export default function BlogPagination({ pagination }) {
           {pageLinks}
           {next && (
             <li className="page-item">
-              <a className="page-link btn btn-secondary" href={next}>
+              <a className="page-link" href={next}>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="20.657"

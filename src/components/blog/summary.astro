@@ -8,32 +8,30 @@ const { thumb_image_path, thumb_image_alt, title, date, tags } = data;
 
 const dateObj = new Date(date);
 const images = import.meta.glob<{ default: ImageMetadata }>(
-  "/src/assets/**/*.{jpeg,jpg,png,gif}",
+  "/src/assets/**/*.{jpeg,jpg,png,gif,svg,avif}",
   { eager: true }
 );
 
 const imageSrc = images[thumb_image_path]?.default ?? thumb_image_path;
 ---
 
-<div class="block">
+<div>
   <a href={`/blog/${slug}`}>
     <Image
-      class="rounded-sm aspect-video w-full"
+      class={`blog-grid-image`}
       src={imageSrc}
       alt={thumb_image_alt}
       loading="lazy"
     />
   </a>
-  <div class="flex flex-col justify-start mt-2 max-w-[500px]">
+  <div>
     {
       tags ? (
-        <div class="flex flex-col sm:flex-row gap-3">
+        <div class="blog-summary-tags">
           {tags.map((tag: string) => {
             return (
               <a href={`/tags/${tag}/`}>
-                <span class="bg-slate-200 px-1 rounded-sm">
-                  {tag.charAt(0).toUpperCase() + tag.slice(1)}
-                </span>
+                <span>{tag.charAt(0).toUpperCase() + tag.slice(1)}</span>
               </a>
             );
           })}
@@ -43,9 +41,9 @@ const imageSrc = images[thumb_image_path]?.default ?? thumb_image_path;
       )
     }
     <a href={`/blog/${slug}/`}>
-      <p class="text-2xl font-semibold">{title}</p>
+      <h2 class="blog-summary-title">{title}</h2>
     </a>
-    <p class="font-light">
+    <p>
       {
         dateObj.toLocaleDateString(undefined, {
           year: "numeric",
