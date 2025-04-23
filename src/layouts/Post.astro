@@ -25,35 +25,34 @@ const filteredPosts = posts.filter((post) => post.data.title !== title);
 ---
 
 <Layout {...props}>
-  <main class="py-[48px] md:py-[96px] px-8">
-    <article class="max-w-screen-md mx-auto">
-      <PostHero
-        bookshop:live
-        image={image}
-        image_alt={image_alt}
-        date={date}
-        bodyContent={bodyContent}
-        title={props.title}
-        author={author}
-      />
-      <div class="markdown-text" data-cms-edit="content">
-        <slot />
-      </div>
-    </article>
-    <section
-      class="max-w-screen-md mx-auto pt-[48px] flex flex-col items-center">
-      <h2 class="text-2xl">Recent Posts</h2>
-      <div class="grid sm:grid-cols-2 gap-5 mt-5">
-        {
-          filteredPosts.slice(0, 2).map((post, i) => {
-            return (
-              <div class="max-w-[420px]">
-                <PostSummary {...post} />
-              </div>
-            );
-          })
-        }
-      </div>
-    </section>
-  </main>
+  <article
+    class="max-w-screen-md mx-auto pt-[48px] md:pt-[96px] pb-[24px] md:pb-[48px] px-8">
+    <PostHero
+      bookshop:live
+      image={image}
+      image_alt={image_alt}
+      date={date}
+      bodyContent={bodyContent}
+      title={props.title}
+      author={author}
+    />
+    <div class="markdown-text" data-cms-edit="content">
+      <slot />
+    </div>
+  </article>
+  <section
+    class="max-w-screen-md mx-auto flex flex-col items-center pb-[48px] md:pb-[96px] pt-[24px] md:pt-[48px] px-8">
+    <h2 class="text-2xl">Recent Posts</h2>
+    <div class="grid sm:grid-cols-2 gap-5 mt-5">
+      {
+        filteredPosts.slice(0, 2).map((post, i) => {
+          return (
+            <div class="max-w-[420px]">
+              <PostSummary {...post} />
+            </div>
+          );
+        })
+      }
+    </div>
+  </section>
 </Layout>
