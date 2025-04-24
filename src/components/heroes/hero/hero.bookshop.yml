@@ -6,8 +6,8 @@ spec:
   description: Outline color
   icon: 'cottage'
   tags:
+    - Heading
     - Image
-    - Animation
     - Text
     - Buttons
   picker_preview:
