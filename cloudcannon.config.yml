@@ -385,7 +385,8 @@ _snippets:
         - key: alert_message
         - Update alert content and styles
     picker_preview:
-      image: /images/components-screenshots/alert.png
+      gallery:
+        image: /images/components-screenshots/alert.png
     definitions:
       component_name: SnippetsAlert
       named_args:
@@ -443,7 +444,8 @@ _snippets:
         image:
           - key: image_path
     picker_preview:
-      image: /images/components-screenshots/image.png
+      gallery:
+        image: /images/components-screenshots/image.png
     definitions:
       component_name: SnippetsAstroImage
       named_args:
@@ -478,7 +480,8 @@ _snippets:
         - key: text
         - Update accordion content.
     picker_preview:
-      image: /images/components-screenshots/accordion.png
+      gallery:
+        image: /images/components-screenshots/accordion.png
     _inputs:
       heading:
         type: textarea
@@ -497,7 +500,8 @@ _snippets:
       subtext: A self hosted video from our static files
       icon: duo
     picker_preview:
-      image: /images/components-screenshots/video.png
+      gallery:
+        image: /images/components-screenshots/video.png
     _inputs:
       src:
         comment: Link to a video hosted in our own files.
@@ -532,7 +536,8 @@ _snippets:
         - key: video_link
         - Update Youtube video details 
     picker_preview:
-      image: /images/components-screenshots/youtube.png
+      gallery:
+        image: /images/components-screenshots/youtube.png
     _inputs:
       video_link:
         type: url
@@ -567,7 +572,8 @@ _snippets:
       subtext:
         - key: src
     picker_preview:
-      image: /images/components-screenshots/file.png
+      gallery:
+        image: /images/components-screenshots/file.png
     definitions:
       component_name: SnippetsFile
       named_args:
@@ -597,7 +603,8 @@ _snippets:
       text: Tint
       icon: pallet
     picker_preview:
-      image: /images/components-screenshots/tint.png
+      gallery:
+        image: /images/components-screenshots/tint.png
     definitions:
       component_name: SnippetsTint
       content_key: inner_text
