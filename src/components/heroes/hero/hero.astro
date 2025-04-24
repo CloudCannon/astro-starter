@@ -84,7 +84,8 @@ const headingGradientColor = heading.heading_gradient_color;
     gap: 20px;
     justify-content: space-between;
     align-items: center;
-    padding-block: var(--sectionPaddingMobile);
+    padding-top: calc(var(--sectionPaddingMobile) * 2);
+    padding-bottom: var(--sectionPaddingMobile);
     padding-inline: var(--pagePadding);
     max-width: var(--pageContainer);
     margin-inline: auto;
@@ -110,6 +111,7 @@ const headingGradientColor = heading.heading_gradient_color;
   }
   .content .subheading-text {
     margin-top: 1rem;
+    max-width: 72ch;
   }
   .buttons {
     display: flex;
@@ -149,7 +151,8 @@ const headingGradientColor = heading.heading_gradient_color;
   }
   @media only screen and (min-width: 768px) {
     .hero-container {
-      padding-block: var(--sectionPadding);
+      padding-top: calc(var(--sectionPadding) * 2);
+      padding-bottom: var(--sectionPadding);
     }
   }
   @media only screen and (min-width: 960px) {
