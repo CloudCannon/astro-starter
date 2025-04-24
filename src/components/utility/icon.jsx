@@ -56,7 +56,9 @@ import {
   faFire,
   faHand,
   faPause,
-  faPlay
+  faPlay,
+  faClock,
+  faBook
 } from '@fortawesome/free-solid-svg-icons';
 
 import { faLemon, faBookmark } from '@fortawesome/free-regular-svg-icons';
@@ -72,6 +74,10 @@ import {
 
 export default function Icon({ icon }) {
   switch (icon) {
+    case 'Clock':
+      return <FontAwesomeIcon icon={faClock} />;
+    case 'Book':
+      return <FontAwesomeIcon icon={faBook} />;
     case 'Pause':
       return <FontAwesomeIcon icon={faPause} />;
     case 'Play':

@@ -44,7 +44,12 @@ const imageSrc = images[image]?.default ?? image;
     }
   </p>
   <div class="post-data-time">
-    <p>{wordCount}<span> words</span></p>
-    <p>{readingTime}<span> minutes</span></p>
+    <p>
+      {wordCount} words
+    </p>
+    <p>
+      {readingTime}
+      {`minute${readingTime > 1 ? "s" : ""}`}
+    </p>
   </div>
 </div>
