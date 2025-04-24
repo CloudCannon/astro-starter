@@ -1,0 +1,41 @@
+---
+import Markdown from "../utility/markdown.astro";
+
+interface Props {
+  text_content: string;
+  background_color: string;
+  text_color: string;
+}
+const { text_content, background_color, text_color } = Astro.props;
+---
+
+<section class="text-block" style={`background-color: ${background_color};`}>
+  <div
+    style={`color: ${text_color};`}
+    class="markdown-text text-block-container">
+    <Markdown content={text_content} />
+  </div>
+</section>
+
+<style>
+  .text-block-container {
+    max-width: 72ch;
+    padding-inline: var(--pagePadding);
+    padding-block: var(--sectionPaddingMobile);
+    margin: 0 auto;
+  }
+
+  .text-block .text-block-container h1,
+  .text-block .text-block-container h2,
+  .text-block .text-block-container h3,
+  .text-block .text-block-container h4,
+  .text-block .text-block-container h5 {
+    text-align: center;
+  }
+
+  @media only screen and (min-width: 960px) {
+    .text-block-container {
+      padding-block: var(--sectionPadding);
+    }
+  }
+</style>

@@ -225,7 +225,7 @@ _inputs:
     options:
       blockquote: true
       bold: true
-      format: p
+      format: p h2 h3 h4
       italic: true
       strike: true
       subscript: true
@@ -384,6 +384,8 @@ _snippets:
       subtext:
         - key: alert_message
         - Update alert content and styles
+    picker_preview:
+      image: /images/components-screenshots/alert.png
     definitions:
       component_name: SnippetsAlert
       named_args:
@@ -440,6 +442,8 @@ _snippets:
       gallery:
         image:
           - key: image_path
+    picker_preview:
+      image: /images/components-screenshots/image.png
     definitions:
       component_name: SnippetsAstroImage
       named_args:
@@ -473,6 +477,8 @@ _snippets:
       subtext:
         - key: text
         - Update accordion content.
+    picker_preview:
+      image: /images/components-screenshots/accordion.png
     _inputs:
       heading:
         type: textarea
@@ -490,6 +496,8 @@ _snippets:
       text: Video
       subtext: A self hosted video from our static files
       icon: duo
+    picker_preview:
+      image: /images/components-screenshots/video.png
     _inputs:
       src:
         comment: Link to a video hosted in our own files.
@@ -523,6 +531,8 @@ _snippets:
       subtext:
         - key: video_link
         - Update Youtube video details 
+    picker_preview:
+      image: /images/components-screenshots/youtube.png
     _inputs:
       video_link:
         type: url
@@ -553,7 +563,11 @@ _snippets:
     template: mdx_component
     inline: false
     preview:
-      text: File
+      text: File download
+      subtext:
+        - key: src
+    picker_preview:
+      image: /images/components-screenshots/file.png
     definitions:
       component_name: SnippetsFile
       named_args:
@@ -575,13 +589,15 @@ _snippets:
         comment: The name of the file, once downloaded.
       link_message:
         type: textarea
-        comment: The text for the download link
+        comment: The text for the download link.
   mdx_tint:
     template: mdx_paired_component
     inline: true
     preview:
       text: Tint
       icon: pallet
+    picker_preview:
+      image: /images/components-screenshots/tint.png
     definitions:
       component_name: SnippetsTint
       content_key: inner_text
