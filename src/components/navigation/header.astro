@@ -22,9 +22,9 @@ const linkTextColor = headerStyleOverrides?.text_color ?? header.text_color;
 const linkHoverColor =
   headerStyleOverrides?.hover_text_color ?? header.hover_text_color;
 const logoImagePath =
-  headerStyleOverrides?.alternate_logo.image_path ?? header.logo;
+  headerStyleOverrides?.alternate_logo?.image_path ?? header.logo;
 const logoAltText =
-  headerStyleOverrides?.alternate_logo.logo_alt_text ?? header.logo_alt_text;
+  headerStyleOverrides?.alternate_logo?.logo_alt_text ?? header.logo_alt_text;
 ---
 
 <header
