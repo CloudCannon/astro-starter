@@ -59,7 +59,10 @@ const lastInContentBlocks = key + 1 === content_blocks_length;
 const extraPaddingBottomMultiplier = lastInContentBlocks ? "2" : "1";
 ---
 
-<div class="left-right" style={`background-color: ${background_color};`}>
+<div
+  class="left-right"
+  style={`background-color: ${background_color};`}
+  aria-labelledby={`left-right-${heading.heading_text}`}>
   {
     flipped ? (
       <div class="left-right__wrapper">
@@ -71,7 +74,9 @@ const extraPaddingBottomMultiplier = lastInContentBlocks ? "2" : "1";
           src={imageSrc}
         />
         <div class="left-right__text order-1 md:order-2">
-          <h2 class="text-4xl" style={`color: ${heading.color};`}>
+          <h2
+            id={`left-right-${heading.heading_text}`}
+            style={`color: ${heading.color};`}>
             {heading.heading_text}
           </h2>
           <div class="mb-4" style={`color: ${text.color};`}>
@@ -83,7 +88,9 @@ const extraPaddingBottomMultiplier = lastInContentBlocks ? "2" : "1";
     ) : (
       <div class="left-right__wrapper">
         <div class="left-right__text">
-          <h2 class="text-4xl" style={`color: ${heading.color};`}>
+          <h2
+            id={`left-right-${heading.heading_text}`}
+            style={`color: ${heading.color};`}>
             {heading.heading_text}
           </h2>
           <div class="mb-4" style={`color: ${text.color};`}>
@@ -133,6 +140,7 @@ const extraPaddingBottomMultiplier = lastInContentBlocks ? "2" : "1";
     max-width: 620px;
     margin-block: 30px;
     text-wrap: balance;
+    font-size: 1.5rem;
   }
   @media only screen and (min-width: 768px) {
     .left-right__wrapper {
@@ -148,6 +156,10 @@ const extraPaddingBottomMultiplier = lastInContentBlocks ? "2" : "1";
     }
     .left-right__text {
       width: 45%;
+    }
+    .left-right__text h2 {
+      font-size: 2rem;
+      line-height: 100%;
     }
   }
 </style>
