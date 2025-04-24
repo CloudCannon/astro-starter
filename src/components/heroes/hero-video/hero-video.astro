@@ -58,9 +58,7 @@ const videoExtArr = video.video_path.split(".");
 const videoExtension = videoExtArr[1];
 ---
 
-<section
-  class="hero-video"
-  aria-labelledby={`hero-video-${heading.heading_text}`}>
+<section class="hero-video" aria-labelledby="hero-video-heading-text">
   <div class="hero-video-container">
     <div
       class="hero-video-filter"
@@ -107,7 +105,7 @@ const videoExtension = videoExtArr[1];
         }
       </script>
       <h1
-        id={`hero-video-${heading.heading_text}`}
+        id="hero-video-heading-text"
         class="hero-video-heading"
         style={`color: ${heading.text_color};`}>
         {heading.heading_text}

@@ -62,7 +62,7 @@ const extraPaddingBottomMultiplier = lastInContentBlocks ? "2" : "1";
 <div
   class="left-right"
   style={`background-color: ${background_color};`}
-  aria-labelledby={`left-right-${heading.heading_text}`}>
+  aria-labelledby={`left-right-${key}-heading-text`}>
   {
     flipped ? (
       <div class="left-right__wrapper">
@@ -75,7 +75,7 @@ const extraPaddingBottomMultiplier = lastInContentBlocks ? "2" : "1";
         />
         <div class="left-right__text order-1 md:order-2">
           <h2
-            id={`left-right-${heading.heading_text}`}
+            id={`left-right-${key}-heading-text`}
             style={`color: ${heading.color};`}>
             {heading.heading_text}
           </h2>
@@ -89,7 +89,7 @@ const extraPaddingBottomMultiplier = lastInContentBlocks ? "2" : "1";
       <div class="left-right__wrapper">
         <div class="left-right__text">
           <h2
-            id={`left-right-${heading.heading_text}`}
+            id={`left-right-${key}-heading-text`}
             style={`color: ${heading.color};`}>
             {heading.heading_text}
           </h2>

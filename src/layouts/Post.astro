@@ -26,7 +26,7 @@ const filteredPosts = posts.filter((post) => post.data.title !== title);
 
 <Layout {...props}>
   <div class="post-container">
-    <article>
+    <article aria-labelled-by="blog-hero-text">
       <PostHero
         bookshop:live
         image={image}

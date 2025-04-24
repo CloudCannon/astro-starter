@@ -44,10 +44,14 @@ const imageSrc = allImages[image.image_path]?.default ?? image.image_path;
 const headingGradientColor = heading.heading_gradient_color;
 ---
 
-<section style={`background-color: ${background_color};`}>
+<section
+  style={`background-color: ${background_color};`}
+  aria-labelledby="hero-heading-text">
   <div class="hero-container">
     <div class="content">
-      <h1 class="heading">{heading.heading_text}</h1>
+      <h1 id="hero-heading-text" class="heading">
+        {heading.heading_text}
+      </h1>
       <div class="subheading-text" style={`color: ${subheading.color};`}>
         <Markdown content={subheading.text_content} />
       </div>
