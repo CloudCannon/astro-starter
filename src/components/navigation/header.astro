@@ -13,14 +13,18 @@ interface Props {
   };
 }
 
-// Sort out whether values are overridden by the hero at the top of the page, 
+// Sort out whether values are overridden by the hero at the top of the page,
 // Or use the values set in the site-wide data/navigation.json data file
-const { headerStyleOverrides } = Astro.props.headerStyleOverrides;
-const backgroundColor = headerStyleOverrides?.background_color ?? header.background_color;
+const { headerStyleOverrides } = Astro.props;
+const backgroundColor =
+  headerStyleOverrides?.background_color ?? header.background_color;
 const linkTextColor = headerStyleOverrides?.text_color ?? header.text_color;
-const linkHoverColor = headerStyleOverrides?.hover_text_color ?? header.hover_text_color;
-const logoImagePath = headerStyleOverrides?.alternate_logo.image_path ?? header.logo;
-const logoAltText = headerStyleOverrides?.alternate_logo.logo_alt_text ?? header.logo_alt_text;
+const linkHoverColor =
+  headerStyleOverrides?.hover_text_color ?? header.hover_text_color;
+const logoImagePath =
+  headerStyleOverrides?.alternate_logo.image_path ?? header.logo;
+const logoAltText =
+  headerStyleOverrides?.alternate_logo.logo_alt_text ?? header.logo_alt_text;
 ---
 
 <header
