@@ -42,9 +42,9 @@ collections_config:
       - name: Add New Post
         schema: default
         icon: post_add
+        editor: content
     schemas:
       default:
-        name: New Post
         path: '.cloudcannon/schemas/post.mdx'
     create:
       path: '[relative_base_path]/{filename|slugify|lowercase}.mdx'
