@@ -15,7 +15,7 @@ interface Props {
 
 // Sort out whether values are overridden by the hero at the top of the page,
 // Or use the values set in the site-wide data/navigation.json data file
-const { headerStyleOverrides } = Astro.props;
+const headerStyleOverrides = Astro.props.headerStyleOverrides;
 const backgroundColor =
   headerStyleOverrides?.background_color ?? header.background_color;
 const linkTextColor = headerStyleOverrides?.text_color ?? header.text_color;
