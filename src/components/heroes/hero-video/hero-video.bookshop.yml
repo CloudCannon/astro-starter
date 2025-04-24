@@ -45,14 +45,7 @@ _inputs:
       preview:
         icon: palette
   hover_text_color:
-    type: select
-    comment: Updates the header hover text color for this page if set.
-    options:
-      values: data.colors
-      value_key: value
-      preview:
-        text:
-          - key: name
+    comment: Overrides the header hover text color for this page if set.
   alternate_logo:
     type: object
     comment: Set a different logo in the header if needed with this component.

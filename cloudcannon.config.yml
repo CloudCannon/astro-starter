@@ -82,6 +82,8 @@ collections_config:
     path: data
     disable_add: true
     disable_add_folder: true
+    glob: 
+      - '!icons.json'
     _inputs:
       icons:
         comment: Add an icon from the list of [Font Awesome icons](https://fontawesome.com/search?o=r&m=free). Then add it to the ```src/components/utility/icon.jsx``` file, following the existing pattern.
@@ -288,6 +290,14 @@ _inputs:
         icon: palette
         icon_color: 
           - key: value
+  hover_text_color:
+    type: select
+    options:
+      values: data.colors
+      value_key: value
+      preview:
+        text:
+          - key: name
   icon:
     type: select
     options:
@@ -473,15 +483,15 @@ _snippets:
           type: string
         - editor_key: text
           type: string
+    picker_preview:
+      gallery:
+        image: /images/components-screenshots/accordion.png
     preview:
       icon: expand_more
       text: Accordion
       subtext:
         - key: text
         - Update accordion content.
-    picker_preview:
-      gallery:
-        image: /images/components-screenshots/accordion.png
     _inputs:
       heading:
         type: textarea
