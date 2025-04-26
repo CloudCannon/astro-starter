@@ -125,6 +125,13 @@ content_blocks:
       button_aria_label:
   - _bookshop_name: text-block
     background_color: '#808080'
+    heading:
+      text_content:
+      text_color: '#333232'
+    layout:
+      text_alignment: start
+      column_alignment: start
+      column_number: 2
     text_color: '#9ABCA7'
     text_content: >-
       ## This is it's own block.
@@ -135,4 +142,29 @@ content_blocks:
 
       Here's some more <u>coming</u> *at* **ya**. Here's some more <u>coming</u>
       *at* **ya**. Here's some more <u>coming</u> *at* **ya**.
+  - _bookshop_name: stat-counter
+    background_color: '#ffffff'
+    heading:
+      text_content: A ticker component
+      text_color: '#323232'
+    load_style: visible
+    statistics:
+      - text_color: '#323232'
+        statistic_label_prefix: $
+        statistic_label_suffix: + USD
+        maximum_count: 100
+        tick_time: 3
+        increment: 2
+      - text_color: '#323232'
+        statistic_label_prefix: Over
+        statistic_label_suffix: + Users
+        maximum_count: 10000
+        tick_time: 1
+        increment: 50
+      - text_color: '#323232'
+        statistic_label_prefix: In
+        statistic_label_suffix: + Countries
+        maximum_count: 20
+        tick_time: 4
+        increment: 1
 ---

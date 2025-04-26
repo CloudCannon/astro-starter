@@ -1,7 +1,7 @@
 ---
 import type { ImageMetadata } from "astro";
 import { Image } from "astro:assets";
-import Markdown from "../utility/markdown.astro";
+import LeftRightText from "../utility/left-right-text.astro";
 
 interface Props {
   key: number;
@@ -42,13 +42,6 @@ const {
   button,
 } = Astro.props;
 
-const buttons = import.meta.glob("/src/components/buttons/**/*.astro", {
-  eager: true,
-});
-const buttonName = button?._bookshop_name.split("/").reverse()[0];
-const buttonFilePath = `/src/components/buttons/${buttonName}/${buttonName}.astro`;
-const ButtonComponent = (buttons[buttonFilePath] as any)?.default;
-
 const images = import.meta.glob<{ default: ImageMetadata }>(
   "/src/assets/**/*.{jpeg,jpg,png,gif,svg,webp,avif}",
   { eager: true }
@@ -67,36 +60,30 @@ const extraPaddingBottomMultiplier = lastInContentBlocks ? "2" : "1";
     flipped ? (
       <div class="left-right__wrapper">
         <Image
-          class="order-2 md:order-1"
+          class="left-right-image-flipped"
           alt={image.alt_text}
           widths={[320, 500, 640]}
           sizes={`(max-width: 640px) 320px, (max-width: 960px) 500px, (max-width: 1280px) 640px`}
           src={imageSrc}
         />
-        <div class="left-right__text order-1 md:order-2">
-          <h2
-            id={`left-right-${key}-heading-text`}
-            style={`color: ${heading.color};`}>
-            {heading.heading_text}
-          </h2>
-          <div class="mb-4" style={`color: ${text.color};`}>
-            <Markdown content={text.text_content} />
-          </div>
-          {button && <ButtonComponent {...button} />}
+        <div class="left-right__text left-right__text-flipped">
+          <LeftRightText
+            heading={heading}
+            button={button}
+            text={text}
+            key={key}
+          />
         </div>
       </div>
     ) : (
       <div class="left-right__wrapper">
         <div class="left-right__text">
-          <h2
-            id={`left-right-${key}-heading-text`}
-            style={`color: ${heading.color};`}>
-            {heading.heading_text}
-          </h2>
-          <div class="mb-4" style={`color: ${text.color};`}>
-            <Markdown content={text.text_content} />
-          </div>
-          {button && <ButtonComponent {...button} />}
+          <LeftRightText
+            heading={heading}
+            button={button}
+            text={text}
+            key={key}
+          />
         </div>
         <Image
           alt={image.alt_text}
@@ -136,12 +123,12 @@ const extraPaddingBottomMultiplier = lastInContentBlocks ? "2" : "1";
     max-width: 500px;
     margin-top: 32px;
   }
-  .left-right__text h2 {
-    max-width: 620px;
-    margin-block: 30px;
-    text-wrap: balance;
-    font-size: 2rem;
-    line-height: 100%;
+
+  .left-right-image-flipped {
+    order: 2;
+  }
+  .left-right__text-flipped {
+    order: 1;
   }
   @media only screen and (min-width: 768px) {
     .left-right__wrapper {
@@ -155,11 +142,16 @@ const extraPaddingBottomMultiplier = lastInContentBlocks ? "2" : "1";
     .left-right__wrapper img {
       width: 45%;
     }
+    .left-right-image-flipped {
+      order: 1;
+    }
+
+    .left-right__text-flipped {
+      order: 2;
+    }
+
     .left-right__text {
       width: 45%;
-    }
-    .left-right__text h2 {
-      font-size: 2.5rem;
     }
   }
 </style>

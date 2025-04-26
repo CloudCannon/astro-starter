@@ -1,6 +1,6 @@
 ---
 import { footer } from "../../../data/navigation.json";
-import Icon from "../utility/icon";
+import Icon from "../utility/Icon";
 const linkHoverColor = footer.hover_text_color;
 ---
 
@@ -12,7 +12,11 @@ const linkHoverColor = footer.hover_text_color;
       <a
         class="flex justify-center sm:justify-start items-center"
         href={footer.logo_url}>
-        <img class="footer__logo-image" src={footer.logo} alt={footer.logo_alt_text} />
+        <img
+          class="footer__logo-image"
+          src={footer.logo}
+          alt={footer.logo_alt_text}
+        />
       </a>
       <ul class="flex gap-4 items-center justify-center">
         {
