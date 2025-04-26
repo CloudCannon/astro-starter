@@ -1,7 +1,10 @@
 ---
 import NumberTicker from "../utility/NumberTicker";
+import { findComponentPaddingMultiplier } from "src/assets/js/findComponentPaddingMultiplier";
 
 interface Props {
+  content_blocks_length: number;
+  key: number;
   background_color: string;
   heading: {
     text_content: string;
@@ -20,9 +23,21 @@ interface Props {
   ];
 }
 
-const { background_color, heading, statistics, load_style } = Astro.props;
+const {
+  background_color,
+  heading,
+  statistics,
+  load_style,
+  content_blocks_length,
+  key,
+} = Astro.props;
 
 const columnNumber = statistics.length;
+
+const componentBottomPaddingMultiplier = findComponentPaddingMultiplier(
+  content_blocks_length,
+  key
+);
 ---
 
 <section style={`background-color: ${background_color};`}>
@@ -70,12 +85,15 @@ const columnNumber = statistics.length;
   </ul>
 </section>
 
-<style define:vars={{ columnNumber }}>
+<style define:vars={{ columnNumber, componentBottomPaddingMultiplier }}>
   section {
     max-width: var(--pageContainer);
     padding-inline: var(--pagePadding);
     margin: 0 auto;
-    padding-block: var(--sectionPaddingMobile);
+    padding-top: var(--sectionPaddingMobile);
+    padding-bottom: calc(
+      var(--sectionPaddingMobile) * var(--componentBottomPaddingMultiplier)
+    );
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -98,8 +116,11 @@ const columnNumber = statistics.length;
     align-items: end;
   }
   @media only screen and (min-width: 768px) {
-    .section {
-      padding-block: var(--sectionPadding);
+    section {
+      padding-top: var(--sectionPadding);
+      padding-bottom: calc(
+        var(--sectionPadding) * var(--componentBottomPaddingMultiplier)
+      );
     }
 
     section h2 {

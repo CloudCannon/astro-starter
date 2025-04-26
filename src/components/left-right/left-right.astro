@@ -2,6 +2,7 @@
 import type { ImageMetadata } from "astro";
 import { Image } from "astro:assets";
 import LeftRightText from "../utility/left-right-text.astro";
+import { findComponentPaddingMultiplier } from "src/assets/js/findComponentPaddingMultiplier";
 
 interface Props {
   key: number;
@@ -48,8 +49,10 @@ const images = import.meta.glob<{ default: ImageMetadata }>(
 );
 const imageSrc = images[image.image_path]?.default ?? image.image_path;
 
-const lastInContentBlocks = key + 1 === content_blocks_length;
-const extraPaddingBottomMultiplier = lastInContentBlocks ? "2" : "1";
+const componentBottomPaddingMultiplier = findComponentPaddingMultiplier(
+  content_blocks_length,
+  key
+);
 ---
 
 <div
@@ -96,7 +99,7 @@ const extraPaddingBottomMultiplier = lastInContentBlocks ? "2" : "1";
   }
 </div>
 
-<style define:vars={{ extraPaddingBottomMultiplier }}>
+<style define:vars={{ componentBottomPaddingMultiplier }}>
   .left-right {
     display: flex;
     align-items: center;
@@ -114,7 +117,7 @@ const extraPaddingBottomMultiplier = lastInContentBlocks ? "2" : "1";
     gap: 2rem;
     padding-top: var(--sectionPaddingMobile);
     padding-bottom: calc(
-      var(--sectionPaddingMobile) * var(--extraPaddingBottomMultiplier)
+      var(--sectionPaddingMobile) * var(--componentBottomPaddingMultiplier)
     );
     padding-inline: var(--pagePadding);
   }
@@ -136,7 +139,7 @@ const extraPaddingBottomMultiplier = lastInContentBlocks ? "2" : "1";
       gap: 64px;
       padding-top: var(--sectionPadding);
       padding-bottom: calc(
-        var(--sectionPadding) * var(--extraPaddingBottomMultiplier)
+        var(--sectionPadding) * var(--componentBottomPaddingMultiplier)
       );
     }
     .left-right__wrapper img {

@@ -1,7 +1,10 @@
 ---
 import Markdown from "../utility/markdown.astro";
+import { findComponentPaddingMultiplier } from "src/assets/js/findComponentPaddingMultiplier";
 
 interface Props {
+  content_blocks_length: number;
+  key: number;
   heading: {
     text_content: string;
     text_color: string;
@@ -15,11 +18,23 @@ interface Props {
   background_color: string;
   text_color: string;
 }
-const { text_content, background_color, text_color, heading, layout } =
-  Astro.props;
+const {
+  text_content,
+  background_color,
+  text_color,
+  heading,
+  layout,
+  content_blocks_length,
+  key,
+} = Astro.props;
 const text_alignment = layout.text_alignment;
 const column_alignment = layout.column_alignment;
 const column_number = layout.column_number;
+
+const componentBottomPaddingMultiplier = findComponentPaddingMultiplier(
+  content_blocks_length,
+  key
+);
 ---
 
 <section class="text-block" style={`background-color: ${background_color};`}>
@@ -35,11 +50,14 @@ const column_number = layout.column_number;
   </div>
 </section>
 
-<style define:vars={{ column_alignment }}>
+<style define:vars={{ column_alignment, componentBottomPaddingMultiplier }}>
   .text-block-container {
     max-width: var(--pageContainer);
     padding-inline: var(--pagePadding);
-    padding-block: var(--sectionPaddingMobile);
+    padding-top: var(--sectionPaddingMobile);
+    padding-bottom: calc(
+      var(--sectionPaddingMobile) * var(--componentBottomPaddingMultiplier)
+    );
     margin: 0 auto;
     display: flex;
     flex-direction: column;
@@ -57,7 +75,10 @@ const column_number = layout.column_number;
 
   @media only screen and (min-width: 960px) {
     .text-block-container {
-      padding-block: var(--sectionPadding);
+      padding-top: var(--sectionPadding);
+      padding-bottom: calc(
+        var(--sectionPadding) * var(--componentBottomPaddingMultiplier)
+      );
     }
   }
 </style>
