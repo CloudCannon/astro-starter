@@ -1,0 +1,239 @@
+---
+import Markdown from "src/components/utility/markdown.astro";
+import Icon from "src/components/utility/Icon.jsx";
+
+interface Props {
+  heading: {
+    heading_text: string;
+    text_color: string;
+  };
+  subheading: {
+    text_content: string;
+    text_color: string;
+  };
+  video: {
+    video_path: string;
+    poster_image: string;
+  };
+  header_style_overrides: {
+    background_color: string;
+    text_color: string;
+    hover_text_color: string;
+    alternate_logo: {
+      image_path: string;
+      logo_alt_text: string;
+    };
+  };
+  background_filters: {
+    brightness: number;
+    blur: number;
+  };
+  buttons: [
+    {
+      _bookshop_name: string;
+      text: string;
+      icon: string;
+      link: string;
+      background_color?: string;
+      hover_brightness: number;
+      text_color: string;
+    },
+  ];
+}
+
+const {
+  heading,
+  subheading,
+  video,
+  header_style_overrides,
+  background_filters,
+  buttons,
+} = Astro.props;
+
+const allButtons = import.meta.glob("/src/components/buttons/**/*.astro", {
+  eager: true,
+});
+
+const videoExtArr = video.video_path.split(".");
+const videoExtension = videoExtArr[1];
+---
+
+<section class="hero-video" aria-labelledby="hero-video-heading-text">
+  <div class="hero-video-container">
+    <div
+      class="hero-video-filter"
+      style={`backdrop-filter: brightness(${background_filters.brightness}) blur(${background_filters.blur}px);`}>
+    </div>
+    <video
+      id="hero-video-element"
+      playsinline
+      autoplay
+      muted
+      loop
+      poster={video.poster_image}>
+      <source src={video.video_path} type={`video/${videoExtension}`} />
+    </video>
+    <div class="hero-video-content">
+      <button
+        style={`color: ${heading.text_color};`}
+        aria-label="Toggle play/pause background video"
+        id="hero-video-toggle-pause-button">
+        <span id="hero-video-pause-button">
+          <Icon icon={"Pause"} />
+        </span>
+        <span id="hero-video-play-button" class="button-hidden">
+          <Icon icon={"Play"} />
+        </span>
+      </button>
+      <script>
+        // Toggles background video play/pause
+        const videoElement = document.getElementById("hero-video-element");
+        const buttonElement = document.getElementById(
+          "hero-video-toggle-pause-button"
+        );
+        buttonElement?.addEventListener("click", toggleVideoPause);
+        function toggleVideoPause() {
+          if (videoElement?.paused) {
+            videoElement?.play();
+            buttonElement?.children[1].classList.add("button-hidden");
+            buttonElement?.children[0].classList.remove("button-hidden");
+          } else {
+            videoElement?.pause();
+            buttonElement?.children[0].classList.add("button-hidden");
+            buttonElement?.children[1].classList.remove("button-hidden");
+          }
+        }
+      </script>
+      <h1
+        id="hero-video-heading-text"
+        class="hero-video-heading"
+        style={`color: ${heading.text_color};`}>
+        {heading.heading_text}
+      </h1>
+      <div
+        class="markdown-text hero-video-subheading-text"
+        style={`color: ${subheading.text_color};`}>
+        <Markdown content={subheading.text_content} />
+      </div>
+      <div class="hero-video-buttons">
+        {
+          buttons?.map((button) => {
+            const name = button._bookshop_name.split("/").reverse()[0];
+            const filePath = `/src/components/buttons/${name}/${name}.astro`;
+            const Component = (allButtons[filePath] as any)?.default;
+            return <Component {...button} />;
+          })
+        }
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .hero-video {
+    width: 100vw;
+    max-height: 100vh;
+    min-height: fit-content;
+    position: relative;
+    z-index: 1;
+    /* Set this to the top of the page under the transparent header */
+    top: calc((var(--headerHeight) + (var(--headerPadding) * 2)) * -1);
+    margin-bottom: calc(
+      (var(--headerHeight) + (var(--headerPadding) * 2)) * -1
+    );
+    left: 0;
+  }
+  .hero-video-container {
+    width: 100%;
+    max-height: 100%;
+    min-height: fit-content;
+    max-width: var(--pageContainer);
+    padding-inline: var(--pagePadding);
+    padding-top: calc(var(--sectionPaddingMobile) + var(--headerHeight));
+    padding-bottom: var(--sectionPaddingMobile);
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  .hero-video video,
+  .hero-video-filter {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+  .hero-video video {
+    object-fit: cover;
+    z-index: 0;
+  }
+  .hero-video-filter {
+    z-index: 1;
+  }
+  .hero-video-content {
+    position: relative;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    padding-block: 32px;
+    width: 100%;
+  }
+  .hero-video-content h1 {
+    font-size: 3rem;
+    font-weight: 600;
+    text-align: center;
+    text-wrap: balance;
+  }
+
+  .hero-video-subheading-text {
+    text-align: center;
+    font-size: 1.125rem;
+    line-height: 1.75rem !important;
+    max-width: 72ch;
+    text-wrap: pretty;
+  }
+  .hero-video-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    max-width: fit-content;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1rem;
+  }
+  #hero-video-toggle-pause-button {
+    position: relative;
+    z-index: 99;
+    top: 0;
+    right: 0;
+    display: flex;
+    gap: 0.25rem;
+    align-items: center;
+    align-self: flex-end;
+  }
+  #hero-video-toggle-pause-button span {
+    height: 1rem;
+    width: 1rem;
+  }
+  .button-hidden {
+    display: none;
+  }
+  @media only screen and (min-width: 768px) {
+    .hero-video-buttons {
+      flex-direction: row;
+      margin-top: 2rem;
+    }
+    .hero-video-container {
+      padding-top: calc(var(--sectionPadding) + var(--headerHeight));
+      padding-bottom: var(--sectionPadding);
+    }
+    #pause-video-button {
+      top: calc(var(--sectionPadding) * -1);
+    }
+  }
+</style>

@@ -17,10 +17,11 @@ export interface SEOProps {
 
 export interface Props {
   title: string;
+  hero_block?: any;
   seo?: SEOProps;
 }
 
-const { seo } = Astro.props;
+const { seo, hero_block } = Astro.props;
 const baseUrl = Astro.site;
 
 const title = Astro.props.title
@@ -32,6 +33,7 @@ const description = seo?.page_description ?? site.description;
 const image = seo?.featured_image ?? site.image;
 const image_alt = seo?.featured_image_alt ?? site.image_alt;
 const canonicalURL = new URL(seo?.canonical_url ?? Astro.url.pathname, baseUrl);
+const headerStyleOverrides = hero_block?.header_style_overrides ?? {};
 ---
 
 <!doctype html>
@@ -78,7 +80,7 @@ const canonicalURL = new URL(seo?.canonical_url ?? Astro.url.pathname, baseUrl);
       canonical={canonicalURL.toString()}
       openGraph={{
         basic: {
-          title: Astro.props.title,
+          title: title,
           url: baseUrl?.toString(),
           type: `${seo?.open_graph_type || "website"}`,
           image: `${baseUrl}${image}`,
@@ -99,15 +101,26 @@ const canonicalURL = new URL(seo?.canonical_url ?? Astro.url.pathname, baseUrl);
     />
   </head>
   <body>
-    <Header />
+    <Header headerStyleOverrides={headerStyleOverrides} />
     <main>
       <slot />
     </main>
     <Footer />
     <style is:global>
       :root {
+        /* Max width and inline padding of the page */
         --pageContainer: 1280px;
-        --pagePadding: 2rem;
+        --pagePadding: 32px;
+        /* The padding used between page sections (components) */
+        --sectionPadding: 6rem;
+        --sectionPaddingMobile: 3rem;
+        /* Set here rather than hardcoded to work out the styles for hero components overlapping header */
+        /* When increasing header padding, make sure to increase headerHeight to make room */
+        /* Logo size is calculated by subtracting headerPadding * 2 from the headerHeight */
+        --headerHeight: 4rem;
+        --headerPadding: 1rem;
+
+        box-sizing: border-box;
       }
     </style>
   </body>

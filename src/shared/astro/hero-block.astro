@@ -1,0 +1,25 @@
+---
+const { heroBlock } = Astro.props;
+
+const components: Record<string, Function> = {};
+const componentImports = import.meta.glob(
+  "../../components/heroes/**/*.{jsx,astro}",
+  {
+    eager: true,
+  }
+);
+
+// biome-ignore lint/complexity/noForEach: <explanation>
+Object.entries(componentImports).forEach(([path, obj]) => {
+  const parts = path.replace("../../components/", "").split(".")[0].split("/");
+  if (parts.length > 1 && parts[parts.length - 1] === parts[parts.length - 2]) {
+    parts.pop();
+  }
+  const bookshopName = parts.join("/");
+  components[bookshopName] = (obj as any).default;
+});
+
+const HeroComponent = components[heroBlock?._bookshop_name];
+---
+
+{HeroComponent && <HeroComponent {...heroBlock} />}

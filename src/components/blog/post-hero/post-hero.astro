@@ -1,0 +1,55 @@
+---
+import site from "data/site.json";
+import type { ImageMetadata } from "astro";
+import { Image } from "astro:assets";
+
+interface Props {
+  title: string;
+  bodyContent: string;
+  date: string | Date;
+  author: string;
+  image: string;
+  image_alt: string;
+}
+const { title, bodyContent, date, author, image, image_alt } = Astro.props;
+
+const wordCount = bodyContent?.split(" ")?.length ?? 0;
+const readingTime = Math.floor(wordCount / 183);
+const dateObj = new Date(date);
+const authorWithFallback = author || site.default_author;
+
+const images = import.meta.glob<{ default: ImageMetadata }>(
+  "/src/assets/**/*.{jpeg,jpg,png,gif,svg,avif,webp}",
+  { eager: true }
+);
+
+const imageSrc = images[image]?.default ?? image;
+---
+
+<Image class="blog-hero-image" src={imageSrc} alt={image_alt} loading="lazy" />
+<h1 id="blog-hero-text" class="blog-hero-title">
+  {title}
+</h1>
+<div class="post-data">
+  <p>
+    {authorWithFallback}
+  </p>
+  <p>
+    {
+      dateObj.toLocaleDateString(undefined, {
+        year: "numeric",
+        month: "long",
+        day: "numeric",
+      })
+    }
+  </p>
+  <div class="post-data-time">
+    <p>
+      {wordCount} words
+    </p>
+    <p>
+      {readingTime}
+      {`minute${readingTime > 1 ? "s" : ""}`}
+    </p>
+  </div>
+</div>

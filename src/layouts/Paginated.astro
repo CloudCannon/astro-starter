@@ -16,19 +16,5 @@ const props = Astro.props.frontmatter;
 ---
 
 <Layout {...props}>
-  <div class="py-[48px] blog-index">
-    <h1
-      class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-semibold mt-[48px]">
-      {props.title}
-    </h1>
-    <slot />
-  </div>
+  <slot />
 </Layout>
-
-<style>
-  .blog-index h1 {
-    max-width: var(--pageContainer);
-    padding-inline: var(--pagePadding);
-    margin: 0 auto;
-  }
-</style>

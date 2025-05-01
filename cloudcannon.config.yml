@@ -20,14 +20,15 @@ collections_config:
     schemas:
       default:
         name: New Page
-        path: schemas/page.md
+        path: '.cloudcannon/schemas/page.md'
         remove_extra_inputs: false
       paginated:
         name: Paginated collection
-        path: schemas/paginated.md
+        path: '.cloudcannon/schemas/paginated.md'
         remove_extra_inputs: false
     create:
       path: '[relative_base_path]/{filename|slugify|lowercase}.md'
+    new_preview_url: /
   blog:
     path: src/content/blog
     glob:
@@ -35,16 +36,16 @@ collections_config:
     url: '/blog/[full_slug]/'
     icon: newspaper
     _enabled_editors:
-      - content
       - visual
+      - content
     add_options:
       - name: Add New Post
         schema: default
         icon: post_add
+        editor: content
     schemas:
       default:
-        name: New Post
-        path: schemas/post.mdx
+        path: '.cloudcannon/schemas/post.mdx'
     create:
       path: '[relative_base_path]/{filename|slugify|lowercase}.mdx'
     _inputs:
@@ -81,6 +82,8 @@ collections_config:
     path: data
     disable_add: true
     disable_add_folder: true
+    glob: 
+      - '!icons.json'
     _inputs:
       icons:
         comment: Add an icon from the list of [Font Awesome icons](https://fontawesome.com/search?o=r&m=free). Then add it to the ```src/components/utility/icon.jsx``` file, following the existing pattern.
@@ -132,6 +135,39 @@ file_config:
         comment: Set the tags available in posts.
       $[*]:
         type: text
+  - glob: data/navigation.json
+    _inputs:
+      header:
+        type: object
+        options:
+          preview:
+            icon: menu
+            text: Header details
+            subtext: Update logo, colors, and links.
+      footer:
+        type: object
+        options:
+          preview:
+            icon: menu
+            text: Footer details
+            subtext: Update logo, colors, socials, copyright, and links.
+      social:
+        type: array
+        options:
+          structures: _structures.social_links
+    _structures:
+      social_links:
+        values:
+          - value:
+              icon:
+              link:
+              name:
+            _inputs:
+              name:
+                type: text
+                comment: Adds an aria-label for assistive technologies
+            preview:
+              icon: group
 
 _editables:
   content:
@@ -166,6 +202,15 @@ _editables:
     snippet: true
 
 _inputs:
+  content_blocks:
+    type: array
+    options:
+      structures: _structures.content_blocks
+      empty_type: array
+  hero_block:
+    type: object
+    options:
+      structures: _structures.hero_blocks
   feature_list:
     type: multiselect
     options:
@@ -177,12 +222,12 @@ _inputs:
     options:
       values: collections.blog
       value_key: title
-  markdown_content:
+  text_content:
     type: markdown
     options:
       blockquote: true
       bold: true
-      format: p
+      format: p h2 h3 h4
       italic: true
       strike: true
       subscript: true
@@ -220,6 +265,9 @@ _inputs:
       preview:
         text:
           - key: name
+        icon: palette
+        icon_color: 
+          - key: value
   text_color:
     type: select
     options:
@@ -228,6 +276,9 @@ _inputs:
       preview:
         text:
           - key: name
+        icon: palette
+        icon_color: 
+          - key: value
   color:
     type: select
     options:
@@ -236,6 +287,20 @@ _inputs:
       preview:
         text:
           - key: name
+        icon: palette
+        icon_color: 
+          - key: value
+  hover_text_color:
+    type: select
+    options:
+      values: data.colors
+      value_key: value
+      preview:
+        text:
+          - key: name
+        icon: palette
+        icon_color: 
+          - key: value
   icon:
     type: select
     options:
@@ -285,10 +350,6 @@ _inputs:
         subtext:
           - key: link
           - 'Add a social link'
-  social_icon:
-    type: select
-    options:
-      values: data.icons
   social[*]:
     type: object
     options:
@@ -336,20 +397,19 @@ _snippets:
       subtext:
         - key: alert_message
         - Update alert content and styles
+    picker_preview:
+      gallery:
+        image: /images/components-screenshots/alert.png
     definitions:
       component_name: SnippetsAlert
       named_args:
         - editor_key: background_color
-          source_key: background_color
           type: string
         - editor_key: alert_message
-          source_key: alert_message
           type: string
         - editor_key: color
-          source_key: color
           type: string
         - editor_key: icon
-          source_key: icon
           type: string
     _inputs:
       background_color:
@@ -360,6 +420,9 @@ _snippets:
           preview:
             text:
               - key: name
+            icon: palette
+            icon_color: 
+              - key: value
       icon:
         type: select
         options:
@@ -372,6 +435,9 @@ _snippets:
           preview:
             text:
               - key: name
+            icon: palette
+            icon_color: 
+              - key: value
       alert_message:
         comment: This is the text displayed in the alert
         type: textarea
@@ -390,14 +456,15 @@ _snippets:
       gallery:
         image:
           - key: image_path
+    picker_preview:
+      gallery:
+        image: /images/components-screenshots/image.png
     definitions:
       component_name: SnippetsAstroImage
       named_args:
         - editor_key: image_path
-          source_key: image_path
           type: string
         - editor_key: image_alt
-          source_key: image_alt
           type: string
     _inputs:
       image_alt:
@@ -416,11 +483,12 @@ _snippets:
       component_name: SnippetsAccordion
       named_args:
         - editor_key: heading
-          source_key: heading
           type: string
         - editor_key: text
-          source_key: text
           type: string
+    picker_preview:
+      gallery:
+        image: /images/components-screenshots/accordion.png
     preview:
       icon: expand_more
       text: Accordion
@@ -439,12 +507,14 @@ _snippets:
       component_name: SnippetsVideo
       named_args:
         - editor_key: src
-          source_key: src
           type: string
     preview:
       text: Video
       subtext: A self hosted video from our static files
       icon: duo
+    picker_preview:
+      gallery:
+        image: /images/components-screenshots/video.png
     _inputs:
       src:
         comment: Link to a video hosted in our own files.
@@ -458,17 +528,17 @@ _snippets:
     definitions:
       component_name: SnippetsYoutube
       named_args:
-        - editor_key: video_source
-          source_key: video_source
+        - editor_key: video_link
           type: string
-        - editor_key: width
-          source_key: width
-          type: number
-        - editor_key: height
-          source_key: height
-          type: number
+        - editor_key: poster
+          type: string
+        - editor_key: poster_quality
+          type: string
+        - editor_key: params
+          type: string
+        - editor_key: playlabel
+          type: string
         - editor_key: title
-          source_key: title
           type: string
     preview:
       icon: duo
@@ -476,36 +546,55 @@ _snippets:
         - key: title
         - Youtube Video
       subtext:
-        - key: video_source
+        - key: video_link
         - Update Youtube video details 
+    picker_preview:
+      gallery:
+        image: /images/components-screenshots/youtube.png
     _inputs:
-      video_source:
+      video_link:
         type: url
-        comment: Get an embed link from a Youtube video and paste it here.
-      width:
-        type: number
-        comment: The width of the video, measured in px.
-      height:
-        type: number
-        comment: The height of the video, measured in px.
+        comment: Paste the url of the Youtube video here.
+      poster:
+        type: image
+        comment: You can provide an alternative poster image by adding a URL here.
+      poster_quality:
+        type: select
+        comment: When using the default YouTube poster image, set the Poster Quality to change the size of the placeholder image.
+        options:
+          values:
+            - low
+            - default	
+            - high	
+            - max
+      params:
+        comment: >-
+          You can pass in params text here to set the YouTube player parameters. This looks like a series of URL search params, eg. 'start=57&end=75'.
+        type: text
+      playlabel:
+        comment: By default, the play button in the embed has an accessible label set to “Play”. If you want to customise this, for example to match the language of your website, you can set the label text here.
+        type: text
       title:
-        type: textarea
+        comment: Set a visible title to overlay on the video.
+        type: text
   file:
     template: mdx_component
     inline: false
     preview:
-      text: File
+      text: File download
+      subtext:
+        - key: src
+    picker_preview:
+      gallery:
+        image: /images/components-screenshots/file.png
     definitions:
       component_name: SnippetsFile
       named_args:
         - editor_key: src
-          source_key: src
           type: string
         - editor_key: file_name
-          source_key: file_name
           type: string
         - editor_key: link_message
-          source_key: link_message
           type: string
     _inputs:
       src:
@@ -519,13 +608,16 @@ _snippets:
         comment: The name of the file, once downloaded.
       link_message:
         type: textarea
-        comment: The text for the download link
+        comment: The text for the download link.
   mdx_tint:
     template: mdx_paired_component
     inline: true
     preview:
       text: Tint
       icon: pallet
+    picker_preview:
+      gallery:
+        image: /images/components-screenshots/tint.png
     definitions:
       component_name: SnippetsTint
       content_key: inner_text

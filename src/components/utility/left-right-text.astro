@@ -1,0 +1,59 @@
+---
+import Markdown from "../utility/markdown.astro";
+
+interface Props {
+  key: number;
+  heading: {
+    heading_text: string;
+    color: string;
+  };
+  text: {
+    text_content: string;
+    color: string;
+  };
+  button: {
+    _bookshop_name: string;
+    button_text: string;
+    button_icon: string;
+    button_link: string;
+    background_color?: string;
+    hover_brightness: number;
+    text_color: string;
+  };
+}
+
+const { heading, text, button, key } = Astro.props;
+
+const buttons = import.meta.glob("/src/components/buttons/**/*.astro", {
+  eager: true,
+});
+const buttonName = button?._bookshop_name.split("/").reverse()[0];
+const buttonFilePath = `/src/components/buttons/${buttonName}/${buttonName}.astro`;
+const ButtonComponent = (buttons[buttonFilePath] as any)?.default;
+---
+
+<h2
+  class="left-right-heading-text"
+  id={`left-right-${key}-heading-text`}
+  style={`color: ${heading.color};`}>
+  {heading.heading_text}
+</h2>
+<div style={`color: ${text.color};`}>
+  <Markdown content={text.text_content} />
+</div>
+{button && <ButtonComponent {...button} />}
+
+<style>
+  .left-right-heading-text {
+    max-width: 620px;
+    margin-block: 30px;
+    text-wrap: balance;
+    font-size: 2rem;
+    line-height: 100%;
+  }
+  @media only screen and (min-width: 768px) {
+    .left-right-heading-text {
+      font-size: 2.5rem;
+    }
+  }
+</style>

@@ -1,23 +1,58 @@
 [
-  { "name": "White", "value": "#ffffff" },
-  { "name": "Black", "value": "#000000" },
-  { "name": "Gray", "value": "#808080" },
-  { "name": "Light Gray", "value": "#f2f2f2" },
-  { "name": "Dark Gray", "value": "#333333" },
-  { "name": "Primary Font Color", "value": "#393939" },
-  { "name": "Secondary Font Color", "value": "#475569" },
-  { "name": "Tertiary Font Color", "value": "#94a3b8" },
-  { "name": "Primary Light Font Color", "value": "#FFFFF0" },
-  { "name": "Secondary Light Font Color", "value": "#FAF9F6" },
-  { "name": "Tertiary Light Font Color", "value": "#EDEADE" },
-  { "name": "Byzantine Blue", "value": "#034AD8" },
-  { "name": "Vista Blue", "value": "#a0a2ff" },
-  { "name": "Eggshell", "value": "#faf3dd" },
-  { "name": "Almond", "value": "#F2E2D2" },
-  { "name": "Floral White", "value": "#FEF9EF" },
-  { "name": "Tea Green", "value": "#c8d5b9" },
-  { "name": "Bittersweet", "value": "#FF785A" },
-  { "name": "Cambridge Blue", "value": "#9ABCA7" },
-  { "name": "Melon", "value": "#F7B2AD" },
-  { "name": "Jet", "value": "#333232" }
+  {
+    "name": "White",
+    "value": "#ffffff"
+  },
+  {
+    "name": "Light Gray",
+    "value": "#F2F2F2"
+  },
+  {
+    "name": "Gray",
+    "value": "#808080"
+  },
+  {
+    "name": "Black",
+    "value": "#000000"
+  },
+  {
+    "name": "Byzantine Blue",
+    "value": "#034AD8"
+  },
+  {
+    "name": "Vista Blue",
+    "value": "#A0A2FF"
+  },
+  {
+    "name": "Eggshell",
+    "value": "#FAF3DD"
+  },
+  {
+    "name": "Almond",
+    "value": "#F2E2D2"
+  },
+  {
+    "name": "Floral White",
+    "value": "#FEF9EF"
+  },
+  {
+    "name": "Tea Green",
+    "value": "#C8D5B9"
+  },
+  {
+    "name": "Bittersweet",
+    "value": "#FF785A"
+  },
+  {
+    "name": "Cambridge Blue",
+    "value": "#9ABCA7"
+  },
+  {
+    "name": "Melon",
+    "value": "#F7B2AD"
+  },
+  {
+    "name": "Jet",
+    "value": "#333232"
+  }
 ]

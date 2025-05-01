@@ -6,7 +6,7 @@ import path from "node:path";
   let componentName = "";
 
   // Get the args from the command line
-  process.argv.forEach((val, index, array) => {
+  process.argv.forEach((val, index) => {
     if (index === 2) {
       componentName = val;
     }

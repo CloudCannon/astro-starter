@@ -1,0 +1,107 @@
+# Metadata about this component, to be used in the CMS
+spec:
+  structures:
+    - hero_blocks
+  label: "Hero - Video Background"
+  description: Text over video bg
+  icon: duo
+  tags:
+    - Heading
+    - Video
+    - Buttons
+
+# Defines the structure of this component, as well as the default values
+blueprint:
+  heading:
+    heading_text: 
+    text_color: '#ffffff'
+  subheading:
+    text_content: 
+    text_color: '#ffffff'
+  video:
+    video_path: /videos/nz-coast.mp4
+    poster_image: /images/nz-coast-poster.png
+  header_style_overrides:
+    background_color: transparent
+    text_color: '#ffffff'
+    hover_text_color: '#F1F1F1'
+    alternate_logo: 
+      image_path: 
+      logo_alt_text: 
+  background_filters:
+    brightness: 0.5
+    blur: 1
+  buttons: []
+
+# Overrides any fields in the blueprint when viewing this component in the component browser
+preview:
+
+# Any extra CloudCannon inputs configuration to apply to the blueprint
+_inputs:
+  header_style_overrides:
+    type: object
+    comment: Specify header styles for just this page if set. Will not take effect until the next time the page is saved.
+    options:
+      preview:
+        icon: palette
+  hover_text_color:
+    comment: Overrides the header hover text color for this page if set.
+  alternate_logo:
+    type: object
+    comment: Set a different logo in the header if needed with this component.
+    options:
+        preview:
+          icon: palette
+  background_filters:
+    type: object
+    comment: Set brightness and blur filters over the background video to make the text content more legible.
+    options:
+      preview:
+        icon: exposure
+  brightness:
+    type: range
+    options:
+      min: 0
+      max: 2
+      step: 0.025
+  blur:
+    type: range
+    options:
+      min: 0
+      max: 10
+      step: 0.25
+  buttons:
+    type: array
+    options:
+      structures: _structures.buttons
+  heading:
+    options:
+      preview:
+        icon: 'short_text'
+        text:
+          - key: heading_text
+          - Heading
+        subtext:
+          - 'Update heading text and color'
+  subheading:
+    options:
+      preview:
+        icon: 'description'
+  video:
+    options:
+      preview:
+        icon: 'duo'
+        text:
+          - 'Background Video'
+        subtext:
+          - key: video_path
+          - 'Select a video'
+  video_path:
+    type: file
+    options:
+      paths:
+        static: public
+        uploads: 'public/videos'
+  poster_image:
+    type: image
+    comment: Specifies an image to be shown while the video is downloading.

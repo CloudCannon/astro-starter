@@ -1,0 +1,143 @@
+---
+import NumberTicker from "../utility/NumberTicker";
+import { findComponentPaddingMultiplier } from "src/assets/js/findComponentPaddingMultiplier";
+
+interface Props {
+  content_blocks_length: number;
+  key: number;
+  background_color: string;
+  heading: {
+    text_content: string;
+    text_color: string;
+  };
+  load_style: string;
+  statistics: [
+    {
+      text_color: string;
+      statistic_label_prefix: string;
+      statistic_label_suffix: string;
+      maximum_count: number;
+      tick_time: number;
+      increment: number;
+    },
+  ];
+}
+
+const {
+  background_color,
+  heading,
+  statistics,
+  load_style,
+  content_blocks_length,
+  key,
+} = Astro.props;
+
+const columnNumber = statistics.length;
+
+const componentBottomPaddingMultiplier = findComponentPaddingMultiplier(
+  content_blocks_length,
+  key
+);
+---
+
+<section style={`background-color: ${background_color};`}>
+  {
+    heading.text_content && (
+      <h2 style={`color: ${heading.text_color};`}>{heading.text_content}</h2>
+    )
+  }
+  <ul class="stats-list">
+    {
+      statistics?.map((stat) => {
+        return (
+          <li style={`color: ${stat.text_color};`}>
+            {stat.statistic_label_prefix && (
+              <span class="stat-label-prefix">
+                {stat.statistic_label_prefix}
+              </span>
+            )}
+            <span class="stat-value">
+              {load_style === "visible" ? (
+                <NumberTicker
+                  client:visible
+                  max_count={stat.maximum_count}
+                  tick_time={stat.tick_time}
+                  increment={stat.increment}
+                />
+              ) : (
+                <NumberTicker
+                  client:load
+                  max_count={stat.maximum_count}
+                  tick_time={stat.tick_time}
+                  increment={stat.increment}
+                />
+              )}
+            </span>
+            {stat.statistic_label_suffix && (
+              <span class="stat-label-suffix">
+                {stat.statistic_label_suffix}
+              </span>
+            )}
+          </li>
+        );
+      })
+    }
+  </ul>
+</section>
+
+<style define:vars={{ columnNumber, componentBottomPaddingMultiplier }}>
+  section {
+    max-width: var(--pageContainer);
+    padding-inline: var(--pagePadding);
+    margin: 0 auto;
+    padding-top: var(--sectionPaddingMobile);
+    padding-bottom: calc(
+      var(--sectionPaddingMobile) * var(--componentBottomPaddingMultiplier)
+    );
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  section h2 {
+    font-size: 2rem;
+  }
+
+  .stats-list {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    margin-top: 48px;
+  }
+  .stats-list li {
+    display: flex;
+    justify-content: center;
+    align-items: end;
+  }
+  @media only screen and (min-width: 768px) {
+    section {
+      padding-top: var(--sectionPadding);
+      padding-bottom: calc(
+        var(--sectionPadding) * var(--componentBottomPaddingMultiplier)
+      );
+    }
+
+    section h2 {
+      font-size: 3rem;
+    }
+
+    .stats-list {
+      display: grid;
+      grid-template-columns: repeat(var(--columnNumber), 1fr);
+    }
+  }
+</style>
+
+<style is:global>
+  .stat-value .ticking-numbers {
+    font-size: 2rem;
+    line-height: 2rem;
+    margin-inline: 0.5rem;
+  }
+</style>

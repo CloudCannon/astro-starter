@@ -1,13 +1,23 @@
 ---
+import { YouTube } from "astro-embed";
 const block = Astro.props;
 ---
 
-<iframe
-  width={block.width}
-  height={block.height}
-  src={block.video_source}
-  title={block.title}
-  frameborder="0"
-  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-  referrerpolicy="strict-origin-when-cross-origin"
-  allowfullscreen></iframe>
+<div class="youtube-video">
+  <YouTube
+    id={block.video_link}
+    poster={block.poster ?? ""}
+    posterQuality={block.poster_quality ?? ""}
+    params={block.params ?? ""}
+    playlabel={block.playlabel ?? ""}
+    title={block.title ?? ""}
+  />
+</div>
+
+<style>
+  .youtube-video {
+    max-width: 100%;
+    height: auto;
+    margin: 3rem auto;
+  }
+</style>

@@ -1,0 +1,77 @@
+# Metadata about this component, to be used in the CMS
+spec:
+  structures:
+    - hero_blocks
+  label: Hero
+  description: Outline color
+  icon: 'cottage'
+  tags:
+    - Heading
+    - Image
+    - Text
+    - Buttons
+  picker_preview:
+    gallery:
+      image: /images/components-screenshots/hero.png
+
+# Defines the structure of this component, as well as the default values
+blueprint:
+  background_color: '#ffffff'
+  heading:
+    heading_text: Astro Bookshop Starter
+    heading_gradient_color: '#a0a2ff'
+  subheading:
+    text_content: >-
+      A starting point for developers looking to build a website with Astro, using Bookshop components in CloudCannon. Create your own copy, and start creating your own components to use in the CloudCannon CMS.
+    color: '#393939'
+  image:
+    image_path: /src/assets/images/featured-image-5.jpg
+    alt_text: An image
+  buttons: [bookshop:structure:buttons]
+
+# Overrides any fields in the blueprint when viewing this component in the component browser
+preview:
+
+# Any extra CloudCannon inputs configuration to apply to the blueprint
+_inputs:
+  heading:
+    options:
+      preview:
+        icon: 'short_text'
+        text:
+          - key: heading_text
+          - Heading
+        subtext:
+          - key: heading_gradient_color
+          - 'Update heading gradient color and text content.'
+  subheading:
+    options:
+      preview:
+        icon: 'short_text'
+        text:
+          - Subheading
+        subtext:
+          - 'Update subheading content and color.'
+  heading_gradient_color:
+    type: select
+    options:
+      values: data.colors
+      value_key: value
+      preview:
+        text:
+          - key: name
+        icon: palette
+        icon_color: 
+          - key: value
+  image:
+    options:
+      preview:
+        icon: 'image'
+        text:
+          - key: alt_text
+          - 'Image'
+        subtext:
+          - key: image_path
+          - 'Update image'
+        image:
+          - key: image_path

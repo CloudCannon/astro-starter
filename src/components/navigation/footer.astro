@@ -1,25 +1,30 @@
 ---
 import { footer } from "../../../data/navigation.json";
-import Icon from "../utility/icon";
+import Icon from "../utility/Icon";
+const linkHoverColor = footer.hover_text_color;
 ---
 
 <footer
-  style={`background-color: ${footer.background_color}; color: ${footer.color};`}>
+  style={`background-color: ${footer.background_color}; color: ${footer.text_color};`}>
   <div class="px-8">
     <div
       class="footer grid grid-cols-1 sm:grid-cols-3 justify-between items-center gap-8 py-[48px]">
       <a
         class="flex justify-center sm:justify-start items-center"
         href={footer.logo_url}>
-        <img class="footer__logo-image" src={footer.logo} alt="Logo" />
+        <img
+          class="footer__logo-image"
+          src={footer.logo}
+          alt={footer.logo_alt_text}
+        />
       </a>
       <ul class="flex gap-4 items-center justify-center">
         {
           footer.social.map((link) => {
             return (
               <li class="w-[2rem]">
-                <a href={link.link}>
-                  <Icon icon={link.social_icon} />
+                <a href={link.link} aria-label={link.name}>
+                  <Icon icon={link.icon} />
                 </a>
               </li>
             );
@@ -27,7 +32,7 @@ import Icon from "../utility/icon";
         }
       </ul>
 
-      <ul class="flex flex-col text-center sm:text-end gap-4">
+      <ul class="footer-links flex flex-col text-center sm:text-end gap-4">
         {
           footer.links.map((link) => {
             return (
@@ -47,7 +52,7 @@ import Icon from "../utility/icon";
   </div>
 </footer>
 
-<style>
+<style define:vars={{ linkHoverColor }}>
   .footer {
     max-width: var(--pageContainer);
     margin: 0 auto;
@@ -55,5 +60,8 @@ import Icon from "../utility/icon";
   .footer__logo-image {
     display: block;
     max-width: min(200px, 80%);
+  }
+  .footer-links li:hover {
+    color: var(--linkHoverColor);
   }
 </style>

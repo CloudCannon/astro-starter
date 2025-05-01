@@ -1,0 +1,93 @@
+---
+import Markdown from "../utility/markdown.astro";
+import { findComponentPaddingMultiplier } from "src/assets/js/findComponentPaddingMultiplier";
+
+interface Props {
+  content_blocks_length: number;
+  key: number;
+  heading: {
+    text_content: string;
+    text_color: string;
+  };
+  layout: {
+    text_alignment: string;
+    column_alignment: string;
+    column_number: number;
+  };
+  text_content: string;
+  background_color: string;
+  text_color: string;
+}
+const {
+  text_content,
+  background_color,
+  text_color,
+  heading,
+  layout,
+  content_blocks_length,
+  key,
+} = Astro.props;
+const text_alignment = layout.text_alignment;
+const column_alignment = layout.column_alignment;
+const column_number = layout.column_number;
+
+const componentBottomPaddingMultiplier = findComponentPaddingMultiplier(
+  content_blocks_length,
+  key
+);
+---
+
+<section class="text-block" style={`background-color: ${background_color};`}>
+  <div style={`color: ${text_color};`} class="text-block-container">
+    {
+      heading.text_content && (
+        <h2 class="main-heading" style={`color: ${heading.text_color};`}>
+          {heading.text_content}
+        </h2>
+      )
+    }
+    <Markdown content={text_content} />
+  </div>
+</section>
+
+<style define:vars={{ column_alignment, componentBottomPaddingMultiplier }}>
+  .text-block-container {
+    max-width: var(--pageContainer);
+    padding-inline: var(--pagePadding);
+    padding-top: var(--sectionPaddingMobile);
+    padding-bottom: calc(
+      var(--sectionPaddingMobile) * var(--componentBottomPaddingMultiplier)
+    );
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: var(--column_alignment);
+  }
+  .main-heading {
+    font-weight: 500;
+    margin-bottom: 1.5rem;
+    text-wrap: balance;
+    line-height: 100%;
+    max-width: 72ch;
+    font-size: 1.75rem;
+  }
+
+  @media only screen and (min-width: 960px) {
+    .text-block-container {
+      padding-top: var(--sectionPadding);
+      padding-bottom: calc(
+        var(--sectionPadding) * var(--componentBottomPaddingMultiplier)
+      );
+    }
+  }
+</style>
+
+<style define:vars={{ text_alignment, column_number }} is:global>
+  .text-block-container .markdown-text {
+    display: grid;
+    column-gap: 48px;
+    grid-template-columns: repeat(var(--column_number), 1fr);
+    text-align: var(--text_alignment);
+  }
+</style>

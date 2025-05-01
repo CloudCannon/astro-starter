@@ -1,18 +1,46 @@
 ---
-import { header } from '../../../data/navigation.json';
+import { header } from "../../../data/navigation.json";
+
+interface Props {
+  headerStyleOverrides: {
+    background_color: string;
+    text_color: string;
+    hover_text_color: string;
+    alternate_logo: {
+      image_path: string;
+      logo_alt_text: string;
+    };
+  };
+}
+
+// Sort out whether values are overridden by the hero at the top of the page,
+// Or use the values set in the site-wide data/navigation.json data file
+const headerStyleOverrides = Astro.props.headerStyleOverrides;
+const backgroundColor =
+  headerStyleOverrides?.background_color ?? header.background_color;
+const linkTextColor = headerStyleOverrides?.text_color ?? header.text_color;
+const linkHoverColor =
+  headerStyleOverrides?.hover_text_color ?? header.hover_text_color;
+const logoImagePath =
+  headerStyleOverrides?.alternate_logo?.image_path ?? header.logo;
+const logoAltText =
+  headerStyleOverrides?.alternate_logo?.logo_alt_text ?? header.logo_alt_text;
 ---
 
 <header
   class="header"
   x-data="{ open: false }"
   x-transition
-  style={`background-color: ${header.background_color}; color: ${header.color};`}>
+  style={`background-color: ${backgroundColor}; color: ${linkTextColor};`}>
   <div class="header__container">
     <nav class="header__nav">
       <a class="header__logo-link" href={header.logo_url}>
-        <img class="header__logo-image" src={header.logo} alt="Logo" />
+        <img class="header__logo-image" src={logoImagePath} alt={logoAltText} />
       </a>
-      <button class="hamburger" @click="open = ! open">
+      <button
+        class="hamburger"
+        @click="open = ! open"
+        aria-label="Open and close the mobile navigation menu">
         <svg height="16" width="24" xmlns="http://www.w3.org/2000/svg">
           <defs>
             <path
@@ -33,6 +61,7 @@ import { header } from '../../../data/navigation.json';
       </button>
       <ul
         class="header__nav-links"
+        aria-label="Header navigation links"
         x-show="open"
         x-transition
         @click.outside="open = false">
@@ -52,7 +81,11 @@ import { header } from '../../../data/navigation.json';
   </div>
 </header>
 
-<style>
+<style define:vars={{ linkHoverColor }}>
+  .header {
+    position: relative;
+    z-index: 99;
+  }
   .header__container {
     max-width: var(--pageContainer);
     margin: 0 auto;
@@ -92,7 +125,7 @@ import { header } from '../../../data/navigation.json';
     cursor: pointer;
   }
   .header__nav-link:hover {
-    color: #034ad8;
+    color: var(--linkHoverColor);
   }
 
   @media screen and (min-width: 600px) {
@@ -129,24 +162,4 @@ import { header } from '../../../data/navigation.json';
       display: none;
     }
   }
-  /* .hamburger__inner,
-  .hamburger__inner::before,
-  .hamburger__inner::after {
-    display: block;
-    width: 2rem;
-    height: 0.25rem;
-    background-color: #034ad8;
-  }
-  .hamburger__inner::before,
-  .hamburger__inner::after {
-    content: '';
-    display: block;
-    position: relative;
-  }
-  .hamburger__inner::before {
-    top: -0.625rem;
-  }
-  .hamburger__inner::after {
-    top: 0.4rem;
-  } */
 </style>

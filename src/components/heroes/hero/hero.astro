@@ -1,0 +1,180 @@
+---
+import type { ImageMetadata } from "astro";
+import { Image } from "astro:assets";
+import Markdown from "../../utility/markdown.astro";
+
+interface Props {
+  background_color: string;
+  heading: {
+    heading_text: string;
+    heading_gradient_color: string;
+  };
+  subheading: {
+    text_content: string;
+    color: string;
+  };
+  image: {
+    image_path: string;
+    alt_text: string;
+  };
+  buttons: [
+    {
+      _bookshop_name: string;
+      text: string;
+      icon: string;
+      link: string;
+      background_color?: string;
+      hover_brightness: number;
+      text_color: string;
+    },
+  ];
+}
+
+const { background_color, heading, subheading, image, buttons } = Astro.props;
+const allButtons = import.meta.glob("/src/components/buttons/**/*.astro", {
+  eager: true,
+});
+const allImages = import.meta.glob<{ default: ImageMetadata }>(
+  "/src/assets/**/*.{jpeg,jpg,png,gif,svg,webp,avif}",
+  { eager: true }
+);
+
+const imageSrc = allImages[image.image_path]?.default ?? image.image_path;
+
+const headingGradientColor = heading.heading_gradient_color;
+---
+
+<section
+  style={`background-color: ${background_color};`}
+  aria-labelledby="hero-heading-text">
+  <div class="hero-container">
+    <div class="content">
+      <h1 id="hero-heading-text" class="heading">
+        {heading.heading_text}
+      </h1>
+      <div class="subheading-text" style={`color: ${subheading.color};`}>
+        <Markdown content={subheading.text_content} />
+      </div>
+      <div class="buttons">
+        {
+          buttons.map((button) => {
+            const name = button._bookshop_name.split("/").reverse()[0];
+            const filePath = `/src/components/buttons/${name}/${name}.astro`;
+            const Component = (allButtons[filePath] as any)?.default;
+            return <Component {...button} />;
+          })
+        }
+      </div>
+    </div>
+    <Image
+      alt={image.alt_text}
+      class={"hero-image"}
+      loading={"eager"}
+      widths={[320, 500, 640]}
+      sizes={`(max-width: 640px) 320px, (max-width: 960px) 500px, (max-width: 1280px) 640px`}
+      src={imageSrc}
+    />
+  </div>
+</section>
+<style is:global>
+  .subheading-text .markdown-text p {
+    margin-bottom: 0;
+  }
+</style>
+<style define:vars={{ headingGradientColor }}>
+  .hero-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: calc(var(--sectionPaddingMobile) * 2);
+    padding-bottom: var(--sectionPaddingMobile);
+    padding-inline: var(--pagePadding);
+    max-width: var(--pageContainer);
+    margin-inline: auto;
+    overflow: hidden;
+  }
+  .content h1 {
+    font-size: 2rem;
+    line-height: 100%;
+    font-weight: 700;
+    text-wrap: balance;
+    background: -webkit-linear-gradient(to left, #eee 50%, #333);
+    background: linear-gradient(
+      to left,
+      var(--headingGradientColor) 50%,
+      #000000
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  .content {
+    display: flex;
+    flex-direction: column;
+  }
+  .content .subheading-text {
+    margin-top: 1rem;
+    max-width: 72ch;
+  }
+  .buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 1.75rem;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+  }
+  .hero-image {
+    width: 100%;
+    max-width: 600px;
+    margin-top: 32px;
+    display: flex;
+    justify-content: center;
+  }
+  @media only screen and (min-width: 320px) {
+    .content h1 {
+      font-size: 2.5rem;
+    }
+  }
+  @media only screen and (min-width: 400px) {
+    .content h1 {
+      font-size: 3rem;
+    }
+    .buttons {
+      flex-direction: row;
+    }
+  }
+  @media only screen and (min-width: 660px) {
+    .content h1,
+    .content .subheading-text {
+      text-align: center;
+    }
+    .buttons {
+      justify-content: center;
+    }
+  }
+  @media only screen and (min-width: 768px) {
+    .hero-container {
+      padding-top: calc(var(--sectionPadding) * 2);
+      padding-bottom: var(--sectionPadding);
+    }
+  }
+  @media only screen and (min-width: 960px) {
+    .hero-container {
+      flex-direction: row;
+    }
+    .hero-image {
+      width: 45%;
+    }
+    .content h1,
+    .content .subheading-text {
+      text-align: start;
+    }
+    .content h1 {
+      font-size: 4rem;
+    }
+    .buttons {
+      justify-content: start;
+    }
+  }
+</style>

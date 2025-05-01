@@ -1,101 +1,59 @@
 ---
 import Layout from "./Layout.astro";
 import PostSummary from "../components/blog/summary.astro";
+import PostHero from "../components/blog/post-hero/post-hero.astro";
 import { getCollection } from "astro:content";
-import type { MarkdownLayoutProps } from "astro";
-import type { ImageMetadata } from "astro";
-import { Image } from "astro:assets";
 
-type Props =
-  | {
-      title: string;
-      date: string | Date;
-      image: string;
-      image_alt: string;
-      author: string;
-      body: string;
-    }
-  | MarkdownLayoutProps<{
-      title: string;
-      date: string | Date;
-      image: string;
-      image_alt: string;
-      author: string;
-    }>;
+type Props = {
+  frontmatter: {
+    title: string;
+    date: string | Date;
+    image: string;
+    image_alt: string;
+    author: string;
+  };
+  body: string;
+};
 
-const props =
-  "frontmatter" in Astro.props ? Astro.props.frontmatter : Astro.props;
-const content =
-  "body" in Astro.props ? Astro.props.body : Astro.props.rawContent();
+const props = Astro.props.frontmatter;
+const bodyContent = Astro.props.body;
 
 const { title, date, image, image_alt, author } = props;
-const wordCount = content?.split(" ")?.length ?? 0;
-const readingTime = Math.floor(wordCount / 183);
-const dateObj = new Date(date);
 
 const posts = await getCollection("blog");
 const filteredPosts = posts.filter((post) => post.data.title !== title);
-
-const images = import.meta.glob<{ default: ImageMetadata }>(
-  "/src/assets/**/*.{jpeg,jpg,png,gif}",
-  { eager: true }
-);
-
-const imageSrc = images[image]?.default ?? image;
 ---
 
 <Layout {...props}>
-  <main class="py-[48px] md:py-[96px] px-8">
-    <article class="max-w-screen-md mx-auto">
-      <Image
-        class="rounded-lg aspect-video"
-        src={imageSrc}
-        alt={image_alt}
-        loading="lazy"
+  <div class="post-container">
+    <article aria-labelled-by="blog-hero-text">
+      <PostHero
+        bookshop:live
+        image={image}
+        image_alt={image_alt}
+        date={date}
+        bodyContent={bodyContent}
+        title={props.title}
+        author={author}
       />
-      <h1
-        class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-semibold py-4">
-        {title}
-      </h1>
-      <div
-        class="flex flex-col justify-between sm:gap-5 py-5 font-light text-sm">
-        <p class="post-data-list-item">
-          {author}
-        </p>
-
-        <p class="post-data-list-item">
-          {
-            dateObj.toLocaleDateString(undefined, {
-              year: "numeric",
-              month: "long",
-              day: "numeric",
-            })
-          }
-        </p>
-
-        <div class="flex gap-3">
-          <p>{wordCount}<span> words</span></p>
-          <p>{readingTime}<span> minutes</span></p>
-        </div>
-      </div>
-      <div class="markdown-text" data-cms-edit="content">
+      <div class="markdown-text" data-cms-edit="content" data-pagefind-body>
         <slot />
       </div>
     </article>
-    <section
-      class="max-w-screen-md mx-auto pt-[48px] flex flex-col items-center">
-      <h2 class="text-2xl">Recent Posts</h2>
-      <div class="grid sm:grid-cols-2 gap-5 mt-5">
-        {
-          filteredPosts.slice(0, 2).map((post, i) => {
-            return (
-              <div class="max-w-[420px]">
-                <PostSummary {...post} />
-              </div>
-            );
-          })
-        }
-      </div>
-    </section>
-  </main>
+  </div>
+
+  <section class="blog-recent-posts">
+    <h2 class="blog-recent-posts-heading">Recent Posts</h2>
+    <ul class="blog-recent-posts-list">
+      {
+        filteredPosts.slice(0, 3).map((post, i) => {
+          return (
+            <li>
+              <PostSummary {...post} />
+            </li>
+          );
+        })
+      }
+    </ul>
+  </section>
 </Layout>
