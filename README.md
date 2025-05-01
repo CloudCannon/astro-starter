@@ -154,7 +154,7 @@ To remove Font Awesome Icons:
 3. Remove any imports of the icon
 
 ```Astro
-import Icon from '../utility/icon';
+import Icon from '../utility/Icon';
 ```
 
 4. Remove `icons.json`
