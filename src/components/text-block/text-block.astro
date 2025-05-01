@@ -27,9 +27,10 @@ const {
   content_blocks_length,
   key,
 } = Astro.props;
-const text_alignment = layout.text_alignment;
-const column_alignment = layout.column_alignment;
-const column_number = layout.column_number;
+
+const text_alignment = layout.text_alignment || "start";
+const column_alignment = layout.column_alignment || "center";
+const column_number = layout.column_number || 1;
 
 const componentBottomPaddingMultiplier = findComponentPaddingMultiplier(
   content_blocks_length,

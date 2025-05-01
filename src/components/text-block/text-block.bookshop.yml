@@ -27,4 +27,28 @@ preview:
 
 # Any extra CloudCannon inputs configuration to apply to the blueprint
 _inputs:
+  layout:
+    options:
+      preview:
+        icon: align_horizontal_center
+  column_number:
+    type: range
+    options:
+      min: 1
+      max: 4
+      step: 1
+  text_alignment:
+    type: select
+    options:
+      values:
+        - start
+        - center
+        - end
+  column_alignment:
+    type: select
+    options:
+      values:
+        - start
+        - center
+        - end
   
