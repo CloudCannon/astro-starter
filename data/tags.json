@@ -1,9 +1,1 @@
-[
-  "example tag",
-  "another example",
-  "email",
-  "marketing",
-  "bells",
-  "whistles",
-  "technology"
-]
+["email", "marketing", "bells", "whistles", "technology"]
