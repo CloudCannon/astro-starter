@@ -36,6 +36,7 @@ To remove Font Awesome Icons:
 1. Remove the following packages from your `package.json`:
 
 ```json
+  {
   "dependencies": {
   "@fortawesome/fontawesome-svg-core": "^6.5.2",
   "@fortawesome/free-brands-svg-icons": "^6.5.2",
@@ -43,12 +44,13 @@ To remove Font Awesome Icons:
   "@fortawesome/free-solid-svg-icons": "^6.5.2",
   "@fortawesome/react-fontawesome": "^0.2.0"
   }
+  }
 ```
 
 2. Remove `src/components/utility/icon.jsx`
 3. Remove any imports of the icon
 
-```Astro
+```javascript
 import Icon from '../utility/Icon';
 ```
 
