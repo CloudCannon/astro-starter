@@ -26,30 +26,37 @@ const images = import.meta.glob<{ default: ImageMetadata }>(
 const imageSrc = images[image]?.default ?? image;
 ---
 
-<Image class="blog-hero-image" src={imageSrc} alt={image_alt} loading="lazy" />
-<h1 id="blog-hero-text" class="blog-hero-title">
-  {title}
-</h1>
-<div class="post-data">
-  <p>
-    {authorWithFallback}
-  </p>
-  <p>
-    {
-      dateObj.toLocaleDateString(undefined, {
-        year: "numeric",
-        month: "long",
-        day: "numeric",
-      })
-    }
-  </p>
-  <div class="post-data-time">
+<div class="test">
+  <Image
+    class="blog-hero-image"
+    src={imageSrc}
+    alt={image_alt}
+    loading="lazy"
+  />
+  <h1 id="blog-hero-text" class="blog-hero-title">
+    {title}
+  </h1>
+  <div class="post-data">
     <p>
-      {wordCount} words
+      {authorWithFallback}
     </p>
     <p>
-      {readingTime}
-      {`minute${readingTime > 1 ? "s" : ""}`}
+      {
+        dateObj.toLocaleDateString(undefined, {
+          year: "numeric",
+          month: "long",
+          day: "numeric",
+        })
+      }
     </p>
+    <div class="post-data-time">
+      <p>
+        {wordCount} words
+      </p>
+      <p>
+        {readingTime}
+        {`minute${readingTime > 1 ? "s" : ""}`}
+      </p>
+    </div>
   </div>
 </div>
