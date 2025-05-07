@@ -10,9 +10,6 @@ spec:
     - Image
     - Button
     - Flippable
-  picker_preview:
-    gallery:
-      image: /images/components-screenshots/left-right.png
 
 # Defines the structure of this component, as well as the default values
 blueprint:

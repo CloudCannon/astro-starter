@@ -10,9 +10,6 @@ spec:
     - Image
     - Text
     - Buttons
-  picker_preview:
-    gallery:
-      image: /images/components-screenshots/hero.png
 
 # Defines the structure of this component, as well as the default values
 blueprint:
