@@ -59,29 +59,30 @@ content_blocks:
         balance between minimal, and easy-to-delete boiler plate, while
         providing some commonly used features out of the box:
 
-        - Page building with Bookshop components
 
-        - Markdown options & styles
+        * [Page building with Bookshop components](/blog/bookshop/)
 
-        - Blog with pagination & tags
+        * [Markdown options & styles](/blog/markdown/)
 
-        - Built-in search with Pagefind
+        * [Blog with pagination & tags](/blog/paginated-collection/)
 
-        - Pre-configured shortcodes
+        * [Built-in search with Pagefind]()
 
-        - Header and Footer controls
+        * Pre-configured shortcodes
 
-        - Tailwind
+        * Header and Footer controls
 
-        - Font Awesome icons
+        * Tailwind
 
-        - Create and delete pages
+        * Font Awesome icons
 
-        - Accessibility controls
+        * Create and delete pages
 
-        - SEO controls
+        * Accessibility controls
 
-        - Color palette controls
+        * SEO controls
+
+        * Color palette controls
       color: '#393939'
       text_color: '#333232'
     image:
