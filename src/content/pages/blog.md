@@ -9,5 +9,5 @@ seo:
   author_twitter_handle:
   open_graph_type: website
   no_index: false
-page_size: 3
+page_size: 6
 ---

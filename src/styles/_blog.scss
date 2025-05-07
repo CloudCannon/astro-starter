@@ -41,6 +41,7 @@
 .blog-summary-tags {
   margin-block: 1rem;
   display: flex;
+  flex-wrap: wrap;
   gap: 1rem;
 }
 .blog-summary-tags a {

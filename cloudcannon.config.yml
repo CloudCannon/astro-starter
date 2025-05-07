@@ -466,7 +466,16 @@ _snippets:
           type: string
         - editor_key: image_alt
           type: string
+        - editor_key: loading
+          type: string
     _inputs:
+      loading:
+        comment: Set to lazy when not in the initial view on page load.
+        type: select
+        options:
+          values: 
+            - lazy
+            - eager
       image_alt:
         type: textarea
       image_path:

@@ -10,8 +10,10 @@ interface Props {
   author: string;
   image: string;
   image_alt: string;
+  tags: Array<string>;
 }
-const { title, bodyContent, date, author, image, image_alt } = Astro.props;
+const { title, bodyContent, date, author, image, image_alt, tags } =
+  Astro.props;
 
 const wordCount = bodyContent?.split(" ")?.length ?? 0;
 const dateObj = new Date(date);
@@ -39,9 +41,24 @@ const imageSrc = images[image]?.default ?? image;
     class="blog-hero-image"
     src={imageSrc}
     alt={image_alt}
-    loading="lazy"
+    loading="eager"
   />
   <h1 id="blog-hero-text" class="blog-hero-title">{title}</h1>
+  <div class="blog-hero-tags">
+    {
+      tags && (
+        <div class="blog-summary-tags">
+          {tags.map((tag: string) => {
+            return (
+              <a href={`/tags/${tag}/`}>
+                <span>{tag.charAt(0).toUpperCase() + tag.slice(1)}</span>
+              </a>
+            );
+          })}
+        </div>
+      )
+    }
+  </div>
   <div class="post-data">
     <p>{authorWithFallback}</p>
     <p>

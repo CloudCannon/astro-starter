@@ -16,20 +16,20 @@ This template is aimed at helping developers build sites quickly, rather than pr
 
 2. Follow [this guide](https://cloudcannon.com/documentation/guides/astro-starter-guide/sync-your-files/) to add your new GitHub repository to CloudCannon.
 
-## Commands
+### Local Development
+
+1. `git clone` your repository
+2. Run `npm install`
+3. Run `npm start`
+
+### Commands
 
 All commands are run from the root of the project, from a terminal:
 
 | Command                   | Action                                           |
 | :------------------------ | :----------------------------------------------- |
 | `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
+| `npm start`               | Starts local dev server at `localhost:4321`      |
 | `npm run build`           | Build your production site to `./dist/`          |
 | `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
 | `npm run astro -- --help` | Get help using the Astro CLI                     |
-
-## Local Development
-
-1. Clone the repository
-2. Run `npm install`
-3. Run `npm start`

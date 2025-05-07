@@ -11,6 +11,7 @@ type Props = {
     image: string;
     image_alt: string;
     author: string;
+    tags: Array<string>;
   };
   body: string;
 };
@@ -18,7 +19,7 @@ type Props = {
 const props = Astro.props.frontmatter;
 const bodyContent = Astro.props.body;
 
-const { title, date, image, image_alt, author } = props;
+const { title, date, image, image_alt, author, tags } = props;
 
 const posts = await getCollection("blog");
 const filteredPosts = posts.filter((post) => post.data.title !== title);
@@ -35,6 +36,7 @@ const filteredPosts = posts.filter((post) => post.data.title !== title);
         bodyContent={bodyContent}
         title={props.title}
         author={author}
+        tags={tags}
       />
       <div class="markdown-text" data-cms-edit="content" data-pagefind-body>
         <slot />
