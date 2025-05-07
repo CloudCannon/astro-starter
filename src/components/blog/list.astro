@@ -4,5 +4,5 @@ const { posts } = Astro.props;
 ---
 
 <div class="blog-article-grid">
-  {posts.map((post, i) => <PostSummary {...post} key={i} />)}
+  {posts.map((post, i) => <PostSummary {...post} key={i} loading="eager" />)}
 </div>

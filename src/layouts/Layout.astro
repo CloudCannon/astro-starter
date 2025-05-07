@@ -1,4 +1,5 @@
 ---
+import path from "node:path";
 import "../styles/main.scss";
 import site from "../../data/site.json";
 import Header from "../components/navigation/header.astro";
@@ -21,17 +22,27 @@ export interface Props {
   seo?: SEOProps;
 }
 
-const { seo, hero_block } = Astro.props;
-const baseUrl = Astro.site;
+const { seo, hero_block, title } = Astro.props;
+const baseUrl = Astro.site?.toString() ?? "";
 
-const title = Astro.props.title
-  ? Astro.url.pathname === "/"
-    ? `${Astro.props.title}`
-    : `${Astro.props.title} | ${site.site_title}`
-  : site.site_title;
+// If no title defined in the page's props fallback to the site-wide title set in the data file
+// If it's the homepage only display the page title
+// Otherwise display the page title followed by the site title
+let pageTitle = "";
+if (!title) {
+  pageTitle = site.site_title;
+} else {
+  if (Astro.url.pathname === "/") {
+    pageTitle = title;
+  } else {
+    pageTitle = `${title} | ${site.site_title}`;
+  }
+}
+
 const description = seo?.page_description ?? site.description;
-const image = seo?.featured_image ?? site.image;
-const image_alt = seo?.featured_image_alt ?? site.image_alt;
+const image = seo?.featured_image ?? site.image; // Image should be a static image (coming from public not src/assets)
+const imagePath = path.join(baseUrl, image);
+const imageAlt = seo?.featured_image_alt ?? site.image_alt;
 const canonicalURL = new URL(seo?.canonical_url ?? Astro.url.pathname, baseUrl);
 const headerStyleOverrides = hero_block?.header_style_overrides ?? {};
 ---
@@ -40,9 +51,12 @@ const headerStyleOverrides = hero_block?.header_style_overrides ?? {};
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="description" content="Astro description" />
-    <meta name="viewport" content="width=device-width" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, minimum-scale=1"
+    />
     <!-- Favicon -->
+    <!-- Replace this with your own. You can use a 'favicon generator' to ensure you have all the parts you need -->
     <link
       rel="apple-touch-icon"
       sizes="180x180"
@@ -62,7 +76,7 @@ const headerStyleOverrides = hero_block?.header_style_overrides ?? {};
     />
     <meta name="generator" content={Astro.generator} />
 
-    <!-- Add fonts -->
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -70,27 +84,27 @@ const headerStyleOverrides = hero_block?.header_style_overrides ?? {};
       rel="stylesheet"
     />
 
-    <!-- Add editor styles -->
+    <!-- CloudCannon CMS editor styles -->
     <link rel="stylesheet" href="/css/editor.css" />
 
     <SEO
       noindex={seo?.no_index || false}
-      title={title}
+      title={pageTitle}
       description={description}
       canonical={canonicalURL.toString()}
       openGraph={{
         basic: {
-          title: title,
+          title: pageTitle,
           url: baseUrl?.toString(),
-          type: `${seo?.open_graph_type || "website"}`,
-          image: `${baseUrl}${image}`,
+          type: seo?.open_graph_type || "website",
+          image: imagePath,
         },
         optional: {
           description: description,
         },
         image: {
-          url: `${baseUrl}${image}`,
-          alt: image_alt,
+          url: imagePath,
+          alt: imageAlt,
         },
       }}
       twitter={{

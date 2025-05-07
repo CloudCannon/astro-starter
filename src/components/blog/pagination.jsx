@@ -31,7 +31,7 @@ export default function BlogPagination({ pagination }) {
         <ul className="pagination">
           {prev && (
             <li className="page-item">
-              <a className="page-link" href={prev}>
+              <a className="page-link" href={prev} aria-label="Previous page">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="20.657"
@@ -57,7 +57,7 @@ export default function BlogPagination({ pagination }) {
           {pageLinks}
           {next && (
             <li className="page-item">
-              <a className="page-link" href={next}>
+              <a className="page-link" href={next} aria-label="Next page">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="20.657"

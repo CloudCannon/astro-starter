@@ -49,7 +49,7 @@ const filteredPosts = posts.filter((post) => post.data.title !== title);
         filteredPosts.slice(0, 3).map((post, i) => {
           return (
             <li>
-              <PostSummary {...post} />
+              <PostSummary {...post} loading="lazy" />
             </li>
           );
         })

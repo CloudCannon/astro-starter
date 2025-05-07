@@ -14,32 +14,36 @@ interface Props {
 const { title, bodyContent, date, author, image, image_alt } = Astro.props;
 
 const wordCount = bodyContent?.split(" ")?.length ?? 0;
-const readingTime = Math.floor(wordCount / 183);
 const dateObj = new Date(date);
 const authorWithFallback = author || site.default_author;
+
+let readingTime = "";
+const readingTimeInMins = Math.floor(wordCount / 183);
+if (readingTimeInMins === 0) {
+  readingTime = "Less than 1 minute";
+} else if (readingTimeInMins === 1) {
+  readingTime = "1 minute";
+} else {
+  `${readingTimeInMins} minutes`;
+}
 
 const images = import.meta.glob<{ default: ImageMetadata }>(
   "/src/assets/**/*.{jpeg,jpg,png,gif,svg,avif,webp}",
   { eager: true }
 );
-
 const imageSrc = images[image]?.default ?? image;
 ---
 
-<div class="test">
+<div class="post-hero">
   <Image
     class="blog-hero-image"
     src={imageSrc}
     alt={image_alt}
     loading="lazy"
   />
-  <h1 id="blog-hero-text" class="blog-hero-title">
-    {title}
-  </h1>
+  <h1 id="blog-hero-text" class="blog-hero-title">{title}</h1>
   <div class="post-data">
-    <p>
-      {authorWithFallback}
-    </p>
+    <p>{authorWithFallback}</p>
     <p>
       {
         dateObj.toLocaleDateString(undefined, {
@@ -50,13 +54,8 @@ const imageSrc = images[image]?.default ?? image;
       }
     </p>
     <div class="post-data-time">
-      <p>
-        {wordCount} words
-      </p>
-      <p>
-        {readingTime}
-        {`minute${readingTime > 1 ? "s" : ""}`}
-      </p>
+      <p>{wordCount} words</p>
+      <p>{readingTime}</p>
     </div>
   </div>
 </div>
