@@ -1,6 +1,6 @@
 ---
 import type { ImageMetadata } from "astro";
-import { Image } from "astro:assets";
+import { Picture } from "astro:assets";
 import LeftRightText from "../utility/left-right-text.astro";
 import { findComponentPaddingMultiplier } from "src/assets/js/findComponentPaddingMultiplier";
 
@@ -62,12 +62,15 @@ const componentBottomPaddingMultiplier = findComponentPaddingMultiplier(
   {
     flipped ? (
       <div class="left-right__wrapper">
-        <Image
-          class="left-right-image-flipped"
+        <Picture
+          pictureAttributes={{
+            class: "left-right-image left-right-image-flipped",
+          }}
           alt={image.alt_text}
-          widths={[320, 500, 640]}
-          sizes={`(max-width: 640px) 320px, (max-width: 960px) 500px, (max-width: 1280px) 640px`}
           src={imageSrc}
+          widths={[600, 800, 1200]}
+          sizes="(max-width: 1200px) 100vw, 1200px"
+          formats={["avif", "webp"]}
           loading="lazy"
         />
         <div class="left-right__text left-right__text-flipped">
@@ -89,11 +92,15 @@ const componentBottomPaddingMultiplier = findComponentPaddingMultiplier(
             key={key}
           />
         </div>
-        <Image
+        <Picture
+          pictureAttributes={{
+            class: "left-right-image",
+          }}
           alt={image.alt_text}
-          widths={[320, 500, 640]}
-          sizes={`(max-width: 640px) 320px, (max-width: 960px) 500px, (max-width: 1280px) 640px`}
           src={imageSrc}
+          widths={[600, 800, 1200]}
+          sizes="(max-width: 1200px) 100vw, 1200px"
+          formats={["avif", "webp"]}
           loading="lazy"
         />
       </div>
@@ -123,9 +130,8 @@ const componentBottomPaddingMultiplier = findComponentPaddingMultiplier(
     );
     padding-inline: var(--pagePadding);
   }
-  .left-right__wrapper img {
+  .left-right-image {
     width: 100%;
-    max-width: 500px;
     margin-top: 32px;
   }
 
@@ -144,7 +150,7 @@ const componentBottomPaddingMultiplier = findComponentPaddingMultiplier(
         var(--sectionPadding) * var(--componentBottomPaddingMultiplier)
       );
     }
-    .left-right__wrapper img {
+    .left-right__wrapper picture {
       width: 45%;
     }
     .left-right-image-flipped {
