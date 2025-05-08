@@ -28,16 +28,7 @@ const filteredPosts = posts.filter((post) => post.data.title !== title);
 <Layout {...props}>
   <div class="post-container">
     <article aria-labelled-by="blog-hero-text">
-      <PostHero
-        bookshop:live
-        date={date}
-        title={props.title}
-        bodyContent={bodyContent}
-        image={image}
-        image_alt={image_alt}
-        author={author}
-        tags={tags}
-      />
+      <PostHero bookshop:live {...props} />
       <div class="markdown-text" data-cms-edit="content" data-pagefind-body>
         <slot />
       </div>
