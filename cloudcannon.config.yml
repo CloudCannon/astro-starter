@@ -385,7 +385,10 @@ _inputs:
       robots meta tag
 
 _snippets_imports:
-  mdx: true
+  mdx: 
+    exclude:
+      - _cc_mdx_unknown_template
+      - import
 
 _snippets:
   alert:
