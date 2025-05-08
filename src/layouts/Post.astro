@@ -30,11 +30,11 @@ const filteredPosts = posts.filter((post) => post.data.title !== title);
     <article aria-labelled-by="blog-hero-text">
       <PostHero
         bookshop:live
+        date={date}
+        title={props.title}
+        bodyContent={bodyContent}
         image={image}
         image_alt={image_alt}
-        date={date}
-        bodyContent={bodyContent}
-        title={props.title}
         author={author}
         tags={tags}
       />
