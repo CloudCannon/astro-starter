@@ -52,6 +52,12 @@ _inputs:
     options:
         preview:
           icon: palette
+  alternate_logo.image_path:
+    type: image
+    options:
+      paths:
+        static: public
+        uploads: public/images
   background_filters:
     type: object
     comment: Set brightness and blur filters over the background video to make the text content more legible.

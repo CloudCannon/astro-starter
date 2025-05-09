@@ -1,7 +1,7 @@
 timezone: Pacific/Auckland
 
 paths:
-  static: 'public'
+  static: public
   uploads: public/images
 
 collections_config:
