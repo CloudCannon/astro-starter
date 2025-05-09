@@ -57,7 +57,7 @@ _inputs:
     options:
       paths:
         static: public
-        uploads: public/images
+        uploads: public/images/logos
   background_filters:
     type: object
     comment: Set brightness and blur filters over the background video to make the text content more legible.
@@ -104,6 +104,7 @@ _inputs:
           - 'Select a video'
   video_path:
     type: file
+    comment: Update the poster image to get this to update in the visual editor, otherwise changes will take effect on next save & rebuild.
     options:
       paths:
         static: public

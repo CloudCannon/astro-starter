@@ -33,6 +33,7 @@ _inputs:
       preview:
         icon: short_text
   layout:
+    hidden: false
     options:
       preview:
         icon: align_horizontal_center
