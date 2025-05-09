@@ -6,29 +6,31 @@ import { getCollection } from "astro:content";
 
 type Props = {
   frontmatter: {
-    title: string;
-    date: string | Date;
-    image: string;
-    image_alt: string;
-    author: string;
-    tags: Array<string>;
+    post_details: {
+      title: string;
+      date: string | Date;
+      image: string;
+      image_alt: string;
+      author: string;
+      tags: Array<string>;
+    };
   };
   body: string;
 };
 
-const props = Astro.props.frontmatter;
-// const bodyContent = Astro.props.body;
-
-const { title, date, image, image_alt, author, tags } = props;
+const { frontmatter } = Astro.props;
 
 const posts = await getCollection("blog");
-const filteredPosts = posts.filter((post) => post.data.title !== title);
+const filteredPosts = posts.filter(
+  (post) => post.data.post_details.title !== frontmatter.post_details.title
+);
+// console.log(filteredPosts);
 ---
 
-<Layout {...props}>
+<Layout {...Astro.props}>
   <div class="post-container">
     <article aria-labelled-by="blog-hero-text">
-      <PostHero bookshop:live frontmatter={props} />
+      <PostHero bookshop:live {...frontmatter.post_details} />
       <div class="markdown-text" data-cms-edit="content" data-pagefind-body>
         <slot />
       </div>
