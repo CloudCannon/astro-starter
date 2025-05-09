@@ -19,7 +19,7 @@ type Props = {
   body: string;
 };
 
-const { frontmatter } = Astro.props;
+const { frontmatter, body } = Astro.props;
 
 const posts = await getCollection("blog");
 const filteredPosts = posts.filter(
@@ -30,7 +30,7 @@ const filteredPosts = posts.filter(
 <Layout {...frontmatter}>
   <div class="post-container">
     <article aria-labelled-by="blog-hero-text">
-      <PostHero bookshop:live {...frontmatter.post_hero} />
+      <PostHero bookshop:live {...frontmatter.post_hero} bodyContent={body} />
       <div class="markdown-text" data-cms-edit="content" data-pagefind-body>
         <slot />
       </div>

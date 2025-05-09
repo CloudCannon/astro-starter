@@ -29,6 +29,10 @@ collections_config:
     create:
       path: '[relative_base_path]/{filename|slugify|lowercase}.md'
     new_preview_url: /
+    _inputs:
+      title:
+        type: text
+        comment: Controls the metadata title for the page.
   blog:
     path: src/content/blog
     glob:
@@ -50,23 +54,40 @@ collections_config:
       path: '[relative_base_path]/{filename|slugify|lowercase}.mdx'
     _inputs:
       title:
+        comment: Controls the metadata title, and the title used when linking to this page elsewhere on the site.
         options:
           empty_type: string
+      post_hero:
+        type: object
+        options:
+          preview:
+            image:
+              - key: image
+            icon: description
       image:
         type: image
+        comment: The hero image at the top of the post.
         options:
           empty_type: string
           paths:
             static: ''
-            uploads: src/assets/images
+            uploads: src/assets/images/blog
+      image_alt:
+        type: textarea
+        options:
+          empty_type: string
       thumb_image_path:
         type: image
+        label: Thumbnail Image
+        comment: The image used as the page thumbnail when being referenced elsewhere on the site. Does not affect the image used when sharing the page, which is set inside of the page's SEO inputs.
         options:
           empty_type: string
           paths:
             static: ''
-            uploads: src/assets/images
-      image_alt:
+            uploads: src/assets/images/blog
+      thumb_image_alt:
+        type: textarea
+        label: Thumbnail Image Alt Text
         options:
           empty_type: string
       author:
@@ -74,7 +95,7 @@ collections_config:
           empty_type: string
       tags:
         type: multiselect
-        comment: To add a new tag, go to the [tags data file](cloudcannon:collections/data/tags.json)
+        comment: To add a new tag, go to the [tags data file](cloudcannon:collections/data/tags.json).
         options:
           values: data.tags
           empty_type: array
@@ -84,9 +105,6 @@ collections_config:
     disable_add_folder: true
     glob: 
       - '!icons.json'
-    _inputs:
-      icons:
-        comment: Add an icon from the list of [Font Awesome icons](https://fontawesome.com/search?o=r&m=free). Then add it to the ```src/components/utility/icon.jsx``` file, following the existing pattern.
 
 collection_groups:
   - heading: Pages
@@ -165,7 +183,7 @@ file_config:
             _inputs:
               name:
                 type: text
-                comment: Adds an aria-label for assistive technologies
+                comment: Adds an aria-label for assistive technologies.
             preview:
               icon: group
 
@@ -319,6 +337,7 @@ _inputs:
       step: 0.05
   seo:
     type: object
+    comment: Set SEO values for the page, otherwise [site defaults](cloudcannon:collections/data/site.json) will be used as a fallback.
     options:
       preview:
         icon: query_stats
@@ -333,7 +352,7 @@ _inputs:
     instance_value: NOW
   page_size:
     type: number
-    comment: The number of collection items to list per page
+    comment: The number of collection items to list per page. This does not update live in the visual editor, but will take effect next save & rebuild.
   social:
     type: object
     options:
@@ -358,33 +377,33 @@ _inputs:
   logo:
     type: image
   logo_url:
-    comment: Link for the logo in the top left of the footer
+    comment: Link for the logo in the top left of the footer.
   copyright:
-    comment: Automatically prefixed with the current year
+    comment: Automatically prefixed with the current year.
   page_description:
-    comment: Defaults to the description set in the Site SEO data file
+    comment: Defaults to the description set in the Site SEO data file.
   canonical_url:
-    comment: Defaults to the pages url
+    comment: Defaults to the pages url.
   featured_image:
-    comment: Defaults to the image set in the Site SEO data file
+    comment: Defaults to the image set in the Site SEO data file.
   open_graph_type:
     type: select
     options:
       values:
         - website
         - article
-    comment: Defaults to the type 'website'
+    comment: Defaults to the type 'website'.
   author_twitter_handle:
-    comment: Defaults to the twitter site value set in the Site SEO data file
+    comment: Defaults to the twitter site value set in the Site SEO data file.
   twitter_site:
     type: url
   no_index:
     type: checkbox
     comment:
-      When selected this removes the page from your sitemap and adds the noindex
-      robots meta tag
+      When selected this removes the page from your sitemap and adds the noindex robots meta tag. This is only needed if you are using your own custom domain, as adjective-noun.cloudvent.net urls are no-indexed by default anyway.
 
 _snippets_imports:
+  # TODO: Remove this after fixing snippet-in-content-in-visual-editor bug
   mdx: 
     exclude:
       - _cc_mdx_unknown_template
@@ -442,7 +461,7 @@ _snippets:
             icon_color: 
               - key: value
       alert_message:
-        comment: This is the text displayed in the alert
+        comment: This is the text displayed in the alert.
         type: textarea
   astro_image:
     template: mdx_component
@@ -641,4 +660,4 @@ _snippets:
       tint_color:
         type: color
       inner_text:
-        comment: This text will be tinted
+        comment: This text will be tinted.

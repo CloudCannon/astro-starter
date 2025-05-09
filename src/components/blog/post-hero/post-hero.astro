@@ -10,25 +10,24 @@ interface Props {
   image: string;
   image_alt: string;
   tags: Array<string>;
-  // bodyContent: string;
+  bodyContent: string;
 }
-const { heading, date, author, image, image_alt, tags } = Astro.props;
+const { heading, date, author, image, image_alt, tags, bodyContent } =
+  Astro.props;
 
-// console.log(Astro.props);
-
-// const wordCount = bodyContent?.split(" ")?.length ?? 0;
+const wordCount = bodyContent?.split(" ")?.length ?? 0;
 const dateObj = new Date(date);
 const authorWithFallback = author || site.default_author;
 
-// let readingTime = "";
-// const readingTimeInMins = Math.floor(wordCount / 183);
-// if (readingTimeInMins === 0) {
-//   readingTime = "Less than 1 minute";
-// } else if (readingTimeInMins === 1) {
-//   readingTime = "1 minute";
-// } else {
-//   `${readingTimeInMins} minutes`;
-// }
+let readingTime = "";
+const readingTimeInMins = Math.floor(wordCount / 183);
+if (readingTimeInMins === 0) {
+  readingTime = "Less than 1 minute";
+} else if (readingTimeInMins === 1) {
+  readingTime = "1 minute";
+} else {
+  `${readingTimeInMins} minutes`;
+}
 
 const images = import.meta.glob<{ default: ImageMetadata }>(
   "/src/assets/**/*.{jpeg,jpg,png,gif,svg,avif,webp}",
@@ -74,9 +73,9 @@ const imageSrc = images[image]?.default ?? image;
         })
       }
     </p>
-    <!-- <div class="post-data-time">
+    <div class="post-data-time">
       <p>{wordCount} words</p>
       <p>{readingTime}</p>
-    </div> -->
+    </div>
   </div>
 </div>
