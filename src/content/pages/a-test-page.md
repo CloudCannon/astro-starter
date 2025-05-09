@@ -25,7 +25,7 @@ hero_block:
     text_color: '#ffffff'
     hover_text_color: '#F1F1F1'
     alternate_logo:
-      image_path:
+      image_path: /images/logos/logo-wordmark-white.png
       logo_alt_text:
   background_filters:
     brightness: 0.5
