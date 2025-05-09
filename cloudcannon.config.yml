@@ -51,7 +51,7 @@ collections_config:
       metadata:
         - icon: calendar_month
           text: 
-            - template: Created '{post_hero.date|date_long}'
+            - template: Created {post_hero.date|date_long}
             - Add date
         - icon: person
           text:
@@ -59,7 +59,7 @@ collections_config:
             - No author
         - icon: style
           text:
-            - template: '{post_hero.tags[*]|uppercase}'
+            - template: '{post_hero.tags[*]}'
             - No tags
 
     _enabled_editors:
