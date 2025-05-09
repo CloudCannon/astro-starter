@@ -6,8 +6,9 @@ import { getCollection } from "astro:content";
 
 type Props = {
   frontmatter: {
-    post_details: {
-      title: string;
+    title: string;
+    post_hero: {
+      heading: string;
       date: string | Date;
       image: string;
       image_alt: string;
@@ -22,15 +23,14 @@ const { frontmatter } = Astro.props;
 
 const posts = await getCollection("blog");
 const filteredPosts = posts.filter(
-  (post) => post.data.post_details.title !== frontmatter.post_details.title
+  (post) => post.data.title !== frontmatter.title
 );
-// console.log(filteredPosts);
 ---
 
-<Layout {...Astro.props}>
+<Layout {...frontmatter}>
   <div class="post-container">
     <article aria-labelled-by="blog-hero-text">
-      <PostHero bookshop:live {...frontmatter.post_details} />
+      <PostHero bookshop:live {...frontmatter.post_hero} />
       <div class="markdown-text" data-cms-edit="content" data-pagefind-body>
         <slot />
       </div>

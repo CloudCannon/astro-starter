@@ -25,6 +25,7 @@ export interface Props {
 const { seo, hero_block, title } = Astro.props;
 const baseUrl = Astro.site?.toString() ?? "";
 
+// Find the title either at the top level of frontmatter, or nested in post_hero for a blog post
 // If no title defined in the page's props fallback to the site-wide title set in the data file
 // If it's the homepage only display the page title
 // Otherwise display the page title followed by the site title

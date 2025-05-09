@@ -14,19 +14,19 @@ export async function getStaticPaths({ paginate }: { paginate: Function }) {
   }
 
   for (const post of posts) {
-    const postTags = post.data.post_details.tags;
+    const postTags = post.data.post_hero.tags;
     for (const tag of postTags) {
       tags[tag] = true;
     }
   }
 
   // posts.forEach(({ data }) =>
-  //   data.post_details.tags.forEach((tag: string) => (tags[tag] = true))
+  //   data.post_hero.tags.forEach((tag: string) => (tags[tag] = true))
   // );
 
   return Object.keys(tags).flatMap((tag) => {
     const filteredPosts = posts.filter(({ data }) =>
-      data.post_details.tags.includes(tag)
+      data.post_hero.tags.includes(tag)
     );
     return paginate(filteredPosts, {
       params: { tag },
