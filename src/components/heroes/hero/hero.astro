@@ -31,14 +31,15 @@ interface Props {
 }
 
 const { background_color, heading, subheading, image, buttons } = Astro.props;
+
 const allButtons = import.meta.glob("/src/components/buttons/**/*.astro", {
   eager: true,
 });
+
 const allImages = import.meta.glob<{ default: ImageMetadata }>(
   "/src/assets/**/*.{jpeg,jpg,png,gif,svg,webp,avif}",
   { eager: true }
 );
-
 const imageSrc = allImages[image.image_path]?.default ?? image.image_path;
 
 const headingGradientColor = heading.heading_gradient_color;
@@ -77,11 +78,13 @@ const headingGradientColor = heading.heading_gradient_color;
     />
   </div>
 </section>
+
 <style is:global>
   .subheading-text .markdown-text p {
     margin-bottom: 0;
   }
 </style>
+
 <style define:vars={{ headingGradientColor }}>
   .hero-container {
     display: flex;
@@ -143,6 +146,7 @@ const headingGradientColor = heading.heading_gradient_color;
     }
     .buttons {
       flex-direction: row;
+      flex-wrap: wrap;
     }
   }
   @media only screen and (min-width: 660px) {
