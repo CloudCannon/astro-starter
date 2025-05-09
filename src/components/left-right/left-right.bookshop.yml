@@ -28,7 +28,7 @@ blueprint:
       est laborum.
     color: '#393939'
   image:
-    image_path: /src/assets/images/undraw-hello.svg
+    image_path: /src/assets/images/transparent-bg/undraw-hello.svg
     alt_text: An image
   flipped: true
   button: bookshop:structure:buttons

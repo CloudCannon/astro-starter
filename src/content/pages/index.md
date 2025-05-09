@@ -26,7 +26,7 @@ hero_block:
     color: '#393939'
     text_color: '#333232'
   image:
-    image_path: /src/assets/images/undraw-online-test.svg
+    image_path: /src/assets/images/transparent-bg/undraw-online-test.svg
     alt_text: An image
   buttons:
     - _bookshop_name: buttons/primary
@@ -86,7 +86,7 @@ content_blocks:
       color: '#393939'
       text_color: '#333232'
     image:
-      image_path: /src/assets/images/undraw-hello.svg
+      image_path: /src/assets/images/transparent-bg/undraw-hello.svg
       alt_text: An image
     flipped: true
     button:
@@ -112,7 +112,7 @@ content_blocks:
       color: '#393939'
       text_color: '#333232'
     image:
-      image_path: /src/assets/images/undraw-startup.svg
+      image_path: /src/assets/images/transparent-bg/undraw-startup.svg
       alt_text: An image
     flipped: false
     button:
