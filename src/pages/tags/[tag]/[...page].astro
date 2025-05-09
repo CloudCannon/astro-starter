@@ -2,18 +2,32 @@
 import BlogList from "../../../components/blog/list.astro";
 import BlogPagination from "../../../components/blog/pagination";
 import Layout from "../../../layouts/Layout.astro";
-import { getCollection, getEntryBySlug } from "astro:content";
+import { getCollection, getEntry } from "astro:content";
 
 export async function getStaticPaths({ paginate }: { paginate: Function }) {
   const tags: Record<string, any> = {};
-  const page = await getEntryBySlug("pages", "blog");
+  const page = await getEntry("pages", "blog");
   const posts = await getCollection("blog");
-  posts.forEach(({ data }) =>
-    data.tags.forEach((tag: string) => (tags[tag] = true))
-  );
+
+  if (!page) {
+    return;
+  }
+
+  for (const post of posts) {
+    const postTags = post.data.post_details.tags;
+    for (const tag of postTags) {
+      tags[tag] = true;
+    }
+  }
+
+  // posts.forEach(({ data }) =>
+  //   data.post_details.tags.forEach((tag: string) => (tags[tag] = true))
+  // );
 
   return Object.keys(tags).flatMap((tag) => {
-    const filteredPosts = posts.filter(({ data }) => data.tags.includes(tag));
+    const filteredPosts = posts.filter(({ data }) =>
+      data.post_details.tags.includes(tag)
+    );
     return paginate(filteredPosts, {
       params: { tag },
       pageSize: "page_size" in page.data ? page.data.page_size : 6,
@@ -22,7 +36,11 @@ export async function getStaticPaths({ paginate }: { paginate: Function }) {
 }
 
 const tag = Astro.params.tag ?? "";
-const page = (await getEntryBySlug("pages", "blog")).data;
+const page = (await getEntry("pages", "blog"))?.data;
+
+if (!page) {
+  throw new Error(`Failed to get page with slug: ${Astro.params.slug}`);
+}
 
 page.title = tag[0].toUpperCase() + tag.slice(1);
 
