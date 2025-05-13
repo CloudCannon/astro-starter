@@ -26,7 +26,7 @@ hero_block:
     color: '#393939'
     text_color: '#333232'
   image:
-    image_path: /src/assets/images/undraw-online-test.svg
+    image_path: /src/assets/images/transparent-bg/undraw-online-test.svg
     alt_text: An image
   buttons:
     - _bookshop_name: buttons/primary
@@ -59,33 +59,34 @@ content_blocks:
         balance between minimal, and easy-to-delete boiler plate, while
         providing some commonly used features out of the box:
 
-        - Page building with Bookshop components
 
-        - Markdown options & styles
+        * [Page building with Bookshop components](/blog/bookshop/)
 
-        - Blog with pagination & tags
+        * [Markdown options & styles](/blog/markdown/)
 
-        - Built-in search with Pagefind
+        * [Blog with pagination & tags](/blog/paginated-collection/)
 
-        - Pre-configured shortcodes
+        * [Built-in search with Pagefind]()
 
-        - Header and Footer controls
+        * Pre-configured shortcodes
 
-        - Tailwind
+        * Header and Footer controls
 
-        - Font Awesome icons
+        * Tailwind
 
-        - Create and delete pages
+        * Font Awesome icons
 
-        - Accessibility controls
+        * Create and delete pages
 
-        - SEO controls
+        * Accessibility controls
 
-        - Color palette controls
+        * SEO controls
+
+        * Color palette controls
       color: '#393939'
       text_color: '#333232'
     image:
-      image_path: /src/assets/images/undraw-hello.svg
+      image_path: /src/assets/images/transparent-bg/undraw-hello.svg
       alt_text: An image
     flipped: true
     button:
@@ -111,7 +112,7 @@ content_blocks:
       color: '#393939'
       text_color: '#333232'
     image:
-      image_path: /src/assets/images/undraw-startup.svg
+      image_path: /src/assets/images/transparent-bg/undraw-startup.svg
       alt_text: An image
     flipped: false
     button:

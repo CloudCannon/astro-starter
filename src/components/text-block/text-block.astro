@@ -1,4 +1,6 @@
 ---
+import markdownit from "markdown-it";
+const md = markdownit({ html: true });
 import Markdown from "../utility/markdown.astro";
 import { findComponentPaddingMultiplier } from "src/assets/js/findComponentPaddingMultiplier";
 
@@ -43,13 +45,22 @@ const componentBottomPaddingMultiplier = findComponentPaddingMultiplier(
     {
       heading.text_content && (
         <h2 class="main-heading" style={`color: ${heading.text_color};`}>
-          {heading.text_content}
+          {md.render(heading.text_content ?? "")}
         </h2>
       )
     }
     <Markdown content={text_content} />
   </div>
 </section>
+
+<style define:vars={{ text_alignment, column_number }} is:global>
+  .text-block-container .markdown-text {
+    display: grid;
+    column-gap: 48px;
+    grid-template-columns: repeat(var(--column_number), 1fr);
+    text-align: var(--text_alignment);
+  }
+</style>
 
 <style define:vars={{ column_alignment, componentBottomPaddingMultiplier }}>
   .text-block-container {
@@ -81,14 +92,5 @@ const componentBottomPaddingMultiplier = findComponentPaddingMultiplier(
         var(--sectionPadding) * var(--componentBottomPaddingMultiplier)
       );
     }
-  }
-</style>
-
-<style define:vars={{ text_alignment, column_number }} is:global>
-  .text-block-container .markdown-text {
-    display: grid;
-    column-gap: 48px;
-    grid-template-columns: repeat(var(--column_number), 1fr);
-    text-align: var(--text_alignment);
   }
 </style>

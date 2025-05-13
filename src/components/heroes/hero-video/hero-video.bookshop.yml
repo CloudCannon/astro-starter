@@ -20,7 +20,7 @@ blueprint:
     text_color: '#ffffff'
   video:
     video_path: /videos/nz-coast.mp4
-    poster_image: /images/nz-coast-poster.png
+    poster_image: /images/video-posters/nz-coast-poster.png
   header_style_overrides:
     background_color: transparent
     text_color: '#ffffff'
@@ -52,6 +52,12 @@ _inputs:
     options:
         preview:
           icon: palette
+  alternate_logo.image_path:
+    type: image
+    options:
+      paths:
+        static: public
+        uploads: public/images/logos
   background_filters:
     type: object
     comment: Set brightness and blur filters over the background video to make the text content more legible.
@@ -98,6 +104,7 @@ _inputs:
           - 'Select a video'
   video_path:
     type: file
+    comment: Update the poster image to get this to update in the visual editor, otherwise changes will take effect on next save & rebuild.
     options:
       paths:
         static: public

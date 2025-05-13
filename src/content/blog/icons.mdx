@@ -1,21 +1,75 @@
 ---
 _schema: default
-date: 2025-05-06T11:18:38+12:00
 title: Font Awesome Icons
-tags: []
-author: T Richardson
-thumb_image_path: /src/assets/images/blog-thumb-5.jpg
+post_hero:
+  heading: Font Awesome Icons
+  date: 2025-05-06T11:18:38+12:00
+  tags:
+    - icons
+    - components
+    - styling
+  author: T Richardson
+  image: /src/assets/images/blog/featured-image-3.jpg
+  image_alt: A man in front of a laptop with a coffee in a dimly lit cafe.
+thumb_image_path: /src/assets/images/blog/blog-thumb-5.jpg
 thumb_image_alt: A group collaborating around a laptop.
-image: /src/assets/images/featured-image-5.jpg
-image_alt: >-
-  A side-on profile of someone working on a laptop with a phone in their hand,
-  and a coffee next to them.
 seo:
-  page_description:
+  page_description: A post describing how to use FontAwesome Icons throughout your site.
   canonical_url:
-  featured_image:
-  featured_image_alt:
+  featured_image: /images/blog/featured-image-3.jpg
+  featured_image_alt: A man in front of a laptop with a coffee in a dimly lit cafe.
   author_twitter_handle:
   open_graph_type: article
   no_index: false
 ---
+A Font Awesome Icon free icon pack is included, removing the need to set up your own kit in Font Awesome.
+
+To add more icons:
+
+1. Go to the [Font Awesome icon list](https://fontawesome.com/search?o=r&amp;m=free)
+2. Pick a free icon
+3. Go to `src/components/utility/icon.jsx`
+4. Import the component from `'@fortawesome/free-solid-svg-icons'`, `'@fortawesome/free-regular-svg-icons'`, or `'@fortawesome/free-brands-svg-icons'`, depending on which kind of icon it is. Tip: After entering 'fa' into one of the destructured objects, you should see an autocomplete dropdown list to help you with the correct syntax.
+5. Add another case to the switch statement following the format the other icons use.
+6. Add the name you just used in the conditional of the switch statement to `data/icons.json`, which populates the icon dropdown list used for icons in the placeholder components.
+
+To remove Font Awesome Icons:
+
+1. Remove the following packages from your `package.json`:
+
+```JSON
+  {
+    "dependencies": {
+      "@fortawesome/fontawesome-svg-core": "^6.5.2",
+      "@fortawesome/free-brands-svg-icons": "^6.5.2",
+      "@fortawesome/free-regular-svg-icons": "^6.5.2",
+      "@fortawesome/free-solid-svg-icons": "^6.5.2",
+      "@fortawesome/react-fontawesome": "^0.2.0"
+    }
+  }
+```
+
+2. Remove `src/components/utility/icon.jsx`
+3. Remove any imports of the icon
+
+```javascript
+import Icon from '../utility/Icon';
+```
+
+4. Remove `icons.json`
+5. Remove any select inputs that were using the icon
+
+```yaml
+icon:
+  type: select
+  options:
+    values: data.icons
+```
+
+6. Remove icons from your defined data in `cloudcannon.config.yml`
+
+```yaml
+data_config:
+  icons:
+    path: data/icons.json
+```

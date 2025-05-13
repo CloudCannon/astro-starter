@@ -41,6 +41,7 @@
 .blog-summary-tags {
   margin-block: 1rem;
   display: flex;
+  flex-wrap: wrap;
   gap: 1rem;
 }
 .blog-summary-tags a {
@@ -110,9 +111,8 @@
 .post-container article {
   display: flex;
   flex-direction: column;
-  align-items: center;
 }
-.blog-hero-title {
+.blog-hero-heading {
   font-size: 2rem;
   line-height: 100%;
   font-weight: 600;
@@ -166,7 +166,7 @@
   .post-container {
     padding-block: var(--sectionPadding);
   }
-  .blog-hero-title {
+  .blog-hero-heading {
     font-size: 2.5rem;
     text-align: start;
   }
@@ -178,7 +178,7 @@
   .post-container {
     padding-block: var(--sectionPadding);
   }
-  .blog-hero-title {
+  .blog-hero-heading {
     font-size: 3rem;
   }
   .blog-recent-posts-list {

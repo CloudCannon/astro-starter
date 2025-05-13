@@ -7,6 +7,6 @@ import alpine from "@astrojs/alpinejs";
 
 // https://astro.build/config
 export default defineConfig({
-  site: "https://adjective-noun.cloudvent.net/",
+  site: "https://tiny-jackal.cloudvent.net/", // Replace this with your site's own custom url
   integrations: [react(), tailwind(), bookshop(), alpine(), mdx()],
 });

@@ -1,0 +1,29 @@
+---
+_schema: default
+title: Optimized Images
+post_hero:
+  heading: Optimized Images
+  date: 2025-05-06T11:28:34+12:00
+  tags:
+    - images
+    - inputs
+    - building
+  author: T Richardson
+  image: /src/assets/images/blog/featured-image-2.jpg
+  image_alt: Children working around a laptop in a busy classroom.
+thumb_image_path: /src/assets/images/blog/blog-thumb-1.jpg
+thumb_image_alt: A group of people working around a table, as seen from above
+seo:
+  page_description: A post describing how the Astro starter template uses optimized images.
+  canonical_url:
+  featured_image: /images/blog/featured-image-2.jpg
+  featured_image_alt: Children working around a laptop in a busy classroom.
+  author_twitter_handle:
+  open_graph_type: article
+  no_index: false
+---
+Optimized images supported through [Astro Image](https://docs.astro.build/en/guides/images/#image--astroassets). An Astro Image will process an image in your `src/assets` folder, and output an optimized image with a `srcset` and `sizes`.
+
+This template also demonstrates [how to set](https://cloudcannon.com/documentation/articles/adjusting-the-uploads-path/) `uploads` paths on a per-input level, to allow for both processed and unprocessed images on one site. On this template, by default, image inputs are opened at `public/images`, meaning they are unprocessed images.
+
+Components that use the Astro Image component are configured so the image source input opens at `src/assets/images`, which are images to be processed and optimized on build.

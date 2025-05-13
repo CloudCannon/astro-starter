@@ -7,35 +7,30 @@ import { getCollection } from "astro:content";
 type Props = {
   frontmatter: {
     title: string;
-    date: string | Date;
-    image: string;
-    image_alt: string;
-    author: string;
+    post_hero: {
+      heading: string;
+      date: string | Date;
+      image: string;
+      image_alt: string;
+      author: string;
+      tags: Array<string>;
+    };
   };
   body: string;
 };
 
-const props = Astro.props.frontmatter;
-const bodyContent = Astro.props.body;
-
-const { title, date, image, image_alt, author } = props;
+const { frontmatter, body } = Astro.props;
 
 const posts = await getCollection("blog");
-const filteredPosts = posts.filter((post) => post.data.title !== title);
+const filteredPosts = posts.filter(
+  (post) => post.data.title !== frontmatter.title
+);
 ---
 
-<Layout {...props}>
+<Layout {...frontmatter}>
   <div class="post-container">
     <article aria-labelled-by="blog-hero-text">
-      <PostHero
-        bookshop:live
-        image={image}
-        image_alt={image_alt}
-        date={date}
-        bodyContent={bodyContent}
-        title={props.title}
-        author={author}
-      />
+      <PostHero bookshop:live {...frontmatter.post_hero} bodyContent={body} />
       <div class="markdown-text" data-cms-edit="content" data-pagefind-body>
         <slot />
       </div>
@@ -49,7 +44,7 @@ const filteredPosts = posts.filter((post) => post.data.title !== title);
         filteredPosts.slice(0, 3).map((post, i) => {
           return (
             <li>
-              <PostSummary {...post} />
+              <PostSummary {...post} loading="lazy" />
             </li>
           );
         })
