@@ -19,11 +19,11 @@ const hover_brightness = block.hover_brightness;
   style={`color: ${block.text_color}; background-color: ${block.background_color}; border: 2px solid ${block.background_color};`}>
   <div>
     {
-      block.button_icon ? (
+      block.button_icon && (
         <span class="button__icon">
           <Icon icon={block.button_icon} />
         </span>
-      ) : null
+      )
     }
     {block.button_text}
   </div>

@@ -1,5 +1,6 @@
 ---
 import { header } from "../../../data/navigation.json";
+import Icon from "../utility/Icon";
 
 interface Props {
   headerStyleOverrides: {
@@ -37,34 +38,43 @@ const logoAltText =
       <a class="header__logo-link" href={header.logo_url}>
         <img class="header__logo-image" src={logoImagePath} alt={logoAltText} />
       </a>
+
+      <!-- Mobile menu -->
       <button
-        class="hamburger"
-        @click="open = ! open"
-        aria-label="Open and close the mobile navigation menu">
-        <svg height="16" width="24" xmlns="http://www.w3.org/2000/svg">
-          <defs>
-            <path
-              d="M0 16h24v-2.667H0V16zm0-6.667h24V6.667H0v2.666zM0 0v2.667h24V0H0z"
-              id="a">
-            </path>
-          </defs>
-          <g fill="none" fill-rule="evenodd">
-            <mask fill="#fff" id="b">
-              <use href="#a"> </use>
-            </mask>
-            <use fill="#000" fill-rule="nonzero" href="#a"> </use>
-            <g mask="url(#b)">
-              <path d="M-4-8h32v32H-4z" fill="#034AD8"> </path>
-            </g>
-          </g>
-        </svg>
+        class="hamburger-icon"
+        popovertarget="mobile-menu"
+        popovertargetaction="show">
+        <Icon icon="Bars" />
       </button>
+      <div popover id="mobile-menu" class="mobileMenuPopover">
+        <!-- Mobile menu -->
+        <button
+          class="close-icon"
+          popovertarget="mobile-menu"
+          popovertargetaction="hide">
+          <Icon icon="Xmark" />
+        </button>
+        <ul
+          class="header__nav-links-mobile"
+          aria-label="Header navigation links">
+          {
+            header.links.map((link) => {
+              return (
+                <li class="header__nav-item">
+                  <a class="header__nav-link" href={link.link}>
+                    {link.text}
+                  </a>
+                </li>
+              );
+            })
+          }
+        </ul>
+      </div>
+
+      <!-- Desktop header links -->
       <ul
-        class="header__nav-links"
-        aria-label="Header navigation links"
-        x-show="open"
-        x-transition
-        @click.outside="open = false">
+        class="header__nav-links-desktop"
+        aria-label="Header navigation links">
         {
           header.links.map((link) => {
             return (
@@ -82,10 +92,6 @@ const logoAltText =
 </header>
 
 <style define:vars={{ linkHoverColor }}>
-  .header {
-    position: relative;
-    z-index: 99;
-  }
   .header__container {
     max-width: var(--pageContainer);
     margin: 0 auto;
@@ -103,18 +109,38 @@ const logoAltText =
     padding-block: 1rem;
   }
 
+  .mobileMenuPopover {
+    /* Closed state transformed off the screen */
+    transform: translateY(calc((var(--headerHeight) + 100%) * -1));
+    transition:
+      transform 0.4s,
+      overlay 0.4s ease-out;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+    inset: unset;
+    padding-top: var(--headerPadding);
+    padding-bottom: 48px;
+    padding-inline: var(--pagePadding);
+    height: fit-content;
+  }
+
+  /* Styles while the menu is open */
+  .mobileMenuPopover:popover-open {
+    transform: translateY(0);
+    position: relative;
+    z-index: 99;
+  }
+
   .header__logo-image {
     width: 200px;
   }
-
-  .header__nav-links {
-    position: absolute;
-    z-index: 99;
-    background-color: white;
-    right: 0;
-    bottom: 0;
-    top: 5rem;
-    left: 0;
+  .header__nav-links-desktop {
+    display: none;
+  }
+  .header__nav-links-mobile {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -127,9 +153,22 @@ const logoAltText =
   .header__nav-link:hover {
     color: var(--linkHoverColor);
   }
+  .hamburger-icon {
+    display: block;
+    width: 1rem;
+  }
+  .close-icon {
+    display: block;
+    width: 1rem;
+    align-self: flex-end;
+  }
 
   @media screen and (min-width: 600px) {
-    .header__nav-links {
+    .header__nav-links-mobile,
+    .hamburger-icon {
+      display: none;
+    }
+    .header__nav-links-desktop {
       position: static;
       display: flex !important;
       flex-direction: row;
@@ -138,28 +177,8 @@ const logoAltText =
       min-width: none;
       background-color: transparent;
     }
-  }
-
-  @media screen and (min-width: 600px) {
     .header__nav-item {
       padding-left: 1rem;
-    }
-  }
-
-  .hamburger {
-    padding: 0.5rem;
-    transform: translateX(0.5rem);
-    border-radius: 4px;
-    cursor: pointer;
-  }
-
-  .hamburger:hover {
-    background-color: #e5ecfb;
-  }
-
-  @media screen and (min-width: 600px) {
-    .hamburger {
-      display: none;
     }
   }
 </style>
