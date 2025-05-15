@@ -20,7 +20,7 @@ const { contentBlocks } = Astro.props;
 ---
 
 {
-  contentBlocks.map((block, i) => {
+  contentBlocks?.map((block, i) => {
     const Component = components[block._bookshop_name];
     return (
       <Component
