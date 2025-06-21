@@ -4,6 +4,12 @@ paths:
   static: public
   uploads: public/images
 
+commit_templates:
+  - label: Default message
+    template_string: '[default_commit_message]'
+  - label: Custom message
+    template_string: '{message}'
+
 collections_config:
   pages:
     path: src/content/pages
