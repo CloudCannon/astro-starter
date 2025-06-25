@@ -53,7 +53,6 @@ collections_config:
         image: 
           - key: thumb_image_path
           - key: post_hero.image
-          - Add images
       metadata:
         - icon: calendar_month
           text: 
@@ -67,7 +66,6 @@ collections_config:
           text:
             - template: '{post_hero.tags[*]}'
             - No tags
-
     _enabled_editors:
       - visual
       - content

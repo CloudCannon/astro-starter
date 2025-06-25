@@ -60,29 +60,29 @@ content_blocks:
         providing some commonly used features out of the box:
 
 
+        * [Tailwind](/blog/tailwind/)
+
+        * [Font Awesome icons](/blog/icons/)
+
+        * [Built-in search with Pagefind](/blog/search/)
+
+        * [Blog with pagination & tags](/blog/paginated-collection/)
+
         * [Page building with Bookshop components](/blog/bookshop/)
 
         * [Markdown options & styles](/blog/markdown/)
 
-        * [Blog with pagination & tags](/blog/paginated-collection/)
+        * [Pre-configured shortcodes](/blog/markdown/)
 
-        * [Built-in search with Pagefind]()
+        * [Header and Footer controls](/blog/data-files/)
 
-        * Pre-configured shortcodes
+        * [Create and delete pages](/blog/page-building/)
 
-        * Header and Footer controls
+        * [Accessibility controls](/blog/markdown/)
 
-        * Tailwind
+        * [SEO controls](/blog/seo/)
 
-        * Font Awesome icons
-
-        * Create and delete pages
-
-        * Accessibility controls
-
-        * SEO controls
-
-        * Color palette controls
+        * [Color palette controls](/blog/data-files/)
       color: '#393939'
       text_color: '#333232'
     image:

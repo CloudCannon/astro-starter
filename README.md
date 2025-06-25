@@ -33,3 +33,29 @@ All commands are run from the root of the project, from a terminal:
 | `npm run build`           | Build your production site to `./dist/`          |
 | `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
 | `npm run astro -- --help` | Get help using the Astro CLI                     |
+
+## Features
+
+* [Tailwind](https://tiny-jackal.cloudvent.net/blog/tailwind/)
+
+* [Font Awesome icons](https://tiny-jackal.cloudvent.net/blog/icons/)
+
+* [Built-in search with Pagefind](https://tiny-jackal.cloudvent.net/blog/search/)
+
+* [Blog with pagination & tags](https://tiny-jackal.cloudvent.net/blog/paginated-collection/)
+
+* [Page building with Bookshop components](https://tiny-jackal.cloudvent.net/blog/bookshop/)
+
+* [Markdown options & styles](https://tiny-jackal.cloudvent.net/blog/markdown/)
+
+* [Pre-configured shortcodes](https://tiny-jackal.cloudvent.net/blog/markdown/)
+
+* [Header and Footer controls](https://tiny-jackal.cloudvent.net/blog/data-files/)
+
+* [Create and delete pages](https://tiny-jackal.cloudvent.net/blog/page-building/)
+
+* [Accessibility controls](https://tiny-jackal.cloudvent.net/blog/markdown/)
+
+* [SEO controls](https://tiny-jackal.cloudvent.net/blog/seo/)
+
+* [Color palette controls](https://tiny-jackal.cloudvent.net/blog/data-files/)
