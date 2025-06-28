@@ -27,7 +27,11 @@ hero_block:
     text_color: '#333232'
   image:
     image_path: /src/assets/images/transparent-bg/undraw-online-test.svg
-    alt_text: An image
+    alt_text: >-
+      An illustration of someone leaning against the inside of a desktop
+      computer monitor, with one leg dangled off the side. They're holding a
+      piece of paper with a large 'A', and are next to some buttons on the
+      screen.
   buttons:
     - _bookshop_name: buttons/primary
       button_text: GitHub
@@ -87,7 +91,10 @@ content_blocks:
       text_color: '#333232'
     image:
       image_path: /src/assets/images/transparent-bg/undraw-hello.svg
-      alt_text: An image
+      alt_text: >-
+        An illustration of someone sitting a desk with a monitor and a pile of
+        books on it. Seen from behind, the figure is turned around to face us
+        and is waving.
     flipped: true
     button:
   - _bookshop_name: left-right
@@ -113,13 +120,16 @@ content_blocks:
       text_color: '#333232'
     image:
       image_path: /src/assets/images/transparent-bg/undraw-startup.svg
-      alt_text: An image
+      alt_text: >-
+        An illustration of someone sitting a desk with a monitor and a pile of
+        books on it. Seen from behind, the figure is turned around to face us
+        and is waving.
     flipped: false
     button:
       _bookshop_name: buttons/primary
       button_text: GitHub
       button_icon: GitHub
-      button_link: https://github.com/CloudCannon/Astro-starter/
+      button_link: https://github.com/CloudCannon/astro-starter/
       background_color: '#034AD8'
       hover_brightness: 0.85
       text_color: '#ffffff'
